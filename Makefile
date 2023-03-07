@@ -1,29 +1,69 @@
-TARGET = app
+CC = gcc
+CFLAGS = -Os -Wall -Werror --std=gnu99 -g3 -Wmissing-declarations -DINSTALL_PREFIX="${CMAKE_INSTALL_PREFIX}"
+LDFLAGS = 
+INCLUDES = -I include
+LIBS = -lubox -lubus -luci -lblobmsg_json -ljson-c -lcrypt -ldl
 
-SRCS  = $(shell find ./src     -type f -name *.cpp)
-HEADS = $(shell find ./include -type f -name *.h)
-OBJS = $(SRCS:.cpp=.o)
-DEPS = Makefile.depend
+ifeq ($(shell uname), Darwin)
+	INCLUDES += -I /opt/local/include
+	LDFLAGS += -L /opt/local/lib
+endif
 
-INCLUDES = -I./include
-CXXFLAGS = -O2 -Wall $(INCLUDES)
-LDFLAGS = -lm
+ifeq ($(shell uname -s), Linux)
+	ifeq ($(shell uname -m), x86_64)
+		LDFLAGS += -L /usr/lib64
+	else
+		LDFLAGS += -L /usr/lib
+	endif
+endif
 
+ifdef FILE_SUPPORT
+	CFLAGS += -DFILE_SUPPORT
+endif
+ifdef IWINFO_SUPPORT
+	CFLAGS += -DIWINFO_SUPPORT
+endif
+ifdef RPCSYS_SUPPORT
+	CFLAGS += -DRPCSYS_SUPPORT
+endif
+ifdef UCODE_SUPPORT
+	CFLAGS += -DUCODE_SUPPORT
+endif
 
-all: $(TARGET)
+ifdef HAVE_SHADOW
+	CFLAGS += -DHAVE_SHADOW
+endif
 
-$(TARGET): $(OBJS) $(HEADS)
-	$(CXX) $(LDFLAGS) -o $@ $(OBJS)
+ifeq ($(shell pkg-config --exists libubox && echo 1 || echo 0), 1)
+	LIBS += $(shell pkg-config --libs libubox)
+	INCLUDES += $(shell pkg-config --cflags libubox)
+endif
+ifeq ($(shell pkg-config --exists libubus && echo 1 || echo 0), 1)
+	LIBS += $(shell pkg-config --libs libubus)
+	INCLUDES += $(shell pkg-config --cflags libubus)
+endif
+ifeq ($(shell pkg-config --exists uci && echo 1 || echo 0), 1)
+	LIBS += $(shell pkg-config --libs uci)
+	INCLUDES += $(shell pkg-config --cflags uci)
+endif
 
-run: all
-	@./$(TARGET)
+SRCS = ubus_voip.c
+OBJS = $(SRCS:.c=.o)
 
-.PHONY: depend clean
-depend:
-	$(CXX) $(INCLUDES) -MM $(SRCS) > $(DEPS)
-	@sed -i -E "s/^(.+?).o: ([^ ]+?)\1/\2\1.o: \2\1/g" $(DEPS)
+.PHONY: all clean
+
+all: fvt_evoip
+
+fvt_evoip: $(OBJS)
+	$(CC) $(LDFLAGS) $^ $(LIBS) -o $@
+
+%.o: %.c
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
-	$(RM) $(OBJS) $(TARGET)
+	rm -f fvt_evoip $(OBJS)
 
--include $(DEPS)
+install: fvt_evoip
+	mkdir -p $(DESTDIR)/usr/sbin $(DESTDIR)/usr/lib/fvt_evoip
+	install -m 755 fvt_evoip $(DESTDIR)/usr/sbin/
+	install -m 755 $(PLUGINS) $(DESTDIR)/usr/lib/fvt_evoip/
