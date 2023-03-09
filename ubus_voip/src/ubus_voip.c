@@ -1,13 +1,13 @@
-#include <rpcd/exec.h>
-#include <rpcd/session.h>
-#include <rpcd/uci.h>
+//#include <rpcd/exec.h>
+//#include <rpcd/session.h>
+//#include <rpcd/uci.h>
 #include <libubox/uloop.h>
 #include <libubus.h>
 #include <syslog.h>
 #include <libubox/ulog.h>
 #include <uci.h>
 //#include "util.h"
-
+#define RPC_EXEC_DEFAULT_TIMEOUT        (120 * 1000)
 struct blob_buf b;
 int rpc_exec_timeout = RPC_EXEC_DEFAULT_TIMEOUT;
 #define BUF_SIZE_1 1024
@@ -54,10 +54,13 @@ int ubus_voip_set_fv_voip(const char *key, const char *value) {
 	strcpy(input_value,value);
 	char new_line[BUF_SIZE_4];
 	char new_line_add_list[BUF_SIZE_3];
-	char tmp_section[BUF_SIZE_1];
+	char tmp_section[BUF_SIZE_2];
     sscanf(key, "fvt_evoip.%[^.].%s", input_section, input_key);
-	snprintf(tmp_section, sizeof(tmp_section)+3, "[%s]", input_section);
-	snprintf(input_section, sizeof(input_section), "%s", tmp_section);
+	//snprintf(tmp_section, BUF_SIZE_2, "[%s]", input_section);
+	//snprintf(input_section, sizeof(input_section), "%s", tmp_section);
+	snprintf(tmp_section, sizeof(tmp_section), "[%s]", input_section);
+	//snprintf(input_section, sizeof(input_section), "%s", tmp_section);
+	strcpy(input_section,tmp_section);
 	if(strstr(input_key,"-") != NULL||strstr(input_key,"+") != NULL){
 		//list of uci
 		sprintf(new_line, "%s",input_value);
@@ -99,7 +102,8 @@ int ubus_voip_set_fv_voip(const char *key, const char *value) {
 			 {
 				if(strstr(lines[j],"}")&&strstr(input_key,fv_key)){
 					is_add = false;
-					snprintf(new_line_add_list,sizeof(new_line), "%s", new_line);
+					//snprintf(new_line_add_list,sizeof(new_line), "%s", new_line);
+					strcpy(new_line_add_list,new_line);
 					snprintf(new_line,sizeof(new_line), "        %s\r\n", new_line_add_list);
 					// Make sure the new line is added to the end of the list
 					fputs(new_line, fp);
@@ -970,14 +974,14 @@ void ubus_voip_start_log_config();
 void ubus_voip_start_log_config() {
 	// Restart the logd service system.@system[0].log_size
 	//util_dbprintf(omci_env_g.debug_level_cfm, LOG_ERR, 0, "\nOneway Dely Measurement:\n");
-	system("uci set system.@system[0].log_type=file");
+	/*system("uci set system.@system[0].log_type=file");
 	system("uci commit system");
 	system("uci set system.@system[0].log_file=/var/log/fvt_evoip.log");
 	system("uci commit system");
 	system("uci set system.@system[0].log_level=debug");
 	system("uci commit system");
 	system("uci set system.@system[0].log_size=8"); //KitB
-	system("uci commit system");
+	system("uci commit system");*/
 	//system("/etc/init.d/log restart");
 }
 void ubus_voip_stop_log_config();
@@ -989,6 +993,7 @@ void ubus_voip_stop_log_config() {
 	system("uci delete system.log_size");
 	system("uci commit system");*/
 	//system("/etc/init.d/log restart");
+	
 }
 bool ubus_voip_uci_commit_package(char* input_package);
 bool ubus_voip_uci_commit_package(char* input_package) {
