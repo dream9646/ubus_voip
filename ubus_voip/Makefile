@@ -18,10 +18,6 @@ PKG_BUILD_PARALLEL:=1
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
 
-#define Build/InstallDev
-#	$(INSTALL_DIR) $(1)/usr/include
-#	$(CP) $(PKG_BUILD_DIR)/include/rpcd $(1)/usr/include/
-#endef
 
 define Package/$(PKG_NAME)/default
   CATEGORY:=5VT Packages
@@ -38,11 +34,8 @@ define Package/$(PKG_NAME)/description
  util_ubus
 endef
 
-#define Package/$(PKG_NAME)/conffiles
-#/etc/config/voip
-#endef
 
-TARGET_LDFLAGS += -lcrypt
+#TARGET_LDFLAGS += -lcrypt
 
 define Package/$(PKG_NAME)/install
 	$(INSTALL_DIR) $(1)/etc/init.d
