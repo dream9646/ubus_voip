@@ -1,0 +1,23 @@
+1. DS multicast vlan stripping in VEIP
+2. DS multicast bypass without mcast gem port
+3. DS multicast vlan wildcard
+4. Multicast VTF disable in 7342
+5. Ignore mcast service package table
+6. Add multicast static acl by ME65301 ACL
+7. Multicast traffic rate counter
+8. Ethertype in 7342 (RF_Filter=1)
+9. DS VLAN don't check pbit
+10. TCI=0xffff, set op_type to all pass in 7360
+11. Re-define ethernet PM counter
+12. Always enable MAC learning (ignore MAC learning depth)
+13. MAC limit learning by ME133 (Restore_power_timer_reset_interval)
+14. SP uses WRR weight 1~8 (RF_Filter=0)
+15. P2P enable in router mode
+16. Router or bridge mode (battery_backup)
+17. PIR 1K=1000B
+18. Bundle rate
+19. Turbo download
+20. Always send LAN_LOS alarm first
+21. YP_Serial_Number=ONT MAC
+22. Support 8 MEP for 4 UNI in 7342
+

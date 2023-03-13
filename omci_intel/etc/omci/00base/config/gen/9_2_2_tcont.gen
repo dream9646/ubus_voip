@@ -1,0 +1,36 @@
+#!/bin/sh
+# tiny: tcont 4, small: tcont 8, large: tcont 16
+# we assume 8 ts for per tcont no matter how many tcont is actually used by the tcont
+
+if [ -z "$1" ]; then
+	echo "$0 [tiny|small|large]"
+	exit 1
+fi
+
+case $1 in
+	tiny)	TCONT_TOTAL=4;;
+	small)	TCONT_TOTAL=8;;
+	large)	TCONT_TOTAL=16;;
+	*)	echo "$0 [tiny|small|large]"
+		exit 1;;
+esac
+
+#####################################################################
+
+# 32 tcont with policy SP, meid started from 0x8001
+index=0
+while [ $index -lt $TCONT_TOTAL ]; do
+	meid="0x"`printf "%04x" $((0x8001+$index))`
+cat <<EOF
+	<instance i="$index">
+		<devname>tcont$index</devname>
+		<default_meid>$meid</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0xff</attr>	<!-- Alloc_id -->
+		<attr i="2">1</attr>	<!-- Mode_indicator -->
+		<attr i="3">1</attr>	<!-- Policy -->
+	</instance>
+EOF
+	index=$(($index+1))
+done

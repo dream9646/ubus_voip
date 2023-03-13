@@ -1,0 +1,1050 @@
+<omci name="Layer 2 data services" section="9.3">
+
+<class id="45" attr_total="10">	<!-- MAC_bridge_service_profile, 9.3.1 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname>bridge0</devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Spanning_tree_ind -->
+		<attr i="2">1</attr>	<!-- Learning_ind -->
+		<attr i="3">1</attr>	<!-- Port_bridging_ind -->
+		<attr i="4">0</attr>	<!-- Priority -->
+		<attr i="5">0x0600</attr>	<!-- Max_age -->
+		<attr i="6">0x0100</attr>	<!-- Hello_time -->
+		<attr i="7">0x0400</attr>	<!-- Forward_delay -->
+		<attr i="8">0</attr>	<!-- Unknown_MAC_address_discard -->
+		<attr i="9">0</attr>	<!-- MAC_learning_depth -->
+		<attr i="10">0</attr>   <!-- Dynamic_filtering_ageing_time -->
+	</instance>
+</class>
+
+
+<class id="46" attr_total="8">	<!-- MAC_bridge_configuration_data, 9.3.2 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname>bridge0</devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">27:88:81:18:00:01</attr>	<!-- Bridge_MAC_address -->
+		<attr i="2">0</attr>	<!-- Bridge_priority -->
+		<attr i="3">0x0000,27:88:81:18:00:00</attr>	<!-- Designated_root -->
+		<attr i="4">0</attr>	<!-- Root_path_cost -->
+		<attr i="5">2</attr>	<!-- Bridge_port_count -->
+		<attr i="6">0</attr>	<!-- Root_port_num -->
+		<attr i="7">0x0100</attr>	<!-- Hello_time -->
+		<attr i="8">0x0400</attr>	<!-- Forward_delay -->
+	</instance>
+</class>
+
+
+<class id="51" attr_total="3">	<!-- MAC_bridge_performance_monitoring_history_data, 9.3.3 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- Interval_end_time -->
+		<attr i="2"></attr>	<!-- Threshold_data_1/2_id -->
+		<attr i="3"></attr>	<!-- Bridge_learning_entry_discard_count -->
+	</instance>
+</class>
+
+
+<class id="47" attr_total="12">	<!-- MAC_bridge_port_configuration_data, 9.3.4 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>64</instance_total_max>
+	<instance i="0">
+		<devname>port?</devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0xffff</attr>	<!-- Bridge_id_pointer -->
+		<attr i="2">0</attr>	<!-- Port_num -->
+		<attr i="3">0</attr>	<!-- TP_type -->
+		<attr i="4">0xffff</attr>	<!-- TP_pointer -->
+		<attr i="5">0</attr>	<!-- Port_priority -->
+		<attr i="6">1</attr>	<!-- Port_path_cost -->
+		<attr i="7">0</attr>	<!-- Port_spanning_tree_ind -->
+		<attr i="8">1</attr>	<!-- Encapsulation_method -->
+		<attr i="9">0</attr>	<!-- LAN_FCS_ind -->
+		<attr i="10">09:39:84:13:23:00</attr>	<!-- Port_MAC_address -->
+		<attr i="11">0xffff</attr>	<!-- Outbound_TD_pointer -->
+		<attr i="12">0xffff</attr>	<!-- Inbound_TD_pointer -->
+	</instance>
+</class>
+
+
+<class id="48" attr_total="2">	<!-- MAC_bridge_port_designation_data, 9.3.5 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>12</instance_total_max>
+	<instance i="65535">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0,0,0,0</attr>	<!-- Designated_bridge_root_cost_port -->
+		<attr i="2">6</attr>	<!-- Port_state -->
+	</instance>
+</class>
+
+
+<class id="49" attr_total="1">	<!-- MAC_bridge_port_filter_table_data, 9.3.6 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>12</instance_total_max>
+	<instance i="65535">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">	<!-- MAC_filter_table -->
+			<attr_table>
+				<!-- 0: Entry_number -->
+				<!-- 1: Add_remove -->
+				<!-- 2: Reserved -->
+				<!-- 3: DA_SA -->
+				<!-- 4: Filter_forward -->
+				<!-- 5: MAC_address -->
+			</attr_table>
+		</attr>
+	</instance>
+</class>
+
+
+<class id="79" attr_total="10">	<!-- MAC_bridge_port_filter_preassign_table, 9.3.7 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>12</instance_total_max>
+	<instance i="65535">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- IPv4_multicast_filtering -->
+		<attr i="2">0</attr>	<!-- IPv6_multicast_filtering -->
+		<attr i="3">0</attr>	<!-- IPv4_broadcast_filtering -->
+		<attr i="4">0</attr>	<!-- RARP_filtering -->
+		<attr i="5">0</attr>	<!-- IPX_filtering -->
+		<attr i="6">0</attr>	<!-- NetBEUI_filtering -->
+		<attr i="7">0</attr>	<!-- AppleTalk_filtering -->
+		<attr i="8">0</attr>	<!-- Bridge_management_information_filtering -->
+		<attr i="9">0</attr>	<!-- ARP_filtering -->
+		<attr i="10">0</attr>	<!-- PPPoE_filtering -->
+	</instance>
+</class>
+
+
+<class id="50" attr_total="1">	<!-- MAC_bridge_port_bridge_table_data, 9.3.8 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>12</instance_total_max>
+	<instance i="65535">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">	<!-- Bridge_table -->
+			<attr_table>
+				<!-- 0: Filter_forward -->
+				<!-- 1: Reserved -->
+				<!-- 2: Dynamic_static -->
+				<!-- 3: Reserved -->
+				<!-- 4: Age -->
+				<!-- 5: MAC_address -->
+			</attr_table>
+		</attr>
+	</instance>
+</class>
+
+
+<class id="52" attr_total="7">	<!-- MAC_bridge_port_performance_monitoring_history_data, 9.3.9 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>12</instance_total_max>
+	<instance i="65535">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- Interval_end_time -->
+		<attr i="2"></attr>	<!-- Threshold_data_1/2_id -->
+		<attr i="3"></attr>	<!-- Forwarded_frame_counter -->
+		<attr i="4"></attr>	<!-- Delay_exceeded_discard_counter -->
+		<attr i="5"></attr>	<!-- MTU_exceeded_discard_counter -->
+		<attr i="6"></attr>	<!-- Received_frame_counter -->
+		<attr i="7"></attr>	<!-- Received_and_discarded_counter -->
+	</instance>
+</class>
+
+
+<class id="130" attr_total="13">	<!-- 802.1p_mapper_service_profile, 9.3.10 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- TP_pointer -->
+		<attr i="2"></attr>	<!-- Interwork_TP_pointer_for_P_bit_priority_0 -->
+		<attr i="3"></attr>	<!-- Interwork_TP_pointer_for_P_bit_priority_1 -->
+		<attr i="4"></attr>	<!-- Interwork_TP_pointer_for_P_bit_priority_2 -->
+		<attr i="5"></attr>	<!-- Interwork_TP_pointer_for_P_bit_priority_3 -->
+		<attr i="6"></attr>	<!-- Interwork_TP_pointer_for_P_bit_priority_4 -->
+		<attr i="7"></attr>	<!-- Interwork_TP_pointer_for_P_bit_priority_5 -->
+		<attr i="8"></attr>	<!-- Interwork_TP_pointer_for_P_bit_priority_6 -->
+		<attr i="9"></attr>	<!-- Interwork_TP_pointer_for_P_bit_priority_7 -->
+		<attr i="10"></attr>	<!-- Unmarked_frame_option -->
+		<attr i="11"></attr>	<!-- DSCP_to_P_bit_mapping -->
+		<attr i="12"></attr>	<!-- Default_P_bit_marking -->
+		<attr i="13"></attr>	<!-- TP_type -->
+	</instance>
+</class>
+
+
+<class id="84" attr_total="3">	<!-- VLAN_tagging_filter_data, 9.3.11 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- VLAN_filter_list -->
+		<attr i="2"></attr>	<!-- Forward_operation -->
+		<attr i="3"></attr>	<!-- Number_of_entries -->
+	</instance>
+</class>
+
+
+<class id="78" attr_total="5">	<!-- VLAN_tagging_operation_configuration_data, 9.3.12 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- Upstream_VLAN_tagging_operation_mode -->
+		<attr i="2"></attr>	<!-- Upstream_VLAN_tag_TCI_value -->
+		<attr i="3"></attr>	<!-- Downstream_VLAN_tagging_operation_mode -->
+		<attr i="4"></attr>	<!-- Association_type -->
+		<attr i="5"></attr>	<!-- Associated_ME_pointer -->
+	</instance>
+</class>
+
+
+<class id="171" attr_total="8">	<!-- Extended_VLAN_tagging_operation_configuration_data, 9.3.13 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="65535">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- Association_type -->
+		<attr i="2">192</attr>	<!-- Received_frame_VLAN_tagging_operation_table_max_size -->
+		<attr i="3"></attr>	<!-- Input_TPID -->
+		<attr i="4"></attr>	<!-- Output_TPID -->
+		<attr i="5"></attr>	<!-- Downstream_mode -->
+		<attr i="6">	<!-- Received_frame_VLAN_tagging_operation_table -->
+			<attr_table>
+				<!-- 0: Filter_outer_priority -->
+				<!-- 1: Filter_outer_VID -->
+				<!-- 2: Filter_outer_TPID/DE -->
+				<!-- 3: Reserved -->
+				<!-- 4: Filter_inner_priority -->
+				<!-- 5: Filter_inner_VID -->
+				<!-- 6: Filter_inner_TPID/DE -->
+				<!-- 7: Reserved -->
+				<!-- 8: Filter_Ethertype -->
+				<!-- 9: Treatment_tags_to_remove -->
+				<!-- 10: Reserved -->
+				<!-- 11: Treatment_outer_priority -->
+				<!-- 12: Treatment_outer_VID -->
+				<!-- 13: Treatment_outer_TPID/DE -->
+				<!-- 14: Reserved -->
+				<!-- 15: Treatment_inner_priority -->
+				<!-- 16: Treatment_inner_VID -->
+				<!-- 17: Treatment_inner_TPID/DE -->
+				<!-- <entry i="0">15,0,0,0,15,0,0,0,0,0,0,15,0,0,0,15,0,0</entry> -->
+				<!-- <entry i="1">15,0,0,0,14,0,0,0,0,0,0,15,0,0,0,15,0,0</entry> -->
+				<!-- <entry i="2">14,0,0,0,14,0,0,0,0,0,0,15,0,0,0,15,0,0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="7"></attr>	<!-- Associated_ME_pointer -->
+		<attr i="8"></attr>	<!-- DSCP_to_P_bit_mapping -->
+	</instance>
+</class>
+
+
+<class id="290" attr_total="12">	<!-- Dot1X_port_extension_package, 9.3.14 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- Dot1x_enable -->
+		<attr i="2"></attr>	<!-- Action_register -->
+		<attr i="3"></attr>	<!-- Authenticator_PAE_state -->
+		<attr i="4"></attr>	<!-- Backend_authentication_state -->
+		<attr i="5"></attr>	<!-- Admin_controlled_directions -->
+		<attr i="6"></attr>	<!-- Operational_controlled_directions -->
+		<attr i="7"></attr>	<!-- Authenticator_controlled_port_status -->
+		<attr i="8"></attr>	<!-- Quiet_period -->
+		<attr i="9"></attr>	<!-- Server_timeout_period -->
+		<attr i="10"></attr>	<!-- Reauthentication_period -->
+		<attr i="11"></attr>	<!-- Reauthentication_enabled -->
+		<attr i="12"></attr>	<!-- Key_transmission_enabled -->
+	</instance>
+</class>
+
+
+<class id="291" attr_total="9">	<!-- Dot1X_configuration_profile, 9.3.15 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- Circuit_ID_prefix -->
+		<attr i="2"></attr>	<!-- Fallback_policy -->
+		<attr i="3"></attr>	<!-- Auth_server_1 -->
+		<attr i="4"></attr>	<!-- Shared_secret_auth1 -->
+		<attr i="5"></attr>	<!-- Auth_server_2 -->
+		<attr i="6"></attr>	<!-- Shared_secret_auth2 -->
+		<attr i="7"></attr>	<!-- Auth_server_3 -->
+		<attr i="8"></attr>	<!-- Shared_secret_auth3 -->
+		<attr i="9"></attr>	<!-- OLT_proxy_address -->
+	</instance>
+</class>
+
+
+<class id="292" attr_total="14">	<!-- Dot1X_performance_monitoring_history_data, 9.3.16 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- Interval_end_time -->
+		<attr i="2"></attr>	<!-- Threshold_data_1/2_id -->
+		<attr i="3"></attr>	<!-- EAPOL_frames_received -->
+		<attr i="4"></attr>	<!-- EAPOL_frames_transmitted -->
+		<attr i="5"></attr>	<!-- EAPOL_start_frames_received -->
+		<attr i="6"></attr>	<!-- EAPOL_logoff_frames_received -->
+		<attr i="7"></attr>	<!-- Invalid_EAPOL_frames_received -->
+		<attr i="8"></attr>	<!-- EAP_resp/id_frames_received -->
+		<attr i="9"></attr>	<!-- EAP_response_frames_received -->
+		<attr i="10"></attr>	<!-- EAP_initial_request_frames_transmitted -->
+		<attr i="11"></attr>	<!-- EAP_request_frames_transmitted -->
+		<attr i="12"></attr>	<!-- EAP_length_error_frames_received -->
+		<attr i="13"></attr>	<!-- EAP_success_frames_generated_autonomously -->
+		<attr i="14"></attr>	<!-- EAP_failure_frames_generated_autonomously -->
+	</instance>
+</class>
+
+
+<class id="293" attr_total="7">	<!-- Radius_performance_monitoring_history_data, 9.3.17 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- Interval_end_time -->
+		<attr i="2"></attr>	<!-- Threshold_data_1/2_id -->
+		<attr i="3"></attr>	<!-- Access_request_retransmission_count -->
+		<attr i="4"></attr>	<!-- Access_challenge_packets_received -->
+		<attr i="5"></attr>	<!-- Access_accept_packets_received -->
+		<attr i="6"></attr>	<!-- Access_reject_packets_received -->
+		<attr i="7"></attr>	<!-- Invalid_radius_packets_received -->
+	</instance>
+</class>
+
+
+<class id="298" attr_total="5">	<!-- Dot1_rate_limiter, 9.3.18 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- Parent_ME_pointer -->
+		<attr i="2">1</attr>	<!-- TP_type -->
+		<attr i="3"></attr>	<!-- Upstream_unicast_flood_rate_pointer -->
+		<attr i="4"></attr>	<!-- Upstream_broadcast_rate_pointer -->
+		<attr i="5"></attr>	<!-- Upstream_multicast_payload_rate_pointer -->
+	</instance>
+</class>
+
+
+<class id="299" attr_total="6">	<!-- Dot1ag_maintenance_domain, 9.3.19 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- MD_level -->
+		<attr i="2"></attr>	<!-- MD_name_format -->
+		<attr i="3"></attr>	<!-- MD_name_1 -->
+		<attr i="4"></attr>	<!-- MD_name_2 -->
+		<attr i="5"></attr>	<!-- MHF_creation -->
+		<attr i="6"></attr>	<!-- Sender_ID_permission -->
+	</instance>
+</class>
+
+
+<class id="300" attr_total="8">	<!-- Dot1ag_maintenance_association, 9.3.20 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- MD_pointer -->
+		<attr i="2"></attr>	<!-- Short_MA_name_format -->
+		<attr i="3"></attr>	<!-- Short_MA_name_1 -->
+		<attr i="4"></attr>	<!-- Short_MA_name_2 -->
+		<attr i="5"></attr>	<!-- CCM_interval -->
+		<attr i="6"></attr>	<!-- Associated_VLANs -->
+		<attr i="7"></attr>	<!-- MHF_creation -->
+		<attr i="8"></attr>	<!-- Sender_ID_permission -->
+	</instance>
+</class>
+
+
+<class id="301" attr_total="5">	<!-- Dot1ag_default_MD_level, 9.3.21 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- Layer_2_type -->
+		<attr i="2"></attr>	<!-- Catchall_level -->
+		<attr i="3"></attr>	<!-- Catchall_MHF_creation -->
+		<attr i="4"></attr>	<!-- Catchall_sender_ID_permission -->
+		<attr i="5">	<!-- Default_MD_level_table -->
+			<attr_table>
+				<!-- 0: Primary_VLAN_ID -->
+				<!-- 1: Table_control -->
+				<!-- 2: Status -->
+				<!-- 3: Level -->
+				<!-- 4: MHF_creation -->
+				<!-- 5: Sender_ID_permission -->
+				<!-- 6: Associated_VLANs_list -->
+				<!-- <entry i="0">0,0,0,0,0,0,0</entry> -->
+			</attr_table>
+		</attr>
+	</instance>
+</class>
+
+
+<class id="302" attr_total="14">	<!-- Dot1ag_MEP, 9.3.22 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- Layer_2_entity_pointer -->
+		<attr i="2"></attr>	<!-- Layer_2_type -->
+		<attr i="3"></attr>	<!-- MA_pointer -->
+		<attr i="4"></attr>	<!-- MEP_ID -->
+		<attr i="5"></attr>	<!-- MEP_control -->
+		<attr i="6">0,0</attr>	<!-- Primary_VLAN -->
+		<attr i="7"></attr>	<!-- Administrative_state -->
+		<attr i="8"></attr>	<!-- CCM_and_LTM_priority -->
+		<attr i="9"></attr>	<!-- Egress_identifier -->
+		<attr i="10"></attr>	<!-- Peer_MEP_IDs -->
+		<attr i="11"></attr>	<!-- ETH_AIS_control -->
+		<attr i="12"></attr>	<!-- Fault_alarm_threshold -->
+		<attr i="13"></attr>	<!-- Alarm_declaration_soak_time -->
+		<attr i="14"></attr>	<!-- Alarm_clear_soak_time -->
+	</instance>
+</class>
+
+
+<class id="303" attr_total="12">	<!-- Dot1ag_MEP_status, 9.3.23 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- MEP_MAC_address -->
+		<attr i="2"></attr>	<!-- Fault_notification_generator_state -->
+		<attr i="3"></attr>	<!-- Highest_priority_defect_observed -->
+		<attr i="4">0,0,0,0,0,0</attr>	<!-- Current_defects -->
+		<attr i="5">	<!-- Last_received_errored_CCM -->
+			<attr_table>
+				<!-- 0: CCM -->
+				<!-- <entry i="0">0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="6">	<!-- Last_received_xcon_CCM -->
+			<attr_table>
+				<!-- 0: CCM -->
+				<!-- <entry i="0">0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="7"></attr>	<!-- Out_of_sequence_CCMs_count -->
+		<attr i="8"></attr>	<!-- CCMs_transmitted_count -->
+		<attr i="9"></attr>	<!-- Unexpected_LTRs_count -->
+		<attr i="10"></attr>	<!-- LBRs_transmitted_count -->
+		<attr i="11"></attr>	<!-- Next_loopback_transaction_identifier -->
+		<attr i="12"></attr>	<!-- Next_link_trace_transaction_identifier -->
+	</instance>
+</class>
+
+
+<class id="304" attr_total="12">	<!-- Dot1ag_MEP_CCM_database, 9.3.24 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">	<!-- RMEP_1_database_table -->
+			<attr_table>
+				<!-- 0: RMep_identifier -->
+				<!-- 1: RMep_state -->
+				<!-- 2: Failed_ok_time -->
+				<!-- 3: MAC_address -->
+				<!-- 4: RDI -->
+				<!-- 5: Port_status -->
+				<!-- 6: Interface_status -->
+				<!-- 7: Sender_ID_TLV -->
+				<!-- <entry i="0">0,0,0,0,0,0,0,0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="2">	<!-- RMEP_2_database_table -->
+			<attr_table>
+				<!-- 0: RMep_identifier -->
+				<!-- 1: RMep_state -->
+				<!-- 2: Failed_ok_time -->
+				<!-- 3: MAC_address -->
+				<!-- 4: RDI -->
+				<!-- 5: Port_status -->
+				<!-- 6: Interface_status -->
+				<!-- 7: Sender_ID_TLV -->
+				<!-- <entry i="0">0,0,0,0,0,0,0,0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="3">	<!-- RMEP_3_database_table -->
+			<attr_table>
+				<!-- 0: RMep_identifier -->
+				<!-- 1: RMep_state -->
+				<!-- 2: Failed_ok_time -->
+				<!-- 3: MAC_address -->
+				<!-- 4: RDI -->
+				<!-- 5: Port_status -->
+				<!-- 6: Interface_status -->
+				<!-- 7: Sender_ID_TLV -->
+				<!-- <entry i="0">0,0,0,0,0,0,0,0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="4">	<!-- RMEP_4_database_table -->
+			<attr_table>
+				<!-- 0: RMep_identifier -->
+				<!-- 1: RMep_state -->
+				<!-- 2: Failed_ok_time -->
+				<!-- 3: MAC_address -->
+				<!-- 4: RDI -->
+				<!-- 5: Port_status -->
+				<!-- 6: Interface_status -->
+				<!-- 7: Sender_ID_TLV -->
+				<!-- <entry i="0">0,0,0,0,0,0,0,0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="5">	<!-- RMEP_5_database_table -->
+			<attr_table>
+				<!-- 0: RMep_identifier -->
+				<!-- 1: RMep_state -->
+				<!-- 2: Failed_ok_time -->
+				<!-- 3: MAC_address -->
+				<!-- 4: RDI -->
+				<!-- 5: Port_status -->
+				<!-- 6: Interface_status -->
+				<!-- 7: Sender_ID_TLV -->
+				<!-- <entry i="0">0,0,0,0,0,0,0,0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="6">	<!-- RMEP_6_database_table -->
+			<attr_table>
+				<!-- 0: RMep_identifier -->
+				<!-- 1: RMep_state -->
+				<!-- 2: Failed_ok_time -->
+				<!-- 3: MAC_address -->
+				<!-- 4: RDI -->
+				<!-- 5: Port_status -->
+				<!-- 6: Interface_status -->
+				<!-- 7: Sender_ID_TLV -->
+				<!-- <entry i="0">0,0,0,0,0,0,0,0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="7">	<!-- RMEP_7_database_table -->
+			<attr_table>
+				<!-- 0: RMep_identifier -->
+				<!-- 1: RMep_state -->
+				<!-- 2: Failed_ok_time -->
+				<!-- 3: MAC_address -->
+				<!-- 4: RDI -->
+				<!-- 5: Port_status -->
+				<!-- 6: Interface_status -->
+				<!-- 7: Sender_ID_TLV -->
+				<!-- <entry i="0">0,0,0,0,0,0,0,0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="8">	<!-- RMEP_8_database_table -->
+			<attr_table>
+				<!-- 0: RMep_identifier -->
+				<!-- 1: RMep_state -->
+				<!-- 2: Failed_ok_time -->
+				<!-- 3: MAC_address -->
+				<!-- 4: RDI -->
+				<!-- 5: Port_status -->
+				<!-- 6: Interface_status -->
+				<!-- 7: Sender_ID_TLV -->
+				<!-- <entry i="0">0,0,0,0,0,0,0,0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="9">	<!-- RMEP_9_database_table -->
+			<attr_table>
+				<!-- 0: RMep_identifier -->
+				<!-- 1: RMep_state -->
+				<!-- 2: Failed_ok_time -->
+				<!-- 3: MAC_address -->
+				<!-- 4: RDI -->
+				<!-- 5: Port_status -->
+				<!-- 6: Interface_status -->
+				<!-- 7: Sender_ID_TLV -->
+				<!-- <entry i="0">0,0,0,0,0,0,0,0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="10">	<!-- RMEP_10_database_table -->
+			<attr_table>
+				<!-- 0: RMep_identifier -->
+				<!-- 1: RMep_state -->
+				<!-- 2: Failed_ok_time -->
+				<!-- 3: MAC_address -->
+				<!-- 4: RDI -->
+				<!-- 5: Port_status -->
+				<!-- 6: Interface_status -->
+				<!-- 7: Sender_ID_TLV -->
+				<!-- <entry i="0">0,0,0,0,0,0,0,0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="11">	<!-- RMEP_11_database_table -->
+			<attr_table>
+				<!-- 0: RMep_identifier -->
+				<!-- 1: RMep_state -->
+				<!-- 2: Failed_ok_time -->
+				<!-- 3: MAC_address -->
+				<!-- 4: RDI -->
+				<!-- 5: Port_status -->
+				<!-- 6: Interface_status -->
+				<!-- 7: Sender_ID_TLV -->
+				<!-- <entry i="0">0,0,0,0,0,0,0,0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="12">	<!-- RMEP_12_database_table -->
+			<attr_table>
+				<!-- 0: RMep_identifier -->
+				<!-- 1: RMep_state -->
+				<!-- 2: Failed_ok_time -->
+				<!-- 3: MAC_address -->
+				<!-- 4: RDI -->
+				<!-- 5: Port_status -->
+				<!-- 6: Interface_status -->
+				<!-- 7: Sender_ID_TLV -->
+				<!-- <entry i="0">0,0,0,0,0,0,0,0</entry> -->
+			</attr_table>
+		</attr>
+	</instance>
+</class>
+
+
+<class id="305" attr_total="3">	<!-- Dot1ag_CFM_stack, 9.3.25 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- Layer_2_type -->
+		<attr i="2">	<!-- MP_status_table -->
+			<attr_table>
+				<!-- 0: Port_id -->
+				<!-- 1: Level -->
+				<!-- 2: Direction -->
+				<!-- 3: VLAN_ID -->
+				<!-- 4: MD -->
+				<!-- 5: MA -->
+				<!-- 6: MEP_ID -->
+				<!-- 7: MAC_address -->
+				<!-- <entry i="0">0,0,0,0,0,0,0,0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="3">	<!-- Configuration_error_list_table -->
+			<attr_table>
+				<!-- 0: VLAN_ID -->
+				<!-- 1: Port_id -->
+				<!-- 2: Detected_configuration_error -->
+				<!-- <entry i="0">0,0,0</entry> -->
+			</attr_table>
+		</attr>
+	</instance>
+</class>
+
+
+<class id="306" attr_total="10">	<!-- Dot1ag_chassis_management_info, 9.3.26 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- Chassis_ID_length -->
+		<attr i="2"></attr>	<!-- Chassis_ID_subtype -->
+		<attr i="3"></attr>	<!-- Chassis_ID_part_1 -->
+		<attr i="4"></attr>	<!-- Chassis_ID_part_2 -->
+		<attr i="5"></attr>	<!-- Management_address_domain_length -->
+		<attr i="6"></attr>	<!-- Management_address_domain_1 -->
+		<attr i="7"></attr>	<!-- Management_address_domain_2 -->
+		<attr i="8"></attr>	<!-- Management_address_length -->
+		<attr i="9"></attr>	<!-- Management_address_1 -->
+		<attr i="10"></attr>	<!-- Management_address_2 -->
+	</instance>
+</class>
+
+
+<class id="309" attr_total="16">	<!-- Multicast_operations_profile, 9.3.27 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- IGMP_version -->
+		<attr i="2"></attr>	<!-- IGMP_function -->
+		<attr i="3"></attr>	<!-- Immediate_leave -->
+		<attr i="4"></attr>	<!-- Upstream_IGMP_TCI -->
+		<attr i="5"></attr>	<!-- Upstream_IGMP_tag_control -->
+		<attr i="6"></attr>	<!-- Upstream_IGMP_rate -->
+		<attr i="7">	<!-- Dynamic_access_control_list_table -->
+			<attr_table>
+				<!-- 0: Set_ctrl -->
+				<!-- 1: Row_part -->
+				<!-- 2: Test -->
+				<!-- 3: Row_key -->
+				<!-- 4: GEM_port_ID -->
+				<!-- 5: VLAN_ID -->
+				<!-- 6: Source_IP_address -->
+				<!-- 7: Destination_IP_address_of_the_start_of_the_multicast_range -->
+				<!-- 8: Destination_IP_address_of_the_end_of_the_multicast_range -->
+				<!-- 9: Imputed_group_bandwidth -->
+				<!-- 10: Reserved -->
+				<!-- <entry i="0"></entry> -->
+			</attr_table>
+		</attr>
+		<attr i="8">	<!-- Static_access_control_list_table -->
+			<attr_table>
+				<!-- 0: Set_ctrl -->
+				<!-- 1: Row_part -->
+				<!-- 2: Test -->
+				<!-- 3: Row_key -->
+				<!-- 4: GEM_port_ID -->
+				<!-- 5: VLAN_ID -->
+				<!-- 6: Source_IP_address -->
+				<!-- 7: Destination_IP_address_of_the_start_of_the_multicast_range -->
+				<!-- 8: Destination_IP_address_of_the_end_of_the_multicast_range -->
+				<!-- 9: Imputed_group_bandwidth -->
+				<!-- 10: Reserved -->
+				<!-- <entry i="0"></entry> -->
+			</attr_table>
+		</attr>
+		<attr i="9">	<!-- Lost_groups_list_table -->
+			<attr_table>
+				<!-- 0: VLAN_ID -->
+				<!-- 1: Source_IP_address -->
+				<!-- 2: Multicast_destination_IP_address -->
+				<!-- <entry i="0"></entry> -->
+			</attr_table>
+		</attr>
+		<attr i="10"></attr>	<!-- Robustness -->
+		<attr i="11"></attr>	<!-- Querier_IP_address -->
+		<attr i="12"></attr>	<!-- Query_interval -->
+		<attr i="13"></attr>	<!-- Query_max_response_time -->
+		<attr i="14"></attr>	<!-- Last_member_query_interval -->
+		<attr i="15"></attr>	<!-- Unauthorized_join_request_behaviour -->
+		<attr i="16"></attr>	<!-- Downstream_IGMP_and_multicast_TCI -->
+	</instance>
+</class>
+
+
+<class id="310" attr_total="7">	<!-- Multicast_subscriber_config_info, 9.3.28 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- ME_type -->
+		<attr i="2"></attr>	<!-- Multicast_operations_profile_pointer -->
+		<attr i="3"></attr>	<!-- Max_simultaneous_groups -->
+		<attr i="4"></attr>	<!-- Max_multicast_bandwidth -->
+		<attr i="5"></attr>	<!-- Bandwidth_enforcement -->
+		<attr i="6">	<!-- Multicast_service_package_table -->
+			<attr_table>
+				<!-- 0: Set_ctrl -->
+				<!-- 1: Reserved -->
+				<!-- 2: Row_key -->
+				<!-- 3: VID_UNI -->
+				<!-- 4: Max_simultaneous_groups -->
+				<!-- 5: Max_multicast_bandwidth -->
+				<!-- 6: Multicast_operations_profile_pointer -->
+				<!-- 7: Reserved -->
+				<!-- <entry i="0"></entry> -->
+			</attr_table>
+		</attr>
+		<attr i="7">	<!-- Allowed_preview_groups_table -->
+			<attr_table>
+				<!-- 0: Set_ctrl -->
+				<!-- 1: Row_part -->
+				<!-- 2: Reserved -->
+				<!-- 3: Row_key -->
+				<!-- 4: source_or_destination_IP -->
+				<!-- 5: ani_vlanid_or_duration -->
+				<!-- 6: uni_vlanid_or_timeleft -->
+				<!-- <entry i="0"></entry> -->
+			</attr_table>
+		</attr>
+	</instance>
+</class>
+
+
+<class id="311" attr_total="5">	<!-- Multicast_subscriber_monitor, 9.3.29 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- ME_type -->
+		<attr i="2"></attr>	<!-- Current_multicast_bandwidth -->
+		<attr i="3"></attr>	<!-- Join_messages_counter -->
+		<attr i="4"></attr>	<!-- Bandwidth_exceeded_counter -->
+		<attr i="5">	<!-- IPV4_active_group_list_table -->
+			<attr_table>
+				<!-- 0: VLAN_ID -->
+				<!-- 1: Source_IPV4_address -->
+				<!-- 2: Multicast_destination_IPV4_address -->
+				<!-- 3: Best_efforts_actual_bandwidth_estimate -->
+				<!-- 4: Client_set_top_box_IPV4_address -->
+				<!-- 5: Time_since_the_most_recent_join_of_this_client_to_the_IP_channel -->
+				<!-- 6: Reserved -->
+				<!-- <entry i="0">0,0,0,0,0,0,0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="6">	<!-- IPV6_active_group_list_table -->
+			<attr_table>
+				<!-- 0: VLAN_ID -->
+				<!-- 1: Source_IPV6_address -->
+				<!-- 2: Multicast_destination_IPV6_address -->
+				<!-- 3: Best_efforts_actual_bandwidth_estimate -->
+				<!-- 4: Client_set_top_box_IPV6_address -->
+				<!-- 5: Time_since_the_most_recent_join_of_this_client_to_the_IP_channel -->
+			</attr_table>
+		</attr>
+	</instance>
+</class>
+
+
+<class id="322" attr_total="16">	<!-- Ethernet_frame_performance_monitoring_history_data_upstream, 9.3.30 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- Interval_end_time -->
+		<attr i="2"></attr>	<!-- Threshold_data_1/2_id -->
+		<attr i="3"></attr>	<!-- Drop_events -->
+		<attr i="4"></attr>	<!-- Octets -->
+		<attr i="5"></attr>	<!-- Packets -->
+		<attr i="6"></attr>	<!-- Broadcast_packets -->
+		<attr i="7"></attr>	<!-- Multicast_packets -->
+		<attr i="8"></attr>	<!-- CRC_errored_packets -->
+		<attr i="9"></attr>	<!-- Undersize_packets -->
+		<attr i="10"></attr>	<!-- Oversize_packets -->
+		<attr i="11"></attr>	<!-- Packets_64_octets -->
+		<attr i="12"></attr>	<!-- Packets_65_to_127_octets -->
+		<attr i="13"></attr>	<!-- Packets_128_to_255_octets -->
+		<attr i="14"></attr>	<!-- Packets_256_to_511_octets -->
+		<attr i="15"></attr>	<!-- Packets_512_to_1023_octets -->
+		<attr i="16"></attr>	<!-- Packets_1024_to_1518_octets -->
+	</instance>
+</class>
+
+
+<class id="321" attr_total="16">	<!-- Ethernet_frame_performance_monitoring_history_data_downstream, 9.3.31 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- Interval_end_time -->
+		<attr i="2"></attr>	<!-- Threshold_data_1/2_id -->
+		<attr i="3"></attr>	<!-- Drop_events -->
+		<attr i="4"></attr>	<!-- Octets -->
+		<attr i="5"></attr>	<!-- Packets -->
+		<attr i="6"></attr>	<!-- Broadcast_packets -->
+		<attr i="7"></attr>	<!-- Multicast_packets -->
+		<attr i="8"></attr>	<!-- CRC_errored_packets -->
+		<attr i="9"></attr>	<!-- Undersize_packets -->
+		<attr i="10"></attr>	<!-- Oversize_packets -->
+		<attr i="11"></attr>	<!-- Packets_64_octets -->
+		<attr i="12"></attr>	<!-- Packets_65_to_127_octets -->
+		<attr i="13"></attr>	<!-- Packets_128_to_255_octets -->
+		<attr i="14"></attr>	<!-- Packets_256_to_511_octets -->
+		<attr i="15"></attr>	<!-- Packets_512_to_1023_octets -->
+		<attr i="16"></attr>	<!-- Packets_1024_to_1518_octets -->
+	</instance>
+	<instance i="1">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+	</instance>
+	<instance i="2">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+	</instance>
+	<instance i="3">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+	</instance>
+</class>
+
+<class id="334" attr_total="16">	<!-- Ethernet_frame_extended_PM, 9.3.32 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- Interval_end_time -->
+		<attr i="2">0,0,0,0,0,0,0,0</attr>	<!-- Control_Block -->
+		<attr i="3"></attr>	<!-- Drop_events -->
+		<attr i="4"></attr>	<!-- Octets -->
+		<attr i="5"></attr>	<!-- Packets -->
+		<attr i="6"></attr>	<!-- Broadcast_packets -->
+		<attr i="7"></attr>	<!-- Multicast_packets -->
+		<attr i="8"></attr>	<!-- CRC_errored_packets -->
+		<attr i="9"></attr>	<!-- Undersize_packets -->
+		<attr i="10"></attr>	<!-- Oversize_packets -->
+		<attr i="11"></attr>	<!-- Packets_64_octets -->
+		<attr i="12"></attr>	<!-- Packets_65_to_127_octets -->
+		<attr i="13"></attr>	<!-- Packets_128_to_255_octets -->
+		<attr i="14"></attr>	<!-- Packets_256_to_511_octets -->
+		<attr i="15"></attr>	<!-- Packets_512_to_1023_octets -->
+		<attr i="16"></attr>	<!-- Packets_1024_to_1518_octets -->
+	</instance>
+	<instance i="1">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+	</instance>
+	<instance i="2">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+	</instance>
+	<instance i="3">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+	</instance>
+</class>
+
+<class id="425" attr_total="16">	<!-- Ethernet frame extended PM 64-Bit -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Interval_end_time -->
+		<attr i="2">0,0,0,0,0,0,0,0</attr>	<!-- Control_Block -->
+		<attr i="3">0</attr>	<!-- Drop_events -->
+		<attr i="4">0</attr>	<!-- Octets -->
+		<attr i="5">0</attr>	<!-- Frames -->
+		<attr i="6">0</attr>	<!-- Broadcast_frames -->
+		<attr i="7">0</attr>	<!-- Multicast_frames -->
+		<attr i="8">0</attr>	<!-- CRC_errored_frames -->
+		<attr i="9">0</attr>	<!-- Undersize_frames -->
+		<attr i="10">0</attr>	<!-- Oversize_frames -->
+		<attr i="11">0</attr>	<!-- Frames_64_octets -->
+		<attr i="12">0</attr>	<!-- Frames_65_to_127_octets -->
+		<attr i="13">0</attr>	<!-- Frames_128_to_255_octets -->
+		<attr i="14">0</attr>	<!-- Frames_256_to_511_octets -->
+		<attr i="15">0</attr>	<!-- Frames_512_to_1023_octets -->
+		<attr i="16">0</attr>	<!-- Frames_1024_to_1518_octets -->
+	</instance>
+	<instance i="1">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+	</instance>
+	<instance i="2">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+	</instance>
+	<instance i="3">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+	</instance>
+</class>
+
+</omci>
+

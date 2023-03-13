@@ -1,0 +1,18 @@
+#
+# custom omci mib
+#
+# values defined in this file will override the one defined in xml/xdb files
+# and become the default config value before an me is created
+# so if me is inited in call back routines (meinfo_cb.create or meinfo_hw.create),
+# then the callback value will override the value in this file 
+#
+# ps: the data type of the value will auto detected through the attr definition,
+#     so no " or ' is required for strings
+#
+# ps: multiple lines for same key could be defined, 
+#     the later would override the previous one
+#
+
+# Version (14byte,string,R) 
+me256_inst0_attr2=PRX126
+

@@ -1,0 +1,5 @@
+config gpon 'gpon'
+	option onu_serial 'CXNK1E0004D9'
+	option onu_password ''
+	option onu_loid 'CXNK0000000000001E0004D9'
+	option onu_loid_password 'default'

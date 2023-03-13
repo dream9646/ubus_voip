@@ -1,0 +1,1066 @@
+<omci name="Traffic management" section="9.11">
+
+<class id="277" attr_total="16">	<!-- Priority_queue_G, 9.11.1 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>32</instance_total_max>
+<!-- pq for tcont 0 -->
+	<instance i="0">
+		<devname>tcont0 ts0(0) pq0</devname>
+		<default_meid>0x8001</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Queue_configuration_option -->
+		<attr i="2">2730</attr>	<!-- Maximum_queue_size -->
+		<attr i="3">0</attr>	<!-- Allocated_queue_size -->
+		<attr i="4">0xffff</attr>	<!-- Discard_block_counter_reset_interval -->
+		<attr i="5">1</attr>	<!-- Threshold_value_for_discarded_blocks_due_to_buffer_overflow -->
+		<attr i="6">0x8001,0</attr>	<!-- Related_port -->
+		<attr i="7">0x8001</attr>	<!-- Traffic_scheduler_G_pointer -->
+		<attr i="8">1</attr>	<!-- Weight -->
+		<attr i="9">0</attr>	<!-- Back_pressure_operation -->
+		<attr i="10">0</attr>	<!-- Back_pressure_time -->
+		<attr i="11">0</attr>	<!-- Back_pressure_occur_queue_threshold -->
+		<attr i="12">0</attr>	<!-- Back_pressure_clear_queue_threshold -->
+		<attr i="13">0,0,0,0</attr>	<!-- Packet_drop_queue_thresholds -->
+		<attr i="14">255,255</attr>	<!-- Packet_drop_max_p -->
+		<attr i="15">9</attr>	<!-- Queue_drop_w_q -->
+		<attr i="16">0</attr>	<!-- Drop_precedence_colour_marking -->
+	</instance>
+	<instance i="1">
+		<devname>tcont0 ts1(1) pq1</devname>
+		<default_meid>0x8002</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Queue_configuration_option -->
+		<attr i="2">2730</attr>	<!-- Maximum_queue_size -->
+		<attr i="3">0</attr>	<!-- Allocated_queue_size -->
+		<attr i="4">0xffff</attr>	<!-- Discard_block_counter_reset_interval -->
+		<attr i="5">1</attr>	<!-- Threshold_value_for_discarded_blocks_due_to_buffer_overflow -->
+		<attr i="6">0x8001,1</attr>	<!-- Related_port -->
+		<attr i="7">0x8002</attr>	<!-- Traffic_scheduler_G_pointer -->
+		<attr i="8">1</attr>	<!-- Weight -->
+		<attr i="9">0</attr>	<!-- Back_pressure_operation -->
+		<attr i="10">0</attr>	<!-- Back_pressure_time -->
+		<attr i="11">0</attr>	<!-- Back_pressure_occur_queue_threshold -->
+		<attr i="12">0</attr>	<!-- Back_pressure_clear_queue_threshold -->
+		<attr i="13">0,0,0,0</attr>	<!-- Packet_drop_queue_thresholds -->
+		<attr i="14">255,255</attr>	<!-- Packet_drop_max_p -->
+		<attr i="15">9</attr>	<!-- Queue_drop_w_q -->
+		<attr i="16">0</attr>	<!-- Drop_precedence_colour_marking -->
+	</instance>
+	<instance i="2">
+		<devname>tcont0 ts2(2) pq2</devname>
+		<default_meid>0x8003</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Queue_configuration_option -->
+		<attr i="2">2730</attr>	<!-- Maximum_queue_size -->
+		<attr i="3">0</attr>	<!-- Allocated_queue_size -->
+		<attr i="4">0xffff</attr>	<!-- Discard_block_counter_reset_interval -->
+		<attr i="5">1</attr>	<!-- Threshold_value_for_discarded_blocks_due_to_buffer_overflow -->
+		<attr i="6">0x8001,2</attr>	<!-- Related_port -->
+		<attr i="7">0x8003</attr>	<!-- Traffic_scheduler_G_pointer -->
+		<attr i="8">1</attr>	<!-- Weight -->
+		<attr i="9">0</attr>	<!-- Back_pressure_operation -->
+		<attr i="10">0</attr>	<!-- Back_pressure_time -->
+		<attr i="11">0</attr>	<!-- Back_pressure_occur_queue_threshold -->
+		<attr i="12">0</attr>	<!-- Back_pressure_clear_queue_threshold -->
+		<attr i="13">0,0,0,0</attr>	<!-- Packet_drop_queue_thresholds -->
+		<attr i="14">255,255</attr>	<!-- Packet_drop_max_p -->
+		<attr i="15">9</attr>	<!-- Queue_drop_w_q -->
+		<attr i="16">0</attr>	<!-- Drop_precedence_colour_marking -->
+	</instance>
+	<instance i="3">
+		<devname>tcont0 ts3(3) pq3</devname>
+		<default_meid>0x8004</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Queue_configuration_option -->
+		<attr i="2">2730</attr>	<!-- Maximum_queue_size -->
+		<attr i="3">0</attr>	<!-- Allocated_queue_size -->
+		<attr i="4">0xffff</attr>	<!-- Discard_block_counter_reset_interval -->
+		<attr i="5">1</attr>	<!-- Threshold_value_for_discarded_blocks_due_to_buffer_overflow -->
+		<attr i="6">0x8001,3</attr>	<!-- Related_port -->
+		<attr i="7">0x8004</attr>	<!-- Traffic_scheduler_G_pointer -->
+		<attr i="8">1</attr>	<!-- Weight -->
+		<attr i="9">0</attr>	<!-- Back_pressure_operation -->
+		<attr i="10">0</attr>	<!-- Back_pressure_time -->
+		<attr i="11">0</attr>	<!-- Back_pressure_occur_queue_threshold -->
+		<attr i="12">0</attr>	<!-- Back_pressure_clear_queue_threshold -->
+		<attr i="13">0,0,0,0</attr>	<!-- Packet_drop_queue_thresholds -->
+		<attr i="14">255,255</attr>	<!-- Packet_drop_max_p -->
+		<attr i="15">9</attr>	<!-- Queue_drop_w_q -->
+		<attr i="16">0</attr>	<!-- Drop_precedence_colour_marking -->
+	</instance>
+	<instance i="4">
+		<devname>tcont0 ts4(4) pq4</devname>
+		<default_meid>0x8005</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Queue_configuration_option -->
+		<attr i="2">2730</attr>	<!-- Maximum_queue_size -->
+		<attr i="3">0</attr>	<!-- Allocated_queue_size -->
+		<attr i="4">0xffff</attr>	<!-- Discard_block_counter_reset_interval -->
+		<attr i="5">1</attr>	<!-- Threshold_value_for_discarded_blocks_due_to_buffer_overflow -->
+		<attr i="6">0x8001,4</attr>	<!-- Related_port -->
+		<attr i="7">0x8005</attr>	<!-- Traffic_scheduler_G_pointer -->
+		<attr i="8">1</attr>	<!-- Weight -->
+		<attr i="9">0</attr>	<!-- Back_pressure_operation -->
+		<attr i="10">0</attr>	<!-- Back_pressure_time -->
+		<attr i="11">0</attr>	<!-- Back_pressure_occur_queue_threshold -->
+		<attr i="12">0</attr>	<!-- Back_pressure_clear_queue_threshold -->
+		<attr i="13">0,0,0,0</attr>	<!-- Packet_drop_queue_thresholds -->
+		<attr i="14">255,255</attr>	<!-- Packet_drop_max_p -->
+		<attr i="15">9</attr>	<!-- Queue_drop_w_q -->
+		<attr i="16">0</attr>	<!-- Drop_precedence_colour_marking -->
+	</instance>
+	<instance i="5">
+		<devname>tcont0 ts5(5) pq5</devname>
+		<default_meid>0x8006</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Queue_configuration_option -->
+		<attr i="2">2730</attr>	<!-- Maximum_queue_size -->
+		<attr i="3">0</attr>	<!-- Allocated_queue_size -->
+		<attr i="4">0xffff</attr>	<!-- Discard_block_counter_reset_interval -->
+		<attr i="5">1</attr>	<!-- Threshold_value_for_discarded_blocks_due_to_buffer_overflow -->
+		<attr i="6">0x8001,5</attr>	<!-- Related_port -->
+		<attr i="7">0x8006</attr>	<!-- Traffic_scheduler_G_pointer -->
+		<attr i="8">1</attr>	<!-- Weight -->
+		<attr i="9">0</attr>	<!-- Back_pressure_operation -->
+		<attr i="10">0</attr>	<!-- Back_pressure_time -->
+		<attr i="11">0</attr>	<!-- Back_pressure_occur_queue_threshold -->
+		<attr i="12">0</attr>	<!-- Back_pressure_clear_queue_threshold -->
+		<attr i="13">0,0,0,0</attr>	<!-- Packet_drop_queue_thresholds -->
+		<attr i="14">255,255</attr>	<!-- Packet_drop_max_p -->
+		<attr i="15">9</attr>	<!-- Queue_drop_w_q -->
+		<attr i="16">0</attr>	<!-- Drop_precedence_colour_marking -->
+	</instance>
+	<instance i="6">
+		<devname>tcont0 ts6(6) pq6</devname>
+		<default_meid>0x8007</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Queue_configuration_option -->
+		<attr i="2">2730</attr>	<!-- Maximum_queue_size -->
+		<attr i="3">0</attr>	<!-- Allocated_queue_size -->
+		<attr i="4">0xffff</attr>	<!-- Discard_block_counter_reset_interval -->
+		<attr i="5">1</attr>	<!-- Threshold_value_for_discarded_blocks_due_to_buffer_overflow -->
+		<attr i="6">0x8001,6</attr>	<!-- Related_port -->
+		<attr i="7">0x8007</attr>	<!-- Traffic_scheduler_G_pointer -->
+		<attr i="8">1</attr>	<!-- Weight -->
+		<attr i="9">0</attr>	<!-- Back_pressure_operation -->
+		<attr i="10">0</attr>	<!-- Back_pressure_time -->
+		<attr i="11">0</attr>	<!-- Back_pressure_occur_queue_threshold -->
+		<attr i="12">0</attr>	<!-- Back_pressure_clear_queue_threshold -->
+		<attr i="13">0,0,0,0</attr>	<!-- Packet_drop_queue_thresholds -->
+		<attr i="14">255,255</attr>	<!-- Packet_drop_max_p -->
+		<attr i="15">9</attr>	<!-- Queue_drop_w_q -->
+		<attr i="16">0</attr>	<!-- Drop_precedence_colour_marking -->
+	</instance>
+	<instance i="7">
+		<devname>tcont0 ts7(7) pq7</devname>
+		<default_meid>0x8008</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Queue_configuration_option -->
+		<attr i="2">2730</attr>	<!-- Maximum_queue_size -->
+		<attr i="3">0</attr>	<!-- Allocated_queue_size -->
+		<attr i="4">0xffff</attr>	<!-- Discard_block_counter_reset_interval -->
+		<attr i="5">1</attr>	<!-- Threshold_value_for_discarded_blocks_due_to_buffer_overflow -->
+		<attr i="6">0x8001,7</attr>	<!-- Related_port -->
+		<attr i="7">0x8008</attr>	<!-- Traffic_scheduler_G_pointer -->
+		<attr i="8">1</attr>	<!-- Weight -->
+		<attr i="9">0</attr>	<!-- Back_pressure_operation -->
+		<attr i="10">0</attr>	<!-- Back_pressure_time -->
+		<attr i="11">0</attr>	<!-- Back_pressure_occur_queue_threshold -->
+		<attr i="12">0</attr>	<!-- Back_pressure_clear_queue_threshold -->
+		<attr i="13">0,0,0,0</attr>	<!-- Packet_drop_queue_thresholds -->
+		<attr i="14">255,255</attr>	<!-- Packet_drop_max_p -->
+		<attr i="15">9</attr>	<!-- Queue_drop_w_q -->
+		<attr i="16">0</attr>	<!-- Drop_precedence_colour_marking -->
+	</instance>
+<!-- pq for tcont 1 -->
+	<instance i="8">
+		<devname>tcont1 ts0(8) pq8</devname>
+		<default_meid>0x8009</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Queue_configuration_option -->
+		<attr i="2">2730</attr>	<!-- Maximum_queue_size -->
+		<attr i="3">0</attr>	<!-- Allocated_queue_size -->
+		<attr i="4">0xffff</attr>	<!-- Discard_block_counter_reset_interval -->
+		<attr i="5">1</attr>	<!-- Threshold_value_for_discarded_blocks_due_to_buffer_overflow -->
+		<attr i="6">0x8002,0</attr>	<!-- Related_port -->
+		<attr i="7">0x8009</attr>	<!-- Traffic_scheduler_G_pointer -->
+		<attr i="8">1</attr>	<!-- Weight -->
+		<attr i="9">0</attr>	<!-- Back_pressure_operation -->
+		<attr i="10">0</attr>	<!-- Back_pressure_time -->
+		<attr i="11">0</attr>	<!-- Back_pressure_occur_queue_threshold -->
+		<attr i="12">0</attr>	<!-- Back_pressure_clear_queue_threshold -->
+		<attr i="13">0,0,0,0</attr>	<!-- Packet_drop_queue_thresholds -->
+		<attr i="14">255,255</attr>	<!-- Packet_drop_max_p -->
+		<attr i="15">9</attr>	<!-- Queue_drop_w_q -->
+		<attr i="16">0</attr>	<!-- Drop_precedence_colour_marking -->
+	</instance>
+	<instance i="9">
+		<devname>tcont1 ts1(9) pq9</devname>
+		<default_meid>0x800a</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Queue_configuration_option -->
+		<attr i="2">2730</attr>	<!-- Maximum_queue_size -->
+		<attr i="3">0</attr>	<!-- Allocated_queue_size -->
+		<attr i="4">0xffff</attr>	<!-- Discard_block_counter_reset_interval -->
+		<attr i="5">1</attr>	<!-- Threshold_value_for_discarded_blocks_due_to_buffer_overflow -->
+		<attr i="6">0x8002,1</attr>	<!-- Related_port -->
+		<attr i="7">0x800a</attr>	<!-- Traffic_scheduler_G_pointer -->
+		<attr i="8">1</attr>	<!-- Weight -->
+		<attr i="9">0</attr>	<!-- Back_pressure_operation -->
+		<attr i="10">0</attr>	<!-- Back_pressure_time -->
+		<attr i="11">0</attr>	<!-- Back_pressure_occur_queue_threshold -->
+		<attr i="12">0</attr>	<!-- Back_pressure_clear_queue_threshold -->
+		<attr i="13">0,0,0,0</attr>	<!-- Packet_drop_queue_thresholds -->
+		<attr i="14">255,255</attr>	<!-- Packet_drop_max_p -->
+		<attr i="15">9</attr>	<!-- Queue_drop_w_q -->
+		<attr i="16">0</attr>	<!-- Drop_precedence_colour_marking -->
+	</instance>
+	<instance i="10">
+		<devname>tcont1 ts2(10) pq10</devname>
+		<default_meid>0x800b</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Queue_configuration_option -->
+		<attr i="2">2730</attr>	<!-- Maximum_queue_size -->
+		<attr i="3">0</attr>	<!-- Allocated_queue_size -->
+		<attr i="4">0xffff</attr>	<!-- Discard_block_counter_reset_interval -->
+		<attr i="5">1</attr>	<!-- Threshold_value_for_discarded_blocks_due_to_buffer_overflow -->
+		<attr i="6">0x8002,2</attr>	<!-- Related_port -->
+		<attr i="7">0x800b</attr>	<!-- Traffic_scheduler_G_pointer -->
+		<attr i="8">1</attr>	<!-- Weight -->
+		<attr i="9">0</attr>	<!-- Back_pressure_operation -->
+		<attr i="10">0</attr>	<!-- Back_pressure_time -->
+		<attr i="11">0</attr>	<!-- Back_pressure_occur_queue_threshold -->
+		<attr i="12">0</attr>	<!-- Back_pressure_clear_queue_threshold -->
+		<attr i="13">0,0,0,0</attr>	<!-- Packet_drop_queue_thresholds -->
+		<attr i="14">255,255</attr>	<!-- Packet_drop_max_p -->
+		<attr i="15">9</attr>	<!-- Queue_drop_w_q -->
+		<attr i="16">0</attr>	<!-- Drop_precedence_colour_marking -->
+	</instance>
+	<instance i="11">
+		<devname>tcont1 ts3(11) pq11</devname>
+		<default_meid>0x800c</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Queue_configuration_option -->
+		<attr i="2">2730</attr>	<!-- Maximum_queue_size -->
+		<attr i="3">0</attr>	<!-- Allocated_queue_size -->
+		<attr i="4">0xffff</attr>	<!-- Discard_block_counter_reset_interval -->
+		<attr i="5">1</attr>	<!-- Threshold_value_for_discarded_blocks_due_to_buffer_overflow -->
+		<attr i="6">0x8002,3</attr>	<!-- Related_port -->
+		<attr i="7">0x800c</attr>	<!-- Traffic_scheduler_G_pointer -->
+		<attr i="8">1</attr>	<!-- Weight -->
+		<attr i="9">0</attr>	<!-- Back_pressure_operation -->
+		<attr i="10">0</attr>	<!-- Back_pressure_time -->
+		<attr i="11">0</attr>	<!-- Back_pressure_occur_queue_threshold -->
+		<attr i="12">0</attr>	<!-- Back_pressure_clear_queue_threshold -->
+		<attr i="13">0,0,0,0</attr>	<!-- Packet_drop_queue_thresholds -->
+		<attr i="14">255,255</attr>	<!-- Packet_drop_max_p -->
+		<attr i="15">9</attr>	<!-- Queue_drop_w_q -->
+		<attr i="16">0</attr>	<!-- Drop_precedence_colour_marking -->
+	</instance>
+	<instance i="12">
+		<devname>tcont1 ts4(12) pq12</devname>
+		<default_meid>0x800d</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Queue_configuration_option -->
+		<attr i="2">2730</attr>	<!-- Maximum_queue_size -->
+		<attr i="3">0</attr>	<!-- Allocated_queue_size -->
+		<attr i="4">0xffff</attr>	<!-- Discard_block_counter_reset_interval -->
+		<attr i="5">1</attr>	<!-- Threshold_value_for_discarded_blocks_due_to_buffer_overflow -->
+		<attr i="6">0x8002,4</attr>	<!-- Related_port -->
+		<attr i="7">0x800d</attr>	<!-- Traffic_scheduler_G_pointer -->
+		<attr i="8">1</attr>	<!-- Weight -->
+		<attr i="9">0</attr>	<!-- Back_pressure_operation -->
+		<attr i="10">0</attr>	<!-- Back_pressure_time -->
+		<attr i="11">0</attr>	<!-- Back_pressure_occur_queue_threshold -->
+		<attr i="12">0</attr>	<!-- Back_pressure_clear_queue_threshold -->
+		<attr i="13">0,0,0,0</attr>	<!-- Packet_drop_queue_thresholds -->
+		<attr i="14">255,255</attr>	<!-- Packet_drop_max_p -->
+		<attr i="15">9</attr>	<!-- Queue_drop_w_q -->
+		<attr i="16">0</attr>	<!-- Drop_precedence_colour_marking -->
+	</instance>
+	<instance i="13">
+		<devname>tcont1 ts5(13) pq13</devname>
+		<default_meid>0x800e</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Queue_configuration_option -->
+		<attr i="2">2730</attr>	<!-- Maximum_queue_size -->
+		<attr i="3">0</attr>	<!-- Allocated_queue_size -->
+		<attr i="4">0xffff</attr>	<!-- Discard_block_counter_reset_interval -->
+		<attr i="5">1</attr>	<!-- Threshold_value_for_discarded_blocks_due_to_buffer_overflow -->
+		<attr i="6">0x8002,5</attr>	<!-- Related_port -->
+		<attr i="7">0x800e</attr>	<!-- Traffic_scheduler_G_pointer -->
+		<attr i="8">1</attr>	<!-- Weight -->
+		<attr i="9">0</attr>	<!-- Back_pressure_operation -->
+		<attr i="10">0</attr>	<!-- Back_pressure_time -->
+		<attr i="11">0</attr>	<!-- Back_pressure_occur_queue_threshold -->
+		<attr i="12">0</attr>	<!-- Back_pressure_clear_queue_threshold -->
+		<attr i="13">0,0,0,0</attr>	<!-- Packet_drop_queue_thresholds -->
+		<attr i="14">255,255</attr>	<!-- Packet_drop_max_p -->
+		<attr i="15">9</attr>	<!-- Queue_drop_w_q -->
+		<attr i="16">0</attr>	<!-- Drop_precedence_colour_marking -->
+	</instance>
+	<instance i="14">
+		<devname>tcont1 ts6(14) pq14</devname>
+		<default_meid>0x800f</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Queue_configuration_option -->
+		<attr i="2">2730</attr>	<!-- Maximum_queue_size -->
+		<attr i="3">0</attr>	<!-- Allocated_queue_size -->
+		<attr i="4">0xffff</attr>	<!-- Discard_block_counter_reset_interval -->
+		<attr i="5">1</attr>	<!-- Threshold_value_for_discarded_blocks_due_to_buffer_overflow -->
+		<attr i="6">0x8002,6</attr>	<!-- Related_port -->
+		<attr i="7">0x800f</attr>	<!-- Traffic_scheduler_G_pointer -->
+		<attr i="8">1</attr>	<!-- Weight -->
+		<attr i="9">0</attr>	<!-- Back_pressure_operation -->
+		<attr i="10">0</attr>	<!-- Back_pressure_time -->
+		<attr i="11">0</attr>	<!-- Back_pressure_occur_queue_threshold -->
+		<attr i="12">0</attr>	<!-- Back_pressure_clear_queue_threshold -->
+		<attr i="13">0,0,0,0</attr>	<!-- Packet_drop_queue_thresholds -->
+		<attr i="14">255,255</attr>	<!-- Packet_drop_max_p -->
+		<attr i="15">9</attr>	<!-- Queue_drop_w_q -->
+		<attr i="16">0</attr>	<!-- Drop_precedence_colour_marking -->
+	</instance>
+	<instance i="15">
+		<devname>tcont1 ts7(15) pq15</devname>
+		<default_meid>0x8010</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Queue_configuration_option -->
+		<attr i="2">2730</attr>	<!-- Maximum_queue_size -->
+		<attr i="3">0</attr>	<!-- Allocated_queue_size -->
+		<attr i="4">0xffff</attr>	<!-- Discard_block_counter_reset_interval -->
+		<attr i="5">1</attr>	<!-- Threshold_value_for_discarded_blocks_due_to_buffer_overflow -->
+		<attr i="6">0x8002,7</attr>	<!-- Related_port -->
+		<attr i="7">0x8010</attr>	<!-- Traffic_scheduler_G_pointer -->
+		<attr i="8">1</attr>	<!-- Weight -->
+		<attr i="9">0</attr>	<!-- Back_pressure_operation -->
+		<attr i="10">0</attr>	<!-- Back_pressure_time -->
+		<attr i="11">0</attr>	<!-- Back_pressure_occur_queue_threshold -->
+		<attr i="12">0</attr>	<!-- Back_pressure_clear_queue_threshold -->
+		<attr i="13">0,0,0,0</attr>	<!-- Packet_drop_queue_thresholds -->
+		<attr i="14">255,255</attr>	<!-- Packet_drop_max_p -->
+		<attr i="15">9</attr>	<!-- Queue_drop_w_q -->
+		<attr i="16">0</attr>	<!-- Drop_precedence_colour_marking -->
+	</instance>
+<!-- pq for tcont 2 -->
+	<instance i="16">
+		<devname>tcont2 ts0(16) pq16</devname>
+		<default_meid>0x8011</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Queue_configuration_option -->
+		<attr i="2">2730</attr>	<!-- Maximum_queue_size -->
+		<attr i="3">0</attr>	<!-- Allocated_queue_size -->
+		<attr i="4">0xffff</attr>	<!-- Discard_block_counter_reset_interval -->
+		<attr i="5">1</attr>	<!-- Threshold_value_for_discarded_blocks_due_to_buffer_overflow -->
+		<attr i="6">0x8003,0</attr>	<!-- Related_port -->
+		<attr i="7">0x8011</attr>	<!-- Traffic_scheduler_G_pointer -->
+		<attr i="8">1</attr>	<!-- Weight -->
+		<attr i="9">0</attr>	<!-- Back_pressure_operation -->
+		<attr i="10">0</attr>	<!-- Back_pressure_time -->
+		<attr i="11">0</attr>	<!-- Back_pressure_occur_queue_threshold -->
+		<attr i="12">0</attr>	<!-- Back_pressure_clear_queue_threshold -->
+		<attr i="13">0,0,0,0</attr>	<!-- Packet_drop_queue_thresholds -->
+		<attr i="14">255,255</attr>	<!-- Packet_drop_max_p -->
+		<attr i="15">9</attr>	<!-- Queue_drop_w_q -->
+		<attr i="16">0</attr>	<!-- Drop_precedence_colour_marking -->
+	</instance>
+	<instance i="17">
+		<devname>tcont2 ts0(16) pq17</devname>
+		<default_meid>0x8012</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Queue_configuration_option -->
+		<attr i="2">2730</attr>	<!-- Maximum_queue_size -->
+		<attr i="3">0</attr>	<!-- Allocated_queue_size -->
+		<attr i="4">0xffff</attr>	<!-- Discard_block_counter_reset_interval -->
+		<attr i="5">1</attr>	<!-- Threshold_value_for_discarded_blocks_due_to_buffer_overflow -->
+		<attr i="6">0x8003,1</attr>	<!-- Related_port -->
+		<attr i="7">0x8011</attr>	<!-- Traffic_scheduler_G_pointer -->
+		<attr i="8">1</attr>	<!-- Weight -->
+		<attr i="9">0</attr>	<!-- Back_pressure_operation -->
+		<attr i="10">0</attr>	<!-- Back_pressure_time -->
+		<attr i="11">0</attr>	<!-- Back_pressure_occur_queue_threshold -->
+		<attr i="12">0</attr>	<!-- Back_pressure_clear_queue_threshold -->
+		<attr i="13">0,0,0,0</attr>	<!-- Packet_drop_queue_thresholds -->
+		<attr i="14">255,255</attr>	<!-- Packet_drop_max_p -->
+		<attr i="15">9</attr>	<!-- Queue_drop_w_q -->
+		<attr i="16">0</attr>	<!-- Drop_precedence_colour_marking -->
+	</instance>
+	<instance i="18">
+		<devname>tcont2 ts0(16) pq18</devname>
+		<default_meid>0x8013</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Queue_configuration_option -->
+		<attr i="2">2730</attr>	<!-- Maximum_queue_size -->
+		<attr i="3">0</attr>	<!-- Allocated_queue_size -->
+		<attr i="4">0xffff</attr>	<!-- Discard_block_counter_reset_interval -->
+		<attr i="5">1</attr>	<!-- Threshold_value_for_discarded_blocks_due_to_buffer_overflow -->
+		<attr i="6">0x8003,2</attr>	<!-- Related_port -->
+		<attr i="7">0x8011</attr>	<!-- Traffic_scheduler_G_pointer -->
+		<attr i="8">1</attr>	<!-- Weight -->
+		<attr i="9">0</attr>	<!-- Back_pressure_operation -->
+		<attr i="10">0</attr>	<!-- Back_pressure_time -->
+		<attr i="11">0</attr>	<!-- Back_pressure_occur_queue_threshold -->
+		<attr i="12">0</attr>	<!-- Back_pressure_clear_queue_threshold -->
+		<attr i="13">0,0,0,0</attr>	<!-- Packet_drop_queue_thresholds -->
+		<attr i="14">255,255</attr>	<!-- Packet_drop_max_p -->
+		<attr i="15">9</attr>	<!-- Queue_drop_w_q -->
+		<attr i="16">0</attr>	<!-- Drop_precedence_colour_marking -->
+	</instance>
+	<instance i="19">
+		<devname>tcont2 ts0(16) pq19</devname>
+		<default_meid>0x8014</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Queue_configuration_option -->
+		<attr i="2">2730</attr>	<!-- Maximum_queue_size -->
+		<attr i="3">0</attr>	<!-- Allocated_queue_size -->
+		<attr i="4">0xffff</attr>	<!-- Discard_block_counter_reset_interval -->
+		<attr i="5">1</attr>	<!-- Threshold_value_for_discarded_blocks_due_to_buffer_overflow -->
+		<attr i="6">0x8003,3</attr>	<!-- Related_port -->
+		<attr i="7">0x8011</attr>	<!-- Traffic_scheduler_G_pointer -->
+		<attr i="8">1</attr>	<!-- Weight -->
+		<attr i="9">0</attr>	<!-- Back_pressure_operation -->
+		<attr i="10">0</attr>	<!-- Back_pressure_time -->
+		<attr i="11">0</attr>	<!-- Back_pressure_occur_queue_threshold -->
+		<attr i="12">0</attr>	<!-- Back_pressure_clear_queue_threshold -->
+		<attr i="13">0,0,0,0</attr>	<!-- Packet_drop_queue_thresholds -->
+		<attr i="14">255,255</attr>	<!-- Packet_drop_max_p -->
+		<attr i="15">9</attr>	<!-- Queue_drop_w_q -->
+		<attr i="16">0</attr>	<!-- Drop_precedence_colour_marking -->
+	</instance>
+	<instance i="20">
+		<devname>tcont2 ts0(16) pq20</devname>
+		<default_meid>0x8015</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Queue_configuration_option -->
+		<attr i="2">2730</attr>	<!-- Maximum_queue_size -->
+		<attr i="3">0</attr>	<!-- Allocated_queue_size -->
+		<attr i="4">0xffff</attr>	<!-- Discard_block_counter_reset_interval -->
+		<attr i="5">1</attr>	<!-- Threshold_value_for_discarded_blocks_due_to_buffer_overflow -->
+		<attr i="6">0x8003,4</attr>	<!-- Related_port -->
+		<attr i="7">0x8011</attr>	<!-- Traffic_scheduler_G_pointer -->
+		<attr i="8">1</attr>	<!-- Weight -->
+		<attr i="9">0</attr>	<!-- Back_pressure_operation -->
+		<attr i="10">0</attr>	<!-- Back_pressure_time -->
+		<attr i="11">0</attr>	<!-- Back_pressure_occur_queue_threshold -->
+		<attr i="12">0</attr>	<!-- Back_pressure_clear_queue_threshold -->
+		<attr i="13">0,0,0,0</attr>	<!-- Packet_drop_queue_thresholds -->
+		<attr i="14">255,255</attr>	<!-- Packet_drop_max_p -->
+		<attr i="15">9</attr>	<!-- Queue_drop_w_q -->
+		<attr i="16">0</attr>	<!-- Drop_precedence_colour_marking -->
+	</instance>
+	<instance i="21">
+		<devname>tcont2 ts0(16) pq21</devname>
+		<default_meid>0x8016</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Queue_configuration_option -->
+		<attr i="2">2730</attr>	<!-- Maximum_queue_size -->
+		<attr i="3">0</attr>	<!-- Allocated_queue_size -->
+		<attr i="4">0xffff</attr>	<!-- Discard_block_counter_reset_interval -->
+		<attr i="5">1</attr>	<!-- Threshold_value_for_discarded_blocks_due_to_buffer_overflow -->
+		<attr i="6">0x8003,5</attr>	<!-- Related_port -->
+		<attr i="7">0x8011</attr>	<!-- Traffic_scheduler_G_pointer -->
+		<attr i="8">1</attr>	<!-- Weight -->
+		<attr i="9">0</attr>	<!-- Back_pressure_operation -->
+		<attr i="10">0</attr>	<!-- Back_pressure_time -->
+		<attr i="11">0</attr>	<!-- Back_pressure_occur_queue_threshold -->
+		<attr i="12">0</attr>	<!-- Back_pressure_clear_queue_threshold -->
+		<attr i="13">0,0,0,0</attr>	<!-- Packet_drop_queue_thresholds -->
+		<attr i="14">255,255</attr>	<!-- Packet_drop_max_p -->
+		<attr i="15">9</attr>	<!-- Queue_drop_w_q -->
+		<attr i="16">0</attr>	<!-- Drop_precedence_colour_marking -->
+	</instance>
+	<instance i="22">
+		<devname>tcont2 ts0(16) pq22</devname>
+		<default_meid>0x8017</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Queue_configuration_option -->
+		<attr i="2">2730</attr>	<!-- Maximum_queue_size -->
+		<attr i="3">0</attr>	<!-- Allocated_queue_size -->
+		<attr i="4">0xffff</attr>	<!-- Discard_block_counter_reset_interval -->
+		<attr i="5">1</attr>	<!-- Threshold_value_for_discarded_blocks_due_to_buffer_overflow -->
+		<attr i="6">0x8003,6</attr>	<!-- Related_port -->
+		<attr i="7">0x8011</attr>	<!-- Traffic_scheduler_G_pointer -->
+		<attr i="8">1</attr>	<!-- Weight -->
+		<attr i="9">0</attr>	<!-- Back_pressure_operation -->
+		<attr i="10">0</attr>	<!-- Back_pressure_time -->
+		<attr i="11">0</attr>	<!-- Back_pressure_occur_queue_threshold -->
+		<attr i="12">0</attr>	<!-- Back_pressure_clear_queue_threshold -->
+		<attr i="13">0,0,0,0</attr>	<!-- Packet_drop_queue_thresholds -->
+		<attr i="14">255,255</attr>	<!-- Packet_drop_max_p -->
+		<attr i="15">9</attr>	<!-- Queue_drop_w_q -->
+		<attr i="16">0</attr>	<!-- Drop_precedence_colour_marking -->
+	</instance>
+	<instance i="23">
+		<devname>tcont2 ts0(16) pq23</devname>
+		<default_meid>0x8018</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Queue_configuration_option -->
+		<attr i="2">2730</attr>	<!-- Maximum_queue_size -->
+		<attr i="3">0</attr>	<!-- Allocated_queue_size -->
+		<attr i="4">0xffff</attr>	<!-- Discard_block_counter_reset_interval -->
+		<attr i="5">1</attr>	<!-- Threshold_value_for_discarded_blocks_due_to_buffer_overflow -->
+		<attr i="6">0x8003,7</attr>	<!-- Related_port -->
+		<attr i="7">0x8011</attr>	<!-- Traffic_scheduler_G_pointer -->
+		<attr i="8">1</attr>	<!-- Weight -->
+		<attr i="9">0</attr>	<!-- Back_pressure_operation -->
+		<attr i="10">0</attr>	<!-- Back_pressure_time -->
+		<attr i="11">0</attr>	<!-- Back_pressure_occur_queue_threshold -->
+		<attr i="12">0</attr>	<!-- Back_pressure_clear_queue_threshold -->
+		<attr i="13">0,0,0,0</attr>	<!-- Packet_drop_queue_thresholds -->
+		<attr i="14">255,255</attr>	<!-- Packet_drop_max_p -->
+		<attr i="15">9</attr>	<!-- Queue_drop_w_q -->
+		<attr i="16">0</attr>	<!-- Drop_precedence_colour_marking -->
+	</instance>
+<!-- pq for tcont 3 -->
+	<instance i="24">
+		<devname>tcont3 ts0(24) pq24</devname>
+		<default_meid>0x8019</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Queue_configuration_option -->
+		<attr i="2">2730</attr>	<!-- Maximum_queue_size -->
+		<attr i="3">0</attr>	<!-- Allocated_queue_size -->
+		<attr i="4">0xffff</attr>	<!-- Discard_block_counter_reset_interval -->
+		<attr i="5">1</attr>	<!-- Threshold_value_for_discarded_blocks_due_to_buffer_overflow -->
+		<attr i="6">0x8004,0</attr>	<!-- Related_port -->
+		<attr i="7">0x8019</attr>	<!-- Traffic_scheduler_G_pointer -->
+		<attr i="8">1</attr>	<!-- Weight -->
+		<attr i="9">0</attr>	<!-- Back_pressure_operation -->
+		<attr i="10">0</attr>	<!-- Back_pressure_time -->
+		<attr i="11">0</attr>	<!-- Back_pressure_occur_queue_threshold -->
+		<attr i="12">0</attr>	<!-- Back_pressure_clear_queue_threshold -->
+		<attr i="13">0,0,0,0</attr>	<!-- Packet_drop_queue_thresholds -->
+		<attr i="14">255,255</attr>	<!-- Packet_drop_max_p -->
+		<attr i="15">9</attr>	<!-- Queue_drop_w_q -->
+		<attr i="16">0</attr>	<!-- Drop_precedence_colour_marking -->
+	</instance>
+	<instance i="25">
+		<devname>tcont3 ts0(24) pq25</devname>
+		<default_meid>0x801a</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Queue_configuration_option -->
+		<attr i="2">2730</attr>	<!-- Maximum_queue_size -->
+		<attr i="3">0</attr>	<!-- Allocated_queue_size -->
+		<attr i="4">0xffff</attr>	<!-- Discard_block_counter_reset_interval -->
+		<attr i="5">1</attr>	<!-- Threshold_value_for_discarded_blocks_due_to_buffer_overflow -->
+		<attr i="6">0x8004,1</attr>	<!-- Related_port -->
+		<attr i="7">0x8019</attr>	<!-- Traffic_scheduler_G_pointer -->
+		<attr i="8">1</attr>	<!-- Weight -->
+		<attr i="9">0</attr>	<!-- Back_pressure_operation -->
+		<attr i="10">0</attr>	<!-- Back_pressure_time -->
+		<attr i="11">0</attr>	<!-- Back_pressure_occur_queue_threshold -->
+		<attr i="12">0</attr>	<!-- Back_pressure_clear_queue_threshold -->
+		<attr i="13">0,0,0,0</attr>	<!-- Packet_drop_queue_thresholds -->
+		<attr i="14">255,255</attr>	<!-- Packet_drop_max_p -->
+		<attr i="15">9</attr>	<!-- Queue_drop_w_q -->
+		<attr i="16">0</attr>	<!-- Drop_precedence_colour_marking -->
+	</instance>
+	<instance i="26">
+		<devname>tcont3 ts0(24) pq26</devname>
+		<default_meid>0x801b</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Queue_configuration_option -->
+		<attr i="2">2730</attr>	<!-- Maximum_queue_size -->
+		<attr i="3">0</attr>	<!-- Allocated_queue_size -->
+		<attr i="4">0xffff</attr>	<!-- Discard_block_counter_reset_interval -->
+		<attr i="5">1</attr>	<!-- Threshold_value_for_discarded_blocks_due_to_buffer_overflow -->
+		<attr i="6">0x8004,2</attr>	<!-- Related_port -->
+		<attr i="7">0x8019</attr>	<!-- Traffic_scheduler_G_pointer -->
+		<attr i="8">1</attr>	<!-- Weight -->
+		<attr i="9">0</attr>	<!-- Back_pressure_operation -->
+		<attr i="10">0</attr>	<!-- Back_pressure_time -->
+		<attr i="11">0</attr>	<!-- Back_pressure_occur_queue_threshold -->
+		<attr i="12">0</attr>	<!-- Back_pressure_clear_queue_threshold -->
+		<attr i="13">0,0,0,0</attr>	<!-- Packet_drop_queue_thresholds -->
+		<attr i="14">255,255</attr>	<!-- Packet_drop_max_p -->
+		<attr i="15">9</attr>	<!-- Queue_drop_w_q -->
+		<attr i="16">0</attr>	<!-- Drop_precedence_colour_marking -->
+	</instance>
+	<instance i="27">
+		<devname>tcont3 ts0(24) pq27</devname>
+		<default_meid>0x801c</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Queue_configuration_option -->
+		<attr i="2">2730</attr>	<!-- Maximum_queue_size -->
+		<attr i="3">0</attr>	<!-- Allocated_queue_size -->
+		<attr i="4">0xffff</attr>	<!-- Discard_block_counter_reset_interval -->
+		<attr i="5">1</attr>	<!-- Threshold_value_for_discarded_blocks_due_to_buffer_overflow -->
+		<attr i="6">0x8004,3</attr>	<!-- Related_port -->
+		<attr i="7">0x8019</attr>	<!-- Traffic_scheduler_G_pointer -->
+		<attr i="8">1</attr>	<!-- Weight -->
+		<attr i="9">0</attr>	<!-- Back_pressure_operation -->
+		<attr i="10">0</attr>	<!-- Back_pressure_time -->
+		<attr i="11">0</attr>	<!-- Back_pressure_occur_queue_threshold -->
+		<attr i="12">0</attr>	<!-- Back_pressure_clear_queue_threshold -->
+		<attr i="13">0,0,0,0</attr>	<!-- Packet_drop_queue_thresholds -->
+		<attr i="14">255,255</attr>	<!-- Packet_drop_max_p -->
+		<attr i="15">9</attr>	<!-- Queue_drop_w_q -->
+		<attr i="16">0</attr>	<!-- Drop_precedence_colour_marking -->
+	</instance>
+	<instance i="28">
+		<devname>tcont3 ts0(24) pq28</devname>
+		<default_meid>0x801d</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Queue_configuration_option -->
+		<attr i="2">2730</attr>	<!-- Maximum_queue_size -->
+		<attr i="3">0</attr>	<!-- Allocated_queue_size -->
+		<attr i="4">0xffff</attr>	<!-- Discard_block_counter_reset_interval -->
+		<attr i="5">1</attr>	<!-- Threshold_value_for_discarded_blocks_due_to_buffer_overflow -->
+		<attr i="6">0x8004,4</attr>	<!-- Related_port -->
+		<attr i="7">0x8019</attr>	<!-- Traffic_scheduler_G_pointer -->
+		<attr i="8">1</attr>	<!-- Weight -->
+		<attr i="9">0</attr>	<!-- Back_pressure_operation -->
+		<attr i="10">0</attr>	<!-- Back_pressure_time -->
+		<attr i="11">0</attr>	<!-- Back_pressure_occur_queue_threshold -->
+		<attr i="12">0</attr>	<!-- Back_pressure_clear_queue_threshold -->
+		<attr i="13">0,0,0,0</attr>	<!-- Packet_drop_queue_thresholds -->
+		<attr i="14">255,255</attr>	<!-- Packet_drop_max_p -->
+		<attr i="15">9</attr>	<!-- Queue_drop_w_q -->
+		<attr i="16">0</attr>	<!-- Drop_precedence_colour_marking -->
+	</instance>
+	<instance i="29">
+		<devname>tcont3 ts0(24) pq29</devname>
+		<default_meid>0x801e</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Queue_configuration_option -->
+		<attr i="2">2730</attr>	<!-- Maximum_queue_size -->
+		<attr i="3">0</attr>	<!-- Allocated_queue_size -->
+		<attr i="4">0xffff</attr>	<!-- Discard_block_counter_reset_interval -->
+		<attr i="5">1</attr>	<!-- Threshold_value_for_discarded_blocks_due_to_buffer_overflow -->
+		<attr i="6">0x8004,5</attr>	<!-- Related_port -->
+		<attr i="7">0x8019</attr>	<!-- Traffic_scheduler_G_pointer -->
+		<attr i="8">1</attr>	<!-- Weight -->
+		<attr i="9">0</attr>	<!-- Back_pressure_operation -->
+		<attr i="10">0</attr>	<!-- Back_pressure_time -->
+		<attr i="11">0</attr>	<!-- Back_pressure_occur_queue_threshold -->
+		<attr i="12">0</attr>	<!-- Back_pressure_clear_queue_threshold -->
+		<attr i="13">0,0,0,0</attr>	<!-- Packet_drop_queue_thresholds -->
+		<attr i="14">255,255</attr>	<!-- Packet_drop_max_p -->
+		<attr i="15">9</attr>	<!-- Queue_drop_w_q -->
+		<attr i="16">0</attr>	<!-- Drop_precedence_colour_marking -->
+	</instance>
+	<instance i="30">
+		<devname>tcont3 ts0(24) pq30</devname>
+		<default_meid>0x801f</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Queue_configuration_option -->
+		<attr i="2">2730</attr>	<!-- Maximum_queue_size -->
+		<attr i="3">0</attr>	<!-- Allocated_queue_size -->
+		<attr i="4">0xffff</attr>	<!-- Discard_block_counter_reset_interval -->
+		<attr i="5">1</attr>	<!-- Threshold_value_for_discarded_blocks_due_to_buffer_overflow -->
+		<attr i="6">0x8004,6</attr>	<!-- Related_port -->
+		<attr i="7">0x8019</attr>	<!-- Traffic_scheduler_G_pointer -->
+		<attr i="8">1</attr>	<!-- Weight -->
+		<attr i="9">0</attr>	<!-- Back_pressure_operation -->
+		<attr i="10">0</attr>	<!-- Back_pressure_time -->
+		<attr i="11">0</attr>	<!-- Back_pressure_occur_queue_threshold -->
+		<attr i="12">0</attr>	<!-- Back_pressure_clear_queue_threshold -->
+		<attr i="13">0,0,0,0</attr>	<!-- Packet_drop_queue_thresholds -->
+		<attr i="14">255,255</attr>	<!-- Packet_drop_max_p -->
+		<attr i="15">9</attr>	<!-- Queue_drop_w_q -->
+		<attr i="16">0</attr>	<!-- Drop_precedence_colour_marking -->
+	</instance>
+	<instance i="31">
+		<devname>tcont3 ts0(24) pq31</devname>
+		<default_meid>0x8020</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Queue_configuration_option -->
+		<attr i="2">2730</attr>	<!-- Maximum_queue_size -->
+		<attr i="3">0</attr>	<!-- Allocated_queue_size -->
+		<attr i="4">0xffff</attr>	<!-- Discard_block_counter_reset_interval -->
+		<attr i="5">1</attr>	<!-- Threshold_value_for_discarded_blocks_due_to_buffer_overflow -->
+		<attr i="6">0x8004,7</attr>	<!-- Related_port -->
+		<attr i="7">0x8019</attr>	<!-- Traffic_scheduler_G_pointer -->
+		<attr i="8">1</attr>	<!-- Weight -->
+		<attr i="9">0</attr>	<!-- Back_pressure_operation -->
+		<attr i="10">0</attr>	<!-- Back_pressure_time -->
+		<attr i="11">0</attr>	<!-- Back_pressure_occur_queue_threshold -->
+		<attr i="12">0</attr>	<!-- Back_pressure_clear_queue_threshold -->
+		<attr i="13">0,0,0,0</attr>	<!-- Packet_drop_queue_thresholds -->
+		<attr i="14">255,255</attr>	<!-- Packet_drop_max_p -->
+		<attr i="15">9</attr>	<!-- Queue_drop_w_q -->
+		<attr i="16">0</attr>	<!-- Drop_precedence_colour_marking -->
+	</instance>
+</class>
+
+
+<class id="278" attr_total="4">	<!-- Traffic_scheduler_G, 9.11.2 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>32</instance_total_max>
+<!-- tcont 0, ts 0(0)..7(7) -->
+	<instance i="0">
+		<devname>tcont0 ts0</devname>
+		<default_meid>0x8001</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x8001</attr>	<!-- T_CONT_pointer -->
+		<attr i="2">0</attr>	<!-- Traffic_scheduler_pointer -->
+		<attr i="3">1</attr>	<!-- Policy, 0:null, 1:HOL, 2:WRR -->
+		<attr i="4">0</attr>	<!-- Priority/weight -->
+	</instance>
+	<instance i="1">
+		<devname>tcont0 ts1</devname>
+		<default_meid>0x8002</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x8001</attr>	<!-- T_CONT_pointer -->
+		<attr i="2">0</attr>	<!-- Traffic_scheduler_pointer -->
+		<attr i="3">1</attr>	<!-- Policy, 0:null, 1:HOL, 2:WRR -->
+		<attr i="4">1</attr>	<!-- Priority/weight -->
+	</instance>
+	<instance i="2">
+		<devname>tcont0 ts2</devname>
+		<default_meid>0x8003</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x8001</attr>	<!-- T_CONT_pointer -->
+		<attr i="2">0</attr>	<!-- Traffic_scheduler_pointer -->
+		<attr i="3">1</attr>	<!-- Policy, 0:null, 1:HOL, 2:WRR -->
+		<attr i="4">2</attr>	<!-- Priority/weight -->
+	</instance>
+	<instance i="3">
+		<devname>tcont0 ts3</devname>
+		<default_meid>0x8004</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x8001</attr>	<!-- T_CONT_pointer -->
+		<attr i="2">0</attr>	<!-- Traffic_scheduler_pointer -->
+		<attr i="3">1</attr>	<!-- Policy, 0:null, 1:HOL, 2:WRR -->
+		<attr i="4">3</attr>	<!-- Priority/weight -->
+	</instance>
+	<instance i="4">
+		<devname>tcont0 ts4</devname>
+		<default_meid>0x8005</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x8001</attr>	<!-- T_CONT_pointer -->
+		<attr i="2">0</attr>	<!-- Traffic_scheduler_pointer -->
+		<attr i="3">1</attr>	<!-- Policy, 0:null, 1:HOL, 2:WRR -->
+		<attr i="4">4</attr>	<!-- Priority/weight -->
+	</instance>
+	<instance i="5">
+		<devname>tcont0 ts5</devname>
+		<default_meid>0x8006</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x8001</attr>	<!-- T_CONT_pointer -->
+		<attr i="2">0</attr>	<!-- Traffic_scheduler_pointer -->
+		<attr i="3">1</attr>	<!-- Policy, 0:null, 1:HOL, 2:WRR -->
+		<attr i="4">5</attr>	<!-- Priority/weight -->
+	</instance>
+	<instance i="6">
+		<devname>tcont0 ts6</devname>
+		<default_meid>0x8007</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x8001</attr>	<!-- T_CONT_pointer -->
+		<attr i="2">0</attr>	<!-- Traffic_scheduler_pointer -->
+		<attr i="3">1</attr>	<!-- Policy, 0:null, 1:HOL, 2:WRR -->
+		<attr i="4">6</attr>	<!-- Priority/weight -->
+	</instance>
+	<instance i="7">
+		<devname>tcont0 ts7</devname>
+		<default_meid>0x8008</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x8001</attr>	<!-- T_CONT_pointer -->
+		<attr i="2">0</attr>	<!-- Traffic_scheduler_pointer -->
+		<attr i="3">1</attr>	<!-- Policy, 0:null, 1:HOL, 2:WRR -->
+		<attr i="4">7</attr>	<!-- Priority/weight -->
+	</instance>
+<!-- tcont 1, ts 0(8)..7(15) -->
+	<instance i="8">
+		<devname>tcont1 ts0</devname>
+		<default_meid>0x8009</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x8002</attr>	<!-- T_CONT_pointer -->
+		<attr i="2">0</attr>	<!-- Traffic_scheduler_pointer -->
+		<attr i="3">1</attr>	<!-- Policy, 0:null, 1:HOL, 2:WRR -->
+		<attr i="4">0</attr>	<!-- Priority/weight -->
+	</instance>
+	<instance i="9">
+		<devname>tcont1 ts1</devname>
+		<default_meid>0x800a</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x8002</attr>	<!-- T_CONT_pointer -->
+		<attr i="2">0</attr>	<!-- Traffic_scheduler_pointer -->
+		<attr i="3">1</attr>	<!-- Policy, 0:null, 1:HOL, 2:WRR -->
+		<attr i="4">1</attr>	<!-- Priority/weight -->
+	</instance>
+	<instance i="10">
+		<devname>tcont1 ts2</devname>
+		<default_meid>0x800b</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x8002</attr>	<!-- T_CONT_pointer -->
+		<attr i="2">0</attr>	<!-- Traffic_scheduler_pointer -->
+		<attr i="3">1</attr>	<!-- Policy, 0:null, 1:HOL, 2:WRR -->
+		<attr i="4">2</attr>	<!-- Priority/weight -->
+	</instance>
+	<instance i="11">
+		<devname>tcont1 ts3</devname>
+		<default_meid>0x800c</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x8002</attr>	<!-- T_CONT_pointer -->
+		<attr i="2">0</attr>	<!-- Traffic_scheduler_pointer -->
+		<attr i="3">1</attr>	<!-- Policy, 0:null, 1:HOL, 2:WRR -->
+		<attr i="4">3</attr>	<!-- Priority/weight -->
+	</instance>
+	<instance i="12">
+		<devname>tcont1 ts4</devname>
+		<default_meid>0x800d</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x8002</attr>	<!-- T_CONT_pointer -->
+		<attr i="2">0</attr>	<!-- Traffic_scheduler_pointer -->
+		<attr i="3">1</attr>	<!-- Policy, 0:null, 1:HOL, 2:WRR -->
+		<attr i="4">4</attr>	<!-- Priority/weight -->
+	</instance>
+	<instance i="13">
+		<devname>tcont1 ts5</devname>
+		<default_meid>0x800e</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x8002</attr>	<!-- T_CONT_pointer -->
+		<attr i="2">0</attr>	<!-- Traffic_scheduler_pointer -->
+		<attr i="3">1</attr>	<!-- Policy, 0:null, 1:HOL, 2:WRR -->
+		<attr i="4">5</attr>	<!-- Priority/weight -->
+	</instance>
+	<instance i="14">
+		<devname>tcont1 ts6</devname>
+		<default_meid>0x800f</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x8002</attr>	<!-- T_CONT_pointer -->
+		<attr i="2">0</attr>	<!-- Traffic_scheduler_pointer -->
+		<attr i="3">1</attr>	<!-- Policy, 0:null, 1:HOL, 2:WRR -->
+		<attr i="4">6</attr>	<!-- Priority/weight -->
+	</instance>
+	<instance i="15">
+		<devname>tcont1 ts7</devname>
+		<default_meid>0x8010</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x8002</attr>	<!-- T_CONT_pointer -->
+		<attr i="2">0</attr>	<!-- Traffic_scheduler_pointer -->
+		<attr i="3">1</attr>	<!-- Policy, 0:null, 1:HOL, 2:WRR -->
+		<attr i="4">7</attr>	<!-- Priority/weight -->
+	</instance>
+<!-- tcont 2, ts 0(16)..7(23) -->
+	<instance i="16">
+		<devname>tcont2 ts0</devname>
+		<default_meid>0x8011</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x8003</attr>	<!-- T_CONT_pointer -->
+		<attr i="2">0</attr>	<!-- Traffic_scheduler_pointer -->
+		<attr i="3">1</attr>	<!-- Policy, 0:null, 1:HOL, 2:WRR -->
+		<attr i="4">0</attr>	<!-- Priority/weight -->
+	</instance>
+	<instance i="17">
+		<devname>tcont2 ts1</devname>
+		<default_meid>0x8012</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x8003</attr>	<!-- T_CONT_pointer -->
+		<attr i="2">0</attr>	<!-- Traffic_scheduler_pointer -->
+		<attr i="3">1</attr>	<!-- Policy, 0:null, 1:HOL, 2:WRR -->
+		<attr i="4">1</attr>	<!-- Priority/weight -->
+	</instance>
+	<instance i="18">
+		<devname>tcont2 ts2</devname>
+		<default_meid>0x8013</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x8003</attr>	<!-- T_CONT_pointer -->
+		<attr i="2">0</attr>	<!-- Traffic_scheduler_pointer -->
+		<attr i="3">1</attr>	<!-- Policy, 0:null, 1:HOL, 2:WRR -->
+		<attr i="4">2</attr>	<!-- Priority/weight -->
+	</instance>
+	<instance i="19">
+		<devname>tcont2 ts3</devname>
+		<default_meid>0x8014</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x8003</attr>	<!-- T_CONT_pointer -->
+		<attr i="2">0</attr>	<!-- Traffic_scheduler_pointer -->
+		<attr i="3">1</attr>	<!-- Policy, 0:null, 1:HOL, 2:WRR -->
+		<attr i="4">3</attr>	<!-- Priority/weight -->
+	</instance>
+	<instance i="20">
+		<devname>tcont2 ts4</devname>
+		<default_meid>0x8015</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x8003</attr>	<!-- T_CONT_pointer -->
+		<attr i="2">0</attr>	<!-- Traffic_scheduler_pointer -->
+		<attr i="3">1</attr>	<!-- Policy, 0:null, 1:HOL, 2:WRR -->
+		<attr i="4">4</attr>	<!-- Priority/weight -->
+	</instance>
+	<instance i="21">
+		<devname>tcont2 ts5</devname>
+		<default_meid>0x8016</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x8003</attr>	<!-- T_CONT_pointer -->
+		<attr i="2">0</attr>	<!-- Traffic_scheduler_pointer -->
+		<attr i="3">1</attr>	<!-- Policy, 0:null, 1:HOL, 2:WRR -->
+		<attr i="4">5</attr>	<!-- Priority/weight -->
+	</instance>
+	<instance i="22">
+		<devname>tcont2 ts6</devname>
+		<default_meid>0x8017</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x8003</attr>	<!-- T_CONT_pointer -->
+		<attr i="2">0</attr>	<!-- Traffic_scheduler_pointer -->
+		<attr i="3">1</attr>	<!-- Policy, 0:null, 1:HOL, 2:WRR -->
+		<attr i="4">6</attr>	<!-- Priority/weight -->
+	</instance>
+	<instance i="23">
+		<devname>tcont2 ts7</devname>
+		<default_meid>0x8018</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x8003</attr>	<!-- T_CONT_pointer -->
+		<attr i="2">0</attr>	<!-- Traffic_scheduler_pointer -->
+		<attr i="3">1</attr>	<!-- Policy, 0:null, 1:HOL, 2:WRR -->
+		<attr i="4">7</attr>	<!-- Priority/weight -->
+	</instance>
+<!-- tcont 3, ts 0(24)..7(31) -->
+	<instance i="24">
+		<devname>tcont3 ts0</devname>
+		<default_meid>0x8019</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x8004</attr>	<!-- T_CONT_pointer -->
+		<attr i="2">0</attr>	<!-- Traffic_scheduler_pointer -->
+		<attr i="3">1</attr>	<!-- Policy, 0:null, 1:HOL, 2:WRR -->
+		<attr i="4">0</attr>	<!-- Priority/weight -->
+	</instance>
+	<instance i="25">
+		<devname>tcont3 ts1</devname>
+		<default_meid>0x801a</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x8004</attr>	<!-- T_CONT_pointer -->
+		<attr i="2">0</attr>	<!-- Traffic_scheduler_pointer -->
+		<attr i="3">1</attr>	<!-- Policy, 0:null, 1:HOL, 2:WRR -->
+		<attr i="4">1</attr>	<!-- Priority/weight -->
+	</instance>
+	<instance i="26">
+		<devname>tcont3 ts2</devname>
+		<default_meid>0x801b</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x8004</attr>	<!-- T_CONT_pointer -->
+		<attr i="2">0</attr>	<!-- Traffic_scheduler_pointer -->
+		<attr i="3">1</attr>	<!-- Policy, 0:null, 1:HOL, 2:WRR -->
+		<attr i="4">2</attr>	<!-- Priority/weight -->
+	</instance>
+	<instance i="27">
+		<devname>tcont3 ts3</devname>
+		<default_meid>0x801c</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x8004</attr>	<!-- T_CONT_pointer -->
+		<attr i="2">0</attr>	<!-- Traffic_scheduler_pointer -->
+		<attr i="3">1</attr>	<!-- Policy, 0:null, 1:HOL, 2:WRR -->
+		<attr i="4">3</attr>	<!-- Priority/weight -->
+	</instance>
+	<instance i="28">
+		<devname>tcont3 ts4</devname>
+		<default_meid>0x801d</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x8004</attr>	<!-- T_CONT_pointer -->
+		<attr i="2">0</attr>	<!-- Traffic_scheduler_pointer -->
+		<attr i="3">1</attr>	<!-- Policy, 0:null, 1:HOL, 2:WRR -->
+		<attr i="4">4</attr>	<!-- Priority/weight -->
+	</instance>
+	<instance i="29">
+		<devname>tcont3 ts5</devname>
+		<default_meid>0x801e</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x8004</attr>	<!-- T_CONT_pointer -->
+		<attr i="2">0</attr>	<!-- Traffic_scheduler_pointer -->
+		<attr i="3">1</attr>	<!-- Policy, 0:null, 1:HOL, 2:WRR -->
+		<attr i="4">5</attr>	<!-- Priority/weight -->
+	</instance>
+	<instance i="30">
+		<devname>tcont3 ts6</devname>
+		<default_meid>0x801f</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x8004</attr>	<!-- T_CONT_pointer -->
+		<attr i="2">0</attr>	<!-- Traffic_scheduler_pointer -->
+		<attr i="3">1</attr>	<!-- Policy, 0:null, 1:HOL, 2:WRR -->
+		<attr i="4">6</attr>	<!-- Priority/weight -->
+	</instance>
+	<instance i="31">
+		<devname>tcont3 ts7</devname>
+		<default_meid>0x8020</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x8004</attr>	<!-- T_CONT_pointer -->
+		<attr i="2">0</attr>	<!-- Traffic_scheduler_pointer -->
+		<attr i="3">1</attr>	<!-- Policy, 0:null, 1:HOL, 2:WRR -->
+		<attr i="4">7</attr>	<!-- Priority/weight -->
+	</instance>
+</class>
+
+<class id="280" attr_total="8">	<!-- GEM_traffic_descriptor, 9.11.3 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- CIR -->
+		<attr i="2"></attr>	<!-- PIR -->
+		<attr i="3"></attr>	<!-- CBS -->
+		<attr i="4"></attr>	<!-- PBS -->
+		<attr i="5"></attr>	<!-- Colour_mode -->
+		<attr i="6"></attr>	<!-- Ingress_colour_marking -->
+		<attr i="7"></attr>	<!-- Egress_colour_marking -->
+		<attr i="8"></attr>	<!-- Meter_type -->
+	</instance>
+</class>
+
+</omci>
+

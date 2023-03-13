@@ -1,0 +1,2106 @@
+<omci name="General purpose MEs" section="9.12">
+
+<class id="264" attr_total="5" name="UNI_G" section="9.12.1">
+	<required>cr</required>
+	<access>ont</access>
+	<action>get,set</action>
+	<avc_list></avc_list>
+	<alarm_list></alarm_list>
+	<is_private>0</is_private>
+	<related_ready_class_list></related_ready_class_list>
+
+	<attr i="1" name="Configuration_option_status">
+		<format>bit field</format>
+                <attrinfo_bitfield field_total="5">
+                        <field_bit_width i="0" vformat="unsigned integer" name="Reserved">12</field_bit_width>
+                        <field_bit_width i="1" vformat="unsigned integer" name="Server_trail_fault_propagation_GAL_layer">1</field_bit_width>
+                        <field_bit_width i="2" vformat="unsigned integer" name="Server_trail_fault_propagation_PHY_layer">1</field_bit_width>
+                        <field_bit_width i="3" vformat="unsigned integer" name="Server_trail_fault_propagation_TC_layer">1</field_bit_width>
+                        <field_bit_width i="4" vformat="unsigned integer" name="Reserved">1</field_bit_width>
+                </attrinfo_bitfield>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>2</byte_size>
+		<default_value>0,1,1,1,0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="2" name="Administrative_state">
+		<format>enumeration</format>	<!-- 0:unlock, 1:locked -->
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>1</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list>0,1</code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="3" name="Management_capability">
+		<format>enumeration</format>	<!-- 0:OMCI only, 1:Non-OMCI only, 2:Both OMCI and non-OMCI -->
+		<access_bitmap>r</access_bitmap>
+		<necessity>optional</necessity>
+		<byte_size>1</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list>0,1,2</code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>1</is_related_key>
+	</attr>
+
+	<attr i="4" name="Non-OMCI_management_identifier">
+		<format>pointer</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>optional</necessity>
+		<byte_size>2</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id>329</pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>1</is_related_key>
+	</attr>
+
+	<attr i="5" name="DHCP_Option82_String">
+		<format>pointer</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>optional</necessity>
+		<byte_size>2</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id>157</pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>1</is_related_key>
+	</attr>
+</class>
+
+
+<class id="131" attr_total="4" name="OLT_G" section="9.12.2">
+	<required>o</required>
+	<access>ont</access>
+	<action>get,set</action>
+	<avc_list></avc_list>
+	<alarm_list></alarm_list>
+	<is_private>0</is_private>
+	<related_ready_class_list></related_ready_class_list>
+
+	<attr i="1" name="OLT_vendor_id">
+		<format>string</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>4</byte_size>
+		<default_value>    </default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="2" name="Equipment_id">
+		<format>string</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>20</byte_size>
+		<default_value>                    </default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="3" name="Version">
+		<format>string</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>14</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="4" name="Time_of_day_information">		
+		<format>bit field</format>
+		<attrinfo_bitfield field_total="2">
+			<field_bit_width i="0" vformat="unsigned integer" name="GEM_superframe_sequence_number">32</field_bit_width>
+			<field_bit_width i="1" vformat="unsigned integer" name="TstampN">80</field_bit_width>
+		</attrinfo_bitfield>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>optional</necessity>
+		<byte_size>14</byte_size>
+		<default_value>0,0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>		
+	</attr>
+</class>
+
+
+<class id="137" attr_total="2" name="Network_address" section="9.12.3">
+	<required>cr</required>
+	<access>both</access>
+	<action>create,delete,get,set</action>
+	<avc_list></avc_list>
+	<alarm_list></alarm_list>
+	<is_private>0</is_private>
+	<related_ready_class_list></related_ready_class_list>
+
+	<attr i="1" name="Security_pointer">
+		<format>pointer</format>
+		<access_bitmap>r,w,set_by_create</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>2</byte_size>
+		<default_value>0xffff</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id>148</pointer_class_id>	<!-- Authentication security method -->
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="2" name="Address_pointer">
+		<format>pointer</format>
+		<access_bitmap>r,w,set_by_create</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>2</byte_size>
+		<default_value>0xffff</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id>157</pointer_class_id>	<!-- large string -->
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+</class>
+
+
+<class id="148" attr_total="5" name="Authentication_security_method" section="9.12.4">
+	<required>o</required>
+	<access>olt</access>
+	<action>create,delete,get,set</action>
+	<avc_list></avc_list>
+	<alarm_list></alarm_list>
+	<is_private>0</is_private>
+	<related_ready_class_list></related_ready_class_list>
+
+	<attr i="1" name="Validation_scheme">
+		<format>enumeration</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>1</byte_size>
+		<default_value>0</default_value>	<!-- 0:disabled, 1:md5, 2:rfc2617 -->
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list>0,1,2</code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="2" name="Username_1">
+		<format>string</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>25</byte_size>
+		<default_value></default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="3" name="Password">
+		<format>string</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>25</byte_size>
+		<default_value></default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="4" name="Realm">
+		<format>string</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>25</byte_size>
+		<default_value></default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="5" name="Username_2">
+		<format>string</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>25</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+</class>
+
+
+<class id="157" attr_total="16" name="Large_string" section="9.12.5">
+	<required>cr</required>
+	<access>olt</access>
+	<action>create,delete,get,set</action>
+	<avc_list></avc_list>
+	<alarm_list></alarm_list>
+	<is_private>0</is_private>
+	<related_ready_class_list></related_ready_class_list>
+
+	<attr i="1" name="Number_of_parts">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>1</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="2" name="Part_1">
+		<format>string</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>25</byte_size>
+		<default_value></default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="3" name="Part_2">
+		<format>string</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>25</byte_size>
+		<default_value></default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="4" name="Part_3">
+		<format>string</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>25</byte_size>
+		<default_value></default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="5" name="Part_4">
+		<format>string</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>25</byte_size>
+		<default_value></default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="6" name="Part_5">
+		<format>string</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>25</byte_size>
+		<default_value></default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="7" name="Part_6">
+		<format>string</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>25</byte_size>
+		<default_value></default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="8" name="Part_7">
+		<format>string</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>25</byte_size>
+		<default_value></default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="9" name="Part_8">
+		<format>string</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>25</byte_size>
+		<default_value></default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="10" name="Part_9">
+		<format>string</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>25</byte_size>
+		<default_value></default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="11" name="Part_10">
+		<format>string</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>25</byte_size>
+		<default_value></default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="12" name="Part_11">
+		<format>string</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>25</byte_size>
+		<default_value></default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="13" name="Part_12">
+		<format>string</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>25</byte_size>
+		<default_value></default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="14" name="Part_13">
+		<format>string</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>25</byte_size>
+		<default_value></default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="15" name="Part_14">
+		<format>string</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>25</byte_size>
+		<default_value></default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="16" name="Part_15">
+		<format>string</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>25</byte_size>
+		<default_value></default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+</class>
+
+
+<class id="273" attr_total="7" name="Threshold_data_1" section="9.12.6">
+	<required>cr</required>
+	<access>olt</access>
+	<action>create,delete,get,set</action>
+	<avc_list></avc_list>
+	<alarm_list></alarm_list>
+	<is_private>0</is_private>
+	<related_ready_class_list></related_ready_class_list>
+
+	<attr i="1" name="Threshold_value_1">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w,set_by_create</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>4</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="2" name="Threshold_value_2">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w,set_by_create</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>4</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="3" name="Threshold_value_3">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w,set_by_create</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>4</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="4" name="Threshold_value_4">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w,set_by_create</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>4</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="5" name="Threshold_value_5">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w,set_by_create</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>4</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="6" name="Threshold_value_6">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w,set_by_create</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>4</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="7" name="Threshold_value_7">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w,set_by_create</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>4</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+</class>
+
+
+<class id="274" attr_total="7" name="Threshold_data_2" section="9.12.7">
+	<required>cr</required>
+	<access>olt</access>
+	<action>create,delete,get,set</action>
+	<avc_list></avc_list>
+	<alarm_list></alarm_list>
+	<is_private>0</is_private>
+	<related_ready_class_list></related_ready_class_list>
+
+	<attr i="1" name="Threshold_value_8">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w,set_by_create</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>4</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="2" name="Threshold_value_9">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w,set_by_create</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>4</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="3" name="Threshold_value_10">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w,set_by_create</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>4</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="4" name="Threshold_value_11">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w,set_by_create</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>4</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="5" name="Threshold_value_12">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w,set_by_create</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>4</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="6" name="Threshold_value_13">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w,set_by_create</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>4</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="7" name="Threshold_value_14">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w,set_by_create</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>4</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+</class>
+
+<class id="426" attr_total="15" name="Threshold_data_3" section="9.12.17">
+	<required>cr</required>
+	<access>olt</access>
+	<action>create,delete,get,set</action>
+	<avc_list></avc_list>
+	<alarm_list></alarm_list>
+	<is_private>0</is_private>
+	<related_ready_class_list></related_ready_class_list>
+
+	<attr i="1" name="Threshold_value_1">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w,set_by_create</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>8</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="2" name="Threshold_value_2">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w,set_by_create</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>8</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="3" name="Threshold_value_3">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w,set_by_create</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>8</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="4" name="Threshold_value_4">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w,set_by_create</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>8</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="5" name="Threshold_value_5">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w,set_by_create</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>8</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="6" name="Threshold_value_6">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w,set_by_create</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>8</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="7" name="Threshold_value_7">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w,set_by_create</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>8</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+        
+	<attr i="8" name="Threshold_value_8">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w,set_by_create</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>8</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="9" name="Threshold_value_9">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w,set_by_create</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>8</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+        
+	<attr i="10" name="Threshold_value_10">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w,set_by_create</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>8</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+        
+	<attr i="11" name="Threshold_value_11">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w,set_by_create</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>8</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+        
+	<attr i="12" name="Threshold_value_12">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w,set_by_create</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>8</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr> 
+
+	<attr i="13" name="Threshold_value_13">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w,set_by_create</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>8</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+        
+	<attr i="14" name="Threshold_value_14">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w,set_by_create</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>8</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+        
+	<attr i="15" name="Threshold_value_15">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w,set_by_create</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>8</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>                        
+</class>
+
+<class id="287" attr_total="2" name="OMCI" section="9.12.8">
+	<required>cr</required>
+	<access>ont</access>
+	<action>get,get next</action>
+	<avc_list></avc_list>
+	<alarm_list></alarm_list>
+	<is_private>1</is_private>
+	<related_ready_class_list></related_ready_class_list>
+
+	<attr i="1" name="ME_type_table">
+		<format>table</format>
+		<attrinfo_table field_total="1">
+			<entry_byte_size>2</entry_byte_size>
+			<entry_sort_method>none</entry_sort_method>
+			<field_bit_width i="0" vformat="enumeration" pk="1" name="ME_class_id">16</field_bit_width>
+		</attrinfo_table>
+		<access_bitmap>r</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>4</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="2" name="Message_type_table">
+		<format>table</format>
+		<attrinfo_table field_total="1">
+			<entry_byte_size>1</entry_byte_size>
+			<entry_sort_method>none</entry_sort_method>
+			<field_bit_width i="0" vformat="enumeration" pk="1" name="Message_Type">8</field_bit_width>
+		</attrinfo_table>
+		<access_bitmap>r</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>4</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+</class>
+
+
+<class id="288" attr_total="8" name="Managed_entity" section="9.12.9">
+	<required>cr</required>
+	<access>ont</access>
+	<action>get,get next</action>
+	<avc_list></avc_list>
+	<alarm_list></alarm_list>
+	<is_private>1</is_private>
+	<related_ready_class_list></related_ready_class_list>
+
+	<attr i="1" name="Name">
+		<format>string</format>
+		<access_bitmap>r</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>25</byte_size>
+		<default_value></default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="2" name="Attributes_table">
+		<format>table</format>
+		<attrinfo_table field_total="1">
+			<entry_byte_size>2</entry_byte_size>
+			<entry_sort_method>none</entry_sort_method>
+			<field_bit_width i="0" vformat="unsigned integer" pk="1" name="attr_ME">16</field_bit_width>
+		</attrinfo_table>
+		<access_bitmap>r</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>4</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="3" name="Access">
+		<format>enumeration</format>
+		<access_bitmap>r</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>1</byte_size>
+		<default_value>0</default_value>	<!-- 1:ONT, 2:OLT, 3:Both -->
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list>1,2,3</code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="4" name="Alarms_table">
+		<format>table</format>
+		<attrinfo_table field_total="1">
+			<entry_byte_size>1</entry_byte_size>
+			<entry_sort_method>none</entry_sort_method>
+			<field_bit_width i="0" vformat="enumeration" pk="1" name="alarm_code">8</field_bit_width>
+		</attrinfo_table>
+		<access_bitmap>r</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>4</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="5" name="AVCs_table">
+		<format>table</format>
+		<attrinfo_table field_total="1">
+			<entry_byte_size>1</entry_byte_size>
+			<entry_sort_method>none</entry_sort_method>
+			<field_bit_width i="0" vformat="enumeration" pk="1" name="AVC">8</field_bit_width>
+		</attrinfo_table>
+		<access_bitmap>r</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>4</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="6" name="Actions">
+		<format>bit field</format>
+                <attrinfo_bitfield field_total="27">
+                        <field_bit_width i="0" vformat="unsigned integer" name="Reserved">4</field_bit_width>
+                        <field_bit_width i="1" vformat="enumeration" name="Create">1</field_bit_width>
+                        <field_bit_width i="2" vformat="enumeration" name="Create_complete_connection">1</field_bit_width>
+                        <field_bit_width i="3" vformat="enumeration" name="Delete">1</field_bit_width>
+                        <field_bit_width i="4" vformat="enumeration" name="Delete_complete_connection">1</field_bit_width>
+                        <field_bit_width i="5" vformat="enumeration" name="Set">1</field_bit_width>
+                        <field_bit_width i="6" vformat="enumeration" name="Get">1</field_bit_width>
+                        <field_bit_width i="7" vformat="enumeration" name="Get_complete_connection">1</field_bit_width>
+                        <field_bit_width i="8" vformat="enumeration" name="Get_all_alarm">1</field_bit_width>
+                        <field_bit_width i="9" vformat="enumeration" name="Get_all_alarm_next">1</field_bit_width>
+                        <field_bit_width i="10" vformat="enumeration" name="MIB_upload">1</field_bit_width>
+                        <field_bit_width i="11" vformat="enumeration" name="MIB_upload_next">1</field_bit_width>
+                        <field_bit_width i="12" vformat="enumeration" name="MIB_reset">1</field_bit_width>
+                        <field_bit_width i="13" vformat="enumeration" name="Alarm">1</field_bit_width>
+                        <field_bit_width i="14" vformat="enumeration" name="Attribute_value_change">1</field_bit_width>
+                        <field_bit_width i="15" vformat="enumeration" name="Test">1</field_bit_width>
+                        <field_bit_width i="16" vformat="enumeration" name="Start_software_download">1</field_bit_width>
+                        <field_bit_width i="17" vformat="enumeration" name="Download_section">1</field_bit_width>
+                        <field_bit_width i="18" vformat="enumeration" name="End_software_download">1</field_bit_width>
+                        <field_bit_width i="19" vformat="enumeration" name="Activate software">1</field_bit_width>
+                        <field_bit_width i="20" vformat="enumeration" name="Commit_software">1</field_bit_width>
+                        <field_bit_width i="21" vformat="enumeration" name="Synchronize_time">1</field_bit_width>
+                        <field_bit_width i="22" vformat="enumeration" name="Reboot">1</field_bit_width>
+                        <field_bit_width i="23" vformat="enumeration" name="Get_next">1</field_bit_width>
+                        <field_bit_width i="24" vformat="enumeration" name="Test_result">1</field_bit_width>
+                        <field_bit_width i="25" vformat="enumeration" name="Get_current_data">1</field_bit_width>
+                        <field_bit_width i="26" vformat="unsigned integer" name="Reserved">3</field_bit_width>
+                </attrinfo_bitfield>
+		<access_bitmap>r</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>4</byte_size>
+		<default_value>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask>0x0ffffff8</bit_field_mask>	<!-- b4..b28 -->
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="7" name="Instances_table">
+		<format>table</format>
+		<attrinfo_table field_total="1">
+			<entry_byte_size>2</entry_byte_size>
+			<entry_sort_method>none</entry_sort_method>
+			<field_bit_width i="0" vformat="unsigned integer" pk="1" name="instance_pointer">16</field_bit_width>
+		</attrinfo_table>
+		<access_bitmap>r</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>4</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="8" name="Support">
+		<format>enumeration</format>
+		<access_bitmap>r</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>1</byte_size>
+		<default_value>0</default_value>	<!-- 1:support, 2:unsupport, 3:partical, 4:ignored -->
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list>1,2,3,4</code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+</class>
+
+
+<class id="289" attr_total="9" name="Attribute" section="9.12.10">
+	<required>cr</required>
+	<access>ont</access>
+	<action>get,get next</action>
+	<avc_list></avc_list>
+	<alarm_list></alarm_list>
+	<is_private>1</is_private>
+	<related_ready_class_list></related_ready_class_list>
+
+	<attr i="1" name="Name">
+		<format>string</format>
+		<access_bitmap>r</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>25</byte_size>
+		<default_value></default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="2" name="Size">
+		<format>unsigned integer</format>
+		<access_bitmap>r</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>2</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="3" name="Access">
+		<format>enumeration</format>
+		<access_bitmap>r</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>1</byte_size>
+		<default_value>0</default_value>	<!-- 1,2,3,5,6,7, bit0:r, bit1:w, bit2:set_by_create -->
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list>1,2,3,5,6,7</code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="4" name="Format">
+		<format>enumeration</format>
+		<access_bitmap>r</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>1</byte_size>
+		<default_value>0</default_value>	<!-- 1:pointer, 2:bit field, 3:signed integer, 4:unsigned integer, 5:string, 6:enumeration, 7:table -->
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list>1,2,3,4,5,6,7</code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="5" name="Lower_limit">
+		<format>unsigned integer</format>
+		<access_bitmap>r</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>4</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="6" name="Upper_limit">
+		<format>unsigned integer</format>
+		<access_bitmap>r</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>4</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="7" name="Bit_field">
+		<format>unsigned integer</format>
+		<access_bitmap>r</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>4</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="8" name="Code_points_table">
+		<format>table</format>
+		<attrinfo_table field_total="1">
+			<entry_byte_size>2</entry_byte_size>
+			<entry_sort_method>none</entry_sort_method>
+			<field_bit_width i="0" vformat="unsigned integer" pk="1" name="code_point">16</field_bit_width>
+		</attrinfo_table>
+		<access_bitmap>r</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>4</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="9" name="Support">
+		<format>enumeration</format>
+		<access_bitmap>r</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>1</byte_size>
+		<default_value>1</default_value>	<!-- 1:support, 2:unsupport, 3:partical, 4:ignored -->
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list>1,2,3,4</code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+</class>
+
+
+<class id="307" attr_total="16" name="Octet_string" section="9.12.11">
+	<required>o</required>
+	<access>olt</access>
+	<action>create,delete,get,set</action>
+	<avc_list></avc_list>
+	<alarm_list></alarm_list>
+	<is_private>0</is_private>
+	<related_ready_class_list></related_ready_class_list>
+
+	<attr i="1" name="Length">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w,set_by_create</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>4</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="2" name="Part_1">
+		<format>string</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>optional</necessity>
+		<byte_size>25</byte_size>
+		<default_value></default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="3" name="Part_2">
+		<format>string</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>optional</necessity>
+		<byte_size>25</byte_size>
+		<default_value></default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="4" name="Part_3">
+		<format>string</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>optional</necessity>
+		<byte_size>25</byte_size>
+		<default_value></default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="5" name="Part_4">
+		<format>string</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>optional</necessity>
+		<byte_size>25</byte_size>
+		<default_value></default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="6" name="Part_5">
+		<format>string</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>optional</necessity>
+		<byte_size>25</byte_size>
+		<default_value></default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="7" name="Part_6">
+		<format>string</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>optional</necessity>
+		<byte_size>25</byte_size>
+		<default_value></default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="8" name="Part_7">
+		<format>string</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>optional</necessity>
+		<byte_size>25</byte_size>
+		<default_value></default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="9" name="Part_8">
+		<format>string</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>optional</necessity>
+		<byte_size>25</byte_size>
+		<default_value></default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="10" name="Part_9">
+		<format>string</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>optional</necessity>
+		<byte_size>25</byte_size>
+		<default_value></default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="11" name="Part_10">
+		<format>string</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>optional</necessity>
+		<byte_size>25</byte_size>
+		<default_value></default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="12" name="Part_11">
+		<format>string</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>optional</necessity>
+		<byte_size>25</byte_size>
+		<default_value></default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="13" name="Part_12">
+		<format>string</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>optional</necessity>
+		<byte_size>25</byte_size>
+		<default_value></default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="14" name="Part_13">
+		<format>string</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>optional</necessity>
+		<byte_size>25</byte_size>
+		<default_value></default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="15" name="Part_14">
+		<format>string</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>optional</necessity>
+		<byte_size>25</byte_size>
+		<default_value></default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="16" name="Part_15">
+		<format>string</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>optional</necessity>
+		<byte_size>25</byte_size>
+		<default_value></default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+</class>
+
+
+<class id="308" attr_total="2" name="General_purpose_buffer" section="9.12.12">
+	<required>o</required>
+	<access>olt</access>
+	<action>create,delete,get,get next</action>
+	<avc_list>2</avc_list>
+	<alarm_list></alarm_list>
+	<is_private>0</is_private>
+	<related_ready_class_list></related_ready_class_list>
+
+	<attr i="1" name="Maximum_size">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w,set_by_create</access_bitmap>
+		<necessity>optional</necessity>
+		<byte_size>4</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="2" name="Buffer_table">
+		<format>table</format>
+		<attrinfo_table field_total="1">
+			<entry_byte_size>1</entry_byte_size>
+			<entry_sort_method>none</entry_sort_method>
+			<field_bit_width i="0" vformat="unsigned integer" pk="1" name="char_in_buffer">8</field_bit_width>
+		</attrinfo_table>
+		<access_bitmap>r,w,set_by_create</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>4</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+</class>
+
+
+<class id="318" attr_total="10" name="File_transfer_controller" section="9.12.13">
+	<required>o</required>
+	<access>ont</access>
+	<action>get,set</action>
+	<avc_list></avc_list>
+	<alarm_list></alarm_list>
+	<is_private>0</is_private>
+	<related_ready_class_list></related_ready_class_list>
+
+	<attr i="1" name="Supported_transfer_protocols">
+		<format>bit field</format>
+                <attrinfo_bitfield field_total="9">
+                        <field_bit_width i="0" vformat="enumeration" name="FTP">1</field_bit_width>
+                        <field_bit_width i="1" vformat="enumeration" name="TFTP">1</field_bit_width>
+                        <field_bit_width i="2" vformat="enumeration" name="SFTP">1</field_bit_width>
+                        <field_bit_width i="3" vformat="enumeration" name="HTTP">1</field_bit_width>
+                        <field_bit_width i="4" vformat="enumeration" name="HTTPS">1</field_bit_width>
+                        <field_bit_width i="5" vformat="enumeration" name="FLUTE">1</field_bit_width>
+                        <field_bit_width i="6" vformat="enumeration" name="DSM-CC">1</field_bit_width>
+                        <field_bit_width i="7" vformat="unsigned integer" name="Reserved">5</field_bit_width>
+                        <field_bit_width i="8" vformat="unsigned integer" name="Vendor_specific">4</field_bit_width>
+                </attrinfo_bitfield>
+
+		<access_bitmap>r</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>2</byte_size>
+		<default_value></default_value>	<!-- b1:ftp, b2:tftp, b3:sftp, b4:http, b5:https, b6:flute, b7:dsm-cc -->
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask>0x7f</bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="2" name="File_type">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>2</byte_size>
+		<default_value>0</default_value>	<!-- owner me calss id -->
+		<lower_limit>1</lower_limit>
+		<upper_limit>65535</upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="3" name="File_instance">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>2</byte_size>
+		<default_value>0</default_value>	<!-- owner me instance id -->
+		<lower_limit>0</lower_limit>
+		<upper_limit>65536</upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="4" name="Local_file_name_pointer">
+		<format>pointer</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>2</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id>307</pointer_class_id>	<!-- octet string -->
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="5" name="Network_address_pointer">
+		<format>pointer</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>2</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id>307</pointer_class_id>	<!-- octet string -->
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="6" name="File_transfer_trigger">
+		<format>enumeration</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>1</byte_size>
+		<default_value>0</default_value>	<!-- 0:reserved, 1:init download to ont, 2:init download from ont, 3:abort transfer, 4:del target file -->
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list>0,1,2,3,4</code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="7" name="File_transfer_status">
+		<format>enumeration</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>1</byte_size>
+		<default_value>0</default_value>	<!-- 0..7 -->
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list>0,1,2,3,4,5,6,7</code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="8" name="MC_GEM_IWTP_pointer">
+		<format>pointer</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>optional</necessity>
+		<byte_size>2</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id>281</pointer_class_id>	<!-- Multicast GEM interworking TP -->
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="9" name="VLAN">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>optional</necessity>
+		<byte_size>2</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="10" name="File_size">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>optional</necessity>
+		<byte_size>4</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+</class>
+
+<class id="330" attr_total="3" name="Generic_status_portal" section="9.12.14">
+	<required>cr</required>
+	<access>olt</access>
+	<action>create,delete,get,get next</action>
+	<avc_list>1,2</avc_list>
+	<alarm_list></alarm_list>
+	<is_private>0</is_private>
+	<related_ready_class_list></related_ready_class_list>
+
+	<attr i="1" name="Status_document_table">
+		<format>table</format>
+		<attrinfo_table field_total="1">
+			<entry_byte_size>29</entry_byte_size>
+			<entry_sort_method>none</entry_sort_method>
+			<field_bit_width i="0" vformat="string" name="xml_content">464</field_bit_width>
+		</attrinfo_table>
+		<access_bitmap>r</access_bitmap>
+		<necessity>mandatory</necessity>	
+		<byte_size>4</byte_size>
+		<default_value></default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="2" name="Configuration_document_table">
+		<format>table</format>
+		<attrinfo_table field_total="1">
+			<entry_byte_size>29</entry_byte_size>
+			<entry_sort_method>none</entry_sort_method>
+			<field_bit_width i="0" vformat="string" name="xml_content">464</field_bit_width>
+		</attrinfo_table>
+		<access_bitmap>r</access_bitmap>
+		<necessity>mandatory</necessity>	
+		<byte_size>4</byte_size>
+		<default_value></default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="3" name="AVC_report_rate">
+		<format>enumeration</format>
+		<access_bitmap>r,w,sbc</access_bitmap>
+		<necessity>optional</necessity>
+		<byte_size>1</byte_size>
+		<default_value>2</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list>0,1,2,3</code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+</class>
+
+<class id="340" attr_total="3" name="BBF_TR-069_management_server" section="9.12.16">
+	<required>cr</required>
+	<access>ont</access>
+	<action>get,set</action>
+	<avc_list></avc_list>
+	<alarm_list></alarm_list>
+	<is_private>0</is_private>
+	<related_ready_class_list></related_ready_class_list>
+
+	<attr i="1" name="Administrative_state">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>1</byte_size>
+		<default_value>1</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+
+	<attr i="2" name="ACS_network_address">
+		<format>pointer</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>2</byte_size>
+		<default_value>0xffff</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id>137</pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>1</is_related_key>
+	</attr>
+
+	<attr i="3" name="Associated_tag">
+		<format>bit field</format>
+                <attrinfo_bitfield field_total="3">
+                        <field_bit_width i="0" vformat="unsigned integer" name="TCI_pbit">3</field_bit_width>
+                        <field_bit_width i="1" vformat="enumeration" name="TCI_cfi">1</field_bit_width>
+                        <field_bit_width i="2" vformat="unsigned integer" name="TCI_vid">12</field_bit_width>
+                </attrinfo_bitfield>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>2</byte_size>
+		<default_value>7,1,4095</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+</class>
+
+</omci>
+

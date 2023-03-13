@@ -1,0 +1,39 @@
+<omci name="Proprietary" section="9.99">
+
+<class id="240" attr_total="6">	<!-- Private_ONT_System_Management -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>1</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0x0</default_meid>
+		<pm_is_accumulated_mask>0x0000</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0xffff</attr>
+		<attr i="2">20</attr>
+		<attr i="3">150</attr>
+		<attr i="4">1</attr>
+		<attr i="5">1</attr>
+		<attr i="6">1000</attr>
+	</instance>
+</class>
+
+<class id="244" attr_total="8">	<!-- ONT_Self_Loop_Detect -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>1</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0x0</default_meid>
+		<pm_is_accumulated_mask>0x0000</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>
+		<attr i="2">0</attr>
+		<attr i="3">0</attr>
+		<attr i="4">0</attr>
+		<attr i="5">0</attr>
+		<attr i="6">0</attr>
+		<attr i="7">0</attr>
+		<attr i="8">0</attr>
+	</instance>
+</class>
+
+</omci>

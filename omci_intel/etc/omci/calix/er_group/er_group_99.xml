@@ -1,0 +1,765 @@
+<omci name="ER group definition">
+
+<er_group id="1001">
+	<!-- 65500 Full_Bridge_Configuration -->
+	<er_me_group name="er_me_group_65500">
+		<er_me_relation classid="65500">
+		</er_me_relation>
+	</er_me_group>
+	<er_attr_group id="0" name="full_bridge_enable">
+		<er_attr_list classid="65500">
+		2
+		</er_attr_list>
+	</er_attr_group>
+</er_group>
+
+<er_group id="1002">
+	<!-- 65503 CalixOntMgmt -->
+	<er_me_group name="er_me_group_65503">
+		<er_me_relation classid="65503">
+		</er_me_relation>
+	</er_me_group>
+	<er_attr_group id="0" name="restore_to_default">
+		<er_attr_list classid="65503">
+		1
+		</er_attr_list>
+	</er_attr_group>
+</er_group>
+
+<er_group id="1003">
+	<!-- 47 MAC_bridge_port_configuration_data -->
+	<!-- 249 ExtL2VlanTagConfigData -->
+	<er_me_group name="er_me_group_47_249">
+		<er_me_relation classid="47">
+		</er_me_relation>
+		<er_me_relation classid="249">
+		47
+		</er_me_relation>
+	</er_me_group>
+	<er_attr_group id="0" name="l2s_l2_tags_create_add012_bridge">
+		<er_attr_list classid="47">
+		2
+		</er_attr_list>
+		<er_attr_list classid="249">
+		2,3,5
+		</er_attr_list>
+	</er_attr_group>
+</er_group>
+
+<er_group id="1004">
+	<!-- 47 MAC_bridge_port_configuration_data -->
+	<!-- 130 802.1p_mapper_service_profile -->
+	<!-- 249 ExtL2VlanTagConfigData -->
+	<er_me_group name="er_me_group_47_130_249">
+		<er_me_relation classid="47">
+		130
+		</er_me_relation>
+		<er_me_relation classid="130">
+		</er_me_relation>
+		<er_me_relation classid="249">
+		130
+		</er_me_relation>
+	</er_me_group>
+	<er_attr_group id="0" name="l2s_l2_tags_create_add012_802_1p">
+		<er_attr_list classid="47">
+		2
+		</er_attr_list>
+		<er_attr_list classid="130">
+		</er_attr_list>
+		<er_attr_list classid="249">
+		2,3,5
+		</er_attr_list>
+	</er_attr_group>
+</er_group>
+
+<er_group id="1005">
+	<!-- 11 Physical_path_termination_point_Ethernet_UNI -->
+	<!-- 47 MAC_bridge_port_configuration_data -->
+	<!-- 249 ExtL2VlanTagConfigData -->
+	<er_me_group name="er_me_group_11_47_249">
+		<er_me_relation classid="11">
+		</er_me_relation>
+		<er_me_relation classid="47">
+		11
+		</er_me_relation>
+		<er_me_relation classid="249">
+		11
+		</er_me_relation>
+	</er_me_group>
+	<er_attr_group id="0" name="l2s_l2_tags_create_add012_pptp_uni">
+		<er_attr_list classid="11">
+		</er_attr_list>
+		<er_attr_list classid="47">
+		2
+		</er_attr_list>
+		<er_attr_list classid="249">
+		2,3,5
+		</er_attr_list>
+	</er_attr_group>
+</er_group>
+
+<er_group id="1006">
+	<!-- 47 MAC_bridge_port_configuration_data -->
+	<!-- 134 IP_host_config_data -->
+	<!-- 249 ExtL2VlanTagConfigData -->
+	<er_me_group name="er_me_group_47_134_249">
+		<er_me_relation classid="47">
+		134
+		</er_me_relation>
+		<er_me_relation classid="134">
+		</er_me_relation>
+		<er_me_relation classid="249">
+		134
+		</er_me_relation>
+	</er_me_group>
+	<er_attr_group id="0" name="l2s_l2_tags_create_add012_ip_host">
+		<er_attr_list classid="47">
+		2
+		</er_attr_list>
+		<er_attr_list classid="134">
+		</er_attr_list>
+		<er_attr_list classid="249">
+		2,3,5
+		</er_attr_list>
+	</er_attr_group>
+</er_group>
+
+<er_group id="1007">
+	<!-- 47 MAC_bridge_port_configuration_data -->
+	<!-- 249 ExtL2VlanTagConfigData -->
+	<!-- 329 Virtual_Ethernet_interface_point -->
+	<er_me_group name="er_me_group_47_249_329">
+		<er_me_relation classid="47">
+		329
+		</er_me_relation>
+		<er_me_relation classid="249">
+		329
+		</er_me_relation>
+		<er_me_relation classid="329">
+		</er_me_relation>
+	</er_me_group>
+	<er_attr_group id="0" name="l2s_l2_tags_create_add012_veip">
+		<er_attr_list classid="47">
+		2
+		</er_attr_list>
+		<er_attr_list classid="249">
+		2,3,5
+		</er_attr_list>
+	</er_attr_group>
+</er_group>
+
+<er_group id="1008">
+	<!-- 65317 CalixRgConfig -->
+	<er_me_group name="er_me_group_65317">
+		<er_me_relation classid="65317">
+		</er_me_relation>
+	</er_me_group>
+	<er_attr_group id="0" name="calix_rg_config">
+		<er_attr_list classid="65317">
+		meid,1,2,6,8,3,4,5,10,11
+		</er_attr_list>
+	</er_attr_group>
+	<er_attr_group id="1" name="calix_rg_config_restore_default">
+		<er_attr_list classid="65317">
+		7
+		</er_attr_list>
+	</er_attr_group>
+	<er_attr_group id="2" name="calix_rg_config_remote_gui_access_time">
+		<er_attr_list classid="65317">
+		9
+		</er_attr_list>
+	</er_attr_group>
+	<er_attr_group id="3" name="calix_rg_registration_id">
+		<er_attr_list classid="65317">
+		13
+		</er_attr_list>
+	</er_attr_group>
+</er_group>
+
+<er_group id="1009">
+	<!-- 148 Authentication_security_method -->
+	<!-- 65317 CalixRgConfig -->
+	<er_me_group name="er_me_group_148_65317">
+		<er_me_relation classid="148">
+		</er_me_relation>
+		<er_me_relation classid="65317">
+		148
+		</er_me_relation>
+	</er_me_group>
+	<er_attr_group id="0" name="calix_rg_config_pppauth">
+		<er_attr_list classid="148">
+		2,3,5
+		</er_attr_list>		
+		<er_attr_list classid="65317">
+		meid
+		</er_attr_list>
+	</er_attr_group>
+</er_group>
+
+<er_group id="1010">
+	<!-- 241 Information -->
+	<er_me_group name="er_me_group_241">
+		<er_me_relation classid="241">
+		</er_me_relation>
+	</er_me_group>
+	<er_attr_group id="0" name="date_time">
+		<er_attr_list classid="241">
+		2
+		</er_attr_list>
+	</er_attr_group>
+	<er_attr_group id="1" name="date_timezone">
+		<er_attr_list classid="241">
+		10,11
+		</er_attr_list>
+	</er_attr_group>
+	<er_attr_group id="2" name="ookla_disable">
+		<er_attr_list classid="241">
+		7
+		</er_attr_list>
+	</er_attr_group>
+</er_group>
+
+<er_group id="1011">
+	<!-- 242 EthernetUniExt -->
+	<er_me_group name="er_me_group_11_242">
+		<er_me_relation classid="11">
+		</er_me_relation>    
+		<er_me_relation classid="242">
+		11
+		</er_me_relation>
+	</er_me_group>
+	<er_attr_group id="0" name="VideoTxMode">
+		<er_attr_list classid="242">
+		1
+		</er_attr_list>
+	</er_attr_group>
+	<er_attr_group id="1" name="IfCountReset_242">
+		<er_attr_list classid="242">
+		2
+		</er_attr_list>
+	</er_attr_group>
+	<er_attr_group id="2" name="ForceOperMode">
+		<er_attr_list classid="11">
+		meid
+		</er_attr_list>
+		<er_attr_list classid="242">
+		11
+		</er_attr_list>
+	</er_attr_group>
+</er_group>
+
+<er_group id="1012">
+	<!-- 65311 EthernetUniHCExt -->
+	<er_me_group name="er_me_group_11_65311">
+    	<er_me_relation classid="11">
+		</er_me_relation>
+		<er_me_relation classid="65311">
+        11
+		</er_me_relation>
+	</er_me_group>
+	<er_attr_group id="0" name="IfCountReset_65311">
+		<er_attr_list classid="65311">
+		1
+		</er_attr_list>
+	</er_attr_group>
+</er_group>
+
+<er_group id="1013">
+	<!-- 65313 CalixVlan -->
+	<er_me_group name="er_me_group_65313">
+		<er_me_relation classid="65313">
+		</er_me_relation>
+	</er_me_group>
+	<er_attr_group id="0" name="calix_vlan_tlan">
+		<er_attr_list classid="65313">
+		4
+		</er_attr_list>
+	</er_attr_group>
+</er_group>
+
+<er_group id="1014">
+	<!-- 53 Physical_path_termination_point_POTS_UNI -->
+	<!-- 134 IP_host_config_data -->
+	<!-- 136 TCP/UDP_config_data -->
+	<!-- 150 SIP_agent_config_data -->
+	<!-- 153 SIP_user_data -->
+	<!-- 65315 ExtIpHostConfigData -->
+	<er_me_group name="er_me_group_53_134_136_150_153_65315">
+		<er_me_relation classid="53">
+		</er_me_relation>
+		<er_me_relation classid="134">
+		</er_me_relation>
+		<er_me_relation classid="136">
+		134
+		</er_me_relation>
+		<er_me_relation classid="150">
+		136
+		</er_me_relation>
+		<er_me_relation classid="153">
+		53,150
+		</er_me_relation>
+		<er_me_relation classid="65315">
+		134
+		</er_me_relation>
+	</er_me_group>
+	<er_attr_group id="0" name="calix_voip_fqdn">
+		<er_attr_list classid="53">
+		inst
+		</er_attr_list>
+		<er_attr_list classid="134">
+		meid
+		</er_attr_list>
+		<er_attr_list classid="136">
+		</er_attr_list>
+		<er_attr_list classid="150">
+		</er_attr_list>
+		<er_attr_list classid="153">
+		</er_attr_list>
+		<er_attr_list classid="65315">
+		1
+		</er_attr_list>
+	</er_attr_group>
+</er_group>
+
+<er_group id="1015">
+	<!-- 53 Physical_path_termination_point_POTS_UNI -->
+	<!-- 65283 Voip_Call_Statistics_Extension4 -->
+	<er_me_group name="er_me_group_53_65283">
+		<er_me_relation classid="53">
+		</er_me_relation>
+		<er_me_relation classid="65283">
+		53
+		</er_me_relation>
+	</er_me_group>
+	<er_attr_group id="0" name="voip_call_statistics_extension4">
+		<er_attr_list classid="53">
+		inst
+		</er_attr_list>
+		<er_attr_list classid="65283">
+		9,10
+		</er_attr_list>
+	</er_attr_group>
+</er_group>
+
+<er_group id="1016">
+	<!-- 248 VideoAniExtension -->
+	<er_me_group name="er_me_group_248">
+		<er_me_relation classid="248">
+		</er_me_relation>
+	</er_me_group>
+	<er_attr_group id="0" name="video_agc_enable">
+		<er_attr_list classid="248">
+		4
+		</er_attr_list>
+	</er_attr_group>
+</er_group>
+
+<er_group id="1017">
+	<!-- 11 Physical_path_termination_point_Ethernet_UNI -->
+	<!-- 264 UNI_G -->
+	<er_me_group name="er_me_group_11_264">
+		<er_me_relation classid="11">
+		</er_me_relation>
+		<er_me_relation classid="264">
+		11
+		</er_me_relation>
+	</er_me_group>
+	<er_attr_group id="0" name="rg_group">
+		<er_attr_list classid="11">
+		inst
+		</er_attr_list>
+		<er_attr_list classid="264">
+		4
+		</er_attr_list>
+	</er_attr_group>
+</er_group>
+
+<er_group id="1018">
+	<!-- 45 MAC_bridge_service_profile -->
+	<!-- 47 MAC_bridge_port_configuration_data -->
+	<!-- 49 MAC_bridge_port_filter_table_data -->
+	<!-- 79 MAC_bridge_port_filter_preassign_table -->
+	<!-- 251 Ethernet_UNI_Extended_Configuration_Table -->
+	<er_me_group name="er_me_group_45_47_49_79_251">
+		<er_me_relation classid="45">
+		</er_me_relation>
+		<er_me_relation classid="47">
+		45
+		</er_me_relation>
+		<er_me_relation classid="49">
+		47
+		</er_me_relation>
+		<er_me_relation classid="79">
+		47
+		</er_me_relation>
+		<er_me_relation classid="251">
+		</er_me_relation>
+	</er_me_group>
+	<er_attr_group id="0" name="l2cp_enable">
+		<er_attr_list classid="45">
+		meid
+		</er_attr_list>
+		<er_attr_list classid="47">
+		3
+		</er_attr_list>
+		<er_attr_list classid="49">
+		1
+		</er_attr_list>
+		<er_attr_list classid="79">
+		8
+		</er_attr_list>
+		<er_attr_list classid="251">
+		meid,10,11,12
+		</er_attr_list>
+	</er_attr_group>
+</er_group>
+
+<er_group id="1019">
+	<!-- 65318 PsE_Control -->
+	<er_me_group name="er_me_group_65318">
+		<er_me_relation classid="65318">
+		</er_me_relation>
+	</er_me_group>
+	<er_attr_group id="0" name="max_power_budget">
+		<er_attr_list classid="65318">
+		1,2
+		</er_attr_list>
+	</er_attr_group>
+</er_group>
+
+<er_group id="1020">
+	<!-- 65287 OamCfg -->
+	<er_me_group name="er_me_group_65287">
+		<er_me_relation classid="65287">
+		</er_me_relation>
+	</er_me_group>
+	<er_attr_group id="0" name="oam_config">
+		<er_attr_list classid="65287">
+		1,2,3,4,5,6,7,8,9,10,11,12,13,14
+		</er_attr_list>
+	</er_attr_group>
+</er_group>
+
+<er_group id="1021">
+	<!-- 65288 OamMeg -->
+	<!-- 65289 OamMep -->
+	<er_me_group name="er_me_group_65288_65289">
+		<er_me_relation classid="65288">
+		</er_me_relation>
+		<er_me_relation classid="65289">
+		65288
+		</er_me_relation>
+	</er_me_group>
+	<er_attr_group id="0" name="oam_mep">
+		<er_attr_list classid="65288">
+		meid,1,2,3,4,5,6,7,9
+		</er_attr_list>
+		<er_attr_list classid="65289">
+		meid,1,2,3,4,5,6,7,8,9,10,11,12,13
+		</er_attr_list>
+	</er_attr_group>
+</er_group>
+
+<er_group id="1022">
+	<!-- 65288 OamMeg -->
+	<!-- 65290 OamMip -->
+	<er_me_group name="er_me_group_65288_65290">
+		<er_me_relation classid="65288">
+		</er_me_relation>
+		<er_me_relation classid="65290">
+		65288
+		</er_me_relation>
+	</er_me_group>
+	<er_attr_group id="0" name="oam_mip">
+		<er_attr_list classid="65288">
+		meid,1,2,3,4,5,6,7,9
+		</er_attr_list>
+		<er_attr_list classid="65290">
+		meid,1,2,3,4
+		</er_attr_list>
+	</er_attr_group>
+</er_group>
+
+<er_group id="1023">
+	<!-- 65288 OamMeg -->
+	<!-- 65289 OamMep -->
+	<!-- 65291 OamLinkTrace -->
+	<er_me_group name="er_me_group_65288_65289_65291">
+		<er_me_relation classid="65288">
+		</er_me_relation>
+		<er_me_relation classid="65289">
+		65288
+		</er_me_relation>
+		<er_me_relation classid="65291">
+		65289
+		</er_me_relation>
+	</er_me_group>
+	<er_attr_group id="0" name="oam_mep_linktrace">
+		<er_attr_list classid="65288">
+		3
+		</er_attr_list>
+		<er_attr_list classid="65289">
+		1,2,4,5
+		</er_attr_list>
+		<er_attr_list classid="65291">
+		1,2,3,4
+		</er_attr_list>
+	</er_attr_group>
+</er_group>
+
+<er_group id="1024">
+	<!-- 65288 OamMeg -->
+	<!-- 65289 OamMep -->
+	<!-- 65292 OamLoopback -->
+	<er_me_group name="er_me_group_65288_65289_65292">
+		<er_me_relation classid="65288">
+		</er_me_relation>
+		<er_me_relation classid="65289">
+		65288
+		</er_me_relation>
+		<er_me_relation classid="65292">
+		65289
+		</er_me_relation>
+	</er_me_group>
+	<er_attr_group id="0" name="oam_mep_loopback">
+		<er_attr_list classid="65288">
+		3
+		</er_attr_list>
+		<er_attr_list classid="65289">
+		1,2,4,5,8
+		</er_attr_list>
+		<er_attr_list classid="65292">
+		1,2,3,4,5,6,7,8
+		</er_attr_list>
+	</er_attr_group>
+</er_group>
+
+<er_group id="1025">
+	<!-- 65288 OamMeg -->
+	<!-- 65289 OamMep -->
+	<!-- 65294 OamDmMepExt -->
+	<er_me_group name="er_me_group_65288_65289_65294">
+		<er_me_relation classid="65288">
+		</er_me_relation>
+		<er_me_relation classid="65289">
+		65288
+		</er_me_relation>
+		<er_me_relation classid="65294">
+		65289
+		</er_me_relation>
+	</er_me_group>
+	<er_attr_group id="0" name="oam_mep_pm_macaddr">
+		<er_attr_list classid="65288">
+		3
+		</er_attr_list>
+		<er_attr_list classid="65289">
+		1,2,4,5
+		</er_attr_list>
+		<er_attr_list classid="65294">
+		2
+		</er_attr_list>
+	</er_attr_group>
+</er_group>
+
+<er_group id="1026">
+	<!-- 65288 OamMeg -->
+	<!-- 65289 OamMep -->
+	<!-- 65299 OamMepStats -->
+	<er_me_group name="er_me_group_65288_65289_65299">
+		<er_me_relation classid="65288">
+		</er_me_relation>
+		<er_me_relation classid="65289">
+		65288
+		</er_me_relation>
+		<er_me_relation classid="65299">
+		65289
+		</er_me_relation>
+	</er_me_group>
+	<er_attr_group id="0" name="oam_mep_clear_counters">
+		<er_attr_list classid="65288">
+		3
+		</er_attr_list>
+		<er_attr_list classid="65289">
+		1,2,4,5
+		</er_attr_list>
+		<er_attr_list classid="65299">
+		15
+		</er_attr_list>
+	</er_attr_group>
+</er_group>
+
+<er_group id="1027">
+	<!-- 65288 OamMeg -->
+	<!-- 65289 OamMep -->
+	<!-- 65302 OamLmMepStats -->
+	<er_me_group name="er_me_group_65288_65289_65302">
+		<er_me_relation classid="65288">
+		</er_me_relation>
+		<er_me_relation classid="65289">
+		65288
+		</er_me_relation>
+		<er_me_relation classid="65302">
+		65289
+		</er_me_relation>
+	</er_me_group>
+	<er_attr_group id="0" name="oam_lm_clear_counters">
+		<er_attr_list classid="65288">
+		3
+		</er_attr_list>
+		<er_attr_list classid="65289">
+		1,2,4,5
+		</er_attr_list>
+		<er_attr_list classid="65302">
+		11
+		</er_attr_list>
+	</er_attr_group>
+</er_group>
+
+<er_group id="1028">
+	<!-- 65288 OamMeg -->
+	<!-- 65289 OamMep -->
+	<!-- 65303 OamDmMepStats -->
+	<er_me_group name="er_me_group_65288_65289_65303">
+		<er_me_relation classid="65288">
+		</er_me_relation>
+		<er_me_relation classid="65289">
+		65288
+		</er_me_relation>
+		<er_me_relation classid="65303">
+		65289
+		</er_me_relation>
+	</er_me_group>
+	<er_attr_group id="0" name="oam_dm_clear_counters">
+		<er_attr_list classid="65288">
+		3
+		</er_attr_list>
+		<er_attr_list classid="65289">
+		1,2,4,5
+		</er_attr_list>
+		<er_attr_list classid="65303">
+		12
+		</er_attr_list>
+	</er_attr_group>
+</er_group>
+
+<er_group id="1029">
+	<!-- 65288 OamMeg -->
+	<!-- 65290 OamMip -->
+	<!-- 65301 OamMipStats -->
+	<er_me_group name="er_me_group_65288_65290_65301">
+		<er_me_relation classid="65288">
+		</er_me_relation>
+		<er_me_relation classid="65290">
+		65288
+		</er_me_relation>
+		<er_me_relation classid="65301">
+		65290
+		</er_me_relation>
+	</er_me_group>
+	<er_attr_group id="0" name="oam_mip_clear_counters">
+		<er_attr_list classid="65288">
+		3
+		</er_attr_list>
+		<er_attr_list classid="65290">
+		1,2,3,4
+		</er_attr_list>
+		<er_attr_list classid="65301">
+		15
+		</er_attr_list>
+	</er_attr_group>
+</er_group>
+
+<er_group id="1030">
+	<!-- 251 Ethernet_UNI_Extended_Configuration_Table -->
+	<!-- 171 Extended_VLAN_tagging_operation_configuration_data -->
+	<!-- 280 Traffic_descriptor -->
+	<er_me_group name="er_me_group_251_171_280">
+		<er_me_relation classid="11">
+		47
+		</er_me_relation>
+		<er_me_relation classid="45">
+		130
+		</er_me_relation>
+		<er_me_relation classid="47">
+		45
+		</er_me_relation>
+		<er_me_relation classid="130">
+		266
+		</er_me_relation>
+		<er_me_relation classid="171">
+		11
+		</er_me_relation>
+		<er_me_relation classid="251">
+		11
+		</er_me_relation>
+		<er_me_relation classid="266">
+		268
+		</er_me_relation>
+		<er_me_relation classid="268">
+		280
+		</er_me_relation>
+		<er_me_relation classid="280">
+		402
+		</er_me_relation>
+		<er_me_relation classid="402">
+		</er_me_relation>
+	</er_me_group>
+	<er_attr_group id="0" name="uni_policing">
+		<er_attr_list classid="251">
+		15,16
+		</er_attr_list>
+		<er_attr_list classid="171">
+		6
+		</er_attr_list>
+		<er_attr_list classid="280">
+		2,4
+		</er_attr_list>
+	</er_attr_group>
+</er_group>
+
+<er_group id="1031">
+	<!-- 65319  LLDP-MED Management -->
+	<er_me_group name="er_me_group_65319">
+		<er_me_relation classid="65319">
+		</er_me_relation>
+</er_me_group>	
+	<er_attr_group id="0" name="lldp_admin_state">
+		<er_attr_list classid="65319">
+		1,2
+		</er_attr_list>
+	</er_attr_group>
+	<er_attr_group id="1" name="lldp_network_policy">
+		<er_attr_list classid="65319">
+		1,4
+		</er_attr_list>
+	</er_attr_group>
+	<er_attr_group id="2" name="lldp_vid">
+		<er_attr_list classid="65319">
+		1,5
+		</er_attr_list>
+	</er_attr_group>
+	<er_attr_group id="3" name="lldp_priority">
+		<er_attr_list classid="65319">
+		1,6
+		</er_attr_list>
+	</er_attr_group>
+	<er_attr_group id="4" name="lldp_dscp">
+		<er_attr_list classid="65319">
+		1,7
+		</er_attr_list>
+	</er_attr_group>
+</er_group>
+
+<er_group id="1032">
+	<!-- 243 VoipConfigDataExt-->
+	<er_me_group name="er_me_group_243">
+		<er_me_relation classid="243">
+		</er_me_relation>
+	</er_me_group>
+	<er_attr_group id="0" name="primaryconfigserverpointer">
+		<er_attr_list classid="243">
+		1
+		</er_attr_list>
+	</er_attr_group>
+</er_group>
+</omci>

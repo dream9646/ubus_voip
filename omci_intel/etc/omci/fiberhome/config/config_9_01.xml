@@ -1,0 +1,415 @@
+<omci name="Equipment management" section="9.1">
+
+<class id="256" attr_total="12">	<!-- ONT_G, 9.1.1 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>1</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x46485454</attr>	<!-- Vendor_id -->
+		<attr i="2">WKE2.094.278A0</attr>	<!-- Version -->
+		<attr i="3">FHTT,0x1</attr>	<!-- Serial_number -->
+		<attr i="4">0</attr>	<!-- Traffic_management_option, 0:prio ctrl, 1:rate ctrl -->
+		<attr i="5">0</attr>	<!-- VP/VC_cross_connection_function_option -->
+		<attr i="6">0</attr>	<!-- Battery_backup -->
+		<attr i="7">0</attr>	<!-- Administrative_state -->
+		<attr i="8">0</attr>	<!-- Operational_state -->
+		<attr i="9">0</attr>	<!-- ONT_survival_time -->
+		<attr i="10"></attr>	<!-- Logical_ONU_ID -->
+		<attr i="11"></attr>	<!-- Logical_password -->
+		<attr i="12">0</attr>	<!-- Credentials_status -->
+	</instance>
+</class>
+
+
+<class id="257" attr_total="14">	<!-- ONT2_G, 9.1.2 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>1</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">HG6245D</attr>	<!-- Equipment_id -->
+		<attr i="2">0xA1</attr>	<!-- OMCC_version -->
+		<attr i="3">0x273F</attr>	<!-- Vendor_product_code -->
+		<attr i="4">1</attr>	<!-- Security_capability -->
+		<attr i="5">1</attr>	<!-- Security_mode -->
+		<attr i="6">48</attr>	<!-- Total_priority_queue_number -->
+		<attr i="7">64</attr>	<!-- Total_traffic_scheduler_number (tcon * (1+8)) -->
+		<attr i="8">1</attr>	<!-- Mode -->
+		<attr i="9">32</attr>	<!-- Total_GEM_port_ID_number -->
+		<attr i="10">6000</attr>	<!-- SysUpTime -->
+		<attr i="11">0,1,1,1,1,1,1,1</attr>	<!-- Connectivity_capability -->
+		<attr i="12">0</attr>		<!-- Current_connectivity_mode -->
+		<attr i="13">0,1,1,1,0,1,1</attr>	<!-- QoS_configuration_flexibility -->
+		<attr i="14">1</attr>	<!-- Priority_queue_scale_factor -->
+	</instance>
+</class>
+
+
+<class id="2" attr_total="1">	<!-- ONT_data, 9.1.3 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>1</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- MIB_data_sync -->
+	</instance>
+</class>
+
+
+<class id="7" attr_total="4">	<!-- Software_image, 9.1.4 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>2</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">5VT2310_1.0000</attr>	<!-- Version -->
+		<attr i="2">1</attr>	<!-- Is_committed -->
+		<attr i="3">1</attr>	<!-- Is_active -->
+		<attr i="4">1</attr>	<!-- Is_valid -->
+	</instance>
+	<instance i="1">
+		<devname></devname>
+		<default_meid>1</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">5VT2310_2.0000</attr>	<!-- Version -->
+		<attr i="2">0</attr>	<!-- Is_committed -->
+		<attr i="3">0</attr>	<!-- Is_active -->
+		<attr i="4">1</attr>	<!-- Is_valid -->
+	</instance>
+</class>
+
+
+<class id="5" attr_total="7">	<!-- Cardholder, 9.1.5 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>5</instance_total_max>
+	<instance i="0">
+		<devname>ANI</devname>
+		<default_meid>0x0180</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">248</attr>	<!-- Actual_plug_in_unit_type -->
+		<attr i="2">248</attr>	<!-- Expected_plug_in_unit_type -->
+		<attr i="3">1</attr>	<!-- Expected_port_count -->
+		<attr i="4"></attr>	<!-- Expected_equipment_id -->
+		<attr i="5"></attr>	<!-- Actual_equipment_id -->
+		<attr i="6">0</attr>	<!-- Protection_profile_pointer -->
+		<attr i="7">0</attr>	<!-- Invoke_protection_switch -->
+	</instance>
+	<instance i="1">
+		<devname>UNI</devname>
+		<default_meid>0x0101</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">47</attr>	<!-- Actual_plug_in_unit_type -->
+		<attr i="2">47</attr>	<!-- Expected_plug_in_unit_type -->
+		<attr i="3">2</attr>	<!-- Expected_port_count -->
+		<attr i="4"></attr>	<!-- Expected_equipment_id -->
+		<attr i="5"></attr>	<!-- Actual_equipment_id -->
+		<attr i="6">0</attr>	<!-- Protection_profile_pointer -->
+		<attr i="7">0</attr>	<!-- Invoke_protection_switch -->
+	</instance>
+	<instance i="2">
+		<devname>POTS</devname>
+		<default_meid>0x0102</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">32</attr>	<!-- Actual_plug_in_unit_type -->
+		<attr i="2">32</attr>	<!-- Expected_plug_in_unit_type -->
+		<attr i="3">2</attr>	<!-- Expected_port_count -->
+		<attr i="4"></attr>	<!-- Expected_equipment_id -->
+		<attr i="5"></attr>	<!-- Actual_equipment_id -->
+		<attr i="6">0</attr>	<!-- Protection_profile_pointer -->
+		<attr i="7">0</attr>	<!-- Invoke_protection_switch -->
+	</instance>
+	<instance i="3">
+		<devname>VEIP</devname>
+		<default_meid>0x0100</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">48</attr>	<!-- Actual_plug_in_unit_type -->
+		<attr i="2">48</attr>	<!-- Expected_plug_in_unit_type -->
+		<attr i="3">2</attr>	<!-- Expected_port_count -->
+		<attr i="4"></attr>	<!-- Expected_equipment_id -->
+		<attr i="5"></attr>	<!-- Actual_equipment_id -->
+		<attr i="6">0</attr>	<!-- Protection_profile_pointer -->
+		<attr i="7">0</attr>	<!-- Invoke_protection_switch -->
+	</instance>
+	<instance i="4">
+		<devname>VIDEO</devname>
+		<default_meid>0x0103</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">38</attr>	<!-- Actual_plug_in_unit_type -->
+		<attr i="2">38</attr>	<!-- Expected_plug_in_unit_type -->
+		<attr i="3">1</attr>	<!-- Expected_port_count -->
+		<attr i="4"></attr>	<!-- Expected_equipment_id -->
+		<attr i="5"></attr>	<!-- Actual_equipment_id -->
+		<attr i="6">0</attr>	<!-- Protection_profile_pointer -->
+		<attr i="7">0</attr>	<!-- Invoke_protection_switch -->
+	</instance>
+</class>
+
+
+<class id="6" attr_total="14">	<!-- Circuit_pack, 9.1.6 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>5</instance_total_max>
+	<instance i="0">
+		<devname>ANI</devname>
+		<default_meid>0x0180</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">248</attr>	<!-- Type -->
+		<attr i="2">1</attr>	<!-- Number_of_ports -->
+		<attr i="3">FHTT,0001</attr>	<!-- Serial_number -->
+		<attr i="4">WKE2.094.278A0</attr>	<!-- Version -->
+		<attr i="5">0x46485454</attr>	<!-- Vendor_id -->
+		<attr i="6">0</attr>	<!-- Administrative_state -->
+		<attr i="7">0</attr>	<!-- Operational_state -->
+		<attr i="8">2</attr>	<!-- Bridged_or_IP_ind -->
+		<attr i="9"></attr>	<!-- Equipment_id -->
+		<attr i="10">0</attr>	<!-- Card_configuration -->
+		<attr i="11">8</attr>	<!-- Total_T_CONT_buffer_number -->
+		<attr i="12">32</attr>	<!-- Total_priority_queue_number -->
+		<attr i="13">64</attr>	<!-- Total_traffic_scheduler_number -->
+		<attr i="14">0</attr>	<!-- Power_shed_override -->
+	</instance>
+	<instance i="1">
+		<devname>UNI</devname>
+		<default_meid>0x0101</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">47</attr>	<!-- Type -->
+		<attr i="2">2</attr>	<!-- Number_of_ports -->
+		<attr i="3">FHTT,0002</attr>	<!-- Serial_number -->
+		<attr i="4">WKE2.094.278A0</attr>	<!-- Version -->
+		<attr i="5">0x46485454</attr>	<!-- Vendor_id -->
+		<attr i="6">0</attr>	<!-- Administrative_state -->
+		<attr i="7">0</attr>	<!-- Operational_state -->
+		<attr i="8">2</attr>	<!-- Bridged_or_IP_ind -->
+		<attr i="9"></attr>	<!-- Equipment_id -->
+		<attr i="10">0</attr>	<!-- Card_configuration -->
+		<attr i="11">0</attr>	<!-- Total_T_CONT_buffer_number -->
+		<attr i="12">16</attr>	<!-- Total_priority_queue_number -->
+		<attr i="13">0</attr>	<!-- Total_traffic_scheduler_number -->
+		<attr i="14">0</attr>	<!-- Power_shed_override -->
+	</instance>
+	<instance i="2">
+		<devname>POTS</devname>
+		<default_meid>0x0102</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">32</attr>	<!-- Type -->
+		<attr i="2">2</attr>	<!-- Number_of_ports -->
+		<attr i="3">FHTT,0003</attr>	<!-- Serial_number -->
+		<attr i="4">WKE2.094.278A0</attr>	<!-- Version -->
+		<attr i="5">0x46485454</attr>	<!-- Vendor_id -->
+		<attr i="6">0</attr>	<!-- Administrative_state -->
+		<attr i="7">0</attr>	<!-- Operational_state -->
+		<attr i="8">2</attr>	<!-- Bridged_or_IP_ind -->
+		<attr i="9"></attr>	<!-- Equipment_id -->
+		<attr i="10">0</attr>	<!-- Card_configuration -->
+		<attr i="11">0</attr>	<!-- Total_T_CONT_buffer_number -->
+		<attr i="12">0</attr>	<!-- Total_priority_queue_number -->
+		<attr i="13">0</attr>	<!-- Total_traffic_scheduler_number -->
+		<attr i="14">0</attr>	<!-- Power_shed_override -->
+	</instance>
+	<instance i="3">
+		<devname>VEIP</devname>
+		<default_meid>0x0100</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">48</attr>	<!-- Type -->
+		<attr i="2">2</attr>	<!-- Number_of_ports -->
+		<attr i="3">FHTT,0004</attr>	<!-- Serial_number -->
+		<attr i="4">WKE2.094.278A0</attr>	<!-- Version -->
+		<attr i="5">0x46485454</attr>	<!-- Vendor_id -->
+		<attr i="6">0</attr>	<!-- Administrative_state -->
+		<attr i="7">0</attr>	<!-- Operational_state -->
+		<attr i="8">2</attr>	<!-- Bridged_or_IP_ind -->
+		<attr i="9"></attr>	<!-- Equipment_id -->
+		<attr i="10">0</attr>	<!-- Card_configuration -->
+		<attr i="11">0</attr>	<!-- Total_T_CONT_buffer_number -->
+		<attr i="12">16</attr>	<!-- Total_priority_queue_number -->
+		<attr i="13">0</attr>	<!-- Total_traffic_scheduler_number -->
+		<attr i="14">0</attr>	<!-- Power_shed_override -->
+	</instance>
+	<instance i="4">
+		<devname>VIDEO</devname>
+		<default_meid>0x0103</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">38</attr>	<!-- Type -->
+		<attr i="2">1</attr>	<!-- Number_of_ports -->
+		<attr i="3">FHTT,0005</attr>	<!-- Serial_number -->
+		<attr i="4">WKE2.094.278A0</attr>	<!-- Version -->
+		<attr i="5">0x46485454</attr>	<!-- Vendor_id -->
+		<attr i="6">0</attr>	<!-- Administrative_state -->
+		<attr i="7">0</attr>	<!-- Operational_state -->
+		<attr i="8">2</attr>	<!-- Bridged_or_IP_ind -->
+		<attr i="9"></attr>	<!-- Equipment_id -->
+		<attr i="10">0</attr>	<!-- Card_configuration -->
+		<attr i="11">0</attr>	<!-- Total_T_CONT_buffer_number -->
+		<attr i="12">0</attr>	<!-- Total_priority_queue_number -->
+		<attr i="13">0</attr>	<!-- Total_traffic_scheduler_number -->
+		<attr i="14">0</attr>	<!-- Power_shed_override -->
+	</instance>
+</class>
+
+
+<class id="133" attr_total="11">	<!-- ONT_power_shedding, 9.1.7 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>1</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- Restore_power_timer_reset_interval -->
+		<attr i="2"></attr>	<!-- Data_class_shedding_interval -->
+		<attr i="3"></attr>	<!-- Voice_class_shedding_interval -->
+		<attr i="4"></attr>	<!-- Video_overlay_class_shedding_interval -->
+		<attr i="5"></attr>	<!-- Video_return_class_shedding_interval -->
+		<attr i="6"></attr>	<!-- DSL_class_shedding_interval -->
+		<attr i="7"></attr>	<!-- ATM_class_shedding_interval -->
+		<attr i="8"></attr>	<!-- CES_class_shedding_interval -->
+		<attr i="9"></attr>	<!-- Frame_class_shedding_interval -->
+		<attr i="10"></attr>	<!-- SONET_class_shedding_interval -->
+		<attr i="11">0,0,0,0,0,0,0,0,0,0</attr>	<!-- Shedding_status -->
+	</instance>
+</class>
+
+
+<class id="297" attr_total="9">	<!-- Port_mapping_package_G, 9.1.8 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- Max_ports -->
+		<attr i="2"></attr>	<!-- Port_list_1 -->
+		<attr i="3"></attr>	<!-- Port_list_2 -->
+		<attr i="4"></attr>	<!-- Port_list_3 -->
+		<attr i="5"></attr>	<!-- Port_list_4 -->
+		<attr i="6"></attr>	<!-- Port_list_5 -->
+		<attr i="7"></attr>	<!-- Port_list_6 -->
+		<attr i="8"></attr>	<!-- Port_list_7 -->
+		<attr i="9"></attr>	<!-- Port_list_8 -->
+	</instance>
+</class>
+
+
+<class id="160" attr_total="2">	<!-- Equipment_extension_package, 9.1.9 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0,0,0,0,0,0,0,0</attr>	<!-- Environmental_sense -->
+		<attr i="2">0,0,0,0,0,0,0,0</attr>	<!-- Contact_closure_output -->
+	</instance>
+</class>
+
+
+<class id="279" attr_total="6">	<!-- Protection_data, 9.1.10 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- Working_ANI_G_pointer -->
+		<attr i="2"></attr>	<!-- Protection_ANI_G_pointer -->
+		<attr i="3"></attr>	<!-- Protection_type -->
+		<attr i="4"></attr>	<!-- Revertive_ind -->
+		<attr i="5"></attr>	<!-- Wait_to_restore_time -->
+		<attr i="6"></attr>	<!-- Switching_guard_time -->
+	</instance>
+</class>
+
+
+<class id="159" attr_total="14">	<!-- Equipment_protection_profile, 9.1.11 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- Protect_slot_1 -->
+		<attr i="2"></attr>	<!-- protect_slot_2 -->
+		<attr i="3"></attr>	<!-- working_slot_1 -->
+		<attr i="4"></attr>	<!-- working_slot_2 -->
+		<attr i="5"></attr>	<!-- working_slot_3 -->
+		<attr i="6"></attr>	<!-- working_slot_4 -->
+		<attr i="7"></attr>	<!-- working_slot_5 -->
+		<attr i="8"></attr>	<!-- working_slot_6 -->
+		<attr i="9"></attr>	<!-- working_slot_7 -->
+		<attr i="10"></attr>	<!-- working_slot_8 -->
+		<attr i="11"></attr>	<!-- Protect_status_1 -->
+		<attr i="12"></attr>	<!-- protect_status_2 -->
+		<attr i="13"></attr>	<!-- Revertive_ind -->
+		<attr i="14"></attr>	<!-- Wait_to_restore_time -->
+	</instance>
+</class>
+
+
+<class id="158" attr_total="3">	<!-- ONT_remote_debug, 9.1.12 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>1</is_private>
+		<attr i="1"></attr>	<!-- Command_format -->
+		<attr i="2"></attr>	<!-- Command -->
+		<attr i="3">	<!-- Reply_table -->
+			<attr_table>
+				<!-- 0: char_in_buffer -->
+				<!-- <entry i="0">0</entry> -->
+			</attr_table>
+		</attr>
+	</instance>
+</class>
+
+
+<class id="336" attr_total="12">	<!-- ONU_dynamic_power_management_control, 9.1.14 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>1</is_private>
+		<attr i="1">1,1,1,1,0</attr>	<!-- Power_reduction_management_capability -->
+		<attr i="2">1,1,1,1,0</attr>	<!-- Power_reduction_management_mode -->
+		<attr i="3">0</attr>	<!-- Itransinit -->
+		<attr i="4">0</attr>	<!-- Itxinit -->
+		<attr i="5">0</attr>	<!-- Maximum_sleep_interval -->
+		<attr i="6">0</attr>	<!-- Maximum_receiver_off_interval -->
+		<attr i="7">0</attr>	<!-- Minimum_aware_interval -->
+		<attr i="8">0</attr>	<!-- Minimum_active_held_interval -->
+		<attr i="9">0,0</attr>	<!-- Maximum_sleep_interval_extension -->
+		<attr i="10">1,0,1,1,0</attr>	<!-- EPON_capability_extension -->
+		<attr i="11">1,1,1,0</attr>	<!-- EPON_setup_extension -->
+		<attr i="12">4</attr>	<!-- Missing_consecutive_bursts_threshold -->
+	</instance>
+</class>
+
+</omci>
+

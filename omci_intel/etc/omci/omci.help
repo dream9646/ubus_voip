@@ -1,0 +1,3892 @@
+#
+# clitree help definition file
+#
+# @cmd [args...]		: the cli command base for keywords following this cli
+# keyword - help description 	: define the help for the keyword
+#				  the keyword must be exactly the same as the one in cli definition
+#
+
+# ROOT ################################
+@
+arp - arp config
+attr - omci me attr config
+bat - batch table config
+bridge - show device bridge er-diagram
+cfm - cfm configuration
+classf - classf configuration
+config - show omci instance default value for per class
+cpuport - cpuport packet config
+dhcp_filter - dhcp filter config
+env - env variable configuration
+er - show er class info
+erattri - show er instance attr info
+erattri_time_reset - clear timestamp in erattri
+eri - show er instance info
+extoam - extended oam configuration
+gfast - G.Fast configuration
+gpon - show gpon information
+help - help
+history - show omci message history
+hwresource - show hardware resource mapping
+igmp - igmp configuration
+lldp - 
+me - me configuration
+misc - misc configuration
+nat - show nat sessions
+portinfo - show specific bridge port info
+pots - show device pots er-diagram
+pots_mkey - show device pots er-diagram w/ metakey
+spec - query 984.4 spec
+stp - rapid stp configuration
+switch - switch status display
+tag - show vlan translation rule
+tcont - show tcont information
+unrelated - show device me not related to others
+vacl - virtual acl configuration
+
+# arp ################################
+@arp
+limitget - get arp count limit
+limitset - set arp count limit
+
+@arp limitset
+<num> - number of arp allowed in 1 second
+
+# attr ################################
+@attr
+get - get one attribute of specific omci me
+set - set one attribute of specific omci me
+setm - set multiple attributes of specific omci me
+
+@attr get
+<classid> - class id of me
+
+@attr get <classid>
+<meid> - me id
+
+@attr get <classid> <meid>
+<attr_order> - attr order (1..16)
+
+@attr set
+<classid> - class id of me
+
+@attr set <classid>
+<meid> - me id
+
+@attr set <classid> <meid>
+<attr_order> - attr order (1..16)
+
+@attr set <classid> <meid> <attr_order>
+<string> - the value to be set for attribute
+
+@attr setm
+<classid> - class id
+
+@attr setm <classid>
+<meid> - me id
+
+@attr setm <classid> <meid>
+<attrmask> - portmask of attrs to be set
+
+@attr setm <classid> <meid> <attrmask>
+<string1> - value for 1st attr to be set
+
+@attr setm <classid> <meid> <attrmask> <string1>
+<string2...> - value for 2nd attr to be set, ...
+
+# bat ################################
+@bat
+auto - trigger batch table periodic, even no omci or cli event
+crosstab_update - also update depends batch table
+disable - disable execute batch table
+dump - display information in batch table
+enable - enable execute batch table
+hw_sync - synchronous hardware parts of batch table
+noauto - trigger batch table only when event from omci or cli ...
+omci_idle_timeout - seconds to wait before tablegen in case omci update is issued
+omci_update - synchronous batch table with current omci mib
+table_gen - regenerator batch table
+
+@bat auto
+* - means all batch table
+alu_ds_mcastvlan - alu ds multicast tci operation
+alu_ont_mode - alu ont bridge/route mode ctrl
+alu_sp - alu 7342 PQ strict pirority workaround
+autouni - auto allocate uni bport for veip bridge
+autoveip - auto allocate veip bport for uni bridge
+calix_apas - calix apas mode
+calix_l2cp - calix l2cp filter
+calix_tlan - calix tlan mode
+calix_uni_policing - calix uni policing
+classf - classification by layer2/3 info
+ericsson_pvlan - ericsson pvlan setting
+filtering - setup port vlan filter
+gemflow - gem flow management
+hardbridge - do hw bridge if maclimit & no veip service
+isolation_set - setup relation of port isolation
+linkready - identify wan connection state
+lldp - 
+mac_filter - omci me 49 macaddr filter
+mcastbw - omci 310 ds mcast ratelimit
+mcastmode - base macst gem to auto start/stop iptv service
+pots_mkey - voip metakey
+tagging - collect uni tagging rules for pkt software path
+td - td ratelimit management
+tm - gpon ts/pq management
+wan - collect gpon wan port pbit to flowid mapping
+wand2p - 
+wanif - dev_wan[0-7]_interface status
+
+@bat crosstab_update
+* - means all batch table
+alu_ds_mcastvlan - alu ds multicast tci operation
+alu_ont_mode - alu ont bridge/route mode ctrl
+alu_sp - alu 7342 PQ strict pirority workaround
+autouni - auto allocate uni bport for veip bridge
+autoveip - auto allocate veip bport for uni bridge
+calix_apas - calix apas mode
+calix_l2cp - calix l2cp filter
+calix_tlan - calix tlan mode
+calix_uni_policing - calix uni policing
+classf - classification by layer2/3 info
+ericsson_pvlan - ericsson pvlan setting
+filtering - setup port vlan filter
+gemflow - gem flow management
+hardbridge - do hw bridge if maclimit & no veip service
+isolation_set - setup relation of port isolation
+linkready - identify wan connection state
+lldp - 
+mac_filter - omci me 49 macaddr filter
+mcastbw - omci 310 ds mcast ratelimit
+mcastmode - base macst gem to auto start/stop iptv service
+pots_mkey - voip metakey
+tagging - collect uni tagging rules for pkt software path
+td - td ratelimit management
+tm - gpon ts/pq management
+wan - collect gpon wan port pbit to flowid mapping
+wand2p - wan dscp to pbit enable
+wanif - dev_wan[0-7]_interface status
+
+@bat disable
+* - means all batch table
+alu_ds_mcastvlan - alu ds multicast tci operation
+alu_ont_mode - alu ont bridge/route mode ctrl
+alu_sp - alu 7342 PQ strict pirority workaround
+autouni - auto allocate uni bport for veip bridge
+autoveip - auto allocate veip bport for uni bridge
+calix_apas - calix apas mode
+calix_l2cp - calix l2cp filter
+calix_tlan - calix tlan mode
+calix_uni_policing - calix uni policing
+classf - classification by layer2/3 info
+ericsson_pvlan - ericsson pvlan setting
+filtering - setup port vlan filter
+gemflow - gem flow management
+hardbridge - do hw bridge if maclimit & no veip service
+isolation_set - setup relation of port isolation
+linkready - identify wan connection state
+lldp - 
+mac_filter - omci me 49 macaddr filter
+mcastbw - omci 310 ds mcast ratelimit
+mcastmode - base macst gem to auto start/stop iptv service
+pots_mkey - voip metakey
+tagging - collect uni tagging rules for pkt software path
+td - td ratelimit management
+tm - gpon ts/pq management
+wan - collect gpon wan port pbit to flowid mapping
+wand2p - wan dscp to pbit enable
+wanif - dev_wan[0-7]_interface status
+
+@bat dump
+* - means all batch table
+alu_ds_mcastvlan - alu ds multicast tci operation
+alu_ont_mode - alu ont bridge/route mode ctrl
+alu_sp - alu 7342 PQ strict pirority workaround
+autouni - auto allocate uni bport for veip bridge
+autoveip - auto allocate veip bport for uni bridge
+calix_apas - calix apas mode
+calix_l2cp - calix l2cp filter
+calix_tlan - calix tlan mode
+calix_uni_policing - calix uni policing
+classf - classification by layer2/3 info
+ericsson_pvlan - ericsson pvlan setting
+filtering - setup port vlan filter
+gemflow - gem flow management
+hardbridge - do hw bridge if maclimit & no veip service
+isolation_set - setup relation of port isolation
+linkready - identify wan connection state
+lldp - 
+mac_filter - omci me 49 macaddr filter
+mcastbw - omci 310 ds mcast ratelimit
+mcastmode - base macst gem to auto start/stop iptv service
+pots_mkey - voip metakey
+tagging - collect uni tagging rules for pkt software path
+td - td ratelimit management
+tm - gpon ts/pq management
+wan - collect gpon wan port pbit to flowid mapping
+wand2p - wan dscp to pbit enable
+wanif - dev_wan[0-7]_interface status
+
+@bat enable
+* - means all batch table
+alu_ds_mcastvlan - alu ds multicast tci operation
+alu_ont_mode - alu ont bridge/route mode ctrl
+alu_sp - alu 7342 PQ strict pirority workaround
+autouni - auto allocate uni bport for veip bridge
+autoveip - auto allocate veip bport for uni bridge
+calix_apas - calix apas mode
+calix_l2cp - calix l2cp filter
+calix_tlan - calix tlan mode
+calix_uni_policing - calix uni policing
+classf - classification by layer2/3 info
+ericsson_pvlan - ericsson pvlan setting
+filtering - setup port vlan filter
+gemflow - gem flow management
+hardbridge - do hw bridge if maclimit & no veip service
+isolation_set - setup relation of port isolation
+linkready - identify wan connection state
+lldp - 
+mac_filter - omci me 49 macaddr filter
+mcastbw - omci 310 ds mcast ratelimit
+mcastmode - base macst gem to auto start/stop iptv service
+pots_mkey - voip metakey
+tagging - collect uni tagging rules for pkt software path
+td - td ratelimit management
+tm - gpon ts/pq management
+wan - collect gpon wan port pbit to flowid mapping
+wand2p - wan dscp to pbit enable
+wanif - dev_wan[0-7]_interface status
+
+@bat hw_sync
+* - means all batch table
+alu_ds_mcastvlan - alu ds multicast tci operation
+alu_ont_mode - alu ont bridge/route mode ctrl
+alu_sp - alu 7342 PQ strict pirority workaround
+autouni - auto allocate uni bport for veip bridge
+autoveip - auto allocate veip bport for uni bridge
+calix_apas - calix apas mode
+calix_l2cp - calix l2cp filter
+calix_tlan - calix tlan mode
+calix_uni_policing - calix uni policing
+classf - classification by layer2/3 info
+ericsson_pvlan - ericsson pvlan setting
+filtering - setup port vlan filter
+gemflow - gem flow management
+hardbridge - do hw bridge if maclimit & no veip service
+isolation_set - setup relation of port isolation
+linkready - identify wan connection state
+lldp - 
+mac_filter - omci me 49 macaddr filter
+mcastbw - omci 310 ds mcast ratelimit
+mcastmode - base macst gem to auto start/stop iptv service
+pots_mkey - voip metakey
+tagging - collect uni tagging rules for pkt software path
+td - td ratelimit management
+tm - gpon ts/pq management
+wan - collect gpon wan port pbit to flowid mapping
+wand2p - wan dscp to pbit enable
+wanif - dev_wan[0-7]_interface status
+
+@bat noauto
+* - means all batch table
+alu_ds_mcastvlan - alu ds multicast tci operation
+alu_ont_mode - alu ont bridge/route mode ctrl
+alu_sp - alu 7342 PQ strict pirority workaround
+autouni - auto allocate uni bport for veip bridge
+autoveip - auto allocate veip bport for uni bridge
+calix_apas - calix apas mode
+calix_l2cp - calix l2cp filter
+calix_tlan - calix tlan mode
+calix_uni_policing - calix uni policing
+classf - classification by layer2/3 info
+ericsson_pvlan - ericsson pvlan setting
+filtering - setup port vlan filter
+gemflow - gem flow management
+hardbridge - do hw bridge if maclimit & no veip service
+isolation_set - setup relation of port isolation
+linkready - identify wan connection state
+lldp - 
+mac_filter - omci me 49 macaddr filter
+mcastbw - omci 310 ds mcast ratelimit
+mcastmode - base macst gem to auto start/stop iptv service
+pots_mkey - voip metakey
+tagging - collect uni tagging rules for pkt software path
+td - td ratelimit management
+tm - gpon ts/pq management
+wan - collect gpon wan port pbit to flowid mapping
+wand2p - wan dscp to pbit enable
+wanif - dev_wan[0-7]_interface status
+
+@bat omci_idle_timeout
+* - means all batch table
+alu_ds_mcastvlan - alu ds multicast tci operation
+alu_ont_mode - alu ont bridge/route mode ctrl
+alu_sp - alu 7342 PQ strict pirority workaround
+autouni - auto allocate uni bport for veip bridge
+autoveip - auto allocate veip bport for uni bridge
+classf - classification by layer2/3 info
+filtering - setup port vlan filter
+gemflow - gem flow management
+hardbridge - do hw bridge if maclimit & no veip service
+isolation_set - setup relation of port isolation
+linkready - identify wan connection state
+lldp - 
+mac_filter - omci me 49 macaddr filter
+mcastbw - omci 310 ds mcast ratelimit
+mcastmode - base macst gem to auto start/stop iptv service
+tagging - collect uni tagging rules for pkt software path
+td - td ratelimit management
+tm - gpon ts/pq management
+wan - collect gpon wan port pbit to flowid mapping
+wand2p - wan dscp to pbit enable
+wanif - dev_wan[0-7]_interface status
+
+@bat omci_idle_timeout *
+<second> - integer that >= 1
+
+@bat omci_idle_timeout alu_ds_mcastvlan
+<second> - 
+
+@bat omci_idle_timeout alu_ont_mode
+<second> - 
+
+@bat omci_idle_timeout alu_sp
+<second> - 
+
+@bat omci_idle_timeout autouni
+<second> - 
+
+@bat omci_idle_timeout autoveip
+<second> - 
+
+@bat omci_idle_timeout classf
+<second> - integer that >= 1
+
+@bat omci_idle_timeout filtering
+<second> - integer that >= 1
+
+@bat omci_idle_timeout gemflow
+<second> - 
+
+@bat omci_idle_timeout hardbridge
+<second> - 
+
+@bat omci_idle_timeout isolation_set
+<second> - integer that >= 1
+
+@bat omci_idle_timeout linkready
+<second> - integer that >= 1
+
+@bat omci_idle_timeout lldp
+<second> - 
+
+@bat omci_idle_timeout mac_filter
+<second> - 
+
+@bat omci_idle_timeout mcastbw
+<second> - 
+
+@bat omci_idle_timeout mcastmode
+<second> - 
+
+@bat omci_idle_timeout tagging
+<second> - integer that >= 1
+
+@bat omci_idle_timeout td
+<second> - 
+
+@bat omci_idle_timeout tm
+<second> - 
+
+@bat omci_idle_timeout wan
+<second> - 
+
+@bat omci_idle_timeout wand2p
+<second> - 
+
+@bat omci_idle_timeout wanif
+<second> - 
+
+@bat omci_update
+* - means all batch table
+alu_ds_mcastvlan - alu ds multicast tci operation
+alu_ont_mode - alu ont bridge/route mode ctrl
+alu_sp - alu 7342 PQ strict pirority workaround
+autouni - auto allocate uni bport for veip bridge
+autoveip - auto allocate veip bport for uni bridge
+calix_apas - calix apas mode
+calix_l2cp - calix l2cp filter
+calix_tlan - calix tlan mode
+calix_uni_policing - calix uni policing
+classf - classification by layer2/3 info
+ericsson_pvlan - ericsson pvlan setting
+filtering - setup port vlan filter
+gemflow - gem flow management
+hardbridge - do hw bridge if maclimit & no veip service
+isolation_set - setup relation of port isolation
+linkready - identify wan connection state
+lldp - 
+mac_filter - omci me 49 macaddr filter
+mcastbw - omci 310 ds mcast ratelimit
+mcastmode - base macst gem to auto start/stop iptv service
+pots_mkey - voip metakey
+tagging - collect uni tagging rules for pkt software path
+td - td ratelimit management
+tm - gpon ts/pq management
+wan - collect gpon wan port pbit to flowid mapping
+wand2p - wan dscp to pbit enable
+wanif - dev_wan[0-7]_interface status
+
+@bat table_gen
+* - means all batch table
+alu_ds_mcastvlan - alu ds multicast tci operation
+alu_ont_mode - alu ont bridge/route mode ctrl
+alu_sp - alu 7342 PQ strict pirority workaround
+autouni - auto allocate uni bport for veip bridge
+autoveip - auto allocate veip bport for uni bridge
+calix_apas - calix apas mode
+calix_l2cp - calix l2cp filter
+calix_tlan - calix tlan mode
+calix_uni_policing - calix uni policing
+classf - classification by layer2/3 info
+ericsson_pvlan - ericsson pvlan setting
+filtering - setup port vlan filter
+gemflow - gem flow management
+hardbridge - do hw bridge if maclimit & no veip service
+isolation_set - setup relation of port isolation
+linkready - identify wan connection state
+lldp - 
+mac_filter - omci me 49 macaddr filter
+mcastbw - omci 310 ds mcast ratelimit
+mcastmode - base macst gem to auto start/stop iptv service
+pots_mkey - voip metakey
+tagging - collect uni tagging rules for pkt software path
+td - td ratelimit management
+tm - gpon ts/pq management
+wan - collect gpon wan port pbit to flowid mapping
+wand2p - wan dscp to pbit enable
+wanif - dev_wan[0-7]_interface status
+
+# bridge ################################
+@bridge
+<meid> - me id
+
+# cfm ################################
+@cfm
+clear - clear the information of remote MEPs
+config - change configuration
+counter - show statistic of different type of CFM message
+extract - extract CFM packet or not
+mp - mep/mip related configuration
+result - show result of specific CFM reuqest message
+send - send specific CFM message
+show - show status of specific remote meid
+start - start CFM task
+stop - stop CFM task
+
+@cfm clear
+ccm - clear CCM database
+lbr - clear LBR database
+ltm - clear LTM database
+ltr - clear LTR database
+
+@cfm clear ccm
+<md_level> - md level
+
+@cfm clear ccm <md_level>
+<mepid> - remote MEP id
+
+@cfm clear lbr
+<md_level> - md level
+
+@cfm clear lbr <md_level>
+<mepid> - remote MEP id
+
+@cfm clear ltm
+<md_level> - md level
+
+@cfm clear ltm <md_level>
+<mepid> - remote MEP id
+
+@cfm clear ltr
+<md_level> - md level
+
+@cfm clear ltr <md_level>
+<mepid> - remote MEP id
+
+@cfm config
+chassis_info - chassis information
+
+@cfm config chassis_info
+<chassis_id|NULL> - chassis id
+
+@cfm config chassis_info <chassis_id|NULL>
+<mgmtaddr_domain|NULL> - management address domain
+
+@cfm config chassis_info <chassis_id|NULL> <mgmtaddr_domain|NULL>
+<mgmtaddr|NULL> - management address
+
+@cfm counter
+1dm - 1-way delay measurement message
+1sl - 1-way synthetic lost measurement message
+ais - alarm indication signal message
+ccm - continuity check counter
+clear - clear counter
+dmm - delay measurement message
+dmr - delay measurement reply
+lbm - loop back message
+lbr - loop back reply
+lck - lock message
+lmm - loss measurement message
+lmr - loss measurement reply
+ltm - link trace message
+ltr - link trace reply
+slm - synthetic loss measurement message
+slr - synthetic loss measurement reply
+tst - test message
+
+@cfm counter 1dm
+<md_level> - md level
+
+@cfm counter 1dm <md_level>
+<mepid> - remote mepid
+
+@cfm counter 1sl
+<md_level> - md level
+
+@cfm counter 1sl <md_level>
+<mepid> - remote mepid
+
+@cfm counter ais
+<md_level> - md level
+
+@cfm counter ais <md_level>
+<mepid> - remote mepid
+
+@cfm counter ccm
+<md_level> - md level
+
+@cfm counter ccm <md_level>
+<mepid> - remote mepid
+
+@cfm counter dmm
+<md_level> - md level
+
+@cfm counter dmm <md_level>
+<mepid> - remote mepid
+
+@cfm counter dmr
+<md_level> - md level
+
+@cfm counter dmr <md_level>
+<mepid> - remote mepid
+
+@cfm counter lbm
+<md_level> - md level
+
+@cfm counter lbm <md_level>
+<mepid> - remote mepid
+
+@cfm counter lbr
+<md_level> - md level
+
+@cfm counter lbr <md_level>
+<mepid> - remote mepid
+
+@cfm counter lck
+<md_level> - md level
+
+@cfm counter lck <md_level>
+<mepid> - remote mepid
+
+@cfm counter lmm
+<md_level> - md level
+
+@cfm counter lmm <md_level>
+<mepid> - remote mepid
+
+@cfm counter lmr
+<md_level> - md level
+
+@cfm counter lmr <md_level>
+<mepid> - remote mepid
+
+@cfm counter ltm
+<md_level> - md level
+
+@cfm counter ltm <md_level>
+<mepid> - remote mepid
+
+@cfm counter ltr
+<md_level> - md level
+
+@cfm counter ltr <md_level>
+<mepid> - remote mepid
+
+@cfm counter slm
+<md_level> - md level
+
+@cfm counter slm <md_level>
+<mepid> - remote mepid
+
+@cfm counter slr
+<md_level> - md level
+
+@cfm counter slr <md_level>
+<mepid> - remote mepid
+
+@cfm counter tst
+<md_level> - md level
+
+@cfm counter tst <md_level>
+<mepid> - remote mepid
+
+@cfm extract
+<0(disable)|1(enable)> - extract enable or disable
+
+@cfm mp
+<md_level> - md level
+add - add mp
+config - mp configuration
+del - del mp
+
+@cfm mp <md_level>
+<mepid> - mepid
+
+@cfm mp add
+<md_level> - md level
+
+@cfm mp add <md_level>
+<mepid> - remote mepid
+
+@cfm mp add <md_level> <mepid>
+<port_type(0=cpu,1=uni,2=wan)> - port type
+
+@cfm mp add <md_level> <mepid> <port_type(0=cpu,1=uni,2=wan)>
+<port_type_index> - port type index
+
+@cfm mp config
+admin - administration configuration
+ais_client_mdl - ais client MDL
+ais_enable - ais enable
+ais_interval - ais interval
+ais_pri - ais priority
+alarm_clear_soak_time - time interval to clear defect alarm
+alarm_declaration_soak_time - time interval to declare defect alarm
+auto_discovery - auto discovery enable
+bp - bridge port config
+ccm_enable - CCM enable
+ccm_interval - CCM interval
+dir - MEP up/down
+dmm_enable - DMM enable
+fault_alarm_threshold - fault alarm threshold
+lbr_enable - LBR enable
+lmm_dual_test_enable - ready to begin a LMM dual test
+lmm_enable - LMM enable
+ltr_enable - LTR enable
+ma_name - config MA name
+macaddr - config mac address
+md_name - config MD name
+payload_format - update payload format
+payload_pattern - update payload pattern
+pbit_filter - pbit filter enable
+peer_mep_id - update list of peer MEP id
+pri - config vlan priority
+rmep_mac - update remote MEP macaddr
+rmep_state - update remote MEP state
+sender_id_permission - MA sender id permission
+tlv_data_length - update data tlv's length
+type - config mantannence point type
+vlan - config vlan id
+
+@cfm mp config admin
+<md_level|*> - MD level
+
+@cfm mp config admin <md_level|*>
+<mepid|*> - MEP id
+
+@cfm mp config admin <md_level|*> <mepid|*>
+<0(unlock)|1(lock)> - lock or unlock
+
+@cfm mp config ais_client_mdl
+<md_level|*> - MD level
+
+@cfm mp config ais_client_mdl <md_level|*>
+<mepid|*> - MEP id
+
+@cfm mp config ais_client_mdl <md_level|*> <mepid|*>
+<0..7> - 0..7
+
+@cfm mp config ais_enable
+<md_level|*> - MD level
+
+@cfm mp config ais_enable <md_level|*>
+<mepid|*> - MEP id
+
+@cfm mp config ais_enable <md_level|*> <mepid|*>
+<0|1> - 0 for disable or 1 for enable
+
+@cfm mp config ais_interval
+<md_level|*> - MD level
+
+@cfm mp config ais_interval <md_level|*>
+<mepid|*> - MEP id
+
+@cfm mp config ais_interval <md_level|*> <mepid|*>
+<0:1s,1:60s> - time interval. 0:1 second, 1:60 seconds
+
+@cfm mp config ais_pri
+<md_level|*> - MD level
+
+@cfm mp config ais_pri <md_level|*>
+<mepid|*> - MEP id
+
+@cfm mp config ais_pri <md_level|*> <mepid|*>
+<priority> - priority (0..7)
+
+@cfm mp config alarm_clear_soak_time
+<md_level|*> - MD level
+
+@cfm mp config alarm_clear_soak_time <md_level|*>
+<mepid|*> - MEP id
+
+@cfm mp config alarm_clear_soak_time <md_level|*> <mepid|*>
+<ms,default:10000> - unit: millisecond
+
+@cfm mp config alarm_declaration_soak_time
+<md_level|*> - MD level
+
+@cfm mp config alarm_declaration_soak_time <md_level|*>
+<mepid|*> - MEP id
+
+@cfm mp config alarm_declaration_soak_time <md_level|*> <mepid|*>
+<ms,default:2500> - unit: millisecond
+
+@cfm mp config auto_discovery
+<md_level|*> - MD level
+
+@cfm mp config auto_discovery <md_level|*>
+<mepid|*> - MEP id
+
+@cfm mp config auto_discovery <md_level|*> <mepid|*>
+<0(disable)|1(enable)> - disable or enable
+
+@cfm mp config bp
+<md_level|*> - MD level
+
+@cfm mp config bp <md_level|*>
+<mepid|*> - MEP id
+
+@cfm mp config bp <md_level|*> <mepid|*>
+<port_type(0=cpu,1=uni,2=wan)> - port_type(0=cpu,1=uni,2=wan)
+
+@cfm mp config bp <md_level|*> <mepid|*> <port_type(0=cpu,1=uni,2=wan)>
+<port_type_index> - port type index
+
+@cfm mp config bp <md_level|*> <mepid|*> <port_type(0=cpu,1=uni,2=wan)> <port_type_index>
+<logical_port_id> - logical port id
+
+@cfm mp config ccm_enable
+<md_level|*> - MD level
+
+@cfm mp config ccm_enable <md_level|*>
+<mepid|*> - MEP id
+
+@cfm mp config ccm_enable <md_level|*> <mepid|*>
+<0(disable)|1(enable)> - 0: disable, 1: enable
+
+@cfm mp config ccm_interval
+<md_level|*> - MD level
+
+@cfm mp config ccm_interval <md_level|*>
+<mepid|*> - MEP id
+
+@cfm mp config ccm_interval <md_level|*> <mepid|*>
+<0..7> - 0:disable, 1:3.33ms, 2:10ms, 3:100ms, 4:1s, 5:10s, 6:1min, 7:10min
+
+@cfm mp config dir
+<md_level|*> - MD level
+
+@cfm mp config dir <md_level|*>
+<mepid|*> - MEP id
+
+@cfm mp config dir <md_level|*> <mepid|*>
+down - down
+up - up
+
+@cfm mp config dmm_enable
+<md_level|*> - MD level
+
+@cfm mp config dmm_enable <md_level|*>
+<mepid|*> - MEP id
+
+@cfm mp config dmm_enable <md_level|*> <mepid|*>
+<0(disable)|1(enable)> - disable or enable
+
+@cfm mp config fault_alarm_threshold
+<md_level|*> - MD level
+
+@cfm mp config fault_alarm_threshold <md_level|*>
+<mepid|*> - MEP id
+
+@cfm mp config fault_alarm_threshold <md_level|*> <mepid|*>
+<0..6> - value from 0 to 6
+
+@cfm mp config lbr_enable
+<md_level|*> - 
+
+@cfm mp config lbr_enable <md_level|*>
+<mepid|*> - MEP id
+
+@cfm mp config lbr_enable <md_level|*> <mepid|*>
+<0(disable)|1(enable)> - disable or enable
+
+@cfm mp config lmm_dual_test_enable
+<md_level|*> - MD level
+
+@cfm mp config lmm_dual_test_enable <md_level|*>
+<mepid|*> - MEP id
+
+@cfm mp config lmm_dual_test_enable <md_level|*> <mepid|*>
+<0|1> - 0:disable, 1:enable lmm dual test support on mep
+
+@cfm mp config lmm_enable
+<md_level|*> - MD level
+
+@cfm mp config lmm_enable <md_level|*>
+<mepid|*> - MEP id
+
+@cfm mp config lmm_enable <md_level|*> <mepid|*>
+<0(disable)|1(enable)> - disable or enable
+
+@cfm mp config ltr_enable
+<md_level|*> - MD level
+
+@cfm mp config ltr_enable <md_level|*>
+<mepid|*> - MEP id
+
+@cfm mp config ltr_enable <md_level|*> <mepid|*>
+<0(disable)|1(enable)> - disable or enable
+
+@cfm mp config ma_name
+<md_level|*> - MD level
+
+@cfm mp config ma_name <md_level|*>
+<mepid|*> - MEP id
+
+@cfm mp config ma_name <md_level|*> <mepid|*>
+1 - format_vid
+2 - format_string
+3 - format_shortint
+32 - format_icc
+4 - format_vpnid
+<string> - ma name
+
+@cfm mp config ma_name <md_level|*> <mepid|*> 1
+<vid> - 1..4094
+
+@cfm mp config ma_name <md_level|*> <mepid|*> 2
+<string> - ma name
+
+@cfm mp config ma_name <md_level|*> <mepid|*> 3
+<short_int> - short int
+
+@cfm mp config ma_name <md_level|*> <mepid|*> 32
+<icc_string> - ma name
+
+@cfm mp config ma_name <md_level|*> <mepid|*> 4
+<vpn_oui> - vpn oui, 0xXXXXXX
+
+@cfm mp config ma_name <md_level|*> <mepid|*> 4 <vpn_oui>
+<vpn_index> - vpn index, 0xXXXXXX
+
+@cfm mp config macaddr
+<md_level|*> - MD level
+
+@cfm mp config macaddr <md_level|*>
+<mepid|*> - MEP id
+
+@cfm mp config macaddr <md_level|*> <mepid|*>
+<xx:xx:xx:xx:xx:xx> - MAC address
+
+@cfm mp config md_name
+<md_level|*> - MD level
+
+@cfm mp config md_name <md_level|*>
+<mepid|*> - MEP id
+
+@cfm mp config md_name <md_level|*> <mepid|*>
+1 - format_none
+2 - format_dns
+3 - format_macaddr_shortint
+32 - format_icc
+4 - format_string
+<string> - md name
+
+@cfm mp config md_name <md_level|*> <mepid|*> 1
+<string> - md name
+
+@cfm mp config md_name <md_level|*> <mepid|*> 2
+<dns_string> - FQDN like string
+
+@cfm mp config md_name <md_level|*> <mepid|*> 3
+<xx:xx:xx:xx:xx:xx> - macaddr
+
+@cfm mp config md_name <md_level|*> <mepid|*> 3 <xx:xx:xx:xx:xx:xx>
+<short_int> - shortint
+
+@cfm mp config md_name <md_level|*> <mepid|*> 32
+<icc_string> - md name
+
+@cfm mp config md_name <md_level|*> <mepid|*> 4
+<string> - md name
+
+@cfm mp config payload_format
+<md_level|*> - MD level
+
+@cfm mp config payload_format <md_level|*>
+<mepid|*> - MEP id
+
+@cfm mp config payload_format <md_level|*> <mepid|*>
+<0|1|2> - 0:ignore, 1:data, 2:test
+
+@cfm mp config payload_pattern
+<md_level|*> - MD level
+
+@cfm mp config payload_pattern <md_level|*>
+<mepid|*> - MEP id
+
+@cfm mp config payload_pattern <md_level|*> <mepid|*>
+<pattern> - unsigned integer pattern
+
+@cfm mp config pbit_filter
+<md_level|*> - 
+
+@cfm mp config pbit_filter <md_level|*>
+<mepid|*> - MEP id
+
+@cfm mp config pbit_filter <md_level|*> <mepid|*>
+<0(disable)|1(enable)> - disable or enable
+
+@cfm mp config peer_mep_id
+<md_level|*> - MD level
+
+@cfm mp config peer_mep_id <md_level|*>
+<mepid|*> - MEP id
+
+@cfm mp config peer_mep_id <md_level|*> <mepid|*>
+<rmepid01> - remote MEP 01
+
+@cfm mp config peer_mep_id <md_level|*> <mepid|*> <rmepid01>
+<rmepid02> - remote MEP 02
+<rmepid03> - remote MEP 03
+<rmepid04> - remote MEP 04
+<rmepid05> - remote MEP 05
+<rmepid06> - remote MEP 06
+<rmepid07> - remote MEP 07
+<rmepid08> - remote MEP 08
+<rmepid09> - remote MEP 09
+<rmepid10> - remote MEP 10
+<rmepid11> - remote MEP 11
+<rmepid12> - remote MEP 12
+
+@cfm mp config pri
+<md_level|*> - MD level
+
+@cfm mp config pri <md_level|*>
+<mepid|*> - MEP id
+
+@cfm mp config pri <md_level|*> <mepid|*>
+<priority> - priority from 0 to 7
+
+@cfm mp config rmep_mac
+<md_level|*> - MD level
+
+@cfm mp config rmep_mac <md_level|*>
+<mepid|*> - MEP id
+
+@cfm mp config rmep_mac <md_level|*> <mepid|*>
+<rmepid|*> - remote MEP id
+
+@cfm mp config rmep_mac <md_level|*> <mepid|*> <rmepid|*>
+<xx:xx:xx:xx:xx:xx> - MAC address
+
+@cfm mp config rmep_state
+<md_level|*> - MD level
+
+@cfm mp config rmep_state <md_level|*>
+<mepid|*> - MEP id
+
+@cfm mp config rmep_state <md_level|*> <mepid|*>
+<rmepid|*> - remote MEP id
+
+@cfm mp config rmep_state <md_level|*> <mepid|*> <rmepid|*>
+<0..7> - value from 0 to 7
+
+@cfm mp config sender_id_permission
+<md_level|*> - MD level
+
+@cfm mp config sender_id_permission <md_level|*>
+<mepid|*> - MEP id
+
+@cfm mp config sender_id_permission <md_level|*> <mepid|*>
+<1=none,2=chassis,3=manage,4=chassis+manage> - permission type:1=none,2=chassis,3=manage,4=chassis+manage
+
+@cfm mp config tlv_data_length
+<md_level|*> - MD level
+
+@cfm mp config tlv_data_length <md_level|*>
+<mepid|*> - MEP id
+
+@cfm mp config tlv_data_length <md_level|*> <mepid|*>
+<length> - length of data tlv
+
+@cfm mp config type
+<md_level|*> - MD level
+
+@cfm mp config type <md_level|*>
+<mepid|*> - MEP id
+
+@cfm mp config type <md_level|*> <mepid|*>
+mep - MEP
+mip - MIP
+
+@cfm mp config vlan
+<md_level|*> - MD level
+
+@cfm mp config vlan <md_level|*>
+<mepid|*> - MEP id
+
+@cfm mp config vlan <md_level|*> <mepid|*>
+<vlan_id> - Vlan ID
+
+@cfm mp del
+<md_level> - MD level
+ALL - all MEP id in all MD level
+
+@cfm mp del <md_level>
+<mepid> - MEP id
+
+@cfm mp del <md_level> <mepid>
+<port_type(0=cpu,1=uni,2=wan)> - port_type(0=cpu,1=uni,2=wan)
+
+@cfm mp del <md_level> <mepid> <port_type(0=cpu,1=uni,2=wan)>
+<port_type_index> - port type index
+
+@cfm result
+dmm - result of DMM test
+lbm - result of LBM test
+lmm_dual - result of LMM 2-way test
+lmm_single - result of LMM 1-way test
+ltm - result of ltm test
+slm_dual - result of SLM 2-way test
+slm_single - result of SLM 1-way test
+
+@cfm result dmm
+<md_level> - MD level
+
+@cfm result dmm <md_level>
+<mepid> - MEP id
+
+@cfm result lbm
+<md_level> - MD level
+
+@cfm result lbm <md_level>
+<mepid> - MEP id
+
+@cfm result lmm_dual
+<md_level> - MD level
+
+@cfm result lmm_dual <md_level>
+<mepid> - MEP id
+
+@cfm result lmm_single
+<md_level> - MD level
+
+@cfm result lmm_single <md_level>
+<mepid> - MEP id
+
+@cfm result ltm
+<md_level> - MD level
+
+@cfm result ltm <md_level>
+<mepid> - MEP id
+
+@cfm result slm_dual
+<md_level> - MD level
+
+@cfm result slm_dual <md_level>
+<mepid> - MEP id
+
+@cfm result slm_single
+<md_level> - MD level
+
+@cfm result slm_single <md_level>
+<mepid> - MEP id
+
+@cfm send
+1dm - start 1-way delay measurement test
+ais - start alarm indication signal test
+dmm - start delay mesaurement test
+lbm - start loop back measurement test
+lck - start lock test
+lmm_dual - put a,b in tst mode, start test in a through ccm, summary result on a
+lmm_single - start test in a through ccm, summary result on a
+ltm - start link trace mesaurement test
+slm_dual - send 1sl pkt from a, summary loss on b
+slm_single - send slm pkt from a, replied by b, summary loss on a
+tst - start test singal test
+
+@cfm send 1dm
+<md_level> - MD level
+
+@cfm send 1dm <md_level>
+<mepid> - MEP id
+
+@cfm send 1dm <md_level> <mepid>
+<mac|rmepid> - MAC address or remote MEP id
+
+@cfm send ais
+<md_level> - MD level
+
+@cfm send ais <md_level>
+<mepid> - MEP id
+
+@cfm send ais <md_level> <mepid>
+<mac|rmepid> - MAC address or remote MEP id
+NULL - NULL
+
+@cfm send ais <md_level> <mepid> <mac|rmepid>
+<flags> - valid value: 0..7
+
+@cfm send ais <md_level> <mepid> NULL
+<flags> - valid value: 0..7
+
+@cfm send dmm
+<md_level> - MD level
+
+@cfm send dmm <md_level>
+<mepid> - MEP id
+
+@cfm send dmm <md_level> <mepid>
+<mac|rmepid> - MAC address or remote MEP id
+
+@cfm send dmm <md_level> <mepid> <mac|rmepid>
+<repeat> - packet repeat times
+
+@cfm send dmm <md_level> <mepid> <mac|rmepid> <repeat>
+<interval_in_ms> - interval between packets
+
+@cfm send lbm
+<md_level> - MD level
+
+@cfm send lbm <md_level>
+<mepid> - MEP id
+
+@cfm send lbm <md_level> <mepid>
+<mac|rmepid> - MAC address or remote MEP id
+
+@cfm send lbm <md_level> <mepid> <mac|rmepid>
+<repeat> - packet repeat times
+
+@cfm send lbm <md_level> <mepid> <mac|rmepid> <repeat>
+<interval_in_ms> - interval between packets
+
+@cfm send lck
+<md_level> - MD level
+
+@cfm send lck <md_level>
+<mepid> - MEP id
+
+@cfm send lck <md_level> <mepid>
+<mac|rmepid> - MAC address or remote MEP id
+NULL - NULL
+
+@cfm send lck <md_level> <mepid> <mac|rmepid>
+<flags> - valid value: 0..7
+
+@cfm send lck <md_level> <mepid> NULL
+<flags> - valid value: 0..7
+
+@cfm send lmm_dual
+<md_level> - MD level
+
+@cfm send lmm_dual <md_level>
+<mepid> - MEP id
+
+@cfm send lmm_dual <md_level> <mepid>
+<rmepid> - 
+
+@cfm send lmm_dual <md_level> <mepid> <rmepid>
+<repeat> - packet repeat times
+
+@cfm send lmm_single
+<md_level> - MD level
+
+@cfm send lmm_single <md_level>
+<mepid> - MEP id
+
+@cfm send lmm_single <md_level> <mepid>
+<rmepid> - remote MEP id
+
+@cfm send lmm_single <md_level> <mepid> <rmepid>
+<repeat> - packet repeat times
+
+@cfm send ltm
+<md_level> - MD level
+
+@cfm send ltm <md_level>
+<mepid> - MEP id
+
+@cfm send ltm <md_level> <mepid>
+<mac|rmepid> - MAC address or remote MEP id
+
+@cfm send ltm <md_level> <mepid> <mac|rmepid>
+<ttl> - 1..255
+
+@cfm send ltm <md_level> <mepid> <mac|rmepid> <ttl>
+<fdbonly> - 0/1, find egress port by mactab but not ccmdb
+
+@cfm send slm_dual
+<md_level> - MD level
+
+@cfm send slm_dual <md_level>
+<mepid> - MEP id
+
+@cfm send slm_dual <md_level> <mepid>
+<rmepid> - remote MEP id
+
+@cfm send slm_dual <md_level> <mepid> <rmepid>
+<repeat> - packet repeat times
+
+@cfm send slm_dual <md_level> <mepid> <rmepid> <repeat>
+<interval_in_ms> - interval between packets
+
+@cfm send slm_single
+<md_level> - MD level
+
+@cfm send slm_single <md_level>
+<mepid> - MEP id
+
+@cfm send slm_single <md_level> <mepid>
+<rmepid> - remote MEP id
+
+@cfm send slm_single <md_level> <mepid> <rmepid>
+<repeat> - packet repeat times
+
+@cfm send slm_single <md_level> <mepid> <rmepid> <repeat>
+<interval_in_ms> - interval between packets
+
+@cfm send tst
+<md_level> - MD level
+
+@cfm send tst <md_level>
+<mepid> - MEP id
+
+@cfm send tst <md_level> <mepid>
+<mac|rmepid> - MAC address or remote MEP id
+
+@cfm send tst <md_level> <mepid> <mac|rmepid>
+<length> - TLV legnth for tst
+
+@cfm send tst <md_level> <mepid> <mac|rmepid> <length>
+<pattern_type> - TLV pattern type for tst
+
+@cfm show
+ccm - Continuity Check Message
+lbr - Loop Back Reply
+ltr - Link Trace Reply
+
+@cfm show ccm
+<md_level> - MD level
+
+@cfm show ccm <md_level>
+<mepid> - MEP id
+
+@cfm show lbr
+<md_level> - MD level
+
+@cfm show lbr <md_level>
+<mepid> - MEP id
+
+@cfm show ltr
+<md_level> - MD level
+
+@cfm show ltr <md_level>
+<mepid> - MEP id
+
+# classf ################################
+@classf
+<bridge_meid> - show classf info for specified bridge
+<lan_port_meid> - show classf info for specified lan/wan port
+b - show classf bridges info
+dbg - show classf debug info include all candidated rules
+g - show classf gem and vid binding counter
+help - show command help
+hw - show classf hw tables
+r - show classf rules info
+stat - show hw bridge/router traffic statistic
+
+@classf <lan_port_meid>
+<wan_bport_meid> - show classf info for specified lan/wan port
+
+@classf dbg
+<bridge_meid> - show classf debug info include all candidated rules for specified bridge
+<lan_port_meid> - show classf debug info include all candidated rules for specified lan/wan port
+
+@classf dbg <lan_port_meid>
+<wan_bport_meid> - show classf debug info include all candidated rules for specified lan/wan port
+
+@classf hw
+aclhit - show classf hw table, acl-hit part
+basic - show classf hw table, basic part
+ethertype - show classf hw table, ethertype part
+h - show classf hw table all fields definition
+help - show classf hw table all fields definition
+mt - show system mac table
+
+@classf hw aclhit
+h - show classf hw table aclhit part fields definition
+help - show classf hw table aclhit part fields definition
+
+@classf hw basic
+h - show classf hw table basic part fields definition
+help - show classf hw table basic part fields definition
+
+@classf hw ethertype
+h - show classf hw table ethertype part fields definition
+help - show classf hw table ethertype part fields definition
+
+@classf stat
+<vid> - show hw bridge/router traffic statistic by vid
+
+@classf stat <vid>
+<type> - bridge or router/nat
+
+@classf stat <vid> <type>
+<dir> - upstream or downstream
+
+# config ################################
+@config
+<classid> - class id
+
+# cpuport ################################
+@cpuport
+extract - cpuport extract filter callback list
+history - cpuport history packet list
+sniffer - cpuport port sniffer configuration
+
+@cpuport history
+<index|keyword|*> - show specific pkt, list pkt with keyword, list all pkt
+clear - clear packets in cpuport history
+defer - list deferred packets in cpuport history
+find - list packets based specific criteria
+list - list packets in cpuport history
+listp - list packets+desc in cpuport history
+load - load cpuport history from file
+run - reinject packets from cpuport history
+save - save cpuport history to file
+show - show specific packet in cpuport history
+
+@cpuport history clear
+<remain_size> - clear packets until this remained size
+
+@cpuport history defer
+<defer_us> - packet deferred more than N us will be listed
+
+@cpuport history find
+eth_proto=<n> - ethernet frame type, eg: 0x806=ARP, 0x800=IPv4, 0x86dd=IPv6
+ip_addr=<ipaddr> - ipv4 address
+ip_proto=<n> - ip protocol number, eg: 1=ICMP, 2=IGMP, 6=TCP, 17=UDP
+mac_addr=<macaddr> - xx:xx:xx:xx:xx:xx
+mac_mask=<macaddr_mask> - xx:xx:xx:xx:xx:xx
+rx_logical_port_mask=<mask> - 0-4:uni, 5:wan, 6:cpu, 7:wlan0, 8:wlan1
+tcpudp_port=<n> - 0..65535
+
+@cpuport history list
+<start> - start index
+
+@cpuport history list <start>
+<end> - end index
+
+@cpuport history list <start> <end>
+<keyword> - thread name
+
+@cpuport history listp
+<start> - start index
+
+@cpuport history listp <start>
+<end> - end index
+
+@cpuport history listp <start> <end>
+<keyword> - thread name
+
+@cpuport history load
+<filename> - file to be loaded
+
+@cpuport history run
+<index> - packet to be executed
+
+@cpuport history run <index>
+<end> - end index
+
+@cpuport history run <index> <end>
+<keyword> - thread name
+
+@cpuport history save
+<filename> - file to be saved
+
+@cpuport history save <filename>
+<start> - start index
+
+@cpuport history save <filename> <start>
+<end> - end index
+
+@cpuport history save <filename> <start> <end>
+<keyword> - thread name
+
+@cpuport history show
+<index> - packet to be displayed in detail
+
+@cpuport history show <index>
+<end> - end index
+
+@cpuport history show <index> <end>
+<keyword> - thread name
+
+@cpuport sniffer
+<subcmd...> - 
+eth_proto - sniffer pkt with specific ethertype
+ip_addr - sniffer pkt with specific sip/dip addr
+ip_proto - sniffer pkt with specific ip protocol
+level - sniffer detail level
+mac_addr - sniffer pkt with specific smac/dmac
+port - sniffer pkt with specific tcp/udp sport/dport
+
+@cpuport sniffer eth_proto
+<eth_proto> - ethertype to match, eg:0x0800 for ipv4, 0x0806 for arp
+
+@cpuport sniffer ip_addr
+<ipaddr> - sip or dip to match
+
+@cpuport sniffer ip_proto
+<ip_proto> - ip protocol to match
+
+@cpuport sniffer level
+<0|1|2|3> - 0:off, 1:pkt desc, 2:desc+dump first 64byte, 3:desc+dump whole pkt
+
+@cpuport sniffer mac_addr
+<xx:xx:xx:xx:xx:xx> - smac or dmac to match
+
+@cpuport sniffer port
+<tcp_udp_port> - tcp/udp sport or dport to match
+
+# dhcp_filter ################################
+@dhcp_filter
+count_get - 
+count_reset - 
+
+# env ################################
+@env
+<str> - find env containing str
+adminlock_trigger_opstate - whether me 11 attr 6 (opstate) reated to attr 5 (adminlock)
+alarm_refresh_interval - interval for omci alarm check, unit:seconds
+anig_support - anig support for get, alarm, test
+anig_txrx_threshold - power threshold for Tx max, Tx min, Rx max, Rx min in dbm
+anig_type - 0:none,1:tranceiver,2:bosa_mindspeed,3:bosa_mindspeed_lib,4:bosa_report,5:sff,9:auto
+anig_devport - 0:default anig device port
+anig_devaddr0 - 0x0:default device address, others: specific device address
+anig_mon_mode - 0:internal calibration, 1:external calibration
+autouni_enable - whether auto add me47 for uni ports
+autoveip_enable - whether auto add me47 for veip ports
+avc_refresh_interval - interval for omci avc check, unit:seconds
+avoid_pir_drop - avoid drop incorrect packets if exceed pir rate
+batchtab_hardbridge_enable - 
+batchtab_retry_timeout - batch table retry timeout
+batchtab_wanif_feature - wanif features, default: 0x203
+br_allowed_srcmask - portmask that allowed to send pkt to ponport in (hardware path)
+bundle_rate_support - bundle rate support
+cfm_defect_mask_in_ais_gen - AIS defect mask
+cfm_defect_mask_in_rdi_gen - RDI defect mask
+cfm_defect_mask_supressed_by_ais - AIS supressed defect mask
+cfm_defect_mask_supressed_by_lck - LOCK supressed defect mask
+cfm_enable - CFM enable
+cfm_mac_ifname - IF name of the CFM packet source mac
+cfm_portmask - CFM port mask
+cfm_reverse_mep_direction - reverse CFM direction define of ITU specification
+cfm_rmep_ccm_before_hold - received CCM before enter HOLD state
+cfm_rmep_ccm_lost_threshold - CCM lost packets threshold
+cfm_rmep_holdtime_before_active - hold time between HOLD and ACTIVE state
+cfm_send_timeout - cfm send timeout for cfm linktrace, loopback in me 302 (dot1ag mep)
+cfm_y1731_enable - enable Y.1731 support
+classf_add_default_rules - add per lan port default tagging rules for further join action
+classf_add_hwnat_1tag_rules - enable ANY hwnat wan interface vid passthrough to uplink
+classf_add_hwnat_untag_rules - add untag rules on veip port for hwnat
+classf_add_hwnat_untag_vid - add untag rules on veip port for hwnat, use this value for egress vid
+classf_add_hwnat_untag_vid_mask - add untag rules on veip port for hwnat, use this value for egress vid mask
+classf_add_ipv4mc_strip - add ipv4 multicast tag strip rule
+classf_dropping_rules_add - add rules for action is dropping
+classf_ds_gem_dg - aggregate downstream gem ports filter
+classf_ds_mc_extend - add one more bc uni port filter rule for downstream mc gem port
+classf_ds_mc_force_strip - force me 310 on veip ds mc rules to strip tags
+classf_ds_unmatch - downstream unmatch tagging action
+classf_dscp2pbit_mode - dscp to pbit table configuration
+classf_et_combine - combine ethertype field matching value by mask
+classf_force_stpid - force to set default system svlan tpid
+classf_hw_2tags_mode - involve acl to match 2tags rules
+classf_hw_2tags_workaround - filter type for 2tags rules involved acl workaround
+classf_hw_colour_force - force flow to green/yellow queue
+classf_hw_rules_migration - classf hw rules migration
+classf_keep_candi - keep candidate rules after determination
+classf_stag_tpid - set default system svlan tpid
+classf_statistic_enable - enable classf to count bridge/nat traffic
+classf_tag_mode - collect 2 tags rules policy
+classf_tlan_pattern - for calix tlan pattern collection
+classf_veip_rules_reassign - reassign veip port rules, MARK and COPY untag rules to all uni ports for sw/hw
+classf_vmap_pbit_workaround - match pbit in vmap
+classf_add_default_rules_by_me_84 - 0:disable, 1:enable, for GWS, add default rule by me 84
+cli_ip - the ip that cli daemon binds
+cli_port - the tcp port that cli client should connect
+cpu_logical_portmask - portmask of all cpuports
+cpu_usage_threshold - show alarm if cpu usage is over specific threshold
+cpul_task_no - list of taskids that need be limited on cpu usage
+cpul_total_usage - the maximum cpu usage allowed for the cpul_task_no
+cpuport_arp_enable - enable arp task for sw bridging arp
+cpuport_dhcp_cust_tag - customized dhcp option string
+cpuport_dhcp_enable - enable dhcp task for sw bridging dhcp
+cpuport_dhcp_server_onlan - allow dhcp server on lan side
+cpuport_ds_passthrough - ds untag pkt passthrough, 0:disable, 1:enable
+cpuport_history_enable - igmp pkt history function enable/disable
+cpuport_history_size - number of trap pkt saved in cpuport history
+cpuport_im_enable - intralan multicast forward
+cpuport_im_lan2lan_enable - intralan multicast forward between lan
+cpuport_pkt_ssdp_fwd_wan - whether to forward SSDP pkt to wan
+cpuport_pppoe_cust_tag - customized pppoe tag string
+cpuport_pppoe_enable - enable pppoe task for sw bridging pppoe
+cpuport_pvlan_clone_ipv4_to_arp - clone pvlan of ipv4 to arp, 0:disable, 1:enable
+cpuport_wifi_block_mask - block broadcast, multicast and unknown unicast traffic from wan to wifi
+cpuport_wifi_block_ra - block ds ipv6 RA to wifi
+ctc_internet_bridge_enabled_srcmask - specify uni ports allowed for nat only access (no bridging pathrough)
+debug_level - debug level for generic
+debug_level_bat - debug level for batchtab
+debug_level_cfm - debug level for cfm
+debug_level_cpuport - debug level for cpuport (sw bridging path)
+debug_level_fwk - debug level for fwk (thread related)
+debug_level_igmp - debug level for igmp
+debug_level_lldp - debug level for lldp
+debug_level_vacl - debug level for vacl
+debug_level_voip - debug level for voip
+debug_level_xml - debug level for xml loader
+debug_log_file - debug log filename
+debug_log_time - whether enable timestamp in log message
+debug_log_type - 0:no log, 1:console, 2:logfile, 4:syslog (multiple bits could be set)
+er_group_hw_debug_enable - enable debug for er_group_hw
+er_group_hw_time_enable - print timestamp in er_group_hw debug message
+erdiag_mon_enable - redisplay er diagram in case omci has any update
+etc_omci_path - path for omci files, (higher priority than etc_omci_path2)
+etc_omci_path2 - path2 for omci files
+exclude_flowid_0 - do not use gpon hardware flow 0 for gemport mapping
+extoam_enable - enable extoam task for proprietary 802.3ah oam
+extoam_itas_image_name - 
+extoam_mac_ifname - interface name for extoam
+extoam_port - logical portid for extoam
+igmp_downstream_tpid - Set IGMP/MLD downstream tpid
+igmp_enable - enable igmp task
+igmp_join_default_grant - Set grant to joins
+igmp_mcast_me_support - Set multicast ME support
+igmp_mcast_mode_src - 0:force pass, 1:force drop, 2: by mcast gem, 3: by private me assign
+igmp_preassign_list - IGMP/MLD preassigned list
+igmp_proxy_snooping - IGMP/MLD proxy snooping
+igmp_query_pass_through - IGMP/MLD query pass through level
+igmp_upstream_tpid - Set IGMP/MLD upstream tpid
+igmp_v1_ignore - Ignore IGMPv1
+igmp_version_overwrite - Set IGMP/MLD version overwrite
+invert_priority_enable - whether to invert the value of pq priority, majorly for alu olt
+invert_weight_enable - whether to invert the value of pq weight, majorly for alu olt
+ivlan_enable - 0:svlan(shared vlan), 1:ivlan(indivisual vlan)
+linkdown_debounce_time - seconds after physical linkdown required to trigger linready 1->0
+linkup_debounce_time - seconds after physical linkup required to trigger linready 0->1
+lldp_dst_mac - dst mac to send lldp message
+lldp_enable - LLDP enable
+lldp_ifname - use ifname's macaddr/ipaddr for lldp
+lldp_med_cap - 
+lldp_power_level - power level to be set in lldp message
+lldp_send_interval - interval to send lldp message
+lldp_system_desc - system name to be set in lldp message
+lldp_system_name - system desc to be set in lldp message
+localbridging_addon_portmask - ports always reachable, default:cpu ext port 1..5
+localbridging_default - 0 or 1, whether lan to lan are reachable
+maclearn_drop_enable - drop pkt if per port mac learn limit exceeded
+mc_ds_untag_discard_enable - 0:disable, 1:enable, for multicast ds untag discarding
+memdbg_enable - malloc mem leak debug
+mib_aliasid_enable - support aliasid defined in me_aliasid.conf
+mib_boundary_check - 0:no chk, 1:chk for warning, 2:chk for err
+mib_nonexist_del_err - whether to return omci err if delete on nonexist me
+mib_pointer_check - 0:no chk, 1:chk for warning, 2:chk for err
+mib_rare2_meid_start - 
+mib_rare_meid_start - 
+mib_readonly_check - 0:no chk, 1:chk for warning, 2:chk for err
+mib_rw_mode - 0:r=sw,w=sw, 1:r=sw,w=hw, 2:r=hw,w=hw (sw means mib, hw means hardware)
+mib_uni_adminlock_default - 0:unlock, 1:lock, 2:dont override
+mib_upload_order - class order for mib upload
+mibreset_dump_enable - 0:disable, 1:er diag, 2:me list, 3:er diag + me list
+olt_alu_mcast_support - alu igmp signaling support
+olt_huawei_ignore_vlan_drop_rule - ignore vlan drop rule for huawei olt
+olt_proprietary_support - string: none, fiberhome, zte, alu, huawei, dasan, calix
+olt_vendor_check_enable - me 131 olt vendor id check
+olt_vendor_config_change - change omci config by me 131 olt vendor id
+olt_workaround_enable - 0: none, 1: alu, 2: dasan, 3: ericsson, 4: huawei, 5: occam, 6: calix
+ont_force_vendor_id - string (force me 256 vendor id, 4 characters)
+omcc_if - omci msg interface
+omcc_rx_crc_type - 0: disable, 1: be, 2: le, 9: auto (default:0, done by hw)
+omcc_tx_crc_type - 0: disable, 1: be, 2: le (default: 0, done by hw)
+omccrx_log_enable - whether to log omcc into log file
+omccrx_log_file - pathname of omcc log file
+omccrx_log_msgmask - mask of omci msgtypes that need to be saved into log file
+omci_exec_time_limitation - show alarm if omci processing time is over the limitation
+omci_history_enable - 
+omci_history_msgmask - 
+omci_history_size - 
+omci_tranx_busy_enable - when concurrent omci tranx is over cache size, return busy (as error)
+omci_tranx_bypass - always omci tranx cache, which violates the 'at most once' semantic
+omci_tranx_cache_num - the size of tranx cache
+omci_tranx_match_mode - 0: compare with tranx id only, 1:compare with tranx id, msg type, classid, meid
+omci_tx_flag - 0: auto, 1: always send, 2: always not send
+omci_tx_resend_flag - 0:not resend, 1: resend
+omcidump_enable - whether to dump omci high level info when dump omci raw pkt
+omcidump_msgmask - mask of omci msgtypes whose omcidump would be neabled
+pm_refresh_interval - interval for omci pm task to pm counters refresh
+pm_swap_interval - interval to swap current pm counter into history, then clear current, 0 means never swap
+port2port_enable - apply uni0 vlan rule for all unis
+port_forward_operation_default - refer to G984.4 9.3.11, 0:untag/untag=basic bridging, 0xc: untag=discard, tag=positive filtering by tci
+pq_tcont_relation - 0: by ts pointer first, 1: by related port first
+pseudo_ts_pointer_enable - see desc in omcienv.xml
+restore_log_enable - restore omci to last state by issuing all omci command since last mibreset
+restore_log_file - file name of restore log
+rldp_def_portmask - default portmask to check for loop detection
+rldp_enable - whether to enable rldp (loop detection)
+rldp_passive_only - doing loop detection in pure passive mode
+rma_forward_mask - forward mask for RMA 01:80:c2:00:00:00..0x3f
+router_lan_if - igmp proxy down stream interface
+router_wan_if - igmp proxy up stream interface
+rt_allowed_srcmask - portmask that allowed to send pkt to cpuport in (hardware path)
+sim_olt_ip - ip of olt simulator
+sim_olt_udp_port - udp port of olt simulator
+sim_onu_id - onu port id used to connect to olt simulator
+sim_pon_id - olt port id used in olt simulator
+sim_tcont_enable - fake alloc id for me 262 in x86 platform
+start_cmd_file - file containing cli cmds which would be applied when traf starts
+stp_conf_before_omci - 0: no change, 1: all disable, 2: cpu off, else disable, 3: cpu/uni off, wan disable, 4: all off
+stp_enable - whether to start rstp task
+sw_download_active_always_ok - always ret ok for sw download active action
+sw_download_commit_always_ok - always ret ok for sw download commit action
+sw_download_end_behavior - 0:dev_busy_and_bg_update, 1:dev_ok_and_bg_update, 2:wait_and_fg_update
+sw_download_image_name - image for sw download
+sw_download_script - script to handle sw download
+sw_download_window_size - sw download window size, ref to 984.4
+switch_history_interval - interval for per switch port statistics record (there are 72 records total)
+switch_history_mode - how switch port tx/rx statistics is displayed, 0:show diff, 1:show total
+tag_auto_reverse - force to generate downstream reversing rules automatically
+tag_ctc_translation_path - set ctc tagging translation file path
+tag_discard_reversing - generate downstream reversing discard rules
+tag_ds_tci_dont_reverse_workaround - downstream tci don't reverse
+tag_insert_65305_rules - insert 65305 downstream rules
+tag_iphost_vid_map - original tag vid for iphost
+tag_l2_rules_ds_mac - include mac in l2 downstream rules
+tag_l2_rules_reverse - auto generate l2 downstream rules
+tag_mc_ds_from_us - create downstream tagging rules from 309 upstream tci
+tag_mc_ds_wildcard - generate downstream multicast wildcard strip rules
+tag_mc_sort_priority - multicast rules sorting priority, regular rules default priority is 5
+tag_pbit_portmask - enabled port mask for downstream tagging pbit remap workaround
+tag_pbit_remap_table - downstream tagging pbit remap table
+tag_pbit_workaround - downstream tagging pbit workaround
+tag_preview_table - generate downstream rules from 310 preview table
+tag_treatment_correct - correct tagging rules treatment
+task_pause_mask - mask of task no to pause
+tcont_map_enable - 0:disable, 1:enable, 2:debug
+tcont_map_policy - policy for ts and pq
+tcont_map_pq - pq allocated in each tcont
+tcont_map_ts - ts allocated in each tcont
+tm_gemds_rate_factor - gem ds pir adjust percentage factor, 0-200
+tm_gemus_rate_factor - gem us cir/pir adjust percentage factor, 0-200
+tm_pir_zero_action - ratelimit action when pir is 0
+tm_pq_gem_qos_method - 0:normal(green only), 1:green, yellow, 2:each gem port has it own pq(todo)
+tm_protect_enable - isolate tm hw from traffic when doing config
+tm_unids_rate_factor - uni ds pir adjust percentage factor, 0-200
+tm_unius_rate_factor - uni us pir adjust percentage factor, 0-200
+transport - 0:OMCC raw socket, 1:UDP socket
+trap_if - the interface for trapped packet
+trunk_group_portmask - ports that belong to trunk group
+uni_linkdown_lock - uni link down then lock the port
+uni_logical_portmask - portmask of all unis
+uni_policing_default_bs - uni policing default bucket size
+uni_policing_aggregate_acl - uni policing aggregated acl to reduce acl usage
+uni_policing_pbit_mask - uni policing bitmask
+untag_reserved_vid - fiberhome proprietary, vlan for untag in me65347
+veip_for_wifi_enable - apply veip vlan rule for wifi ports, for sw
+voip_debug_get_flag - er_group_hw debug for voip hw get
+voip_debug_release_flag - er_group_hw debug for voip hw release
+voip_debug_set_flag - er_group_hw debug for voip hw set
+voip_enable - enable omci support for voip
+wan_logical_portid - logical portid of wan port
+watchdog_idlebw_guard - if bw overrequest repeats, then reset dbru, 0,0,0 means no check
+watchdog_omccmiss_timeout - if omccmiss remains, then reset serdes or reboot, 0,0 mean no check
+watchdog_tcontmiss_timeout - if tcontmiss remains, then reset serdes or reboot, 0,0 mean no check
+wifi_if - wifi interface name
+wifi_logical_portmask - portmask of all wifi
+xml_load_namestr - 0:no load, 1:load name str in xml
+xml_section - xml section to be loaded during init
+uni_config_lock - lock config uni port
+
+@env adminlock_trigger_opstate
+<value> - 
+
+@env alarm_refresh_interval
+<seconds> - 
+
+@env anig_support
+<0..3> - 0:disable, 1:get, 2:get+test, 3:get+test+alarm
+
+@env anig_txrx_threshold
+<value> - 
+
+@env anig_type
+<0..5|9> - 0:none,1:tranceiver,2:bosa_mindspeed,3:bosa_mindspeed_lib,4:bosa_report,5:sff,9:auto
+
+@env anig_devport
+<value> - 0:default anig device port
+
+@env anig_devaddr0
+<0x0..0xfe> - 0x0:default device address, others: specific device address
+
+@env anig_mon_mode
+<0|1> - 0:internal calibration, 1:external calibration
+
+@env autouni_enable
+<0|1> - 
+
+@env autoveip_enable
+<0|1> - 
+
+@env avc_refresh_interval
+<seconds> - 
+
+@env avoid_pir_drop
+<0:disable,1:enable> - 
+
+@env batchtab_hardbridge_enable
+0|1 - 
+
+@env batchtab_retry_timeout
+<seconds> - seconds
+
+@env batchtab_wanif_feature
+<feture_mask> - 
+
+@env br_allowed_srcmask
+<portmask> - 
+
+@env bundle_rate_support
+<0|1> - 
+
+@env cfm_defect_mask_in_ais_gen
+<defect_mask> - 1 byte width mask
+
+@env cfm_defect_mask_in_rdi_gen
+<defect_mask> - 1 byte width mask
+
+@env cfm_defect_mask_supressed_by_ais
+<defect_mask> - 1 byte width mask
+
+@env cfm_defect_mask_supressed_by_lck
+<defect_mask> - 1 byte width mask
+
+@env cfm_enable
+<0|1> - CFM enable/disable
+
+@env cfm_mac_ifname
+<ifname> - interface name
+
+@env cfm_portmask
+<portmask> - 1 byte width mask
+
+@env cfm_reverse_mep_direction
+<0|1> - 0:original 1:reversed
+
+@env cfm_rmep_ccm_before_hold
+<n,defalt:3> - numbers of ccm packets
+
+@env cfm_rmep_ccm_lost_threshold
+<n,default:3> - numbers of lost ccm packets
+
+@env cfm_rmep_holdtime_before_active
+<seconds,default:10> - hold time in seconds
+
+@env cfm_send_timeout
+<seconds> - 
+
+@env cfm_y1731_enable
+<0|1> - 0:disable 1:enable
+
+@env classf_add_default_rules
+<0|1|2> - 0:disable, 1:add default rules while empty, 2:force to add default rules
+
+@env classf_add_hwnat_1tag_rules
+<0|1> - 0: disable, 1: enable
+
+@env classf_add_hwnat_untag_rules
+<0|1> - 0: disable, 1: enable
+
+@env classf_add_hwnat_untag_vid
+<0-4095> - vid value
+
+@env classf_add_hwnat_untag_vid_mask
+<vid_mask> - 12 bits vid mask
+
+@env classf_add_ipv4mc_strip
+<0|1|2> - 0: disable, 1: strip 1tag, 2: strip 2tags
+
+@env classf_dropping_rules_add
+<0|1> - 0:do NOT add, 1:add
+
+@env classf_ds_gem_dg
+<0|1> - 0:do NOT aggregate, 1:aggregate
+
+@env classf_ds_mc_extend
+<0|1> - 0:do NOT add, 1:add
+
+@env classf_ds_mc_force_strip
+<0|1> - 0:disable, 1: enable
+
+@env classf_ds_unmatch
+<0|1|2> - 0:pass, 1:drop, 2:remove
+
+@env classf_dscp2pbit_mode
+<0|1|2> - 0:per port configuration, 1:global table, 2:global table, force to assign veip 171-me's dscp-2-pbit mapping table
+
+@env classf_et_combine
+<0|1> - 0:disable, 1:enable
+
+@env classf_force_stpid
+<0|1> - 0:disable, 1:enable
+
+@env classf_hw_2tags_mode
+<0|1> - 0:involve acl if necessary, 1:always involve acl
+
+@env classf_hw_2tags_workaround
+<0|1|2> - 0:filter pri or vid, 1:filter pri only, 2:filter vid only
+
+@env classf_hw_colour_force
+<0|1|2> - 0:green, 1:yellow, 2:auto
+
+@env classf_hw_rules_migration
+<0|1> - 0:disable, 1:enable
+
+@env classf_keep_candi
+<0|1> - 0:not keep candi rules, 1:keep candi rules
+
+@env classf_stag_tpid
+<value> - tpid value
+
+@env classf_statistic_enable
+<0|1> - 0: disable, 1: enable
+
+@env classf_tag_mode
+<0|1> - 0:collect all tagging rules, 1:ignore 2 tags rules
+
+@env classf_tlan_pattern
+<0|1> - 0: disable, 1: enable
+
+@env classf_veip_rules_reassign
+<0..4> - 0:disable, 1: hw MARK and COPY, 2: hw only MARK, 3: all MARK and COPY, 4: all only MARK
+
+@env classf_vmap_pbit_workaround
+<0|1> - 0:disable, 1:pbit do NOT care
+
+@env classf_add_default_rules_by_me_84
+<0|1> - 0: disable, 1: enable
+
+@env cli_ip
+<ip,def:0> - ip in hex format
+
+@env cli_port
+<tcp_port,def:3097> - tcp port
+
+@env cpu_logical_portmask
+<portmask> - possible bits:6,7,8
+
+@env cpu_usage_threshold
+<0|1-100> - 0:disable, 1..100:upperbound_threshold
+
+@env cpul_task_no
+<thread_id,...> - 
+
+@env cpul_total_usage
+<threshold,0..100> - 
+
+@env cpuport_arp_enable
+<0|1> - 0:disable, 1:enable
+
+@env cpuport_dhcp_cust_tag
+<str0,str1,...> - string0,string1,...
+
+@env cpuport_dhcp_enable
+<0|1> - 0:disable, 1:enable
+
+@env cpuport_dhcp_server_onlan
+<0|1> - 0:disallowed, 1:allowed
+
+@env cpuport_ds_passthrough
+<0|1> - let_ds_untag_pkt_passthrough -
+
+@env cpuport_history_enable
+<0|1> - 0:disable, 1:enable
+
+@env cpuport_history_size
+<value> - 
+
+@env cpuport_im_enable
+<0|1> - 0:disable, 1:enable
+
+@env cpuport_im_lan2lan_enable
+<0|1> - 0:disable, 1:enable
+
+@env cpuport_pkt_ssdp_fwd_wan
+<0|1> - 0:disable, 1:enable
+
+@env cpuport_pppoe_cust_tag
+<str0,str1,...> - string0,string1,...
+
+@env cpuport_pppoe_enable
+<0|1> - 0:disable, 1:enable
+
+@env cpuport_pvlan_clone_ipv4_to_arp
+<0|1> - 0:disable, 1:enable
+
+@env cpuport_wifi_block_mask
+<type_mask> - bit 0: broadcast, bit 1: multicast, bit 2: unknown unicast, 0: forward, 1: block
+
+@env cpuport_wifi_block_ra
+0|1 - 0: forward, 1: drop
+
+@env ctc_internet_bridge_enabled_srcmask
+<uni_portmask> - 0..0x1f
+
+@env debug_level
+<0..7> - default:3 (debug_err)
+
+@env debug_level_bat
+<0..7> - 
+
+@env debug_level_cfm
+<0..7> - default:3 (debug_err)
+
+@env debug_level_cpuport
+<0..7> - default:3 (debug_err)
+
+@env debug_level_fwk
+<0..7> - default:3 (debug_err)
+
+@env debug_level_igmp
+<0..7> - default:3 (debug_err)
+
+@env debug_level_lldp
+<0..7> - 
+
+@env debug_level_vacl
+<0..7> - default:3 (debug_err)
+
+@env debug_level_voip
+<0..7> - 
+
+@env debug_level_xml
+<0..7> - default:4 (debug_warning)
+
+@env debug_log_file
+<filename> - default:/var/log/omci.log
+
+@env debug_log_time
+<0|1> - enable_timestamp_in_log
+
+@env debug_log_type
+<3bit_value> - 0:no_log, b0:console, b1:logfile, b2:syslog, multiple_bits_could_be_set
+
+@env er_group_hw_debug_enable
+<0|1> - 
+
+@env er_group_hw_time_enable
+<0|1> - 
+
+@env erdiag_mon_enable
+<0|1> - 0:disable, 1:enable, for_FSAN_IOT
+
+@env etc_omci_path
+<path> - default:/etc/omci
+
+@env etc_omci_path2
+<path> - default:/opt/omci
+
+@env exclude_flowid_0
+<0:include,1:exclude> - 
+
+@env extoam_enable
+<0|1> - 0:disable, 1:enable
+
+@env extoam_itas_image_name
+<filename> - 
+
+@env extoam_mac_ifname
+<ifname> - 
+
+@env extoam_port
+<logical_port> - 
+
+@env igmp_downstream_tpid
+<value> - 
+
+@env igmp_enable
+<0|1> - 
+
+@env igmp_join_default_grant
+<value> - 
+
+@env igmp_mcast_me_support
+<value> - 
+
+@env igmp_mcast_mode_src
+<0-3> - 
+
+@env igmp_preassign_list
+<value> - 
+
+@env igmp_proxy_snooping
+<0|1|2> - 0:bridge_mode_snooping, 1:router_mode_without_snooping, 2:router_mode_snooping
+
+@env igmp_query_pass_through
+<0..3> - 0:disable, 1:untag_pass, 2:all_pass, 3:strip_tag
+
+@env igmp_upstream_tpid
+<value> - 
+
+@env igmp_v1_ignore
+<value> - 
+
+@env igmp_version_overwrite
+<value> - 
+
+@env invert_priority_enable
+<0..3> - 0:disable, bit_0:pq, bit_1:ts
+
+@env invert_weight_enable
+<0..3> - 0:disable, bit_0:pq, bit_1:ts
+
+@env ivlan_enable
+<0|1> - 0:disable, 1:enable
+
+@env linkdown_debounce_time
+<value> - 
+
+@env linkup_debounce_time
+<value> - 
+
+@env lldp_dst_mac
+<0|3|14> - 
+
+@env lldp_enable
+<0|1> - 
+
+@env lldp_ifname
+<ifname> - 
+
+@env lldp_med_cap
+<value> - 
+
+@env lldp_power_level
+<level> - 
+
+@env lldp_send_interval
+<seconds> - 
+
+@env lldp_system_desc
+<str> - 
+
+@env lldp_system_name
+<str> - 
+
+@env localbridging_addon_portmask
+<portmask> - ports reachable from any ports
+
+@env localbridging_default
+<0..2> - 0:disable, 1:enable, 2:always_on, ignore_omci
+
+@env maclearn_drop_enable
+<0|1> - 0:disable, 1:enable
+
+@env mc_ds_untag_discard_enable
+<0|1> - 
+
+@env memdbg_enable
+<0|1> - 0:disable, 1:enable
+
+@env mib_aliasid_enable
+<0|1> - 
+
+@env mib_boundary_check
+<0..2> - 0:no_chk, 1:chk_for_warning, 2:chk_for_err
+
+@env mib_nonexist_del_err
+<0..2> - 0:no_err, 1:err_if_me_del, 2:err_if_me_or_tab_entry_del
+
+@env mib_pointer_check
+<0..2> - 0:no_chk, 1:chk_for_warning, 2:chk_for_err
+
+@env mib_rare2_meid_start
+<meid> - 
+
+@env mib_rare_meid_start
+<meid> - 
+
+@env mib_readonly_check
+<0..2> - 0:no_chk, 1:chk_for_warning, 2:chk_for_err
+
+@env mib_rw_mode
+<0..2> - 0:swsw, 1:swhw, 2:hwhw
+
+@env mib_uni_adminlock_default
+<0..2> - 0:unlock, 1:lock, 2:dont_overriden
+
+@env mib_upload_order
+<value> - 
+
+@env mibreset_dump_enable
+<0..3> - 0:disable, 1:er_diag, 2:me_list, 3:er_diag_+_me_list
+
+@env olt_alu_mcast_support
+<0|1> - 0:G.988_standard_support, 1:ALU_proprietary_support
+
+@env olt_huawei_ignore_vlan_drop_rule
+<value> - 
+
+@env olt_proprietary_support
+<value> - 
+
+@env olt_vendor_check_enable
+<0|1> - 
+
+@env olt_vendor_config_change
+<0|1> - 
+
+@env olt_workaround_enable
+<0..6> - 0:none, 1:alu, 2:dasan, 3:ericsson, 4:huawei, 5:occam, 6:calix
+
+@env ont_force_vendor_id
+<value> - 
+
+@env omcc_if
+<ifname> - 
+
+@env omcc_rx_crc_type
+<0..2,9> - 0:disable, 1:be, _2:le, 9:auto
+
+@env omcc_tx_crc_type
+<0..2> - 0:disable, 1:be, _2:le
+
+@env omccrx_log_enable
+<0|1|2|3|4|8> - 
+
+@env omccrx_log_file
+<logfilename> - 
+
+@env omccrx_log_msgmask
+<msgmask> - 
+
+@env omci_exec_time_limitation
+<msec> - 
+
+@env omci_history_enable
+<0|1|2|3|4|8> - 
+
+@env omci_history_msgmask
+<msgmask> - 
+
+@env omci_history_size
+<n> - 
+
+@env omci_tranx_busy_enable
+<0|1> - 
+
+@env omci_tranx_bypass
+<0|1> - 
+
+@env omci_tranx_cache_num
+<value> - 
+
+@env omci_tranx_match_mode
+<0|1> - 0:loose, 1:strict
+
+@env omci_tx_flag
+<0..2> - 0:auto, 1:always_send, 2:always_not_send
+
+@env omci_tx_resend_flag
+<0|1> - 0:not_resend, 1:resend
+
+@env omcidump_enable
+<0|1> - 
+
+@env omcidump_msgmask
+<msgmask> - 
+
+@env pm_refresh_interval
+<seconds> - 
+
+@env pm_swap_interval
+<seconds> - 0_means_never_swap
+
+@env port2port_enable
+<0|1> - 0:disable, 1:enable
+
+@env port_forward_operation_default
+<value> - 
+
+@env pq_tcont_relation
+<0|1> - 0:by_ts_pointer_first, 1:by_related_port_first
+
+@env pseudo_ts_pointer_enable
+<0|1> - 
+
+@env restore_log_enable
+<0|1> - 
+
+@env restore_log_file
+<logfilename> - 
+
+@env rldp_def_portmask
+<portmask> - 
+
+@env rldp_enable
+<0|1> - 
+
+@env rldp_passive_only
+<0|1> - 0:active_detective, 1:disallow_generate_detective_packet
+
+@env rma_forward_mask
+<rma_00_3f_mask> - forward mask for 01:80:c2:00:00:[0x00-0x3f]
+
+@env router_lan_if
+<igmp_proxy_downstream_interface> - 
+
+@env router_wan_if
+<igmp_proxy_upstream_interface> - 
+
+@env rt_allowed_srcmask
+<portmask> - 
+
+@env sim_olt_ip
+<ipaddr> - 
+
+@env sim_olt_udp_port
+<udp_port> - 
+
+@env sim_onu_id
+<1> - 
+
+@env sim_pon_id
+<1> - 
+
+@env sim_tcont_enable
+<0|1> - 
+
+@env start_cmd_file
+<filename> - default:/var/run/omci.start_cmd
+
+@env stp_conf_before_omci
+<0..4> - 0:no_change, 1:all_disable, 2:cpu_off, else_disable, 3:cpu/uni_off, wan_disable, 4:all_off
+
+@env stp_enable
+<0|1> - 
+
+@env sw_download_active_always_ok
+<0|1> - 
+
+@env sw_download_commit_always_ok
+<0|1> - 
+
+@env sw_download_end_behavior
+<0-2> - 
+
+@env sw_download_image_name
+<filename> - default:/var/run/swimage/swimage.bin
+
+@env sw_download_script
+<filename> - default:/usr/sbin/sw_download.sh
+
+@env sw_download_window_size
+<size,def:255> - 
+
+@env switch_history_interval
+<unit:minute> - total stastics time = 72 * interval
+
+@env switch_history_mode
+<0:diff,1:total> - 0:diff,1:total
+
+@env tag_auto_reverse
+<0|1> - 0:do NOT reverse, 1:reverse
+
+@env tag_ctc_translation_path
+<filename> - full file path name
+
+@env tag_discard_reversing
+<0|1> - 0:no, 1:yes
+
+@env tag_ds_tci_dont_reverse_workaround
+<0|1> - 0:disable, 1:enable
+
+@env tag_insert_65305_rules
+<0|1> - 0:do NOT insert, 1:insert
+
+@env tag_iphost_vid_map
+<vid,vid,vid,vid> - 0-4095:vid, 4096:disable
+
+@env tag_l2_rules_ds_mac
+<0|1> - 0: not include l2 mac, 1: include l2 mac
+
+@env tag_l2_rules_reverse
+<0|1> - 0:auto reverse, 1:not reverse
+
+@env tag_mc_ds_from_us
+<0|1|2> - 0:do NOT create rules, 1:create 1tag rules, 2:create 2tags rules
+
+@env tag_mc_ds_wildcard
+<0|1> - 0:disable, 1:enable
+
+@env tag_mc_sort_priority
+<0..10> - greater value is higher priority
+
+@env tag_pbit_portmask
+<portmask> - 0x00-0xff:logical port id mask
+
+@env tag_pbit_remap_table
+<num,num,...> - 8 digital values between 0-7
+
+@env tag_pbit_workaround
+<0|1|2|3|4> - 0:disable, 1:don't care, 2:remap, 3: add one more don't care rule, 4: add one more transparent rule
+
+@env tag_preview_table
+<0|1> - 0:disable, 1:enable
+
+@env tag_treatment_correct
+<0|1> - 0:disable, 1:enable
+
+@env task_pause_mask
+<mask> - 
+
+@env tcont_map_enable
+<0|1> - 
+
+@env tcont_map_policy
+<value> - 
+
+@env tcont_map_pq
+<value> - 
+
+@env tcont_map_ts
+<value> - 
+
+@env tm_gemds_rate_factor
+<0..200> - 
+
+@env tm_gemus_rate_factor
+<0..200> - 
+
+@env tm_pir_zero_action
+<0|1> - 0:drop, 1:pass
+
+@env tm_pq_gem_qos_method
+<0|1|2> - 
+
+@env tm_protect_enable
+<0..3> - 0: disable, 1:uni, 2:wan, 3: uni & wan
+
+@env tm_unids_rate_factor
+<0..200> - 
+
+@env tm_unius_rate_factor
+<0..200> - 
+
+@env transport
+<0|1> - 
+
+@env trap_if
+<ifname> - default:ifsw0
+
+@env trunk_group_portmask
+<portmask> - default 0x0
+
+@env uni_linkdown_lock
+<0|1> - 
+
+@env uni_logical_portmask
+<portmask> - possible bits:0-3,4
+
+@env uni_policing_default_bs
+<bucket_size> - 
+
+@env uni_policing_pbit_mask
+<pbit_mask> - 
+
+@env untag_reserved_vid
+<reserved_vid_for_untag> - 
+
+@env veip_for_wifi_enable
+<0|1> - 
+
+@env voip_debug_get_flag
+<0|1> - 
+
+@env voip_debug_release_flag
+<0|1> - 
+
+@env voip_debug_set_flag
+<0|1> - 
+
+@env voip_enable
+<0|1> - 
+
+@env wan_logical_portid
+<4|5|255> - 
+
+@env watchdog_idlebw_guard
+<bw,interval,repeat> - bw:Mbps, interval:sec, repeat:threshold
+
+@env watchdog_omccmiss_timeout
+<t0,t1> - t0:threshold to reset server, t1:threshold to reboot, unit:sec
+
+@env watchdog_tcontmiss_timeout
+<t0,t1> - t0:threshold to reset server, t1:threshold to reboot, unit:sec
+
+@env wifi_if
+<ifname> - wlan0 or wlan1
+
+@env wifi_logical_portmask
+<portmask> - possible bits:4,7,8, wan+uni+cpu dertermine all possible bits, wifi overlaps on cpu,uni or both
+
+@env xml_load_namestr
+<value> - 
+
+@env xml_section
+<value> - 
+
+@env uni_config_lock
+<0|1> -
+
+# er ################################
+@er
+<erid> - 
+
+# erattri ################################
+@erattri
+<erid> - 
+
+@erattri <erid>
+<erattrid> - 
+
+# eri ################################
+@eri
+<erid> - 
+
+# extoam ################################
+@extoam
+extract - make hardware extract extoam to CPU
+link - show extoam link status
+loopback - loopback test configuration
+sw_dl - show software download information
+
+@extoam extract
+<0(disable)|1(enable)> - make extoam extract to CPU by HW
+
+@extoam loopback
+start - send a loopback test packet
+
+# gfast ################################
+@gfast
+activate - Activate a line
+configure - Enter configuration mode
+deactivate - De-activate a line
+dump - Dump the counter history database
+erase - Erase image from flash
+load - Load image from flash
+read - Read memory from device
+reboot - Reboot device
+rediscover - Rediscover G.fast devices
+restart - Restart line or system
+run - Run a CLI script file
+show - Show parameters
+trigger - Trigger a event
+upgrade - Upgrade firmware
+write - Write to device memory
+
+@gfast activate
+line - Activate a line
+
+@gfast activate line
+<line-id> - 
+
+@gfast configure
+BLUPPERLIMIT - Set bit-loading upper limit
+CARMASK - Set sub-carrier masking
+CE - Set cyclic extension
+FEXT_CANCEL_ENABLE - Enable/Disable FEXT cancellation
+IAT_REIN - Set REIN Inter-arrival time
+INPMIN_REIN - Minimum impulse noise protection against REIN
+INPMIN_SHINE - Set Minimum impulse noise protection against SHINE
+Mds - Set number of downstream symbol periods in a TDD frame
+SHINERATIO - Set SHINE ratio
+SRA_ENABLE - Enable/Disable SRA function
+TARSNRM - Set target noise margin
+restore - Restore default line parameters
+save - Save configuration parameters to line
+show - Show configuration parameters
+
+@gfast configure BLUPPERLIMIT
+<0..14> - 
+
+@gfast configure CARMASK
+ds - 
+us - 
+
+@gfast configure CARMASK ds
+<index> - 
+
+@gfast configure CARMASK ds <index>
+<start_sub-carrier> - 
+
+@gfast configure CARMASK ds <index> <start_sub-carrier>
+<stop_sub-carrier> - 
+
+@gfast configure CARMASK us
+<index> - 
+
+@gfast configure CARMASK us <index>
+<start_sub-carrier> - 
+
+@gfast configure CARMASK us <index> <start_sub-carrier>
+<stop_sub-carrier> - 
+
+@gfast configure CE
+<10..33> - 
+
+@gfast configure FEXT_CANCEL_ENABLE
+ds - 
+us - 
+
+@gfast configure FEXT_CANCEL_ENABLE ds
+<T|F> - 
+
+@gfast configure FEXT_CANCEL_ENABLE us
+<T|F> - 
+
+@gfast configure IAT_REIN
+ds - 
+us - 
+
+@gfast configure IAT_REIN ds
+<0..3>(0=100Hz,1=120Hz,2=300Hz,3=360Hz) - 
+
+@gfast configure IAT_REIN us
+<0..3>(0=100Hz,1=120Hz,2=300Hz,3=360Hz) - 
+
+@gfast configure INPMIN_REIN
+ds - 
+us - 
+
+@gfast configure INPMIN_REIN ds
+<0..63>(0..63=symbol_periods) - 
+
+@gfast configure INPMIN_REIN us
+<0..63>(0..63=symbol_periods) - 
+
+@gfast configure INPMIN_SHINE
+ds - 
+us - 
+
+@gfast configure INPMIN_SHINE ds
+<0..520>(0..520=symbol_periods) - 
+
+@gfast configure INPMIN_SHINE us
+<0..520>(0..520=symbol_periods) - 
+
+@gfast configure Mds
+<10..32> - 
+
+@gfast configure SHINERATIO
+ds - 
+us - 
+
+@gfast configure SHINERATIO ds
+<0..100>(0~0.1) - 
+
+@gfast configure SHINERATIO us
+<0..100>(0~0.1) - 
+
+@gfast configure SRA_ENABLE
+ds - 
+us - 
+
+@gfast configure SRA_ENABLE ds
+<T|F> - 
+
+@gfast configure SRA_ENABLE us
+<T|F> - 
+
+@gfast configure TARSNRM
+ds - 
+us - 
+
+@gfast configure TARSNRM ds
+<0..310>*(0.1)dB - 
+
+@gfast configure TARSNRM us
+<0..310>*(0.1)dB - 
+
+@gfast deactivate
+line - De-activate a line
+
+@gfast deactivate line
+<line-id>(default=0) - 
+
+@gfast dump
+15min-history - Dump the 15-minute counter history database
+
+@gfast erase
+bootloader - Erase bootloader from flash
+firmware - Erase firmware image from flash
+manufacturer-block - Erase manufacturer block from flash
+
+@gfast load
+bootloader - Load bootloader from flash
+
+@gfast load bootloader
+<device-id(default=0)> - 
+<filename(default=B1.bin)> - 
+
+@gfast read
+memory - Read device memory
+
+@gfast read memory
+<device-id> - 
+
+@gfast read memory <device-id>
+<address> - 
+
+@gfast read memory <device-id> <address>
+<length> - 
+
+@gfast reboot
+<B0|B1|APP(default=APP)> - 
+<device-id(default=0)> - 
+
+@gfast restart
+line - Reset a G.fast line or all active lines
+system - Restart the system
+
+@gfast restart line
+<line-id>|All - 
+
+@gfast restart system
+<wait-for-config> - 
+
+@gfast run
+<filename(default=clitest.txt> - 
+
+@gfast show
+15min-counters - Show far-end line performance counters
+ALNps - Show ALN per sub-carrier
+BITSps - Show bit-loading per sub-carrier
+ETR - Show Expected ThRoughput (ETR) for line
+HLOGps - Show HLOG per sub-carrier
+SNRps - Show SNR per sub-carrier
+channel - 
+device-info - Show device information
+dictionary - Show parameter dictionary
+gfast-counters - Show G.fast counters for line
+init-failure-cause - Show initialization failure causes
+inventory - Show inventory information for line
+line - 
+network-info - Show network information
+number - 
+param - 
+performance-counters-ne - 
+version - Shows SDK version identifier
+
+@gfast show 15min-counters
+<interval> - 
+<line-id> - 
+<ne|fe> - 
+
+@gfast show ETR
+<line-id> - 
+
+@gfast show channel
+performance-counters - 
+status - 
+
+@gfast show channel status
+ds - 
+us - 
+
+@gfast show channel status ds
+<line-id> - 
+
+@gfast show channel status us
+<line-id> - 
+
+@gfast show device-info
+<device-id> - 
+
+@gfast show gfast-counters
+<line-id> - 
+
+@gfast show inventory
+<line-id> - 
+
+@gfast show line
+performance-counters - 
+state - 
+
+@gfast show line state
+<line-id> - 
+
+@gfast show number
+15min-intervals - 
+devices - 
+lines - 
+
+@gfast show performance-counters-ne
+<line-id> - 
+
+@gfast trigger
+15min - Trigger a 15 minute event
+
+@gfast upgrade
+bootloader - Upgrade bootloader
+firmware - Upgrade firmware image
+manufacturer-block - Upgrade manufacturer block
+
+@gfast upgrade bootloader
+<device-id(default=0> - 
+<filename(default=B1.bin)> - 
+
+@gfast upgrade firmware
+<device-id(default=0)> - 
+<filename(default=triplet_cpe.bin)> - 
+
+@gfast upgrade manufacturer-block
+<device-id(default=0)> - 
+<filename(default=ManufacturerBlock_DP.bin)> - 
+
+@gfast write
+memory - Write to device memory
+
+@gfast write memory
+<device-id> - 
+
+@gfast write memory <device-id>
+<address> - 
+
+@gfast write memory <device-id> <address>
+<length> - 
+
+# gpon ################################
+@gpon
+clearpq - clear all gpon mac upstream pq
+cnt - show gpon counters
+gem - show gpon flow physical allocation
+history - show gpon history statistics
+pq - show gpon pq physical allocation
+recovery - deactivate & init gpon & activate
+reset_dbru - dbru recovery by reset pbo or reset datapath
+reset_serdes - serdesCDR reset
+tcont - show gpon tcont physical allocation
+
+@gpon cnt
+* - 
+gem - 
+global - 
+reset - 
+tcont - 
+
+@gpon history
+<0-12> - 
+reset - reset all count
+
+# history ################################
+@history
+clear - 
+del - 
+edit - 
+find - 
+help - 
+last - 
+list - 
+listw - 
+listz - 
+load - 
+run - 
+save - 
+show - 
+
+@history del
+<end> - 
+<start> - 
+
+@history edit
+<n> - 
+
+@history edit <n>
+<offset> - 
+
+@history edit <n> <offset>
+<hex>... - 
+
+@history find
+<string> - 
+
+@history last
+<n> - 
+
+@history list
+<end> - 
+<start> - 
+
+@history listw
+<end> - 
+<start> - 
+
+@history listz
+<end> - 
+<start> - 
+
+@history load
+<filename> - 
+
+@history run
+<end> - 
+<start> - 
+
+@history save
+<filename> - 
+
+@history save <filename>
+<end> - 
+<start> - 
+
+@history show
+<end> - 
+<start> - 
+
+# hwresource ################################
+@hwresource
+<classid> - class id
+
+@hwresource <classid>
+<meid> - me id
+
+# igmp ################################
+@igmp
+allinfo - Dump all info
+clientinfo - Dump client info
+config - Dump config
+counter - Dump counter
+default_aging_time - Set age out time
+delete - Delete IGMPv1/2 & MLD member record
+group_dump - Display IGMP/MLD member
+help - Display help
+member - Display IGMP/MLD member
+router - Start/Stop router mode
+start - Start IGMP/MLD service
+stop - Stop IGMP/MLD service
+total_group - Set total group limit
+
+@igmp config
+downstream_igmp_tag_ctl - (En/Dis)able downstream igmp tag control
+downstream_igmp_tci - TCI value for downstream igmp tag
+igmp_compatibity_mode - (En/Dis)able compatibility mode
+igmp_function - Set IGMP/MLD function level
+igmp_version - Set IGMP/MLD version
+immediate_leave - (En/Dis)able fast leave
+last_member_query_interval - Set last member query interval
+max_response_time - Set maximum response time
+querier_ip - Set querier IP
+query_interval - Set querier interval
+robustness - Set robustness
+upstream_igmp_rate - Set IGMP upstream rate
+upstream_igmp_tag_ctl - (En/Dis)able upstream igmp tag control
+upstream_igmp_tci - TCI value for upstream igmp tag
+
+@igmp config downstream_igmp_tag_ctl
+<value> - 
+
+@igmp config downstream_igmp_tci
+<value> - 
+
+@igmp config igmp_compatibity_mode
+<value> - 
+
+@igmp config igmp_function
+<value> - 
+
+@igmp config igmp_version
+<value> - 
+
+@igmp config immediate_leave
+<value> - 
+
+@igmp config last_member_query_interval
+<seconds> - 
+
+@igmp config max_response_time
+<seconds> - 
+
+@igmp config querier_ip
+<ipv4_addr> - 
+
+@igmp config query_interval
+<seconds> - 
+
+@igmp config robustness
+<value> - 
+
+@igmp config upstream_igmp_rate
+<value> - 
+
+@igmp config upstream_igmp_tag_ctl
+<value> - 
+
+@igmp config upstream_igmp_tci
+<value> - 
+
+@igmp default_aging_time
+<seconds> - 
+
+@igmp delete
+all - 
+client - via client IP
+group - via group IP
+source - via source IP
+
+@igmp delete client
+<value> - 
+
+@igmp delete group
+<value> - 
+
+@igmp delete source
+<value> - 
+
+@igmp router
+start - 
+stop - 
+
+@igmp total_group
+<group_num> - 
+
+# lldp ################################
+@lldp
+counter - show statistic of LLDP message
+neighbor - show neighbor information
+start - start LLDP task
+status - status of LLDP
+stop - stop LLDP task
+
+@lldp counter
+clear - clear counter
+show - show counter
+
+# me ################################
+@me
+<classid> - class id
+check - check if there is any invalid pointer or value in me attr
+create - me creation
+delete - me deletion
+find - me find
+gclist - show me gclist
+related - list me of relation classid -> classid2
+
+@me <classid>
+<meid> - me id
+
+@me <classid> <meid>
+<attr_order> - 
+
+@me check
+<classid> - class id
+
+@me create
+<classid> - class id
+
+@me create <classid>
+<meid> - me id
+
+@me delete
+<classid> - class id
+
+@me delete <classid>
+<meid> - me id
+
+@me find
+<keyword> - 
+
+@me gclist
+aging - age out stale gclist node
+dump - print all node on gclist
+
+@me related
+<classid> - classid which is related or has a pointer to another classid
+
+@me related <classid>
+<classid2> - classid pointed by another classid
+
+# misc ################################
+@misc
+access - show access statistics of all classid
+alarm_seq - config seq num for next alarm msg
+anig - show anig information
+asc2hex - convert ascii to hex
+check_ready - get is_omci_ready state
+console - console output configuration
+crc - calculate file crc
+fields2ventry - convert
+help - misc help
+hex2asc - convert hex to ascii
+inst2meid - convert instance id to meid
+meid2inst - convert meid to instance id
+mib_reset - omci mib reset
+msgcount - show omci msg counter statistics
+msgmask - mask for omci msgdump
+msgq - msgq information
+omci_exit - exit omcimain in server side
+omci_init - omcimain init
+ping - ping dstip from srcip
+poe - show poe information
+reboot - reboot device
+rf - show rf information
+script - execute omci cli in script file
+sec2datetime - convert seconds to datetime
+session - 
+sw_download_state - show software download state
+task - show task information
+tm - convert seconds to datetime
+version - show version information
+wanif - show dev_wan[0-7]_interface status
+intel_dbglvl - intel debug level 
+intel_mapper_dump - intel mapper dump
+
+@misc access
+<classid> - show create/read/write statistics of specific classid
+clear - clear access statistics of all classid
+detail - show  create/read/write statistics of all classid
+
+@misc access detail
+<classid> - show create/read/write statistics of specific classid
+
+@misc alarm_seq
+<seq_num> - 
+
+@misc anig
+<anig_type(0..5)> - 
+
+@misc asc2hex
+<ascii> - ascii char to convert
+
+@misc console
+client - redirect traf console msg to client
+off - disable traf console msg
+on - enable traf console msg
+
+@misc crc
+<filepath> - file name path
+
+@misc crc <filepath>
+<le|be> - endian
+
+@misc fields2ventry
+<string> - 
+
+@misc hex2asc
+<hex> - hex value to convert
+
+@misc inst2meid
+<classid> - class id
+
+@misc inst2meid <classid>
+<instance> - 
+
+@misc meid2inst
+<classid> - class id
+
+@misc meid2inst <classid>
+<meid> - me id
+
+@misc msgcount
+clear - 
+
+@misc msgmask
+<mask> - 
+
+@misc ping
+<srcip> - 
+
+@misc ping <srcip>
+<dstip> - 
+
+@misc ping <srcip> <dstip>
+<count> - 
+
+@misc script
+<filename> - cli file to be execute
+
+@misc sec2datetime
+<seconds> - seconds_since_1970/01/01 to be converted to datetime
+
+@misc session
+DEL - force del specific cli session
+add - add specific cli session
+del - del specific cli session owned by same client
+list - show all cli sessions
+
+@misc session DEL
+<session_name> - 
+
+@misc session add
+<session_name> - 
+
+@misc session del
+<session_name> - 
+
+@misc tm
+<seconds> - seconds_since_1970/01/01 to be converted to datetime
+
+@misc intel_dbglvl
+get - get debug level
+set - set debug level
+
+@misc intel_dbglvl get
+<module> - 0:libponimg :libponnet 2:libpon
+
+@misc intel_dbglvl set
+<module> - 0:libponimg :libponnet 2:libpon
+
+@misc intel_dbglvl set <module>
+<lvl> - debug level
+
+# nat ################################
+@nat
+help - nat help
+show - show nat sessions
+
+@nat show
+hw|sw - show nat hardware or software sessions
+
+# portinfo ################################
+@portinfo
+logical - 
+me - 
+uni - 
+
+@portinfo logical
+<logical_port_id> - 
+
+@portinfo me
+<classid> - class id
+
+@portinfo me <classid>
+<meid> - me id
+
+@portinfo uni
+<uni_id> - 
+
+# pots ################################
+@pots
+<meid> - me id
+
+# pots_mkey ################################
+@pots_mkey
+all - all me attr and mkey
+
+# spec ################################
+@spec
+<classid|section> - 
+alarm - 
+avc - 
+find - 
+
+@spec alarm
+<classid> - class id
+
+@spec alarm <classid>
+<n1,n2,n3...> - 
+
+@spec avc
+<classid> - class id
+
+@spec avc <classid>
+<n1,n2,n3...> - 
+
+@spec find
+<keyword> - 
+
+# stp ################################
+@stp
+help - 
+show - 
+start - 
+
+@stp show
+bridge - 
+port - 
+stp_port - 
+
+@stp show port
+<port_index,1..> - 
+
+# switch ################################
+@switch
+help - switch help
+history - collect packet information periodic
+intr - Not support
+iso - display/config port isolation status
+mactab - display mac address table
+pkt - packet count and rx/tx rate
+port - display uni port status
+qos - port-based QoS configurations
+rate - display port rate status
+rldp - display loop detection status
+storm - display strom rate control status
+stp - display STP status
+
+@switch history
+<0-14> - 
+reset - reset all count
+
+@switch intr
+* - 
+ctrl - Not support
+stat - Not support
+
+@switch iso
+<src_port> - port to be config
+<table_index> - isolation table to display
+
+@switch iso <src_port>
+<dst_portmask> - dst reachtable from src port
+
+@switch mactab
+* - all mac address in mac table
+flush - clear all dynamic entries
+ipmc - display ip multicast only
+mc - display multicast only
+uc - display unicast only
+
+@switch pkt
+* - display all kinds of packet count/rate
+err - display all kinds of error count
+pkt - display frequently used count/rate
+reset - reset packet count
+reset_port - reset packet count by port
+stat - display packet count by frame length
+sum - display frequently used count/rate
+
+@switch pkt reset_port
+<port_id> - 
+
+@switch port
+* - display port configure/status
+config - diaplay port force configure
+phy - display port phy registers
+status - diaplay port status
+
+@switch port phy
+<port_id> - port id
+<reg_id> - phy register id
+
+@switch port phy <reg_id>
+<value> - phy register value for interpreting
+
+@switch qos
+* - display information about qos
+dscp2pri - dscp to priority
+portcfg - port-based qos configuration
+pri2q - internal priority to egress queue
+prisel - internal priority source selection
+q2meter - egress queue to meter mapping
+
+@switch rate
+* - display information about rate/meter
+ctrl - in/egress port rate control
+meter - display rate meter table
+status - display port rate status
+
+# tag ################################
+@tag
+<bridge_meid> - 
+helpf - 
+helpt - 
+
+# tcont ################################
+@tcont
+<meid> - me id
+
+# unrelated ################################
+@unrelated
+<meid> - me id
+
+# vacl ################################
+@vacl
+add - add action
+clear - clear action
+del - delete action
+dump - list rule details (non_rg)
+get - get rule details (rg)
+help - more online help
+hw_commit - commit settings to switch and clear vacl settings
+hw_get - get per-port acl enable/permit status
+hw_set - set per-port acl enable/permit status
+init - initialization
+set - set rule fields for add
+show - list going to add rule fields
+ver - cli vacl sub-version
+
+@vacl del
+all - delete all rules
+hw_order - delete rule by hw_order id (non_rg)
+order - delete rules by order id (non_rg)
+rg - delete rule according to rg id (rg)
+weight - delete rules by weight number
+
+@vacl del hw_order
+<number> - rule hw_order id (non_rg)
+
+@vacl del order
+<number> - rule order id (non_rg)
+
+@vacl del rg
+<number> - rule rg id (rg)
+
+@vacl del weight
+<number> - rule weight number
+
+@vacl dump
+hw_order - list sw/hw rule for it (non_rg)
+meter_reserve - meter rule reserved number (non_rg)
+order - list sw/hw rule for it (non_rg)
+user - list user level acl rules (non_rg)
+
+@vacl dump hw_order
+<number> - 
+
+@vacl dump order
+<number> - 
+
+@vacl dump user
+hw_order - list sw rule for it
+order - list sw rule for it
+
+@vacl dump user hw_order
+<number> - 
+
+@vacl dump user order
+<number> - 
+
+@vacl get
+<unsigned_int> - rg rule number (rg)
+all - get all rules hw/sw details (rg)
+asic - get rules hw details only (rg)
+meter_reserve - meter rule reserved number
+order - 
+rg - get rules rg details only (rg)
+
+@vacl get asic
+<unsigned_int> - asic rule number
+acl - acl part
+all - get all rules asic level details
+cf - classf part
+
+@vacl get asic acl
+<unsigned_int> - asic acl rule number
+all - get all rules asic acl details
+
+@vacl get asic cf
+<unsigned_int> - asic cf rule number
+all - get all rules asic cf details
+
+@vacl get order
+<unsigned_int> - 
+
+@vacl get rg
+<unsigned_int> - rg rule number
+act - list rules with the action
+all - get all rg rules details
+
+@vacl get rg act
+drop - Drop
+permit - Permit
+policy_route - Policy Route
+qos - QoS
+trap_cpu - Trap to CPU
+trap_ps - Trap to Protocol Stack
+
+@vacl hw_get
+port - port mask
+
+@vacl hw_get port
+enable - per-port enable/disable acl lookup
+permit - acl rule not matched permit or drop, referenced only enabled.
+
+@vacl hw_set
+port - port mask
+
+@vacl hw_set port
+enable - per-port enable/disable acl lookup
+permit - acl rule not matched permit or drop, referenced only enabled.
+
+@vacl hw_set port enable
+<string> - per-port enable hexidecimal portmask
+
+@vacl hw_set port permit
+<string> - per-port permit hexidecimal portmask
+
+@vacl set
+act - action configuration
+e-fld - egress field
+fwd_type_dir - fwding_type_and_direction
+help - more online help
+in-care_tag - 
+in-fld - ingress field
+internal_pri - internal priority 0~7
+invert - 
+meter_reserve - internal usage reserved number of rules
+order - smaller order higher priority
+portmask - 
+weight - larger weight higher priority
+
+@vacl set act
+cvlan - swnat CVLAN action
+drop - Drop action
+forward_copy - Forward Copy to <forward_portmask>
+forward_mirror - Forward Mirror to <forward_portmask>
+forward_port - Forward(Copy, Redirect, Mirror) to logical portmask
+forward_redirect - Forward Redirect to <forward_portmask>
+latch - Latch action
+permit - Permit action
+policy_route - Policy Route action
+qos - qos relative actions
+statistic - Statistic action
+svlan - swnat SVLAN action
+trap_cpu - Trap to CPU action
+trap_ps - Trap to Protocol Stack action
+
+@vacl set act cvlan
+dot1p_remark - 
+
+@vacl set act cvlan dot1p_remark
+<unsigned_int> - 0~7 dot1p remarking priority assignment
+
+@vacl set act forward_port
+<portmask> - for 3 Forward actions; 0x000-0xfff, 0 follow switch behavior
+
+@vacl set act qos
+acl_ingress_vid - ingress_vid configuration
+acl_priority - internal ACL priority assignment
+assign_dot1p - dot1p remarking priority assignment
+assign_dscp - DSCP remarking priority assignment
+cvlan - ctag configuration
+dot1p_remarking_pri - dot1p_remarking_pri configuration
+ds_unimask - downstream_uni_portmask configuration
+dscp_remarking_pri - dscp_remarking_pri configuration
+ip_precedence_remarking_pri - ip_precedence_remarking_pri configuration
+queue_id - queue_id configuration
+share_meter - share_meter configuration
+stream_id - stream_id configuration
+svlan - stag configuration
+
+@vacl set act qos acl_ingress_vid
+<unsigned_int> - ingress_vid
+
+@vacl set act qos acl_priority
+<unsigned_int> - 0~7 internal ACL priority assignment
+
+@vacl set act qos assign_dot1p
+<unsigned_int> - 0~7 dot1p remarking priority assignment
+
+@vacl set act qos assign_dscp
+<unsigned_int> - 0~63 DSCP remarking priority assignment
+
+@vacl set act qos cvlan
+tag_with_c2s - tagWithC2S
+tag_with_sp2c - tagWithSP2C
+tagging - tagging
+transparent - transparent
+untag - untag
+
+@vacl set act qos cvlan tagging
+<cvid_decision> - 0:Assign 1:From 1st Tag 2:From 2nd Tag 3:From Internal 4:DMAC2CVID
+
+@vacl set act qos cvlan tagging <cvid_decision>
+<cpri_decision> - 0:Assign 1:From 1st Tag 2:From 2nd Tag 3:From Internal
+
+@vacl set act qos cvlan tagging <cvid_decision> <cpri_decision>
+<cvid> - ctag vid, unsigned int
+
+@vacl set act qos cvlan tagging <cvid_decision> <cpri_decision> <cvid>
+<cpri> - ctag priority, unsigned int
+
+@vacl set act qos dot1p_remarking_pri
+<unsigned_int> - 0~7 dot1p_remarking_pri
+
+@vacl set act qos ds_unimask
+<unsigned_int> - 0x000-0xfff, port mask
+
+@vacl set act qos dscp_remarking_pri
+<unsigned_int> - 0~63 dscp_remarking_pri
+
+@vacl set act qos ip_precedence_remarking_pri
+<unsigned_int> - 0~7 ip_precedence_remarking_pri
+
+@vacl set act qos queue_id
+<unsigned_int> - 0~7 queue_id
+
+@vacl set act qos share_meter
+<bucket_size> - 0~65535 byte
+index - reference meter table rule by index
+
+@vacl set act qos share_meter <bucket_size>
+<rate> - 1~131071, 1 means 8Kbps, 2 16Kbps, ...
+
+@vacl set act qos share_meter <bucket_size> <rate>
+<ifg_include> - 0~1
+
+@vacl set act qos share_meter <bucket_size> <rate> <ifg_include>
+index - reference meter table rule by index
+share - 
+
+@vacl set act qos share_meter <bucket_size> <rate> <ifg_include> index
+<unsigned_int> - index number
+
+@vacl set act qos share_meter <bucket_size> <rate> <ifg_include> share
+<0|1> - 0~1 share the same meter entry or not
+
+@vacl set act qos share_meter index
+<unsigned_int> - 
+
+@vacl set act qos stream_id
+<unsigned_int> - stream_id
+
+@vacl set act qos svlan
+tag_with_8100 - tagWith8100
+tag_with_sp2c - tagWithSP2C
+tag_with_tpid - tagWithTPID
+transparent - transparent
+untag - untag
+
+@vacl set act qos svlan tag_with_8100
+<svid_decision> - 0:Assign 1:From 1st Tag 2:From 2nd Tag
+
+@vacl set act qos svlan tag_with_8100 <svid_decision>
+<spri_decision> - 0:Assign 1:From 1st 2:From 2nd 3:From Internal
+
+@vacl set act qos svlan tag_with_8100 <svid_decision> <spri_decision>
+<svid> - stag vid, unsigned int
+
+@vacl set act qos svlan tag_with_8100 <svid_decision> <spri_decision> <svid>
+<spri> - stag priority, unsigned int
+
+@vacl set act qos svlan tag_with_tpid
+<svid_decision> - 0:Assign 1:From 1st Tag 2:From 2nd Tag
+
+@vacl set act qos svlan tag_with_tpid <svid_decision>
+<spri_decision> - 0:Assign 1:From 1st 2:From 2nd 3:From Internal
+
+@vacl set act qos svlan tag_with_tpid <svid_decision> <spri_decision>
+<svid> - stag vid, unsigned int
+
+@vacl set act qos svlan tag_with_tpid <svid_decision> <spri_decision> <svid>
+<spri> - stag priority, unsigned int
+
+@vacl set act statistic
+<unsigned_int> - 
+
+@vacl set act svlan
+dscp_remark - 
+
+@vacl set act svlan dscp_remark
+<unsigned_int> - 0~63 dscp_remarking_pri
+
+@vacl set e-fld
+cpri - ctag priority 0~7
+cvid - ctag vid 0~4095
+dipv4_lb - destination ipv4 addr start
+dipv4_ub - destination ipv4 addr end
+intf_idx - interface index
+l4dport_lb - destination l4 port start
+l4dport_ub - destination l4 port end
+l4sport_lb - source l4 port start
+l4sport_ub - source l4 port end
+port_idx - egress_port_idx, 0~7, downstream only, in L34 mode, assign CPU port
+port_idx_m - egress_port_idx_mask, ex 0xffff
+sipv4_lb - source ipv4 addr start
+sipv4_ub - source ipv4 addr end
+
+@vacl set e-fld cpri
+<unsigned_int> - 0~7
+
+@vacl set e-fld cvid
+<unsigned_int> - 0~4095
+
+@vacl set e-fld dipv4_lb
+<ipv4_addr> - ipv4 address, ex.192.168.1.1
+
+@vacl set e-fld dipv4_ub
+<ipv4_addr> - ipv4 address, ex.192.168.1..255
+
+@vacl set e-fld intf_idx
+<unsigned_int> - unsigned interger
+
+@vacl set e-fld l4dport_lb
+<unsigned_int> - 0~65535
+
+@vacl set e-fld l4dport_ub
+<unsigned_int> - 0~65535
+
+@vacl set e-fld l4sport_lb
+<unsigned_int> - 0~65535
+
+@vacl set e-fld l4sport_ub
+<unsigned_int> - 0~65535
+
+@vacl set e-fld port_idx
+<unsigned_int> - 0~7
+
+@vacl set e-fld port_idx_m
+<unsigned_int> - ex.0xffff
+
+@vacl set e-fld sipv4_lb
+<ipv4_addr> - ipv4 address, ex.192.168.1.1
+
+@vacl set e-fld sipv4_ub
+<ipv4_addr> - ipv4 address, ex.192.168.1.255
+
+@vacl set fwd_type_dir
+in_all - ingress all packet
+l34_down_c_s - L34 downstream assign cvlan+svlan
+l34_down_drop - L34 downstream drop
+l34_up_drop - L34 upstream drop
+l34_up_gem_c_s - L34 upstream assign sid+cvlan+svlan
+
+@vacl set in-care_tag
+<ctag|stag|ipv4|ipv6|pppoe|udp|tcp> - 
+
+@vacl set in-fld
+cpri - ctag priority 0~7
+ctag - ctag value
+ctag_m - ctag value mask
+cvid - ctag vid 0~4095
+dipv4 - 
+dipv4_lb - destination ipv4 addr start
+dipv4_m - 
+dipv4_ub - destination ipv4 addr end
+dipv6 - 
+dipv6_lb - destination ipv6 addr start
+dipv6_m - 
+dipv6_ub - destination ipv6 addr end
+dmac - destnation mac address
+dmac_m - destnation mac address mask
+dscp_ipv4 - ipv4 dscp, 0~63
+ethertype - ethertype integer
+ethertype_m - ethertype mask
+gem - gem or llid index configuration
+gem_m - gem or llid index configuration mask
+intf_idx - interface index
+is_ctag - check if ctag
+is_stag - check if stag
+l4dport_lb - destination l4 port start
+l4dport_ub - destination l4 port end
+l4sport_lb - source l4 port start
+l4sport_ub - source l4 port end
+pktlen_lb - packet length start
+pktlen_ub - packet length end
+port_idx - ingress_port_idx, 0~7 (upstream only)
+port_idx_m - ingress_port_idx_mask, ex 0xffff
+portmask - ingress logical portmask
+protocol_value - 
+sipv4 - 
+sipv4_lb - source ipv4 addr start
+sipv4_m - 
+sipv4_ub - source ipv4 addr end
+sipv6 - 
+sipv6_lb - source ipv6 addr start
+sipv6_m - 
+sipv6_ub - source ipv6 addr end
+smac - source mac address
+smac_m - source mac address mask
+stag - stag value
+stag_m - stag value mask
+stream_id - stream_id configuration
+stream_id_m - stream_id_mask configuration
+
+@vacl set in-fld cpri
+<unsigned_int> - 0~7
+
+@vacl set in-fld ctag
+<unsigned_int> - ctag value, ex.0xfa1
+
+@vacl set in-fld ctag_m
+<unsigned_int> - ctag value mask, ex.0xfff
+
+@vacl set in-fld cvid
+<unsigned_int> - 0~4095
+
+@vacl set in-fld dipv4
+<ipv4_addr> - ex.192.168.1.1
+
+@vacl set in-fld dipv4_lb
+<ipv4_addr> - ipv4 address, ex.192.168.1.1
+
+@vacl set in-fld dipv4_m
+<ipv4_netmask> - ex.255.255.255.255
+
+@vacl set in-fld dipv4_ub
+<ipv4_addr> - ipv4 address, ex.192.168.1.255
+
+@vacl set in-fld dipv6
+<ipv6_addr> - ex.3ffe:ffff:100:f101:210:a4ff:fee3:9566
+
+@vacl set in-fld dipv6_lb
+<ipv6_addr> - ex.3ffe:ffff:100:f101:210:a4ff:fee3:9566
+
+@vacl set in-fld dipv6_m
+<ipv6_netmask> - ex.ffff::ffff
+
+@vacl set in-fld dipv6_ub
+<ipv6_addr> - ex.3ffe:ffff:100:f101:210:a4ff:fee3:9566
+
+@vacl set in-fld dmac
+<mac_addr> - ex.11:22:33:44:55:66
+
+@vacl set in-fld dmac_m
+<mac_addr_mask> - ex.ff:ff:ff:ff:ff:00
+
+@vacl set in-fld dscp_ipv4
+<unsigned_int> - 0~63
+
+@vacl set in-fld ethertype
+<unsigned_int> - ex.0x0800
+
+@vacl set in-fld ethertype_m
+<unsigned_int> - ex.0xffff
+
+@vacl set in-fld gem
+<unsigned_int> - ex.0xabc
+
+@vacl set in-fld gem_m
+<unsigned_int> - ex.0xfff
+
+@vacl set in-fld intf_idx
+<unsigned_int> - unsigned interger
+
+@vacl set in-fld is_ctag
+0 - must not have ctag
+1 - must have ctag
+
+@vacl set in-fld is_stag
+0 - must not have stag
+1 - must have stag
+
+@vacl set in-fld l4dport_lb
+<unsigned_int> - 0~65535
+
+@vacl set in-fld l4dport_ub
+<unsigned_int> - 0~65535
+
+@vacl set in-fld l4sport_lb
+<unsigned_int> - 0~65535
+
+@vacl set in-fld l4sport_ub
+<unsigned_int> - 0~65535
+
+@vacl set in-fld pktlen_lb
+<unsigned_int> - 0~65535
+
+@vacl set in-fld pktlen_ub
+<unsigned_int> - 0~65535
+
+@vacl set in-fld port_idx
+<unsigned_int> - 0~7
+
+@vacl set in-fld port_idx_m
+<unsigned_int> - ex.0xffff
+
+@vacl set in-fld portmask
+<unsigned_int> - 0x000-0xfff, port mask
+
+@vacl set in-fld protocol_value
+<unsigned_short> - 
+
+@vacl set in-fld sipv4
+<ipv4_addr> - ex.192.168.1.1
+
+@vacl set in-fld sipv4_lb
+<ipv4_addr> - ex.192.168.1.1
+
+@vacl set in-fld sipv4_m
+<ipv4_netmask> - ex.255.255.255.255
+
+@vacl set in-fld sipv4_ub
+<ipv4_addr> - ex.192.168.1.255
+
+@vacl set in-fld sipv6
+<ipv6_addr> - ex.3ffe:ffff:100:f101:210:a4ff:fee3:9566
+
+@vacl set in-fld sipv6_lb
+<ipv6_addr> - ex.3ffe:ffff:100:f101:210:a4ff:fee3:9566
+
+@vacl set in-fld sipv6_m
+<ipv6_netmask> - ex.ffff::ffff
+
+@vacl set in-fld sipv6_ub
+<ipv6_addr> - ex.3ffe:ffff:100:f101:210:a4ff:fee3:9566
+
+@vacl set in-fld smac
+<mac_addr> - ex.11:22:33:44:55:66
+
+@vacl set in-fld smac_m
+<mac_addr_mask> - ex.ff:ff:ff:ff:ff:00
+
+@vacl set in-fld stag
+<unsigned_int> - stag value, ex.0xfa1
+
+@vacl set in-fld stag_m
+<unsigned_int> - stag value mask, ex.0xfff
+
+@vacl set in-fld stream_id
+<unsigned_int> - ex.0xabc
+
+@vacl set in-fld stream_id_m
+<unsigned_int> - ex.0xfff
+
+@vacl set internal_pri
+<unsigned_int> - 0~7
+
+@vacl set invert
+<0|1> - 
+
+@vacl set meter_reserve
+<unsigned_int> - 
+
+@vacl set order
+<unsigned_int> - 0~255
+
+@vacl set portmask
+<unsigned_int> - logical portmask, p5,p4,...,p1,p0
+
+@vacl set weight
+<unsigned_int> - 0~255

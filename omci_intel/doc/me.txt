@@ -1,0 +1,141 @@
+
+1. supported message type
+----------------------------------------------------
+0x04(04) Create
+0x06(06) Delete
+0x08(08) Set
+0x09(09) Get
+0x0b(11) Get all alarms
+0x0c(12) Get all alarms next
+0x0d(13) MIB upload
+0x0e(14) MIB upload next
+0x0f(15) MIB reset
+0x10(16) Alarm
+0x11(17) Attribute value change
+0x12(18) Test
+0x13(19) Start software download
+0x14(20) Download section
+0x15(21) End software download
+0x16(22) Activate software
+0x17(23) Commit software
+0x18(24) Synchronize Time
+0x19(25) Reboot
+0x1a(26) Get next
+0x1b(27) Test result
+0x1c(28) Get current data
+
+ps: the following message type won't be support due to they are deprecated
+
+0x05(05) Create complete connection (deprecated)
+0x07(07) Delete complete connection (deprecated)
+0x0a(10) Get complete connection (deprecated)
+
+
+2. supported me
+----------------------------------------------------
+9.1.1 ONT-G
+9.1.2 ONT2-G
+9.1.3 ONT data
+9.1.4 Software image
+9.1.5 Cardholder
+9.1.6 Circuit pack
+
+9.2.1 ANI-G
+9.2.2 T-CONT
+9.2.3 GEM port network CTP
+9.2.4 GEM interworking termination point
+9.2.5 Multicast GEM interworking termination point
+9.2.6 GEM port performance monitoring history data
+9.2.7 GAL Ethernet profile
+9.2.8 GAL Ethernet performance monitoring history data
+9.2.11 FEC performance monitoring history data
+
+9.3.1 MAC bridge service profile
+9.3.2 MAC bridge configuration data
+9.3.4 MAC bridge port configuration data
+9.3.5 MAC bridge port designation data
+9.3.6 MAC bridge port filter table data
+9.3.7 MAC bridge port filter preassign table
+9.3.8 MAC bridge port bridge table data
+9.3.9 MAC bridge port performance monitoring history data
+9.3.10 802.1p mapper service profile
+9.3.11 VLAN tagging filter data
+9.3.12 VLAN tagging operation configuration data
+9.3.13 Extended VLAN tagging operation configuration data
+9.3.27 Multicast operations profile
+9.3.28 Multicast subscriber config info
+9.3.29 Multicast subscriber monitor
+9.3.30 Ethernet frame performance monitoring history data upstream
+9.3.31 Ethernet frame performance monitoring history data downstream
+
+9.4.12 IP host config data
+9.4.14 TCP/UDP config data
+
+9.5.1 Physical path termination point Ethernet UNI
+9.5.2 Ethernet performance monitoring history data
+9.5.3 Ethernet performance monitoring history data 2
+9.5.4 Ethernet performance monitoring history data 3
+
+9.9.1 Physical path termination point POTS UNI
+9.9.2 SIP user data
+9.9.3 SIP agent config data
+9.9.4 VoIP voice CTP
+9.9.5 VoIP media profile
+9.9.6 Voice service profile
+9.9.7 RTP profile data
+9.9.8 VoIP application service profile
+9.9.9 VoIP feature access codes
+9.9.10 Network dial plan table
+9.9.11 VoIP line status
+9.9.12 Call control performance monitoring history data
+9.9.13 RTP performance monitoring history data
+9.9.14 SIP agent performance monitoring history data
+9.9.15 SIP call initiation performance monitoring history data
+9.9.18 VoIP config data
+9.9.19 SIP config portal
+
+9.11.1 Priority queue-G
+9.11.2 Traffic scheduler-G
+9.11.3 GEM traffic descriptor
+
+9.12.1 UNI-G
+9.12.2 OLT-G
+9.12.3 Network_address
+9.12.4 Authentication_security_method
+9.12.5 Large_string
+9.12.6 Threshold_data_1
+9.12.7 Threshold_data_2
+9.12.8 OMCI
+
+
+3. meid of ONU created me
+----------------------------------------------------
+    2 ONT_data[1]: 0x0(0)
+    5 Cardholder[2]: 0x101(257),0x102(258)
+    6 Circuit_pack[2]: 0x101(257),0x102(258)
+    7 Software_image[2]: 0x0(0),0x1(1)
+   11 Pptp_Ethernet_UNI[2]: 0x201(513),0x202(514)
+   44 ALU ONT generic v1[1]: 0x0(0)
+  131 OLT_G[1]: 0x0(0)
+  133 ONT_power_shedding[1]: 0x0(0)
+  134 IP_host_config_data[1]: 0x0(0)
+  160 Equipment_extension_package[1]: 0x0(0)
+  256 ONT_G[1]: 0x0(0)
+  257 ONT2_G[1]: 0x0(0)
+  262 T_CONT[8]: 0x100(256),0x101(257),0x102(258),0x103(259),0x104(260),0x105(261),0x106(262),0x107(263)
+  263 ANI_G[1]: 0x101(257)
+  264 UNI_G[2]: 0x201(513),0x202(514)
+  277 Priority_queue_G[48]: 0x1(1),0x2(2),0x3(3),0x4(4),0x5(5),0x6(6),0x7(7),0x8(8),0x9(9),0xa(10),0xb(11),0xc(12),0xd(13),0xe(14),0xf(15),0x10(16),
+				0x8001(32769),0x8002(32770),0x8003(32771),0x8004(32772),0x8005(32773),0x8006(32774),0x8007(32775),0x8008(32776),
+				0x8009(32777),0x800a(32778),0x800b(32779),0x800c(32780),0x800d(32781),0x800e(32782),0x800f(32783),0x8010(32784),
+				0x8011(32785),0x8012(32786),0x8013(32787),0x8014(32788),0x8015(32789),0x8016(32790),0x8017(32791),0x8018(32792),
+				0x8019(32793),0x801a(32794),0x801b(32795),0x801c(32796),0x801d(32797),0x801e(32798),0x801f(32799),0x8020(32800)
+  278 Traffic_scheduler_G[64]: 0x100(256),0x101(257),0x102(258),0x103(259),0x104(260),0x105(261),0x106(262),0x107(263),
+				0x108(264),0x109(265),0x10a(266),0x10b(267),0x10c(268),0x10d(269),0x10e(270),0x10f(271),
+				0x110(272),0x111(273),0x112(274),0x113(275),0x114(276),0x115(277),0x116(278),0x117(279),
+				0x118(280),0x119(281),0x11a(282),0x11b(283),0x11c(284),0x11d(285),0x11e(286),0x11f(287),
+				0x120(288),0x121(289),0x122(290),0x123(291),0x124(292),0x125(293),0x126(294),0x127(295),
+				0x128(296),0x129(297),0x12a(298),0x12b(299),0x12c(300),0x12d(301),0x12e(302),0x12f(303),
+				0x130(304),0x131(305),0x132(306),0x133(307),0x134(308),0x135(309),0x136(310),0x137(311),
+				0x138(312),0x139(313),0x13a(314),0x13b(315),0x13c(316),0x13d(317),0x13e(318),0x13f(319)
+

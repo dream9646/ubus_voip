@@ -1,0 +1,72 @@
+#!/bin/sh
+# tiny: tcont 4, small: tcont 8, large: tcont 16
+# we assume 8 ts for per tcont no matter how many tcont is actually used by the tcont
+
+if [ -z "$1" ]; then
+	echo "$0 [tiny|small|large]"
+	exit 1
+fi
+
+case $1 in
+	tiny)
+		GEM_TOTAL=16
+		UNI_TOTAL=5
+		WLAN_TOTAL=1
+		DS_BCAST_TOTAL=2
+		WAN_TOTAL=16;;	
+	small)
+		GEM_TOTAL=33
+		UNI_TOTAL=5
+		WLAN_TOTAL=2
+		DS_BCAST_TOTAL=2
+		WAN_TOTAL=32;;	
+	large)
+		GEM_TOTAL=64
+		UNI_TOTAL=5
+		WLAN_TOTAL=2
+		DS_BCAST_TOTAL=6
+		WAN_TOTAL=64;;
+	*)	echo "$0 [tiny|small|large]"
+		exit 1;;
+esac
+
+# igem is used internally and allocated when olt want to create gem ctp ##################################
+# so the number of igem should >= possible gem ctp created by olt
+# or olt wont be able to create the gem ctp
+
+instance=0
+
+# 127 gem
+index=0
+while [ $index -lt $(($GEM_TOTAL-1)) ]; do
+cat <<EOF
+	<instance i="$instance">
+		<devname>gem$index</devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Occupied -->
+		<attr i="2">0xffff</attr>	<!-- Associated_pointer -->
+		<attr i="3">0xffff</attr>	<!-- Default_associated_pointer -->
+		<attr i="4">0</attr>	<!-- Unused -->
+		<attr i="5">0xff</attr>		<!-- Related_pq_pointer -->
+	</instance>
+EOF
+	index=$(($index+1))
+	instance=$(($instance+1))
+done
+
+index=0
+cat <<EOF
+	<instance i="$instance">
+		<devname>gem omcc</devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">1</attr>	<!-- Occupied -->
+		<attr i="2">0xffff</attr>	<!-- Associated_pointer -->
+		<attr i="3">0xffff</attr>	<!-- Default_associated_pointer -->
+		<attr i="4">0</attr>	<!-- Unused -->
+		<attr i="5">0xff</attr>		<!-- Related_pq_pointer -->
+	</instance>
+EOF

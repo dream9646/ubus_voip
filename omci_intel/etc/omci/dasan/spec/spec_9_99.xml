@@ -1,0 +1,247 @@
+<omci name="5VT or Vendor Proprietary" section="9.99">
+
+<class id="240" attr_total="6" name="Private_ONT_System_Management" section="9.99.1">
+	<required>o</required>
+	<access>olt</access>
+	<action>get,set</action>
+	<avc_list></avc_list>
+	<alarm_list>0</alarm_list>
+	<is_private>0</is_private>
+	<related_ready_class_list></related_ready_class_list>
+
+	<attr i="1" name="Disable_Optical_Transceiver">
+		<format>unsigned integer</format>
+		<access_bitmap>w</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>2</byte_size>
+		<default_value>0xffff</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+	
+	<attr i="2" name="Polling_Interval">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>optional</necessity>
+		<byte_size>2</byte_size>
+		<default_value>20</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+	
+	<attr i="3" name="Polling_Count">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>optional</necessity>
+		<byte_size>1</byte_size>
+		<default_value>150</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+	
+	<attr i="4" name="Enable_Alarm">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>optional</necessity>
+		<byte_size>1</byte_size>
+		<default_value>1</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+	
+	<attr i="5" name="Alarming_Count">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>optional</necessity>
+		<byte_size>1</byte_size>
+		<default_value>1</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+	
+	<attr i="6" name="Waiting_Time">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>optional</necessity>
+		<byte_size>2</byte_size>
+		<default_value>1000</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+</class>
+
+<class id="244" attr_total="8" name="ONT_Self_Loop_Detect" section="9.99.2">
+	<required>o</required>
+	<access>olt</access>
+	<action>create,delete,get,set</action>
+	<avc_list>5,6,7</avc_list>
+	<alarm_list></alarm_list>
+	<is_private>0</is_private>
+	<related_ready_class_list></related_ready_class_list>
+
+	<attr i="1" name="Enable_Loop_Detect">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>1</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+	
+	<attr i="2" name="Detect_Action">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>1</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+	
+	<attr i="3" name="Sending_Period">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>2</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+	
+	<attr i="4" name="Block_Timer">
+		<format>unsigned integer</format>
+		<access_bitmap>r,w</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>2</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+	
+	<attr i="5" name="ONU_Uni_Detect_State">
+		<format>unsigned integer</format>
+		<access_bitmap>r</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>1</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+	
+	<attr i="6" name="ONU_Uni_Block_State">
+		<format>unsigned integer</format>
+		<access_bitmap>r</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>1</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+	
+	<attr i="7" name="Unblock_Reason">
+		<format>unsigned integer</format>
+		<access_bitmap>r</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>1</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+	
+	<attr i="8" name="Unblock_ONU_Uni">
+		<format>unsigned integer</format>
+		<access_bitmap>w</access_bitmap>
+		<necessity>mandatory</necessity>
+		<byte_size>1</byte_size>
+		<default_value>0</default_value>
+		<lower_limit></lower_limit>
+		<upper_limit></upper_limit>
+		<bit_field_mask></bit_field_mask>
+		<code_points_list></code_points_list>
+		<pointer_class_id></pointer_class_id>
+		<pm_tca_number></pm_tca_number>
+		<pm_alarm_number></pm_alarm_number>
+		<is_related_key>0</is_related_key>
+	</attr>
+</class>
+
+</omci>

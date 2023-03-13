@@ -1,0 +1,278 @@
+#!/bin/sh
+# tiny: tcont 4, small: tcont 8, large: tcont 16
+# we assume 8 ts for per tcont no matter how many tcont is actually used by the tcont
+
+if [ -z "$1" ]; then
+	echo "$0 [tiny|small|large]"
+	exit 1
+fi
+
+case $1 in
+	tiny)	TCONT_TOTAL=4
+		TCONT_TS_TOTAL=8
+		UNI_TOTAL=0
+		POTS_TOTAL=0
+		VEIP_TOTAL=0
+		IPHOST_TOTAL=0;;
+	small)	TCONT_TOTAL=8
+		TCONT_TS_TOTAL=8
+		UNI_TOTAL=4
+		POTS_TOTAL=1
+		VEIP_TOTAL=1
+		IPHOST_TOTAL=1;;
+	large)	TCONT_TOTAL=16
+		TCONT_TS_TOTAL=8
+		UNI_TOTAL=5
+		POTS_TOTAL=2
+		VEIP_TOTAL=2
+		IPHOST_TOTAL=2;;
+	*)	echo "$0 [tiny|small|large]"
+		exit 1;;
+esac
+
+# 128 us pq with policy wrr, meid started from 0x8001 ##################################
+
+tcont_index=15
+ts_index=0
+pq_index=0
+
+# tcont 16, 8 ts, per ts has 1 pq
+while [ $tcont_index -eq 15 ]; do
+	echo "<!-- pq for tcont $tcont_index -->"
+	tcont_meid="0x"`printf "%04x" $((0x8001+$tcont_index))`
+	priority=0
+	ts_index=$(($(($tcont_index+1))*$TCONT_TS_TOTAL))+$priority
+	for i in 0 1 2 3 4 5 6 7; do
+		tcont_ts_index=$i
+		ts_meid="0x"`printf "%04x" $((0x8001+$ts_index))`
+		pq_meid="0x"`printf "%04x" $((0x8000+$pq_index))`
+
+		[ $i -eq $TCONT_TS_TOTAL ] && break;
+
+		if [ $pq_index -lt 128 ]; then				
+cat <<EOF
+	<instance i="$pq_index">
+		<devname>tcont$tcont_index ts$tcont_ts_index($ts_index) pq$pq_index</devname>
+		<default_meid>$pq_meid</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Queue_configuration_option -->
+		<attr i="2">2730</attr>	<!-- Maximum_queue_size -->
+		<attr i="3">0</attr>	<!-- Allocated_queue_size -->
+		<attr i="4">0xffff</attr>	<!-- Discard_block_counter_reset_interval -->
+		<attr i="5">1</attr>	<!-- Threshold_value_for_discarded_blocks_due_to_buffer_overflow -->
+		<attr i="6">$tcont_meid,$priority</attr>	<!-- Related_port -->
+		<attr i="7">$ts_meid</attr>	<!-- Traffic_scheduler_G_pointer -->
+		<attr i="8">1</attr>	<!-- Weight -->
+		<attr i="9">0</attr>	<!-- Back_pressure_operation -->
+		<attr i="10">0</attr>	<!-- Back_pressure_time -->
+		<attr i="11">0</attr>	<!-- Back_pressure_occur_queue_threshold -->
+		<attr i="12">0</attr>	<!-- Back_pressure_clear_queue_threshold -->
+		<attr i="13">0,0,0,0</attr>	<!-- Packet_drop_queue_thresholds -->
+		<attr i="14">255,255</attr>	<!-- Packet_drop_max_p -->
+		<attr i="15">9</attr>	<!-- Queue_drop_w_q -->
+		<attr i="16">0</attr>	<!-- Drop_precedence_colour_marking -->
+	</instance>
+EOF
+			pq_index=$(($pq_index+1))
+			priority=$(($priority+1))
+			ts_index=$(($ts_index+1))
+		fi
+	done
+	tcont_index=$(($tcont_index+1))
+done
+
+tcont_index=0
+# tcont 1..15, 8 ts, per ts has 1 pq
+while [ $tcont_index -lt $(($TCONT_TOTAL-1)) ]; do
+	echo "<!-- pq for tcont $tcont_index -->"
+	tcont_meid="0x"`printf "%04x" $((0x8001+$tcont_index))`
+	priority=0
+	tcont_ts_index=0
+	ts_index=$(($tcont_index*$TCONT_TS_TOTAL+$tcont_ts_index))+$priority
+	for i in 0 1 2 3 4 5 6 7; do
+		ts_meid="0x"`printf "%04x" $((0x8001+$ts_index))`
+		pq_meid="0x"`printf "%04x" $((0x8000+$pq_index))`
+
+		[ $i -eq $TCONT_TS_TOTAL ] && break;
+		
+		if [ $pq_index -lt 128 ]; then				
+cat <<EOF
+	<instance i="$pq_index">
+		<devname>tcont$tcont_index ts$tcont_ts_index($ts_index) pq$pq_index</devname>
+		<default_meid>$pq_meid</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Queue_configuration_option -->
+		<attr i="2">2730</attr>	<!-- Maximum_queue_size -->
+		<attr i="3">0</attr>	<!-- Allocated_queue_size -->
+		<attr i="4">0xffff</attr>	<!-- Discard_block_counter_reset_interval -->
+		<attr i="5">1</attr>	<!-- Threshold_value_for_discarded_blocks_due_to_buffer_overflow -->
+		<attr i="6">$tcont_meid,$priority</attr>	<!-- Related_port -->
+		<attr i="7">$ts_meid</attr>	<!-- Traffic_scheduler_G_pointer -->
+		<attr i="8">1</attr>	<!-- Weight -->
+		<attr i="9">0</attr>	<!-- Back_pressure_operation -->
+		<attr i="10">0</attr>	<!-- Back_pressure_time -->
+		<attr i="11">0</attr>	<!-- Back_pressure_occur_queue_threshold -->
+		<attr i="12">0</attr>	<!-- Back_pressure_clear_queue_threshold -->
+		<attr i="13">0,0,0,0</attr>	<!-- Packet_drop_queue_thresholds -->
+		<attr i="14">255,255</attr>	<!-- Packet_drop_max_p -->
+		<attr i="15">9</attr>	<!-- Queue_drop_w_q -->
+		<attr i="16">0</attr>	<!-- Drop_precedence_colour_marking -->
+	</instance>
+EOF
+			pq_index=$(($pq_index+1))
+			priority=$(($priority+1))
+			ts_index=$(($ts_index+1))
+		fi
+	done
+	#ts_index=$(($ts_index+1))
+	tcont_index=$(($tcont_index+1))
+done
+
+# ds pq with policy sp, meid started from 0x1 ##################################
+
+# ds pq for 5 uni(0x101..0x105)
+index=0
+while [ $index -lt $UNI_TOTAL  ]; do
+	echo "<!-- pq for uni $index -->"
+	for pq_priority in 0 1 2 3 4 5 6 7; do
+		pq_meid="0x"`printf "%04x" $((0x1+$pq_index))`
+		related_meid="0x"`printf "%04x" $((0x101+$index))`
+cat <<EOF
+	<instance i="$pq_index">
+		<devname>ds uni$index</devname>
+		<default_meid>$pq_meid</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Queue_configuration_option -->
+		<attr i="2">682</attr>	<!-- Maximum_queue_size -->
+		<attr i="3">0</attr>	<!-- Allocated_queue_size -->
+		<attr i="4">0xffff</attr>	<!-- Discard_block_counter_reset_interval -->
+		<attr i="5">1</attr>	<!-- Threshold_value_for_discarded_blocks_due_to_buffer_overflow -->
+		<attr i="6">$related_meid,$pq_priority</attr>	<!-- Related_port -->
+		<attr i="7">0</attr>	<!-- Traffic_scheduler_G_pointer -->
+		<attr i="8">1</attr>	<!-- Weight -->
+		<attr i="9">0</attr>	<!-- Back_pressure_operation -->
+		<attr i="10">0</attr>	<!-- Back_pressure_time -->
+		<attr i="11">0</attr>	<!-- Back_pressure_occur_queue_threshold -->
+		<attr i="12">0</attr>	<!-- Back_pressure_clear_queue_threshold -->
+		<attr i="13">0,0,0,0</attr>	<!-- Packet_drop_queue_thresholds -->
+		<attr i="14">255,255</attr>	<!-- Packet_drop_max_p -->
+		<attr i="15">9</attr>	<!-- Queue_drop_w_q -->
+		<attr i="16">0</attr>	<!-- Drop_precedence_colour_marking -->
+	</instance>
+EOF
+		pq_index=$(($pq_index+1))
+	done
+	index=$(($index+1))
+done
+
+# ds pq for 2 pots(0x201..0x202)
+index=0
+while [ $index -lt $POTS_TOTAL ]; do
+	echo "<!-- pq for pots $index -->"
+	for pq_priority in 0 1 2 3 4 5 6 7; do
+		pq_meid="0x"`printf "%04x" $((0x1+$pq_index))`
+		related_meid="0x"`printf "%04x" $((0x201+$index))`
+cat <<EOF
+	<instance i="$pq_index">
+		<devname>ds pots$index</devname>
+		<default_meid>$pq_meid</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Queue_configuration_option -->
+		<attr i="2">682</attr>	<!-- Maximum_queue_size -->
+		<attr i="3">0</attr>	<!-- Allocated_queue_size -->
+		<attr i="4">0xffff</attr>	<!-- Discard_block_counter_reset_interval -->
+		<attr i="5">1</attr>	<!-- Threshold_value_for_discarded_blocks_due_to_buffer_overflow -->
+		<attr i="6">$related_meid,$pq_priority</attr>	<!-- Related_port -->
+		<attr i="7">0</attr>	<!-- Traffic_scheduler_G_pointer -->
+		<attr i="8">1</attr>	<!-- Weight -->
+		<attr i="9">0</attr>	<!-- Back_pressure_operation -->
+		<attr i="10">0</attr>	<!-- Back_pressure_time -->
+		<attr i="11">0</attr>	<!-- Back_pressure_occur_queue_threshold -->
+		<attr i="12">0</attr>	<!-- Back_pressure_clear_queue_threshold -->
+		<attr i="13">0,0,0,0</attr>	<!-- Packet_drop_queue_thresholds -->
+		<attr i="14">255,255</attr>	<!-- Packet_drop_max_p -->
+		<attr i="15">9</attr>	<!-- Queue_drop_w_q -->
+		<attr i="16">0</attr>	<!-- Drop_precedence_colour_marking -->
+	</instance>
+EOF
+		pq_index=$(($pq_index+1))
+	done
+	index=$(($index+1))
+done
+
+# ds pq for 2 veip(0x301..0x302)
+index=0
+while [ $index -lt $VEIP_TOTAL ]; do
+	echo "<!-- pq for veip $index -->"
+	for pq_priority in 0 1 2 3 4 5 6 7; do
+		pq_meid="0x"`printf "%04x" $((0x1+$pq_index))`
+		related_meid="0x"`printf "%04x" $((0x301+$index))`
+cat <<EOF
+	<instance i="$pq_index">
+		<devname>ds veip$index</devname>
+		<default_meid>$pq_meid</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Queue_configuration_option -->
+		<attr i="2">682</attr>	<!-- Maximum_queue_size -->
+		<attr i="3">0</attr>	<!-- Allocated_queue_size -->
+		<attr i="4">0xffff</attr>	<!-- Discard_block_counter_reset_interval -->
+		<attr i="5">1</attr>	<!-- Threshold_value_for_discarded_blocks_due_to_buffer_overflow -->
+		<attr i="6">$related_meid,$pq_priority</attr>	<!-- Related_port -->
+		<attr i="7">0</attr>	<!-- Traffic_scheduler_G_pointer -->
+		<attr i="8">1</attr>	<!-- Weight -->
+		<attr i="9">0</attr>	<!-- Back_pressure_operation -->
+		<attr i="10">0</attr>	<!-- Back_pressure_time -->
+		<attr i="11">0</attr>	<!-- Back_pressure_occur_queue_threshold -->
+		<attr i="12">0</attr>	<!-- Back_pressure_clear_queue_threshold -->
+		<attr i="13">0,0,0,0</attr>	<!-- Packet_drop_queue_thresholds -->
+		<attr i="14">255,255</attr>	<!-- Packet_drop_max_p -->
+		<attr i="15">9</attr>	<!-- Queue_drop_w_q -->
+		<attr i="16">0</attr>	<!-- Drop_precedence_colour_marking -->
+	</instance>
+EOF
+		pq_index=$(($pq_index+1))
+	done
+	index=$(($index+1))
+done
+
+# ds pq for 2 iphost(0x401..0x402)
+index=0
+while [ $index -lt $IPHOST_TOTAL ]; do
+	echo "<!-- pq for iphost $index -->"
+	for pq_priority in 0 1 2 3 4 5 6 7; do
+		pq_meid="0x"`printf "%04x" $((0x1+$pq_index))`
+		related_meid="0x"`printf "%04x" $((0x401+$index))`
+cat <<EOF
+	<instance i="$pq_index">
+		<devname>ds iphost$index</devname>
+		<default_meid>$pq_meid</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Queue_configuration_option -->
+		<attr i="2">682</attr>	<!-- Maximum_queue_size -->
+		<attr i="3">0</attr>	<!-- Allocated_queue_size -->
+		<attr i="4">0xffff</attr>	<!-- Discard_block_counter_reset_interval -->
+		<attr i="5">1</attr>	<!-- Threshold_value_for_discarded_blocks_due_to_buffer_overflow -->
+		<attr i="6">$related_meid,$pq_priority</attr>	<!-- Related_port -->
+		<attr i="7">0</attr>	<!-- Traffic_scheduler_G_pointer -->
+		<attr i="8">1</attr>	<!-- Weight -->
+		<attr i="9">0</attr>	<!-- Back_pressure_operation -->
+		<attr i="10">0</attr>	<!-- Back_pressure_time -->
+		<attr i="11">0</attr>	<!-- Back_pressure_occur_queue_threshold -->
+		<attr i="12">0</attr>	<!-- Back_pressure_clear_queue_threshold -->
+		<attr i="13">0,0,0,0</attr>	<!-- Packet_drop_queue_thresholds -->
+		<attr i="14">255,255</attr>	<!-- Packet_drop_max_p -->
+		<attr i="15">9</attr>	<!-- Queue_drop_w_q -->
+		<attr i="16">0</attr>	<!-- Drop_precedence_colour_marking -->
+	</instance>
+EOF
+		pq_index=$(($pq_index+1))
+	done
+	index=$(($index+1))
+done
+

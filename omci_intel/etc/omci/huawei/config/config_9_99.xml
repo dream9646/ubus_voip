@@ -1,0 +1,437 @@
+<omci name="Proprietary" section="9.99">
+
+<class id="65421" attr_total="16">	<!-- Unknown_ME_65421 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0x0</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>
+		<attr i="2"></attr>
+		<attr i="3"></attr>
+		<attr i="4"></attr>
+		<attr i="5"></attr>
+		<attr i="6"></attr>
+		<attr i="7"></attr>
+		<attr i="8"></attr>
+		<attr i="9"></attr>
+		<attr i="10"></attr>
+		<attr i="11"></attr>
+		<attr i="12"></attr>
+		<attr i="13"></attr>
+		<attr i="14"></attr>
+		<attr i="15"></attr>
+		<attr i="16"></attr>
+	</instance>
+</class>
+
+<class id="350" attr_total="16">	<!-- HW_ONT_ability -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0x0</default_meid>
+		<pm_is_accumulated_mask>0x0000</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x00</attr>
+		<attr i="2">0x02</attr>
+		<attr i="3">0x01</attr>
+		<attr i="4">0x02</attr>
+		<attr i="5">0x0000</attr>
+		<attr i="6">0x0000012C</attr>
+		<attr i="7">0x01</attr>
+		<attr i="8">0x00000000</attr>
+		<attr i="9">0x00000000</attr>
+		<attr i="10">0x0000</attr>
+		<attr i="11">0x0000</attr>
+		<attr i="12">0x00</attr>
+		<attr i="13">0x0000</attr>
+		<attr i="14">0x01040104</attr>
+		<attr i="15">0x00949B00949B</attr>
+		<attr i="16">0x00</attr>
+	</instance>
+</class>
+
+<class id="351" attr_total="16">	<!-- HW_Ethernet_PM_History_Data4 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0x0</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>
+		<attr i="2"></attr>
+		<attr i="3"></attr>
+		<attr i="4"></attr>
+		<attr i="5"></attr>
+		<attr i="6"></attr>
+		<attr i="7"></attr>
+		<attr i="8"></attr>
+		<attr i="9"></attr>
+		<attr i="10"></attr>
+		<attr i="11"></attr>
+		<attr i="12"></attr>
+		<attr i="13"></attr>
+		<attr i="14"></attr>
+		<attr i="15"></attr>
+		<attr i="16"></attr>
+	</instance>
+</class>
+
+<class id="353" attr_total="7">	<!-- VOIP_Software_Image -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0</default_meid>
+		<pm_is_accumulated_mask>0x0000</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>
+		<attr i="2">0x01</attr>
+		<attr i="3">0x01</attr>
+		<attr i="4">0x01</attr>
+		<attr i="5">0x00</attr>
+		<attr i="6">0x00</attr>
+		<attr i="7">1.3.0.0</attr>
+	</instance>
+	<instance i="1">
+		<devname></devname>
+		<default_meid>1</default_meid>
+		<pm_is_accumulated_mask>0x0000</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>
+		<attr i="2">0x01</attr>
+		<attr i="3">0x01</attr>
+		<attr i="4">0x01</attr>
+		<attr i="5">0x00</attr>
+		<attr i="6">0x00</attr>
+		<attr i="7">1.3.0.0</attr>
+	</instance>
+</class>
+
+<class id="367" attr_total="4">	<!-- HW_MULTICAST_MODE -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0x0</default_meid>
+		<pm_is_accumulated_mask>0x0000</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x03</attr>		<!-- tag_control_mode -->
+		<attr i="2">0x0000</attr>		<!-- tag_vid -->
+		<attr i="3">0x0001</attr>
+		<attr i="4">0x00</attr>
+	</instance>
+</class>
+
+<class id="370" attr_total="2">	<!-- HW_extended_Meid_of_Eth_Attr -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0x101</default_meid>
+		<pm_is_accumulated_mask>0x0000</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x01</attr>
+		<attr i="2">0x01</attr>
+	</instance>
+	<instance i="1">
+		<devname></devname>
+		<default_meid>0x102</default_meid>
+		<pm_is_accumulated_mask>0x0000</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x01</attr>
+		<attr i="2">0x01</attr>
+	</instance>
+	<instance i="2">
+		<devname></devname>
+		<default_meid>0x103</default_meid>
+		<pm_is_accumulated_mask>0x0000</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x01</attr>
+		<attr i="2">0x01</attr>
+	</instance>
+	<instance i="3">
+		<devname></devname>
+		<default_meid>0x104</default_meid>
+		<pm_is_accumulated_mask>0x0000</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x01</attr>
+		<attr i="2">0x01</attr>
+	</instance>
+	<instance i="4">
+		<devname></devname>
+		<default_meid>0x105</default_meid>
+		<pm_is_accumulated_mask>0x0000</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x01</attr>
+		<attr i="2">0x01</attr>
+	</instance>
+	<instance i="5">
+		<devname></devname>
+		<default_meid>0x106</default_meid>
+		<pm_is_accumulated_mask>0x0000</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x01</attr>
+		<attr i="2">0x01</attr>
+	</instance>
+	<instance i="6">
+		<devname></devname>
+		<default_meid>0x107</default_meid>
+		<pm_is_accumulated_mask>0x0000</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x01</attr>
+		<attr i="2">0x01</attr>
+	</instance>
+</class>
+
+<class id="373" attr_total="13">	<!-- HW_extended_ONT2_ability -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0x0</default_meid>
+		<pm_is_accumulated_mask>0x0000</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x01</attr>
+		<attr i="2">0x01</attr>
+		<attr i="3">0x00</attr>
+		<attr i="4">0x00</attr>
+		<attr i="5">0x01</attr>
+		<attr i="6">0x01</attr>
+		<attr i="7">0x01</attr>
+		<attr i="8">0x01</attr>
+		<attr i="9">0xFF80</attr>
+		<attr i="10">0x8000</attr>
+		<attr i="11">0xE000</attr>
+		<attr i="12">0xC000</attr>
+		<attr i="13">0x01</attr>
+	</instance>
+</class>
+
+<class id="376" attr_total="1">	<!-- HW_extended_File_upload_Patch -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0x0</default_meid>
+		<pm_is_accumulated_mask>0x0000</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x00</attr>
+	</instance>
+</class>
+
+<class id="377" attr_total="16">	<!-- HW_Extended_Product_Description -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0x0</default_meid>
+		<pm_is_accumulated_mask>0x0000</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x03</attr>
+		<attr i="2">EchoLife HG8010C GPON Ter</attr>
+		<attr i="3">minal (CLASS B+/PRODUCT I</attr>
+		<attr i="4">D:2102310PFM6RD7070210)</attr>
+		<attr i="5"></attr>
+		<attr i="6"></attr>
+		<attr i="7"></attr>
+		<attr i="8"></attr>
+		<attr i="9"></attr>
+		<attr i="10"></attr>
+		<attr i="11"></attr>
+		<attr i="12"></attr>
+		<attr i="13"></attr>
+		<attr i="14"></attr>
+		<attr i="15"></attr>
+		<attr i="16"></attr>
+	</instance>
+</class>
+
+<class id="65408" attr_total="6">	<!-- CTC_HW_extended_ONT-G -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0x0</default_meid>
+		<pm_is_accumulated_mask>0x0000</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x00</attr>
+		<attr i="2">0x01</attr>
+		<attr i="3">0x28</attr>
+		<attr i="4">0x01</attr>
+		<attr i="5">0x32</attr>
+		<attr i="6">0x00</attr>
+	</instance>
+</class>
+
+<class id="65411" attr_total="1">	<!-- HW_extended_Multicast_Translation_mode -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0x101</default_meid>
+		<pm_is_accumulated_mask>0x0000</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x01</attr>
+	</instance>
+	<instance i="1">
+		<devname></devname>
+		<default_meid>0x102</default_meid>
+		<pm_is_accumulated_mask>0x0000</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x01</attr>
+	</instance>
+	<instance i="2">
+		<devname></devname>
+		<default_meid>0x103</default_meid>
+		<pm_is_accumulated_mask>0x0000</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x01</attr>
+	</instance>
+	<instance i="3">
+		<devname></devname>
+		<default_meid>0x104</default_meid>
+		<pm_is_accumulated_mask>0x0000</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x01</attr>
+	</instance>
+	<instance i="4">
+		<devname></devname>
+		<default_meid>0x105</default_meid>
+		<pm_is_accumulated_mask>0x0000</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x01</attr>
+	</instance>
+</class>
+
+<class id="65414" attr_total="12">	<!-- Unknown_ME_65414 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0x0</default_meid>
+		<pm_is_accumulated_mask>0x0000</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x01</attr>
+		<attr i="2">0x03</attr>
+		<attr i="3">0x01</attr>
+		<attr i="4">0x1E</attr>
+		<attr i="5">0x06</attr>
+		<attr i="6">HW-BOB-0002     </attr>
+		<attr i="7">0x3A0E</attr>
+		<attr i="8">0x000A</attr>
+		<attr i="9">0x03E8C350</attr>
+		<attr i="10">0x8BB78E0F</attr>
+		<attr i="11">0x42DE</attr>
+		<attr i="12">0xFFFF</attr>
+	</instance>
+</class>
+
+<class id="65415" attr_total="1">	<!-- ME_HW_EXTENDED_WAN -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0x0</default_meid>
+		<pm_is_accumulated_mask>0x0000</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x00</attr>
+	</instance>
+</class>
+
+<class id="65417" attr_total="8">	<!-- Unknown_ME_65417 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0x0</default_meid>
+		<pm_is_accumulated_mask>0x0000</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x00</attr>
+		<attr i="2">0x00</attr>
+		<attr i="3">0x00</attr>
+		<attr i="4">0x00</attr>
+		<attr i="5">0x00</attr>
+		<attr i="6">0x00</attr>
+		<attr i="7"></attr>
+		<attr i="8">0x02</attr>
+	</instance>
+</class>
+
+<class id="65423" attr_total="4">	<!-- Unknown_ME_65423 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0x0</default_meid>
+		<pm_is_accumulated_mask>0x0000</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x01</attr>
+		<attr i="2">0x01</attr>
+		<attr i="3">0x00</attr>
+		<attr i="4">0x01</attr>
+	</instance>
+</class>
+
+<class id="65529" attr_total="4">	<!-- ONU_capability -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>1</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0x0</default_meid>
+		<pm_is_accumulated_mask>0x0000</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">CTC</attr>	<!-- Operator_ID -->
+		<attr i="2">0</attr>	<!-- CTC_spec_version -->
+		<attr i="3">0</attr>	<!-- ONU_type -->
+		<attr i="4">0</attr>	<!-- Tx_power_supply_control -->
+	</instance>
+</class>
+
+<class id="65530" attr_total="4">	<!-- LOID_authentication -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>1</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0x0</default_meid>
+		<pm_is_accumulated_mask>0x0000</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">CTC</attr>	<!-- Operator_ID -->
+		<attr i="2"></attr>	<!-- LOID -->
+		<attr i="3"></attr>	<!-- Password -->
+		<attr i="4">0</attr>	<!-- Authentication_states -->
+	</instance>
+</class>
+
+<class id="65420" attr_total="16">	<!-- Unknown_ME_65420 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0x0</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>
+		<attr i="2"></attr>
+		<attr i="3"></attr>
+		<attr i="4"></attr>
+		<attr i="5"></attr>
+		<attr i="6"></attr>
+		<attr i="7"></attr>
+		<attr i="8"></attr>
+		<attr i="9"></attr>
+		<attr i="10"></attr>
+		<attr i="11"></attr>
+		<attr i="12"></attr>
+		<attr i="13"></attr>
+		<attr i="14"></attr>
+		<attr i="15"></attr>
+		<attr i="16"></attr>
+	</instance>
+</class>
+
+</omci>

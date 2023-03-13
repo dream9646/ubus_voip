@@ -1,0 +1,366 @@
+<omcienv>
+<!-- global -->
+	<cli_ip>127.0.0.1</cli_ip>
+	<cli_port>3097</cli_port>
+	<transport_type>1</transport_type>	<!-- 0: OMCC raw socket, 1: UDP socket -->
+	<etc_omci_path>../etc/omci</etc_omci_path>
+	<etc_omci_path2>/opt/omci</etc_omci_path2>	<!-- 2nd location for omci files, rdonly fs in most cases -->
+	<start_cmd_file>/var/run/omci.start_cmd</start_cmd_file>
+
+<!-- interface config -->
+	<trap_if>ifsw0</trap_if>
+	<omcc_if>ifomci</omcc_if>
+	<wifi_if>wlan1</wifi_if>
+	<router_wan_if></router_wan_if>		<!-- igmp proxy upstream interface -->
+	<router_lan_if></router_lan_if>		<!-- igmp proxy downstream interface -->
+
+<!-- connecting olt simulator -->
+	<sim_olt_ip>127.0.0.1</sim_olt_ip>
+	<sim_olt_udp_port>6666</sim_olt_udp_port>
+	<sim_pon_id>1</sim_pon_id>
+	<sim_onu_id>1</sim_onu_id>
+	<sim_tcont_enable>0</sim_tcont_enable>
+
+<!-- omci msg -->
+	<!-- for 2510: rx:0, tx:0; for opencon olt x86sim: rx:9, tx:1 -->
+	<omcc_rx_crc_type>0</omcc_rx_crc_type>			<!-- 0: disable, 1: be,  2: le, 9: auto (default:0 or 9) -->
+	<omcc_tx_crc_type>0</omcc_tx_crc_type>			<!-- 0: disable, 1: be,  2: le (default: 0 or 1) -->
+
+	<omci_tranx_cache_num>10</omci_tranx_cache_num>		<!-- cache transaction number -->
+	<omci_tranx_match_mode>1</omci_tranx_match_mode>		<!-- 0: loose, 1: strict -->
+	<omci_tranx_bypass>0</omci_tranx_bypass>		<!-- 0: passthrough: , 1: bypass -->
+	<omci_tranx_busy_enable>0</omci_tranx_busy_enable>	<!-- 0: disable, 1: enable -->
+
+	<omci_exec_time_limitation>3000</omci_exec_time_limitation>
+	<omci_tx_flag>0</omci_tx_flag> <!-- 0: auto, 1: always send, 2: always not send -->
+	<omci_tx_resend_flag>1</omci_tx_resend_flag> <!-- 0:not resend, 1: resend -->
+
+	<!-- 31:x,		30:x,		29:set_table,	28:get_current_data 	f 2 -->
+	<!-- 27:test_result,	26:get_next,	25:reboot,	24:synchronize_time 	b 3 -->
+	<!-- 23:commit_sw,	22:activate_sw,	21:end_sw_dl,	20:download_section	e e -->
+	<!-- 19:start_sw_dl,	18:test,	17:avc,		16:alarm 		f c -->
+	<!-- 15:mib_reset,	14:mib_ul_next,	13:mib_ul,	12:get_all_alarm_next	a 8 -->
+	<!-- 11:get_all_alarm,	10:x,		9:get,		8:set 			f 1 -->
+	<!-- 7:x,		6:delete,	5:x,		4:create 		f 5 -->
+	<!-- 3:x,		2:x,		1:x,		0:x 			f 0 -->
+	<!-- 0xfbefafff means all except get_next, dl_section, mib_ul_next, get_all_alarm_next -->
+	
+	<omci_history_enable>1</omci_history_enable>
+	<omci_history_size>1000</omci_history_size>
+	<omci_history_msgmask>0xfbefafff</omci_history_msgmask>
+
+	<recvdump_enable>0</recvdump_enable>			<!-- 0: disable, 1: msg, 2: raw, 3: msg+raw, 4: line, 8: char -->
+	<recvdump_msgmask>0xfbefafff</recvdump_msgmask>
+	<omcidump_enable>4</omcidump_enable>			<!-- 0: disable, 1: msg, 2: raw, 3: msg+raw, 4: line, 8: char -->
+	<omcidump_msgmask>0xfbefafff</omcidump_msgmask>
+
+	<omccrx_log_enable>0</omccrx_log_enable>
+	<omccrx_log_msgmask>0xfbefafff</omccrx_log_msgmask>
+	<omccrx_log_file>/etc/omccrx.log</omccrx_log_file>
+	<restore_log_enable>0</restore_log_enable>
+	<restore_log_file>/etc/restore.log</restore_log_file>
+
+<!-- mib -->
+	<!-- section 1..14 for spec 984.4, 90 for pseudo, 91 for hwresource, 99 for olt proprietary -->
+	<xml_section>1,2,3,4,5,6,7,8,9,10,11,12,13,14,90,91,99</xml_section>
+	<xml_load_namestr>1</xml_load_namestr>	<!-- 0: no load, 1: load name str in xml -->
+
+	<mib_upload_order>2,7,256,257,263,262,5,6</mib_upload_order>	<!-- class order for mib upload -->
+	<mib_boundary_check>1</mib_boundary_check>	<!-- 0: no chk, 1: chk for warning, 2: chk for err -->
+	<mib_pointer_check>2</mib_pointer_check>	<!-- 0: no chk, 1: chk for warning, 2: chk for err -->
+	<mib_readonly_check>1</mib_readonly_check>	<!-- 0: no chk, 1: chk for warning, 2: chk for err -->
+	<mib_rw_mode>2</mib_rw_mode>			<!-- 0: swsw, 1: swhw, 2: hwhw -->
+	<mib_aliasid_enable>1</mib_aliasid_enable>
+	<mib_rare_meid_start>0xffe0</mib_rare_meid_start>
+	<mib_rare2_meid_start>0xfff0</mib_rare2_meid_start>
+	<mib_nonexist_del_err>1</mib_nonexist_del_err> <!-- 0: no err, 1: err if me del, 2: err if me or tab_entry del -->
+
+	<autouni_enable>1</autouni_enable>		<!-- 0: disable, 1: enable autouni if no uni bport, 2: enable autouni if no uni port in veip bridge -->
+	<autoveip_enable>0</autoveip_enable>		<!-- 0: disable, 1: enable autoveip if no veip bport, 2: enable autoveip if no veip port in uni bridge -->
+	<erdiag_mon_enable>0</erdiag_mon_enable>	<!-- show er diag on console when mib is updated -->
+	<mibreset_dump_enable>0</mibreset_dump_enable>	<!-- show summary when mibreset, 0: disable, 1: er diag, 2: me list, 3: er diag + me list -->
+	<mib_uni_adminlock_default>0</mib_uni_adminlock_default>	<!-- 0: unlock, 1: lock, 2: dont override -->
+	<adminlock_trigger_opstate>1</adminlock_trigger_opstate>
+	<untag_reserved_vid>4095</untag_reserved_vid>	<!-- specific vid representing untag in fiberhome proprietary me 65347 (bridge vlan table) -->
+
+	<!-- 0:   untag=basic mac bridging, tag=basic mac bridging -->
+	<!-- 0xc: untag=discard, tag=positive filtering by tci, refer to G984.4 9.3.11 -->
+	<port_forward_operation_default>0</port_forward_operation_default>
+
+	<!--
+	pseudo_ts_pointer expects that per tcont has 8 ts with priority 0..7,
+	the parent ts of a pq is determined by the ts pointer and the priority of the pq,
+	the neighbor of the ts pointer with priority equal to pq itself will be choosed
+	-->
+	<pseudo_ts_pointer_enable>0</pseudo_ts_pointer_enable>	<!-- 0: disable, 1: enable  -->
+	<invert_weight_enable>0</invert_weight_enable>		<!-- 0: disable, bit 0: pq, bit 1: ts -->
+	<invert_priority_enable>0</invert_priority_enable>	<!-- 0: disable, bit 0: pq, bit 1: ts-->
+	<pq_tcont_relation>0</pq_tcont_relation>		<!-- 0: by ts pointer first, 1: by related port first-->
+
+	<!-- the default relation for me tcont/ts/pq, override the default defined in mib config xml -->
+	<tcont_map_enable>0</tcont_map_enable>			<!-- 0: disable, 1: enable, 2: debug -->
+	<tcont_map_policy>SP,WRR</tcont_map_policy>		<!-- policy for ts and pq -->
+	<tcont_map_ts>8,8,8,8,8,8,8,8,4,4,4,4,4,4,4,4,2,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1</tcont_map_ts>		<!-- ts allocated in each tcont -->
+	<tcont_map_pq>8,8,4,4,2,2,2,2,8,8,4,4,2,2,2,2,8,8,4,4,2,2,2,2,8,8,4,4,2,2,2,2</tcont_map_pq>		<!-- pq allocated in each tcont -->
+
+<!-- sw_download -->
+	<!-- 	0: dev_busy_and_bg_update: return device busy and update flash in background
+		1: dev_ok_and_bg_update: return ok immediately and update flash in background
+		2: wait_and_fg_update: wait update flash in foreground, return ok after finish
+	vendor		end_sw_dl	:active	:commit
+	g984.4:		0		:0	:0
+	dasan:		1		:0	:0
+	fiberhome:	1		:1	:0		-->
+	<sw_download_end_behavior>0</sw_download_end_behavior>
+	<sw_download_active_always_ok>0</sw_download_active_always_ok>
+	<sw_download_commit_always_ok>0</sw_download_commit_always_ok>
+	<sw_download_window_size>255</sw_download_window_size>
+	<sw_download_script>/usr/sbin/sw_download.sh</sw_download_script>
+	<sw_download_image_name>/var/run/swimage/swimage.bin</sw_download_image_name>
+
+<!-- thread tasks -->
+	<task_pause_mask>0</task_pause_mask>	<!-- for debugging purpose -->
+	<avc_refresh_interval>5</avc_refresh_interval>	<!-- seconds -->
+	<alarm_refresh_interval>5</alarm_refresh_interval>	<!-- seconds -->
+	<pm_refresh_interval>60</pm_refresh_interval>	<!-- seconds -->
+	<pm_swap_interval>900</pm_swap_interval>	<!-- seconds, 0 means never swap -->
+
+	<cpuport_history_enable>0</cpuport_history_enable>	<!-- cpuport history enable -->
+	<cpuport_history_size>1000</cpuport_history_size>	<!-- cpuport history size for trap pkt -->
+	<cpuport_arp_enable>1</cpuport_arp_enable>		<!-- 0: disable, 1: enable arp -->
+	<cpuport_pppoe_enable>0</cpuport_pppoe_enable>		<!-- 0: disable, 1: enable PPPoE plus-->
+	<cpuport_pppoe_cust_tag>0</cpuport_pppoe_cust_tag>	<!-- customized pppoe tag string -->
+	<cpuport_dhcp_enable>1</cpuport_dhcp_enable>		<!-- 1:drop lan side offer,ack,nak ;enable option 82 -->
+	<cpuport_dhcp_server_onlan>1</cpuport_dhcp_server_onlan><!-- allow dhcp server serve on lan side -->
+	<cpuport_dhcp_cust_tag>0</cpuport_dhcp_cust_tag>	<!-- customized dhcp option string -->
+	<cpuport_pkt_ssdp_fwd_wan>1</cpuport_pkt_ssdp_fwd_wan>	<!-- forward SSDP pkt to wan -->
+	<cpuport_im_enable>0</cpuport_im_enable>	<!-- 0: disable, 1: enable, multicast did not forward to wan -->
+	<cpuport_im_lan2lan_enable>0</cpuport_im_lan2lan_enable>	<!-- 0: disable, 1: enable, multicast forward between lan -->
+	<cpuport_wifi_block_mask>0x0</cpuport_wifi_block_mask>	<!-- bit 0: broadcast, bit 1: multicast, bit 2: unknown unicast, 0: forward, 1: block -->
+	<cpuport_wifi_block_ra>0x0</cpuport_wifi_block_ra>	<!-- block ds ipv6 RA to wifi, 0: forward, 1: drop -->
+	<cpuport_mcast_drop>0x0</cpuport_mcast_drop>	<!-- upstream multicast drop, 0: forward, 1: drop -->
+	<stp_enable>0</stp_enable>
+
+	<cpu_usage_threshold>0</cpu_usage_threshold>		<!-- 0: disable, 1..100: upperbound threshold -->
+	<cpul_task_no>7,10</cpul_task_no>		<!-- cpu limit tasks no, init -1 -->
+	<cpul_total_usage>90</cpul_total_usage>		<!-- % -->
+
+<!-- debug -->
+	<debug_level>3</debug_level>
+	<debug_level_bat>3</debug_level_bat>
+	<debug_level_cfm>3</debug_level_cfm>
+	<debug_level_cpuport>3</debug_level_cpuport>	<!-- debug level for cpuport related routines -->
+	<debug_level_fwk>3</debug_level_fwk>
+	<debug_level_igmp>3</debug_level_igmp>
+	<debug_level_lldp>3</debug_level_lldp>
+	<debug_level_vacl>3</debug_level_vacl>
+	<debug_level_voip>3</debug_level_voip>
+	<debug_level_xml>3</debug_level_xml>
+	<debug_log_time>1</debug_log_time>	<!-- 0: no log time, 1: log time -->
+	<debug_log_type>1</debug_log_type>	<!-- 0: no log, 1: console, 2: logfile, 4: syslog (multiple bits could be set)-->
+	<debug_log_file>/var/log/omci.log</debug_log_file>
+	<memdbg_enable>0</memdbg_enable>
+	<er_group_hw_debug_enable>0</er_group_hw_debug_enable>
+	<er_group_hw_time_enable>0</er_group_hw_time_enable>
+
+<!-- olt -->
+	<olt_vendor_check_enable>0</olt_vendor_check_enable>    <!-- 0: do not check vendor id, 1: check vendor id -->
+	<olt_vendor_config_change>0</olt_vendor_config_change>    <!-- 0: do not change, 1: change omcienv.xml by vendor id -->
+	<olt_workaround_enable>0</olt_workaround_enable>	<!-- 0: none, 1: alu, 2: dasan, 3: ericsson, 4: huawei, 5: occam, 6: calix, 7: tellion, 8: zte -->
+	<olt_alu_mcast_support>0</olt_alu_mcast_support>	<!-- 0: G.988 standard support 1: ALU proprietary support-->
+	<olt_huawei_ignore_vlan_drop_rule>0</olt_huawei_ignore_vlan_drop_rule>	<!-- 0: do not ignore vlan drop rule 1: ignore vlan drop rule -->
+	<olt_proprietary_support></olt_proprietary_support>	<!-- none, fiberhome, zte, alu, huawei, dasan, calix, tellion, ericsson -->
+	<ont_force_vendor_id></ont_force_vendor_id>    <!-- force to assign vendor id to me256 -->
+
+<!-- anig -->
+	<anig_type>9</anig_type>	
+<!-- 0: none, 1: tranceiver, 2: bosa_mindspeed, 3: bosa_mindspeed_lib, 4: bosa_report, 5: sff_8472, 9: auto -->
+	<anig_support>3</anig_support>	<!-- 0: disable, 1: get, 2: get+test, 3: get+test+alarm -->
+	<anig_txrx_threshold>7,-6,-4,-30</anig_txrx_threshold>	<!-- power threshold for T+, T-, R+, R- in dbm -->
+
+	<anig_devport>0</anig_devport>		<!-- 0: default anig device bus number -->
+	<anig_devaddr0>0x0</anig_devaddr0>	<!-- 0x0: default device address, others: specific device address -->
+	<anig_mon_mode>0</anig_mon_mode>	<!-- 0: internal calibration, 1: external calibration -->
+
+<!-- logical port id/mask -->
+<!-- wan, uni, cpu dertermine all possible logical ports, wifi overlaps on either cpu/uni or both -->
+	<wan_logical_portid>255</wan_logical_portid>		<!-- wan logical portid, possible value:4/5/255(auto) -->
+	<uni_logical_portmask>0xf</uni_logical_portmask>	<!-- uni logical portmask, possible bits:0-3,4 -->
+	<cpu_logical_portmask>0x1c0</cpu_logical_portmask>	<!-- cpu logical portmask, possible bits:6,7,8 -->
+	<wifi_logical_portmask>0x180</wifi_logical_portmask>	<!-- wifi logical portmask, possible bits:4,7,8 -->
+
+<!-- switch -->
+	<ivlan_enable>0</ivlan_enable>			<!-- 0: svlan 1: ivlan -->
+	<stp_conf_before_omci>3</stp_conf_before_omci>	<!-- 0: no change, 1: all disable, 2: cpu off, else disable, 3: cpu/uni off, wan disable, 4: all off -->
+	<switch_history_mode>0</switch_history_mode>	<!-- 0: diff, 1: total -->
+	<switch_history_interval>60</switch_history_interval>	<!-- unit: minute -->
+
+	<!-- bridging/routing path src port ctrl, uni0..4 and cpu extport bit 1..5 -->
+	<br_allowed_srcmask>0xf9f</br_allowed_srcmask>	<!-- for hw port_isolation_set -->
+	<rt_allowed_srcmask>0xf9f</rt_allowed_srcmask>	<!-- for hw port_isolation_set -->
+	<trunk_group_portmask>0x0</trunk_group_portmask>	<!-- ports belong to trunk group, for sw and hw l2 fwding -->
+
+	<localbridging_default>1</localbridging_default>	<!-- 0: disable, 1: enable, 2:always on ignore omci, for hw -->
+	<localbridging_addon_portmask>0xf80</localbridging_addon_portmask>	<!-- ports always reachable, default: cpu ext port 1..5, for hw -->
+	<ctc_internet_bridge_enabled_srcmask>0</ctc_internet_bridge_enabled_srcmask>	<!-- CTC internet bridge -->
+
+	<port2port_enable>0</port2port_enable>	<!-- 0: disable, 1: enable -->
+	<maclearn_drop_enable>1</maclearn_drop_enable>	<!-- mac learn limiting exceed action: 0:forward. 1:drop -->
+	<veip_for_wifi_enable>1</veip_for_wifi_enable>	<!-- apply veip vlan rule for wifi ports, for sw -->
+	<cpuport_ds_passthrough>1</cpuport_ds_passthrough>	<!-- let sw path ds untag pkt passthrough, 0:disable, 1:enable, fow sw -->
+	<cpuport_pvlan_clone_ipv4_to_arp>1</cpuport_pvlan_clone_ipv4_to_arp>	<!-- clone pvlan of ipv4 to arp, 0:disable, 1:enable, fow sw -->
+	<rma_forward_mask>0xfffffffffffffffd</rma_forward_mask>	<!-- 01:80:c2:00:00:00..3f forwardmask for sw l2 bridging -->
+	<bundle_rate_support>0</bundle_rate_support>	<!-- 0: disable, 1: enable -->
+	<linkdown_debounce_time>12</linkdown_debounce_time>	<!-- trigger linkdown event after physical linkdown for more than N sec  -->
+	<linkup_debounce_time>2</linkup_debounce_time>	<!-- trigger linkdown event after physical linkup for more than N sec  -->
+
+<!-- rldp -->
+	<rldp_enable>2</rldp_enable>	<!-- 0:disable detect, 1:enable detect, 2:enable detect and show message, 3:the same with 2 + port link down-->
+	<rldp_def_portmask>0x1f</rldp_def_portmask>	<!-- 0:disable , 0x1f:enable all port-->
+	<rldp_passive_only>0</rldp_passive_only>	<!-- 0:active detective, 1:disallow generate detective packet-->
+
+<!-- tag processing -->
+	<tag_treatment_correct>1</tag_treatment_correct> <!-- 0: reject, 1: accept and correct -->
+	<tag_discard_reversing>0</tag_discard_reversing>
+	<tag_preview_table>0</tag_preview_table> <!-- add preview table tagging, 0: disable, 1: enable -->
+	<tag_auto_reverse>1</tag_auto_reverse> <!-- auto reverse pass-thrungh tagging rule, 0: not reverse, 1: reverse -->
+	<tag_mc_ds_from_us>0</tag_mc_ds_from_us> <!-- create ds tag rules from 309 us tci, 0: not create rules, 1: create one tag rule from us tci, 2: create two tags rules from us tci -->
+	<tag_mc_sort_priority>6</tag_mc_sort_priority> <!-- regular rules default priority is 5, greater value is higher priority -->
+	<tag_pbit_workaround>1</tag_pbit_workaround> <!-- ds tag pbit workaround, 0:disable, 1: don't care, 2: remap, 3: add one more don't care rule, 4: add one more transparent rule -->
+	<tag_pbit_portmask>0xf</tag_pbit_portmask> <!-- ds tag pbit workaround portmask -->
+	<tag_pbit_remap_table>0,1,2,3,4,5,6,7</tag_pbit_remap_table> <!-- ds tag pbit workaround, remap table for each pbit value -->
+	<tag_ds_tci_dont_reverse_workaround>0</tag_ds_tci_dont_reverse_workaround> <!-- 0:disable, 1:enable ds tci don't reverse -->
+	<tag_insert_65305_rules>0</tag_insert_65305_rules> <!-- 0: not insert, 1: insert -->
+	<tag_ctc_translation_path>/var/run/uni_vlan_translation.table</tag_ctc_translation_path>
+	<tag_mc_ds_wildcard>1</tag_mc_ds_wildcard> <!-- 0: disable, 1: enable -->
+	<tag_l2_rules_reverse>0</tag_l2_rules_reverse> <!-- 0: auto reverse, 1: not reverse -->
+	<tag_l2_rules_ds_mac>0</tag_l2_rules_ds_mac> <!-- 0: ds not include mac, 1: ds include mac -->
+	<tag_iphost_vid_map>4096,4096,4096,4096</tag_iphost_vid_map> <!-- original tag vid for iphost, 0-4095: original vid, 4096: disable -->
+
+<!-- classf -->
+	<classf_tag_mode>0</classf_tag_mode> 			<!-- 0: collect all tagging rules, 1: ignore 2 tags rules -->
+	<classf_add_default_rules>2</classf_add_default_rules>	<!-- for us and ds me171, 0: disable, 1: add default me171 rules while empty, 2: force to add default me171 rules -->
+	<classf_force_stpid>0</classf_force_stpid>		<!-- force to set system stag tpid -->
+	<classf_stag_tpid>0x88a8</classf_stag_tpid>		<!-- default system stag tpid -->
+	<classf_hw_stag_tpid>0x88a8</classf_hw_stag_tpid>		<!-- current system hw stag tpid, update by classf hw -->
+	<classf_et_combine>1</classf_et_combine> 		<!-- ethertype_combine, eg: 8863/88640 combine to one rule with mask, 0: disable, 1: enable -->
+	<classf_ds_gem_dg>1</classf_ds_gem_dg>			<!-- ds gem downgrade, combine several continue gems with mask on 2^order, 0: disable, 1: enable -->
+	<classf_dscp2pbit_mode>1</classf_dscp2pbit_mode>	<!-- 0: per port configuration, 1: global table, 2: global table, force to assign veip 171 dscp-2-pbit mapping table -->
+	<classf_ds_unmatch>0</classf_ds_unmatch>		<!-- classf hw downstream unmatch action: 0: pass, 1: drop, 2: strip tag -->
+	<classf_ds_mc_extend>1</classf_ds_mc_extend>		<!-- add one more rule for ds multicast gem, 0: disable, 1: enable -->
+	<classf_ds_mc_force_strip>1</classf_ds_mc_force_strip>	<!-- force me 310 on veip ds mc rules to strip tags, 0: disable, 1: enable -->
+	<classf_veip_rules_reassign>0</classf_veip_rules_reassign>	<!-- reassign veip port rules, MARK and COPY untag(priority tag) rules to all uni ports for sw/hw, 0: disable, 1: sw MARK and COPY, 2: sw only MARK, 3: all MARK and COPY, 4: all only MARK -->
+	<classf_dropping_rules_add>0</classf_dropping_rules_add>	<!-- add dropping rules, 0: do NOT add, 1: add -->
+	<classf_vmap_pbit_workaround>0</classf_vmap_pbit_workaround>	<!-- 0: disable, 1: pbit do NOT care -->
+	<classf_hw_2tags_mode>1</classf_hw_2tags_mode>			<!-- 0: involve acl if necessary, 1: always involve acl -->
+	<classf_hw_2tags_workaround>0</classf_hw_2tags_workaround>	<!-- 0: filter pri or vid, 1: filter pri only, 2: filter vid only -->
+	<classf_add_ipv4mc_strip>0</classf_add_ipv4mc_strip>		<!-- add ipv4 multicast tag strip rule. 0: disable, 1: strip 1tag, 2: strip 2tags -->
+	<classf_add_hwnat_1tag_rules>0</classf_add_hwnat_1tag_rules>	<!-- add 1tag passthrough rules on veip port, to enable ANY hwnat wan interface vid passthrough to uplink. 0: disable, 1: enable -->
+	<classf_add_hwnat_untag_rules>1</classf_add_hwnat_untag_rules>	<!-- add untag rules on veip port for hwnat. 0: disable, 1: enable -->
+	<classf_add_hwnat_untag_vid>4072</classf_add_hwnat_untag_vid>	<!-- add untag rules on veip port for hwnat. use this value for egress vid -->
+	<classf_add_hwnat_untag_vid_mask>0xff8</classf_add_hwnat_untag_vid_mask>	<!-- add untag rules on veip port for hwnat. use this value for egress vid mask -->
+	<classf_hw_rules_migration>1</classf_hw_rules_migration>	<!-- classf hw rules migration during add/del, 0: disable, 1: enable -->
+	<classf_hw_colour_force>2</classf_hw_colour_force>		<!-- classf hw colour force, 0: green, 1: yellow, 2: auto, use 2flow to emulate 1 flow with yellow/green  -->
+	<classf_keep_candi>0</classf_keep_candi>			<!-- 0: not keep candi rules, 1: keep candi rules, those joined rules that trafic wont pass, for debug only -->
+	<classf_statistic_enable>1</classf_statistic_enable>		<!-- 0: disable, 1: enable, pkt count for each veip vid, this option uses lot of acl -->
+	<classf_tlan_pattern>0</classf_tlan_pattern>		<!-- 0: disable, 1: enable, for calix tlan pattern collection -->
+	<mc_ds_untag_discard_enable>0</mc_ds_untag_discard_enable>	<!-- 0: disable, 1: enable, for multicast ds untag discarding, done by classf -->
+	<classf_add_default_rules_by_me_84>0</classf_add_default_rules_by_me_84>	<!-- 0: disable, 1: enable, for GWS, add default rule by me 84 -->
+
+<!-- cfm -->
+	<cfm_enable>0</cfm_enable>			<!-- 0: disable, 1: enable -->
+	<cfm_y1731_enable>0</cfm_y1731_enable>		<!-- 0: disable Y.1731, 1: enable Y.1731 -->
+	<cfm_portmask>0x2f</cfm_portmask>		<!-- logical ports running cfm -->
+	<cfm_mac_ifname>pon0</cfm_mac_ifname>			<!-- // use ifname macaddr as cfm src mac -->
+	<cfm_send_timeout>5</cfm_send_timeout>			<!-- Timeout to wait response, unit: second -->
+	<cfm_reverse_mep_direction>1</cfm_reverse_mep_direction><!-- reverse mep direction, special for alu? -->
+	<!-- number of consecutive ccm required for rmep changed from DISCOVER to HOLD -->
+	<cfm_rmep_ccm_before_hold>3</cfm_rmep_ccm_before_hold>
+	<!-- unit:ms, holdtime(no ccm lost/defect) for rmep changed from HOLD state and ACTIVE -->
+	<cfm_rmep_holdtime_before_active>10000</cfm_rmep_holdtime_before_active>
+	<!-- number of lost ccm for rmep changed from ACTIVE to LOST -->
+	<cfm_rmep_ccm_lost_threshold>3</cfm_rmep_ccm_lost_threshold>
+	<!-- defect that triggers the CCM rdi send, AIS send -->
+	<!-- b6:AIS, b5:UNEXP_PERIOD, b4:XCON_CCM, b3:ERROR_CCM, b2:REMOTE_CCM, b1:PORT_MAC_STATUS, b0:RDI_CCM -->
+	<cfm_defect_mask_in_rdi_gen>0x7e</cfm_defect_mask_in_rdi_gen>
+	<cfm_defect_mask_in_ais_gen>0x7f</cfm_defect_mask_in_ais_gen>
+	<!-- defects supressed by AIS/LCK recv in alarm/ais/rdi generation, by default: only REMOTE_CCM -->
+	<cfm_defect_mask_supressed_by_ais>0x04</cfm_defect_mask_supressed_by_ais>
+
+<!-- lldp -->
+	<lldp_enable>0</lldp_enable>			<!-- 0: disable, 1: enable -->
+	<lldp_ifname>br0</lldp_ifname>			<!-- use ifname's macaddr/ipaddr -->
+	<lldp_dst_mac>0xe</lldp_dst_mac>		<!-- dst mac to send lldp message -->
+	<lldp_send_interval>30</lldp_send_interval>	<!-- interval to send lldp message -->
+	<lldp_power_level>30000</lldp_power_level>	<!-- power level to be set in lldp message -->
+	<lldp_system_name></lldp_system_name>		<!-- system name to be set in lldp message -->
+	<lldp_system_desc></lldp_system_desc>		<!-- system desc to be set in lldp message -->
+	<lldp_med_opt>2</lldp_med_opt>			<!-- TIA lldp-med sending option 0: no-MED 1: with MED 2: by received media_cap -->
+	<!-- TIA lldp-med media capability-->
+	<!-- bit 0: LLDP-MED Capability-->
+	<!-- bit 1: Network policy-->
+	<!-- bit 2: Location Identification-->
+	<!-- bit 3: Extended Power MDI-PSE-->
+	<!-- bit 4: Extended Power MDI-PD-->
+	<!-- bit 5: Inventory-->
+	<lldp_med_cap>0x23</lldp_med_cap>
+<!-- tm -->
+	<!-- 0:normal(green only), 1:green, yellow, 2:each gem port has it own pq 9:auto analysis(0 or 2) -->
+	<tm_pq_gem_qos_method>2</tm_pq_gem_qos_method>
+	<tm_gemus_rate_factor>100</tm_gemus_rate_factor> 	<!-- percentage for gem us td rate limit (hw pq pir/cir), 0-200 -->
+	<tm_gemds_rate_factor>115</tm_gemds_rate_factor> 	<!-- percentage for gem ds td rate limit (hw meter), 0-200 -->
+	<tm_unius_rate_factor>115</tm_unius_rate_factor> 	<!-- percentage for uni us td rate limit (hw meter), 0-200 -->
+	<tm_unids_rate_factor>100</tm_unids_rate_factor> 	<!-- percentage for uni ds td rate limit (hw pq pir/cir), 0-200 -->
+	<tm_pir_zero_action>1</tm_pir_zero_action> 	<!-- 0: drop, 1: pass -->
+	<tm_protect_enable>2</tm_protect_enable> 	<!-- protect tm hw from traffic, b1:uni, b2:pon -->
+
+<!-- igmp -->
+	<igmp_enable>1</igmp_enable>
+	<igmp_version_overwrite>0</igmp_version_overwrite>	<!-- 0: do not overwrite igmp version, others: overwrite igmp version in omci -->
+	<igmp_upstream_tpid>0</igmp_upstream_tpid>		<!-- tpid for us tci operation, 0 means default 0x8100 -->
+	<igmp_downstream_tpid>0</igmp_downstream_tpid>		<!-- tpid for ds tci operation, 0 means default 0x8100 -->
+	<igmp_join_default_grant>1</igmp_join_default_grant>
+	<igmp_query_pass_through>0</igmp_query_pass_through>	<!-- 0: disable, 1: untag pass, 2: all pass, 3: strip tag -->
+	<igmp_proxy_snooping>0</igmp_proxy_snooping>		<!-- 0: bridge mode snooping, 1: router mode without snooping, 2: router mode snooping-->
+	<igmp_mcast_me_support>1</igmp_mcast_me_support>	<!-- 0: do not check mcast me, 1: check mcast me -->
+	<igmp_v1_ignore>0</igmp_v1_ignore>			<!-- 0: do not ignore igmpv1, 1: ignore igmpv1 (by TR-247) -->
+	<!-- 239.255.255.250/0xffffffff: for upnp -->
+	<!-- 234.2.2.9/0xffffffff: for gemtek backdoor -->
+	<igmp_preassign_list>239.255.255.250/0xffffffff,234.2.2.9/0xffffffff</igmp_preassign_list>
+	<igmp_mcast_mode_src>2</igmp_mcast_mode_src>			<!-- how to decide mcast mode, 0:force pass mode, 1:force drop mode, 2: by mcast gem, 3: by private me assignment -->
+
+<!-- extoam -->
+	<extoam_enable>0</extoam_enable> 		<!-- whether to start extoam task -->
+	<extoam_port>5</extoam_port>
+	<extoam_mac_ifname>br0</extoam_mac_ifname>		<!-- use ifname macaddr as extoam src mac -->
+	<extoam_itas_image_name>itas_image.tgz</extoam_itas_image_name>
+
+<!-- voip -->
+	<voip_enable>9</voip_enable>			<!-- 0: disable, 1: enable, 9: auto -->
+	<voip_debug_set_flag>0</voip_debug_set_flag>	<!-- 0: disable, 1: enable -->
+	<voip_debug_get_flag>0</voip_debug_get_flag>	<!-- 0: disable, 1: enable -->
+	<voip_debug_release_flag>0</voip_debug_release_flag>	<!-- 0: disable, 1: enable -->
+
+<!-- misc -->
+	<batchtab_extevent_idletime>3</batchtab_extevent_idletime> 	<!-- unit: second -->
+	<batchtab_retry_timeout>60</batchtab_retry_timeout> 		<!-- unit: second -->
+	<!-- b0/1:iphost add/del, b2/3:tr069 add/del, b4/5:rgvlan add/del, b6/7:brwan add/del
+	     b8:auto igmp enable, b9:rgvlan_ignore_untag, b10:rgvlan_del_nonauto, b11:tr069_is_iphost, b12:rgvlan_ip_assign -->
+	<batchtab_wanif_feature>0xfff</batchtab_wanif_feature> 	
+	<batchtab_hardbridge_enable>1</batchtab_hardbridge_enable> 	
+	<exclude_flowid_0>0</exclude_flowid_0>	<!-- 0: disable, 1: enable -->
+	<avoid_pir_drop>0</avoid_pir_drop>	<!-- 0: disable, 1: enable -->
+	<uni_policing_pbit_mask>0x00</uni_policing_pbit_mask> <!-- only policing specific pbit in uni -->
+	<uni_policing_default_bs>0xf000</uni_policing_default_bs> <!-- uni policing default bucket size -->
+	<uni_policing_aggregate_acl>1</uni_policing_aggregate_acl> <!-- uni policing aggregate acl to reduce acl usage -->
+	<uni_linkdown_lock>0</uni_linkdown_lock> <!-- uni link down then lock the port, 0: disable, 1: enable -->
+	<watchdog_omccmiss_timeout>60,120</watchdog_omccmiss_timeout>	<!-- if omccmiss remains for more than n sec, then reset serdes or reboot, 0 mean no check -->
+	<watchdog_tcontmiss_timeout>240,300</watchdog_tcontmiss_timeout><!-- if tcontmiss remains for more than n sec, then reset serdes or reboot, 0 mean no check -->
+	<watchdog_o2stuck_timeout>0,0</watchdog_o2stuck_timeout>	<!-- if o2stuck remains for more than n sec, then reset serdes or reboot, 0 mean no check -->
+	<!-- traffic: us traffic threshold, watchdog is checked only if us traffic is under threshold -->
+	<!-- bw: overalloc bw threshold, a tcont is treated as overalloc if its idlegem bw - all gemflow cir > threshold -->
+	<!-- interval: the overalloc is checked i interval secs -->	
+	<!-- repeat: reset_dbru will be issued if overalloc continues repeat times -->
+	<watchdog_idlebw_guard>0,100,10,6</watchdog_idlebw_guard>		<!-- traffic, bw, interval, repeat -->
+	<uni_config_lock>0</uni_config_lock> <!-- lock config uni port, 0: disable, 1: enable -->
+</omcienv>

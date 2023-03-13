@@ -1,0 +1,939 @@
+<omci name="xDSL services" section="9.7">
+
+<class id="98" attr_total="13">	<!-- Physical_path_termination_point_xDSL_UNI_part_1, 9.7.1 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- Loopback_configuration -->
+		<attr i="2"></attr>	<!-- Administrative_state -->
+		<attr i="3"></attr>	<!-- Operational_state -->
+		<attr i="4"></attr>	<!-- xDSL_line_configuration_profile -->
+		<attr i="5"></attr>	<!-- xDSL_subcarrier_masking_downstream_profile -->
+		<attr i="6"></attr>	<!-- xDSL_subcarrier_masking_upstream_profile -->
+		<attr i="7"></attr>	<!-- xDSL_downstream_PSD_mask_profile -->
+		<attr i="8"></attr>	<!-- xDSL_downstream_RFI_bands_profile -->
+		<attr i="9"></attr>	<!-- ARC -->
+		<attr i="10"></attr>	<!-- ARC_interval -->
+		<attr i="11"></attr>	<!-- Modem_type -->
+		<attr i="12"></attr>	<!-- Upstream_PSD_mask_profile -->
+		<attr i="13"></attr>	<!-- ALARM:NE_LOF	0 -->
+	</instance>
+</class>
+
+
+<class id="99" attr_total="8">	<!-- Physical_path_termination_point_xDSL_UNI_part_2, 9.7.2 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- xDSL_channel_configuration_profile_for_bearer_channel_0_downstream -->
+		<attr i="2"></attr>	<!-- xDSL_channel_configuration_profile_for_bearer_channel_1_downstream -->
+		<attr i="3"></attr>	<!-- xDSL_channel_configuration_profile_for_bearer_channel_2_downstream -->
+		<attr i="4"></attr>	<!-- xDSL_channel_configuration_profile_for_bearer_channel_3_downstream -->
+		<attr i="5"></attr>	<!-- xDSL_channel_configuration_profile_for_bearer_channel_0_upstream -->
+		<attr i="6"></attr>	<!-- xDSL_channel_configuration_profile_for_bearer_channel_1_upstream -->
+		<attr i="7"></attr>	<!-- xDSL_channel_configuration_profile_for_bearer_channel_2_upstream -->
+		<attr i="8"></attr>	<!-- xDSL_channel_configuration_profile_for_bearer_channel_3_upstream -->
+	</instance>
+</class>
+
+
+<class id="104" attr_total="16">	<!-- xDSL_line_configuration_profile_part_1, 9.7.3 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- xTU_transmission_system_enabling_(xTSE) -->
+		<attr i="2"></attr>	<!-- Power_management_state_forced -->
+		<attr i="3"></attr>	<!-- Power_management_state_enabling -->
+		<attr i="4"></attr>	<!-- Downstream_target_noise_margin -->
+		<attr i="5"></attr>	<!-- Upstream_target_noise_margin -->
+		<attr i="6"></attr>	<!-- Downstream_maximum_noise_margin -->
+		<attr i="7"></attr>	<!-- Upstream_maximum_noise_margin -->
+		<attr i="8"></attr>	<!-- Downstream_minimum_noise_margin -->
+		<attr i="9"></attr>	<!-- Upstream_minimum_noise_margin -->
+		<attr i="10"></attr>	<!-- Downstream_rate_adaptation_mode -->
+		<attr i="11"></attr>	<!-- Upstream_rate_adaptation_mode -->
+		<attr i="12"></attr>	<!-- Downstream_upshift_noise_margin -->
+		<attr i="13"></attr>	<!-- Upstream_upshift_noise_margin -->
+		<attr i="14"></attr>	<!-- Upstream_PSD_mask_selection -->
+		<attr i="15"></attr>	<!-- Minimum_overhead_rate_upstream -->
+		<attr i="16"></attr>	<!-- Minimum_overhead_rate_downstream -->
+	</instance>
+</class>
+
+
+<class id="105" attr_total="15">	<!-- xDSL_line_configuration_profile_part_2, 9.7.4 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- Downstream_minimum_time_interval_for_upshift_rate_adaptation -->
+		<attr i="2"></attr>	<!-- Upstream_minimum_time_interval_for_upshift_rate_adaptation -->
+		<attr i="3"></attr>	<!-- Downstream_downshift_noise_margin -->
+		<attr i="4"></attr>	<!-- Upstream_downshift_noise_margin -->
+		<attr i="5"></attr>	<!-- Downstream_minimum_time_interval_for_downshift_rate_adaptation -->
+		<attr i="6"></attr>	<!-- Upstream_minimum_time_interval_for_downshift_rate_adaptation -->
+		<attr i="7"></attr>	<!-- xTU_impedance_state_forced -->
+		<attr i="8"></attr>	<!-- L0_time -->
+		<attr i="9"></attr>	<!-- L2_time -->
+		<attr i="10"></attr>	<!-- Downstream_maximum_nominal_power_spectral_density -->
+		<attr i="11"></attr>	<!-- Upstream_maximum_nominal_power_spectral_density -->
+		<attr i="12"></attr>	<!-- Downstream_maximum_nominal_aggregate_transmit_power -->
+		<attr i="13"></attr>	<!-- Upstream_maximum_nominal_aggregate_transmit_power -->
+		<attr i="14"></attr>	<!-- Upstream_maximum_aggregate_receive_power -->
+		<attr i="15"></attr>	<!-- VDSL2_transmission_system_enabling -->
+	</instance>
+</class>
+
+
+<class id="106" attr_total="16">	<!-- xDSL_line_configuration_profile_part_3, 9.7.5 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- Loop_diagnostics_mode_forced_(LDSF) -->
+		<attr i="2"></attr>	<!-- Automode_cold_start_forced -->
+		<attr i="3"></attr>	<!-- L2_ATPR -->
+		<attr i="4"></attr>	<!-- L2_ATPRT -->
+		<attr i="5"></attr>	<!-- Force_INP_downstream -->
+		<attr i="6"></attr>	<!-- Force_INP_upstream -->
+		<attr i="7"></attr>	<!-- Update_request_flag_for_near_end_test_parameters -->
+		<attr i="8"></attr>	<!-- Update_request_flag_for_far_end_test_parameters -->
+		<attr i="9"></attr>	<!-- INM_inter_arrival_time_offset_upstream -->
+		<attr i="10"></attr>	<!-- INM_inter_arrival_time_step_upstream -->
+		<attr i="11"></attr>	<!-- INM_cluster_continuation_value_upstream -->
+		<attr i="12"></attr>	<!-- INM_equivalent_INP_mode_upstream -->
+		<attr i="13"></attr>	<!-- INM_inter_arrival_time_offset_downstream -->
+		<attr i="14"></attr>	<!-- INM_inter_arrival_time_step_downstream -->
+		<attr i="15"></attr>	<!-- INM_cluster_continuation_value_downstream -->
+		<attr i="16"></attr>	<!-- INM_equivalent_INP_mode_downstream -->
+	</instance>
+</class>
+
+
+<class id="165" attr_total="15">	<!-- VDSL2_line_configuration_extensions, 9.7.6 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- VDSL2_profiles_enabling -->
+		<attr i="2"></attr>	<!-- VDSL2_PSD_mask_class_selection_(CLASSMASK) -->
+		<attr i="3"></attr>	<!-- VDSL2_limit_PSD_masks -->
+		<attr i="4"></attr>	<!-- VDSL2_US0_disabling -->
+		<attr i="5"></attr>	<!-- VDSL2_US0_PSD_masks -->
+		<attr i="6">	<!-- VDSL2_CARMASK_table -->
+			<attr_table>
+				<!-- 0: entry_number_field -->
+				<!-- 1: Band_start_subcarrier_index -->
+				<!-- 2: Band_stop_subcarrier_index -->
+				<!-- <entry i="0">0,0,0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="7"></attr>	<!-- CARMASK_valid -->
+		<attr i="8"></attr>	<!-- UPBOSHAPED -->
+		<attr i="9"></attr>	<!-- Cyclic_extension -->
+		<attr i="10"></attr>	<!-- Downstream_SNR_mode -->
+		<attr i="11"></attr>	<!-- Upstream_SNR_mode -->
+		<attr i="12">	<!-- Transmitter_referred_virtual_noise_downstream_table -->
+			<attr_table>
+				<!-- 0: subcarrier_index -->
+				<!-- 1: noise_level -->
+				<!-- <entry i="0">0,0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="13">	<!-- Transmitter_referred_virtual_noise_upstream_table -->
+			<attr_table>
+				<!-- 0: subcarrier_index -->
+				<!-- 1: noise_level -->
+				<!-- <entry i="0">0,0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="14"></attr>	<!-- DPBOSHAPED -->
+		<attr i="15"></attr>	<!-- UPBOKLREF_pb -->
+	</instance>
+</class>
+
+
+<class id="107" attr_total="15">	<!-- xDSL_channel_configuration_profile, 9.7.7 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- Minimum_data_rate -->
+		<attr i="2"></attr>	<!-- Maximum_data_rate -->
+		<attr i="3"></attr>	<!-- Rate_adaptation_ratio -->
+		<attr i="4"></attr>	<!-- Maximum_interleaving_delay -->
+		<attr i="5"></attr>	<!-- Data_rate_threshold_upshift -->
+		<attr i="6"></attr>	<!-- Data_rate_threshold_downshift -->
+		<attr i="7"></attr>	<!-- Minimum_reserved_data_rate -->
+		<attr i="8"></attr>	<!-- Minimum_data_rate_in_low_power_state -->
+		<attr i="9"></attr>	<!-- Minimum_impulse_noise_protection -->
+		<attr i="10"></attr>	<!-- Maximum_bit_error_ratio -->
+		<attr i="11"></attr>	<!-- Minimum_impulse_noise_protection_8_kHz -->
+		<attr i="12"></attr>	<!-- Maximum_delay_variation -->
+		<attr i="13"></attr>	<!-- Channel_initialization_policy_selection -->
+		<attr i="14"></attr>	<!-- Minimum_SOS_bit_rate_downstream -->
+		<attr i="15"></attr>	<!-- Minimum_SOS_bit_rate_upstream -->
+	</instance>
+</class>
+
+
+<class id="108" attr_total="5">	<!-- xDSL_subcarrier_masking_downstream_profile, 9.7.8 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- Downstream_subcarrier_mask_1 -->
+		<attr i="2"></attr>	<!-- Downstream_subcarrier_mask_2 -->
+		<attr i="3"></attr>	<!-- Downstream_subcarrier_mask_3 -->
+		<attr i="4"></attr>	<!-- Downstream_subcarrier_mask_4 -->
+		<attr i="5"></attr>	<!-- Mask_valid -->
+	</instance>
+</class>
+
+
+<class id="109" attr_total="1">	<!-- xDSL_subcarrier_masking_upstream_profile, 9.7.9 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- Upstream_subcarrier_mask -->
+	</instance>
+</class>
+
+
+<class id="110" attr_total="2">	<!-- xDSL_PSD_mask_profile, 9.7.10 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">	<!-- PSD_mask_table -->
+			<attr_table>
+				<!-- 0: entry_number_field -->
+				<!-- 1: subcarrier_index_field -->
+				<!-- 2: PSD_mask_level_field -->
+				<!-- <entry i="0">0,0,0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="2"></attr>	<!-- Mask_valid -->
+	</instance>
+</class>
+
+
+<class id="111" attr_total="2">	<!-- xDSL_downstream_RFI_bands_profiles, 9.7.11 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">	<!-- Downstream_RFI_bands_table -->
+			<attr_table>
+				<!-- 0: entry_number_field -->
+				<!-- 1: Subcarrier_index_1_field -->
+				<!-- 2: Subcarrier_index_2_field -->
+				<!-- <entry i="0">0,0,0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="2"></attr>	<!-- Bands_valid -->
+	</instance>
+</class>
+
+
+<class id="100" attr_total="15">	<!-- xDSL_line_inventory_and_status_data_part_1, 9.7.12 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- xTU_C_G.994.1_vendor_ID -->
+		<attr i="2"></attr>	<!-- xTU_R_G.994.1_vendor_ID -->
+		<attr i="3"></attr>	<!-- xTU_C_system_vendor_ID -->
+		<attr i="4"></attr>	<!-- xTU_R_system_vendor_ID -->
+		<attr i="5"></attr>	<!-- xTU_C_version_number -->
+		<attr i="6"></attr>	<!-- xTU_R_version_number -->
+		<attr i="7"></attr>	<!-- xTU_C_serial_number_part_1 -->
+		<attr i="8"></attr>	<!-- xTU_C_serial_number_part_2 -->
+		<attr i="9"></attr>	<!-- xTU_R_serial_number_part_1 -->
+		<attr i="10"></attr>	<!-- xTU_R_serial_number_part_2 -->
+		<attr i="11"></attr>	<!-- xTU_C_self_test_results -->
+		<attr i="12"></attr>	<!-- xTU_R_self_test_results -->
+		<attr i="13"></attr>	<!-- xTU_C_transmission_system_capability -->
+		<attr i="14"></attr>	<!-- xTU_R_transmission_system_capability -->
+		<attr i="15"></attr>	<!-- Initialization_success/failure_cause -->
+	</instance>
+</class>
+
+
+<class id="101" attr_total="16">	<!-- xDSL_line_inventory_and_status_data_part_2, 9.7.13 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- xDSL_transmission_system -->
+		<attr i="2"></attr>	<!-- Line_power_management_state -->
+		<attr i="3"></attr>	<!-- Downstream_line_attenuation -->
+		<attr i="4"></attr>	<!-- Upstream_line_attenuation -->
+		<attr i="5"></attr>	<!-- Downstream_signal_attenuation -->
+		<attr i="6"></attr>	<!-- Upstream_signal_attenuation -->
+		<attr i="7"></attr>	<!-- Downstream_signal_to_noise_ratio_margin -->
+		<attr i="8"></attr>	<!-- Upstream_signal_to_noise_ratio_margin -->
+		<attr i="9"></attr>	<!-- Downstream_maximum_attainable_data_rate -->
+		<attr i="10"></attr>	<!-- Upstream_maximum_attainable_data_rate -->
+		<attr i="11"></attr>	<!-- Downstream_actual_power_spectrum_density -->
+		<attr i="12"></attr>	<!-- Upstream_actual_power_spectrum_density -->
+		<attr i="13"></attr>	<!-- Downstream_actual_aggregate_transmit_power -->
+		<attr i="14"></attr>	<!-- Upstream_actual_aggregate_transmit_power -->
+		<attr i="15"></attr>	<!-- Initialization_last_state_transmitted_downstream -->
+		<attr i="16"></attr>	<!-- Initialization_last_state_transmitted_upstream -->
+	</instance>
+</class>
+
+
+<class id="166" attr_total="11">	<!-- xDSL_line_inventory_and_status_data_part_3, 9.7.14 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">	<!-- TSSpsds_table -->
+			<attr_table>
+				<!-- 0: subcarrier_index -->
+				<!-- 1: shaping_attribute -->
+				<!-- <entry i="0">0,0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="2"></attr>	<!-- HLINSCds -->
+		<attr i="3">	<!-- HLINpsds_table -->
+			<attr_table>
+				<!-- 0: a -->
+				<!-- 1: b -->
+				<!-- <entry i="0">0,0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="4"></attr>	<!-- HLOGMTds -->
+		<attr i="5">	<!-- HLOGpsds_table -->
+			<attr_table>
+				<!-- 0: m -->
+				<!-- <entry i="0">0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="6"></attr>	<!-- QLNMTds -->
+		<attr i="7">	<!-- QLNpsds_table -->
+			<attr_table>
+				<!-- 0: n -->
+				<!-- <entry i="0">0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="8"></attr>	<!-- SNRMTds -->
+		<attr i="9">	<!-- SNRpsds_table -->
+			<attr_table>
+				<!-- 0: snr -->
+				<!-- <entry i="0">0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="10">	<!-- BITSpsds_table -->
+			<attr_table>
+				<!-- 0: downstream_bits -->
+				<!-- <entry i="0">0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="11">	<!-- GAINSpsds_table -->
+			<attr_table>
+				<!-- 0: downstream_gain -->
+				<!-- <entry i="0">0</entry> -->
+			</attr_table>
+		</attr>
+	</instance>
+</class>
+
+
+<class id="167" attr_total="11">	<!-- xDSL_line_inventory_and_status_data_part_4, 9.7.15 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">	<!-- TSSpsus_table -->
+			<attr_table>
+				<!-- 0: subcarrier_index -->
+				<!-- 1: shaping_attribute -->
+				<!-- <entry i="0">0,0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="2"></attr>	<!-- HLINSCus -->
+		<attr i="3">	<!-- HLINpsus_table -->
+			<attr_table>
+				<!-- 0: upstream_Hlin -->
+				<!-- <entry i="0">0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="4"></attr>	<!-- HLOGMTus -->
+		<attr i="5">	<!-- HLOGpsus_table -->
+			<attr_table>
+				<!-- 0: upstream_Hlog -->
+				<!-- <entry i="0">0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="6"></attr>	<!-- QLNMTus -->
+		<attr i="7">	<!-- QLNpsus_table -->
+			<attr_table>
+				<!-- 0: upstream_QLN -->
+				<!-- <entry i="0">0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="8"></attr>	<!-- SNRMTus -->
+		<attr i="9">	<!-- SNRpsus_table -->
+			<attr_table>
+				<!-- 0: upstream_SNR -->
+				<!-- <entry i="0">0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="10">	<!-- BITSpsus_table -->
+			<attr_table>
+				<!-- 0: upstream_bits -->
+				<!-- <entry i="0">0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="11">	<!-- GAINSpsus_table -->
+			<attr_table>
+				<!-- 0: upstream_gains -->
+				<!-- <entry i="0">0</entry> -->
+			</attr_table>
+		</attr>
+	</instance>
+</class>
+
+
+<class id="168" attr_total="15">	<!-- VDSL2_line_inventory_and_status_data_part_1, 9.7.16 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- VDSL2_transmission_system_capability_xTU_C -->
+		<attr i="2"></attr>	<!-- VDSL2_transmission_system -->
+		<attr i="3"></attr>	<!-- VDSL2_profile -->
+		<attr i="4"></attr>	<!-- VDSL2_limit_PSD_mask_and_bandplan -->
+		<attr i="5"></attr>	<!-- VDSL2_US0_PSD_mask -->
+		<attr i="6"></attr>	<!-- ACTSNRMODEds -->
+		<attr i="7"></attr>	<!-- HLINGds -->
+		<attr i="8"></attr>	<!-- HLOGGds -->
+		<attr i="9"></attr>	<!-- QLNGds -->
+		<attr i="10"></attr>	<!-- SNRGds -->
+		<attr i="11">	<!-- MREFPSDds_table -->
+			<attr_table>
+				<!-- 0: break_point -->
+				<!-- <entry i="0">0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="12"></attr>	<!-- TRELLISds -->
+		<attr i="13"></attr>	<!-- Actual_rate_adaptation_mode_downstream -->
+		<attr i="14"></attr>	<!-- Actual_impulse_noise_protection_ROC_downstream -->
+		<attr i="15"></attr>	<!-- SNR_margin_ROC_downstream -->
+	</instance>
+</class>
+
+
+<class id="169" attr_total="14">	<!-- VDSL2_line_inventory_and_status_data_part_2, 9.7.17 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- VDSL2_transmission_system_capability_xTU_R -->
+		<attr i="2"></attr>	<!-- ACTSNRMODEus -->
+		<attr i="3"></attr>	<!-- UPBOKLE -->
+		<attr i="4"></attr>	<!-- HLINGus -->
+		<attr i="5"></attr>	<!-- HLOGGus -->
+		<attr i="6"></attr>	<!-- QLNGus -->
+		<attr i="7"></attr>	<!-- SNRGus -->
+		<attr i="8">	<!-- MREFPSDus_table -->
+			<attr_table>
+				<!-- 0: break_point -->
+				<!-- <entry i="0">0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="9"></attr>	<!-- TRELLISus -->
+		<attr i="10"></attr>	<!-- ACTUALCE -->
+		<attr i="11"></attr>	<!-- UPBOKLE_R -->
+		<attr i="12"></attr>	<!-- Actual_rate_adaptation_mode_upstream -->
+		<attr i="13"></attr>	<!-- Actual_impulse_noise_protection_ROC_upstream -->
+		<attr i="14"></attr>	<!-- SNR_margin_ROC_upstream -->
+	</instance>
+</class>
+
+
+<class id="170" attr_total="14">	<!-- VDSL2_line_inventory_and_status_data_part_3, 9.7.18 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- Upstream_bands_count -->
+		<attr i="2"></attr>	<!-- Downstream_bands_count -->
+		<attr i="3"></attr>	<!-- Downstream_line_attenuation_per_band -->
+		<attr i="4"></attr>	<!-- Upstream_line_attenuation_per_band -->
+		<attr i="5"></attr>	<!-- Downstream_signal_attenuation_per_band -->
+		<attr i="6"></attr>	<!-- Upstream_signal_attenuation_per_band -->
+		<attr i="7"></attr>	<!-- Downstream_signal_to_noise_ratio_margin_per_band -->
+		<attr i="8"></attr>	<!-- Upstream_signal_to_noise_ratio_margin_per_band -->
+		<attr i="9"></attr>	<!-- Downstream_line_attenuation_extension -->
+		<attr i="10"></attr>	<!-- Upstream_line_attenuation_extension -->
+		<attr i="11"></attr>	<!-- Downstream_signal_attenuation_extension -->
+		<attr i="12"></attr>	<!-- Upstream_signal_attenuation_extension -->
+		<attr i="13"></attr>	<!-- Downstream_signal_to_noise_ratio_margin_extension -->
+		<attr i="14"></attr>	<!-- Upstream_signal_to_noise_ratio_margin_extension -->
+	</instance>
+</class>
+
+
+<class id="102" attr_total="10">	<!-- xDSL_channel_downstream_status_data, 9.7.19 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- Actual_interleaving_delay -->
+		<attr i="2"></attr>	<!-- Actual_data_rate -->
+		<attr i="3"></attr>	<!-- Previous_data_rate -->
+		<attr i="4"></attr>	<!-- Actual_impulse_noise_protection -->
+		<attr i="5"></attr>	<!-- Actual_size_of_Reed_Solomon_codeword -->
+		<attr i="6"></attr>	<!-- Actual_number_of_Reed_Solomon_redundancy_bytes -->
+		<attr i="7"></attr>	<!-- Actual_number_of_bits_per_symbol -->
+		<attr i="8"></attr>	<!-- Actual_interleaving_depth -->
+		<attr i="9"></attr>	<!-- Actual_interleaving_block_length -->
+		<attr i="10"></attr>	<!-- Actual_latency_path -->
+	</instance>
+</class>
+
+
+<class id="103" attr_total="11">	<!-- xDSL_channel_upstream_status_data, 9.7.20 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- Actual_interleaving_delay -->
+		<attr i="2"></attr>	<!-- Actual_data_rate -->
+		<attr i="3"></attr>	<!-- Previous_data_rate -->
+		<attr i="4"></attr>	<!-- Actual_impulse_noise_protection -->
+		<attr i="5"></attr>	<!-- Impulse_noise_protection_reporting_mode -->
+		<attr i="6"></attr>	<!-- Actual_size_of_Reed_Solomon_codeword -->
+		<attr i="7"></attr>	<!-- Actual_number_of_Reed_Solomon_redundancy_bytes -->
+		<attr i="8"></attr>	<!-- Actual_number_of_bits_per_symbol -->
+		<attr i="9"></attr>	<!-- Actual_interleaving_depth -->
+		<attr i="10"></attr>	<!-- Actual_interleaving_block_length -->
+		<attr i="11"></attr>	<!-- Actual_latency_path -->
+	</instance>
+</class>
+
+
+<class id="112" attr_total="16">	<!-- xDSL_xTU_C_performance_monitoring_history_data, 9.7.21 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- Interval_end_time -->
+		<attr i="2"></attr>	<!-- Threshold_data_1/2_id -->
+		<attr i="3"></attr>	<!-- Loss_of_frame_seconds -->
+		<attr i="4"></attr>	<!-- Loss_of_signal_seconds -->
+		<attr i="5"></attr>	<!-- Loss_of_link_seconds -->
+		<attr i="6"></attr>	<!-- Loss_of_power_seconds -->
+		<attr i="7"></attr>	<!-- Errored_seconds -->
+		<attr i="8"></attr>	<!-- Severely_errored_seconds -->
+		<attr i="9"></attr>	<!-- Line_initializations -->
+		<attr i="10"></attr>	<!-- Failed_line_initializations -->
+		<attr i="11"></attr>	<!-- Short_initializations -->
+		<attr i="12"></attr>	<!-- Failed_short_initializations -->
+		<attr i="13"></attr>	<!-- FEC_seconds -->
+		<attr i="14"></attr>	<!-- Unavailable_seconds -->
+		<attr i="15"></attr>	<!-- SOS_success_count,_near_end -->
+		<attr i="16"></attr>	<!-- SOS_success_count,_far_end -->
+	</instance>
+</class>
+
+
+<class id="113" attr_total="7">	<!-- xDSL_xTU_R_performance_monitoring_history_data, 9.7.22 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- Interval_end_time -->
+		<attr i="2"></attr>	<!-- Threshold_data_1/2_id -->
+		<attr i="3"></attr>	<!-- Loss_of_frame_seconds -->
+		<attr i="4"></attr>	<!-- Loss_of_signal_seconds -->
+		<attr i="5"></attr>	<!-- Severely_errored_seconds -->
+		<attr i="6"></attr>	<!-- FEC_seconds -->
+		<attr i="7"></attr>	<!-- Unavailable_seconds -->
+	</instance>
+</class>
+
+
+<class id="114" attr_total="8">	<!-- xDSL_xTU_C_channel_performance_monitoring_history_data, 9.7.23 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- Interval_end_time -->
+		<attr i="2"></attr>	<!-- Threshold_data_1/2_id -->
+		<attr i="3"></attr>	<!-- Corrected_blocks -->
+		<attr i="4"></attr>	<!-- Uncorrected_blocks -->
+		<attr i="5"></attr>	<!-- Transmitted_blocks -->
+		<attr i="6"></attr>	<!-- Received_blocks -->
+		<attr i="7"></attr>	<!-- Code_violations -->
+		<attr i="8"></attr>	<!-- Forward_error_corrections -->
+	</instance>
+</class>
+
+
+<class id="115" attr_total="8">	<!-- xDSL_xTU_R_channel_performance_monitoring_history_data, 9.7.24 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- Interval_end_time -->
+		<attr i="2"></attr>	<!-- Threshold_data_1/2_id -->
+		<attr i="3"></attr>	<!-- Corrected_blocks -->
+		<attr i="4"></attr>	<!-- Uncorrected_blocks -->
+		<attr i="5"></attr>	<!-- Transmitted_blocks -->
+		<attr i="6"></attr>	<!-- Received_blocks -->
+		<attr i="7"></attr>	<!-- Code_violations -->
+		<attr i="8"></attr>	<!-- Forward_error_corrections -->
+	</instance>
+</class>
+
+
+<class id="116" attr_total="10">	<!-- TC_adaptor_performance_monitoring_history_data_xDSL, 9.7.25 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- Interval_end_time -->
+		<attr i="2"></attr>	<!-- Threshold_data_1/2_id -->
+		<attr i="3"></attr>	<!-- Near_end_HEC_violation_count -->
+		<attr i="4"></attr>	<!-- Near_end_delineated_total_cell_count_(CD_P) -->
+		<attr i="5"></attr>	<!-- Near_end_user_total_cell_count -->
+		<attr i="6"></attr>	<!-- Near_end_idle_cell_bit_error_count -->
+		<attr i="7"></attr>	<!-- Far_end_HEC_violation_count -->
+		<attr i="8"></attr>	<!-- Far_end_delineated_total_cell_count -->
+		<attr i="9"></attr>	<!-- Far_end_user_total_cell_count -->
+		<attr i="10"></attr>	<!-- Far_end_idle_cell_bit_error_count -->
+	</instance>
+</class>
+
+
+<class id="323" attr_total="14">	<!-- VDSL2_line_configuration_extensions_2, 9.7.26 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- SOS_time_downstream -->
+		<attr i="2"></attr>	<!-- SOS_time_upstream -->
+		<attr i="3"></attr>	<!-- SOS_degraded_tones_threshold_downstream -->
+		<attr i="4"></attr>	<!-- SOS_degraded_tones_threshold_upstream -->
+		<attr i="5"></attr>	<!-- SOS_CRC_threshold_downstream -->
+		<attr i="6"></attr>	<!-- SOS_CRC_threshold_upstream -->
+		<attr i="7"></attr>	<!-- MAX_SOS_downstream -->
+		<attr i="8"></attr>	<!-- MAX_SOS_upstream -->
+		<attr i="9"></attr>	<!-- SNR_max_offset_downstream -->
+		<attr i="10"></attr>	<!-- SNR_max_offset_upstream -->
+		<attr i="11"></attr>	<!-- ROC_minimum_impulse_noise_protection_downstream -->
+		<attr i="12"></attr>	<!-- ROC_minimum_impulse_noise_protection_upstream -->
+		<attr i="13">	<!-- FEXT_downstream_transmitter_referred_virtual_noise_table -->
+			<attr_table>
+				<!-- 0: break_point -->
+				<!-- <entry i="0">0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="14">	<!-- NEXT_downstream_transmitter_referred_virtual_noise_table -->
+			<attr_table>
+				<!-- 0: break_point -->
+				<!-- <entry i="0">0</entry> -->
+			</attr_table>
+		</attr>
+	</instance>
+</class>
+
+
+<class id="324" attr_total="8">	<!-- xDSL_impulse_noise_monitor_performance_monitoring_history_data, 9.7.27 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- Interval_end_time -->
+		<attr i="2"></attr>	<!-- Threshold_data_1/2_id -->
+		<attr i="3">	<!-- INM_INPEQ_histogram_table -->
+			<attr_table>
+				<!-- 0: near_end_INM_INPEQi -->
+				<!-- <entry i="0">0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="4"></attr>	<!-- INM_total_measurement -->
+		<attr i="5"></attr>	<!-- INM_IAT_histogram -->
+		<attr i="6">	<!-- INM_INPEQ_histogram_LFE_table -->
+			<attr_table>
+				<!-- 0: far_end_INM_INPEQi -->
+				<!-- <entry i="0">0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="7"></attr>	<!-- INM_total_measurement_LFE -->
+		<attr i="8"></attr>	<!-- INM_IAT_histogram_LFE -->
+	</instance>
+</class>
+
+
+<class id="325" attr_total="16">	<!-- xDSL_line_inventory_and_status_data_part_5, 9.7.28 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- FEXT_downstream_signal_to_noise_ratio_margin -->
+		<attr i="2"></attr>	<!-- NEXT_downstream_signal_to_noise_ratio_margin -->
+		<attr i="3"></attr>	<!-- FEXT_upstream_signal_to_noise_ratio_margin -->
+		<attr i="4"></attr>	<!-- NEXT_upstream_signal_to_noise_ratio_margin -->
+		<attr i="5"></attr>	<!-- FEXT_downstream_maximum_attainable_data_rate -->
+		<attr i="6"></attr>	<!-- NEXT_downstream_maximum_attainable_data_rate -->
+		<attr i="7"></attr>	<!-- FEXT_upstream_maximum_attainable_data_rate -->
+		<attr i="8"></attr>	<!-- NEXT_upstream_maximum_attainable_data_rate -->
+		<attr i="9"></attr>	<!-- FEXT_downstream_actual_power_spectral_density -->
+		<attr i="10"></attr>	<!-- NEXT_downstream_actual_power_spectral_density -->
+		<attr i="11"></attr>	<!-- FEXT_upstream_actual_power_spectral_density -->
+		<attr i="12"></attr>	<!-- NEXT_upstream_actual_power_spectral_density -->
+		<attr i="13"></attr>	<!-- FEXT_downstream_actual_aggregate_transmit_power -->
+		<attr i="14"></attr>	<!-- NEXT_downstream_actual_aggregate_transmit_power -->
+		<attr i="15"></attr>	<!-- FEXT_upstream_actual_aggregate_transmit_power -->
+		<attr i="16"></attr>	<!-- NEXT_upstream_actual_aggregate_transmit_power -->
+	</instance>
+</class>
+
+
+<class id="326" attr_total="16">	<!-- xDSL_line_inventory_and_status_data_part_6, 9.7.29 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- FEXT_downstream_quiet_line_noise_PSD_measurement_time -->
+		<attr i="2"></attr>	<!-- NEXT_downstream_quiet_line_noise_PSD_measurement_time -->
+		<attr i="3">	<!-- FEXT_downstream_QLN_(f)_table -->
+			<attr_table>
+				<!-- 0: QLN -->
+				<!-- <entry i="0">0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="4">	<!-- NEXT_downstream_QLN_(f)_table -->
+			<attr_table>
+				<!-- 0: QLN -->
+				<!-- <entry i="0">0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="5"></attr>	<!-- FEXT_upstream_quiet_line_noise_PSD_measurement_time -->
+		<attr i="6"></attr>	<!-- NEXT_upstream_quiet_line_noise_PSD_measurement_time -->
+		<attr i="7">	<!-- FEXT_upstream_QLN_(f)_table -->
+			<attr_table>
+				<!-- 0: QLN -->
+				<!-- <entry i="0">0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="8">	<!-- NEXT_upstream_QLN_(f)_table -->
+			<attr_table>
+				<!-- 0: QLN -->
+				<!-- <entry i="0">0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="9"></attr>	<!-- FEXT_downstream_SNR_measurement_time -->
+		<attr i="10"></attr>	<!-- NEXT_downstream_SNR_measurement_time -->
+		<attr i="11">	<!-- FEXT_downstream_SNR_(f)_table -->
+			<attr_table>
+				<!-- 0: SNR -->
+				<!-- <entry i="0">0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="12">	<!-- NEXT_downstream_SNR_(f)_table -->
+			<attr_table>
+				<!-- 0: SNR -->
+				<!-- <entry i="0">0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="13"></attr>	<!-- FEXT_upstream_SNR_measurement_time -->
+		<attr i="14"></attr>	<!-- NEXT_upstream_SNR_measurement_time -->
+		<attr i="15">	<!-- FEXT_upstream_SNR_(f)_table -->
+			<attr_table>
+				<!-- 0: SNR -->
+				<!-- <entry i="0">0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="16">	<!-- NEXT_upstream_SNR_(f)_table -->
+			<attr_table>
+				<!-- 0: SNR -->
+				<!-- <entry i="0">0</entry> -->
+			</attr_table>
+		</attr>
+	</instance>
+</class>
+
+
+<class id="327" attr_total="12">	<!-- xDSL_line_inventory_and_status_data_part_7, 9.7.30 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">	<!-- FEXT_downstream_bits_allocation_table -->
+			<attr_table>
+				<!-- 0: bits -->
+				<!-- <entry i="0">0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="2">	<!-- NEXT_downstream_bits_allocation_table -->
+			<attr_table>
+				<!-- 0: bits -->
+				<!-- <entry i="0">0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="3">	<!-- FEXT_upstream_bits_allocation_table -->
+			<attr_table>
+				<!-- 0: bits -->
+				<!-- <entry i="0">0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="4">	<!-- NEXT_upstream_bits_allocation_table -->
+			<attr_table>
+				<!-- 0: bits -->
+				<!-- <entry i="0">0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="5">	<!-- FEXT_downstream_gains_allocation_table -->
+			<attr_table>
+				<!-- 0: gains -->
+				<!-- <entry i="0">0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="6">	<!-- NEXT_downstream_gains_allocation_table -->
+			<attr_table>
+				<!-- 0: gains -->
+				<!-- <entry i="0">0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="7">	<!-- FEXT_upstream_gains_allocation_table -->
+			<attr_table>
+				<!-- 0: gains -->
+				<!-- <entry i="0">0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="8">	<!-- NEXT_upstream_gains_allocation_table -->
+			<attr_table>
+				<!-- 0: gains -->
+				<!-- <entry i="0">0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="9">	<!-- FEXT_downstream_transmit_spectrum_shaping_table -->
+			<attr_table>
+				<!-- 0: parm -->
+				<!-- <entry i="0">0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="10">	<!-- NEXT_downstream_transmit_spectrum_shaping_table -->
+			<attr_table>
+				<!-- 0: parm -->
+				<!-- <entry i="0">0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="11">	<!-- FEXT_upstream_transmit_spectrum_shaping_table -->
+			<attr_table>
+				<!-- 0: parm -->
+				<!-- <entry i="0">0</entry> -->
+			</attr_table>
+		</attr>
+		<attr i="12">	<!-- NEXT_upstream_transmit_spectrum_shaping_table -->
+			<attr_table>
+				<!-- 0: parm -->
+				<!-- <entry i="0">0</entry> -->
+			</attr_table>
+		</attr>
+	</instance>
+</class>
+
+</omci>
+

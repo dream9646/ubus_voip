@@ -1,0 +1,1959 @@
+<omci name="Proprietary" section="9.99">
+
+<class id="65311" attr_total="5">	<!-- Multicast_Statistics, 9.99.1 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>16</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0x0</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Total number of unsuccessful joins -->
+		<attr i="2">0</attr>	<!-- Total number of leave messages -->
+		<attr i="3">0</attr>	<!-- Total number of general queries sent to users -->
+		<attr i="4">0</attr>	<!-- Total number of specific queries sent to users -->
+		<attr i="5">0</attr>	<!-- Total number of invalid IGMP messages received -->
+	</instance>
+</class>
+
+<class id="65529" attr_total="4">	<!-- ONU_capability, 9.99.4 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>1</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0x0</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">CTC</attr>	<!-- Operator_ID -->
+		<attr i="2">0</attr>	<!-- CTC_spec_version -->
+		<attr i="3">0</attr>	<!-- ONU_type -->
+		<attr i="4">0</attr>	<!-- Tx_power_supply_control -->
+	</instance>
+</class>
+
+<class id="65530" attr_total="4">	<!-- LOID_authentication, 9.99.5 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>1</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0x0</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">CTC</attr>	<!-- Operator_ID -->
+		<attr i="2"></attr>	<!-- LOID -->
+		<attr i="3"></attr>	<!-- Password -->
+		<attr i="4">0</attr>	<!-- Authentication_states -->
+	</instance>
+</class>
+
+<class id="65531" attr_total="16">	<!-- Extended_Multicast_operations_profile, 9.99.6 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- IGMP_version -->
+		<attr i="2"></attr>	<!-- IGMP_function -->
+		<attr i="3"></attr>	<!-- Immediate_leave -->
+		<attr i="4"></attr>	<!-- Upstream_IGMP_TCI -->
+		<attr i="5"></attr>	<!-- Upstream_IGMP_tag_control -->
+		<attr i="6"></attr>	<!-- Upstream_IGMP_rate -->
+		<attr i="7">	<!-- Dynamic_access_control_list_table -->
+			<attr_table>
+				<!-- 0: Set_ctrl -->
+				<!-- 1: Row_part -->
+				<!-- 2: Reserved -->
+				<!-- 3: Row_ID -->
+				<!-- 4: GEM_port-ID -->
+				<!-- 5: VLAN_ID -->
+				<!-- 6: Imputed_group_bandwidth -->
+				<!-- 7: Preview_length -->
+				<!-- 8: Preview_repeat_time -->
+				<!-- 9: Preview_repeat_count -->
+				<!-- 10: preview_reset_time -->
+				<!-- 11: Vendor-specific_use -->
+				<!-- 12: Reserved -->
+				<!-- <entry i="0"></entry> -->
+			</attr_table>
+		</attr>
+		<attr i="8">	<!-- Static_access_control_list_table -->
+			<attr_table>
+				<!-- 0: Set_ctrl -->
+				<!-- 1: Row_part -->
+				<!-- 2: Reserved -->
+				<!-- 3: Row_ID -->
+				<!-- 4: GEM_port-ID -->
+				<!-- 5: VLAN_ID -->
+				<!-- 6: Imputed_group_bandwidth -->
+				<!-- 7: Preview_length -->
+				<!-- 8: Preview_repeat_time -->
+				<!-- 9: Preview_repeat_count -->
+				<!-- 10: preview_reset_time -->
+				<!-- 11: Vendor-specific_use -->
+				<!-- 12: Reserved -->
+				<!-- <entry i="0"></entry> -->
+			</attr_table>
+		</attr>
+		<attr i="9">	<!-- Lost_groups_list_table -->
+			<attr_table>
+				<!-- 0: IPV6 -->
+				<!-- 1: IPV4 -->
+				<!-- <entry i="0"></entry> -->
+			</attr_table>
+		</attr>
+		<attr i="10"></attr>	<!-- Robustness -->
+		<attr i="11"></attr>	<!-- Querier_IP_address -->
+		<attr i="12"></attr>	<!-- Query_interval -->
+		<attr i="13"></attr>	<!-- Query_max_response_time -->
+		<attr i="14"></attr>	<!-- Last_member_query_interval -->
+		<attr i="15"></attr>	<!-- Unauthorized_join_request_behaviour -->
+		<attr i="16"></attr>	<!-- Downstream_IGMP_and_multicast_TCI -->
+	</instance>
+</class>
+
+<class id="65285" attr_total="6">	<!-- Switch_port_packet_control, 9.99.7 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0x0</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">1</attr>		<!-- Broadcast_enable -->
+		<attr i="2">150</attr>		<!-- Broadcast_rate_limit -->
+		<attr i="3">1</attr>		<!-- Multicast_enable -->
+		<attr i="4">150</attr>		<!-- Multicast_rate_limit -->
+		<attr i="5">1</attr>		<!-- Unknown_enable -->
+		<attr i="6">150</attr>		<!-- Unknown_rate_limit -->
+	</instance>
+	<instance i="1">
+		<devname></devname>
+		<default_meid>0x1</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">1</attr>		<!-- Broadcast_enable -->
+		<attr i="2">150</attr>		<!-- Broadcast_rate_limit -->
+		<attr i="3">1</attr>		<!-- Multicast_enable -->
+		<attr i="4">150</attr>		<!-- Multicast_rate_limit -->
+		<attr i="5">1</attr>		<!-- Unknown_enable -->
+		<attr i="6">150</attr>		<!-- Unknown_rate_limit -->
+	</instance>
+	<instance i="2">
+		<devname></devname>
+		<default_meid>0x2</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">1</attr>		<!-- Broadcast_enable -->
+		<attr i="2">150</attr>		<!-- Broadcast_rate_limit -->
+		<attr i="3">1</attr>		<!-- Multicast_enable -->
+		<attr i="4">150</attr>		<!-- Multicast_rate_limit -->
+		<attr i="5">1</attr>		<!-- Unknown_enable -->
+		<attr i="6">150</attr>		<!-- Unknown_rate_limit -->
+	</instance>
+	<instance i="3">
+		<devname></devname>
+		<default_meid>0x3</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">1</attr>		<!-- Broadcast_enable -->
+		<attr i="2">150</attr>		<!-- Broadcast_rate_limit -->
+		<attr i="3">1</attr>		<!-- Multicast_enable -->
+		<attr i="4">150</attr>		<!-- Multicast_rate_limit -->
+		<attr i="5">1</attr>		<!-- Unknown_enable -->
+		<attr i="6">150</attr>		<!-- Unknown_rate_limit -->
+	</instance>	
+</class>
+
+<class id="65298" attr_total="14">	<!-- ONU_dos_attack_alarm_config, 9.99.7 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>1</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0x0</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- mac_land_attack_alarm, deprecated! -->
+		<attr i="2">1</attr>	<!-- ip_land_attack_alarm -->
+		<attr i="3">0</attr>	<!-- tcp_blat_attack_alarm -->
+		<attr i="4">0</attr>	<!-- udp_blat_attack_alarm -->
+		<attr i="5">0</attr>	<!-- tcp_null_scan_attack_alarm -->
+		<attr i="6">0</attr>	<!-- tcp_xmas_scan_attack_alarm -->
+		<attr i="7">0</attr>	<!-- tcp_syn_fin_alarm -->
+		<attr i="8">0</attr>	<!-- tcp_syn_err_alarm -->
+		<attr i="9">0</attr>	<!-- tcp_short_hdr_alarm -->
+		<attr i="10">0</attr>	<!-- tcp_frag_err_alarm -->
+		<attr i="11">0</attr>	<!-- icmpv4_frag_attack_alarm -->
+		<attr i="12">0</attr>	<!-- icmpv6_frag_attack_alarm -->
+		<attr i="13">0</attr>	<!-- icmpv4_longping_attack_alarm -->
+		<attr i="14">0</attr>	<!-- icmpv6_longping_attack_alarm -->
+	</instance>
+</class>
+
+<class id="65410" attr_total="5">	<!-- WRI_RTP_resource_name, 9.99.9 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>1</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- RTP_name_fixed_part -->
+		<attr i="2">0</attr>	<!-- RTP_name_var_begin -->
+		<attr i="3">0</attr>	<!-- RTP_name_var_end -->
+		<attr i="4">0</attr>	<!-- RTP_name_var_step -->
+		<attr i="5">0</attr>	<!-- RTP_name_fixed_length -->
+	</instance>
+</class>
+
+<class id="65412" attr_total="3">	<!-- WRI_RFC2833_config_data, 9.99.10 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>1</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- RFC2833_nego_state -->
+		<attr i="2">96</attr>	<!-- Def_RFC2833_PT -->
+		<attr i="3">96</attr>	<!-- Def_RFC2198_PT -->
+	</instance>
+</class>
+
+<class id="65413" attr_total="5">	<!-- WRI_keepalive_config_data, 9.99.11 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>1</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Keepalive_enable -->
+		<attr i="2">1</attr>	<!-- Keepalive_interval -->
+		<attr i="3">1</attr>	<!-- Keepalive_times -->
+		<attr i="4">0</attr>	<!-- Keepalive_mode -->
+		<attr i="5">0</attr>	<!-- Rereg_start_time_enable -->
+	</instance>
+</class>
+
+<class id="65414" attr_total="2">	<!-- WRI_POS_config_data, 9.99.12 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>1</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Item_number -->
+		<attr i="2">	<!-- POS_table -->
+			<attr_table>
+				<!-- 0: ID -->
+				<!-- 1: Tel_num -->
+				<!-- 2: POS_type -->
+				<!-- <entry i="0"></entry> -->
+			</attr_table>
+		</attr>
+	</instance>
+</class>
+
+<class id="65415" attr_total="2">	<!-- WRI_IPT_config_data, 9.99.13 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>1</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Item_number -->
+		<attr i="2">	<!-- IPT_table -->
+			<attr_table>
+				<!-- 0: ID -->
+				<!-- 1: Tel_num -->
+				<!-- 2: POS_type -->
+				<!-- <entry i="0"></entry> -->
+			</attr_table>
+		</attr>
+	</instance>
+</class>
+
+<class id="65416" attr_total="4">	<!-- WRI_MG_port_register_control, 9.99.14 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>2</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0xFFFF</attr>	<!-- MG_ip_pointer -->
+		<attr i="2">0</attr>	<!-- MG_act -->
+		<attr i="3">0xFFFF</attr>	<!-- Port -->
+		<attr i="4">0</attr>	<!-- Port_act -->
+	</instance>
+	<instance i="1">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0xFFFF</attr>	<!-- MG_ip_pointer -->
+		<attr i="2">0</attr>	<!-- MG_act -->
+		<attr i="3">0xFFFF</attr>	<!-- Port -->
+		<attr i="4">0</attr>	<!-- Port_act -->
+	</instance>
+</class>
+
+<class id="65417" attr_total="1">	<!-- WRI_digit_map_match_mode, 9.99.15 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>1</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Notify_match_mode -->
+	</instance>
+</class>
+
+<class id="65418" attr_total="8">	<!-- WRI_fax_config_data, 9.99.16 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>2</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>		<!-- Fax_control_mode -->
+		<attr i="2">0</attr>		<!-- VBD_state -->
+		<attr i="3">1</attr>		<!-- VBD_tx_interval -->
+		<attr i="4">1</attr>		<!-- VBD_rx_interval -->
+		<attr i="5">0</attr>		<!-- VBD_voice_coder -->
+		<attr i="6">1</attr>		<!-- T38_event_detect_mode -->
+		<attr i="7">0xFFFF</attr>	<!-- PPTP_pointer -->
+		<attr i="8">0</attr>	<!-- DTMF_mode -->
+	</instance>
+	<instance i="1">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>		<!-- Fax_control_mode -->
+		<attr i="2">0</attr>		<!-- VBD_state -->
+		<attr i="3">1</attr>		<!-- VBD_tx_interval -->
+		<attr i="4">1</attr>		<!-- VBD_rx_interval -->
+		<attr i="5">0</attr>		<!-- VBD_voice_coder -->
+		<attr i="6">1</attr>		<!-- T38_event_detect_mode -->
+		<attr i="7">0xFFFF</attr>	<!-- PPTP_pointer -->
+		<attr i="8">0</attr>	<!-- DTMF_mode -->
+	</instance>
+</class>
+
+<class id="65299" attr_total="1">	<!-- ONU_mac_aging, 9.99.17 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>1</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0x0</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">80</attr>	<!-- aging_time -->
+	</instance>
+</class>
+
+<class id="65288" attr_total="6">	<!-- omci_me_sw_port_acl_rule, 9.99.18 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>32</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0x0</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>		<!-- us_acl_action -->
+		<attr i="2">0</attr>		<!-- us_acl_count -->
+		<attr i="3">			<!-- us_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+		<attr i="4">0</attr>		<!-- ds_acl_action -->
+		<attr i="5">0</attr>		<!-- ds_acl_count -->
+		<attr i="6">			<!-- ds_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+	</instance>
+	<instance i="1">
+		<devname></devname>
+		<default_meid>0x1</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>		<!-- us_acl_action -->
+		<attr i="2">0</attr>		<!-- us_acl_count -->
+		<attr i="3">			<!-- us_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+		<attr i="4">0</attr>		<!-- ds_acl_action -->
+		<attr i="5">0</attr>		<!-- ds_acl_count -->
+		<attr i="6">			<!-- ds_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+	</instance>
+	<instance i="2">
+		<devname></devname>
+		<default_meid>0x2</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>		<!-- us_acl_action -->
+		<attr i="2">0</attr>		<!-- us_acl_count -->
+		<attr i="3">			<!-- us_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+		<attr i="4">0</attr>		<!-- ds_acl_action -->
+		<attr i="5">0</attr>		<!-- ds_acl_count -->
+		<attr i="6">			<!-- ds_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+	</instance>
+	<instance i="3">
+		<devname></devname>
+		<default_meid>0x3</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>		<!-- us_acl_action -->
+		<attr i="2">0</attr>		<!-- us_acl_count -->
+		<attr i="3">			<!-- us_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+		<attr i="4">0</attr>		<!-- ds_acl_action -->
+		<attr i="5">0</attr>		<!-- ds_acl_count -->
+		<attr i="6">			<!-- ds_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+	</instance>
+	<instance i="4">
+		<devname></devname>
+		<default_meid>0x4</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>		<!-- us_acl_action -->
+		<attr i="2">0</attr>		<!-- us_acl_count -->
+		<attr i="3">			<!-- us_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+		<attr i="4">0</attr>		<!-- ds_acl_action -->
+		<attr i="5">0</attr>		<!-- ds_acl_count -->
+		<attr i="6">			<!-- ds_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+	</instance>
+	<instance i="5">
+		<devname></devname>
+		<default_meid>0x5</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>		<!-- us_acl_action -->
+		<attr i="2">0</attr>		<!-- us_acl_count -->
+		<attr i="3">			<!-- us_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+		<attr i="4">0</attr>		<!-- ds_acl_action -->
+		<attr i="5">0</attr>		<!-- ds_acl_count -->
+		<attr i="6">			<!-- ds_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+	</instance>
+	<instance i="6">
+		<devname></devname>
+		<default_meid>0x6</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>		<!-- us_acl_action -->
+		<attr i="2">0</attr>		<!-- us_acl_count -->
+		<attr i="3">			<!-- us_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+		<attr i="4">0</attr>		<!-- ds_acl_action -->
+		<attr i="5">0</attr>		<!-- ds_acl_count -->
+		<attr i="6">			<!-- ds_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+	</instance>
+	<instance i="7">
+		<devname></devname>
+		<default_meid>0x7</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>		<!-- us_acl_action -->
+		<attr i="2">0</attr>		<!-- us_acl_count -->
+		<attr i="3">			<!-- us_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+		<attr i="4">0</attr>		<!-- ds_acl_action -->
+		<attr i="5">0</attr>		<!-- ds_acl_count -->
+		<attr i="6">			<!-- ds_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+	</instance>
+	<instance i="8">
+		<devname></devname>
+		<default_meid>0x8</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>		<!-- us_acl_action -->
+		<attr i="2">0</attr>		<!-- us_acl_count -->
+		<attr i="3">			<!-- us_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+		<attr i="4">0</attr>		<!-- ds_acl_action -->
+		<attr i="5">0</attr>		<!-- ds_acl_count -->
+		<attr i="6">			<!-- ds_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+	</instance>
+	<instance i="9">
+		<devname></devname>
+		<default_meid>0x9</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>		<!-- us_acl_action -->
+		<attr i="2">0</attr>		<!-- us_acl_count -->
+		<attr i="3">			<!-- us_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+		<attr i="4">0</attr>		<!-- ds_acl_action -->
+		<attr i="5">0</attr>		<!-- ds_acl_count -->
+		<attr i="6">			<!-- ds_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+	</instance>
+	<instance i="10">
+		<devname></devname>
+		<default_meid>0xA</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>		<!-- us_acl_action -->
+		<attr i="2">0</attr>		<!-- us_acl_count -->
+		<attr i="3">			<!-- us_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+		<attr i="4">0</attr>		<!-- ds_acl_action -->
+		<attr i="5">0</attr>		<!-- ds_acl_count -->
+		<attr i="6">			<!-- ds_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+	</instance>
+	<instance i="11">
+		<devname></devname>
+		<default_meid>0xB</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>		<!-- us_acl_action -->
+		<attr i="2">0</attr>		<!-- us_acl_count -->
+		<attr i="3">			<!-- us_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+		<attr i="4">0</attr>		<!-- ds_acl_action -->
+		<attr i="5">0</attr>		<!-- ds_acl_count -->
+		<attr i="6">			<!-- ds_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+	</instance>
+	<instance i="12">
+		<devname></devname>
+		<default_meid>0xC</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>		<!-- us_acl_action -->
+		<attr i="2">0</attr>		<!-- us_acl_count -->
+		<attr i="3">			<!-- us_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+		<attr i="4">0</attr>		<!-- ds_acl_action -->
+		<attr i="5">0</attr>		<!-- ds_acl_count -->
+		<attr i="6">			<!-- ds_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+	</instance>
+	<instance i="13">
+		<devname></devname>
+		<default_meid>0xD</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>		<!-- us_acl_action -->
+		<attr i="2">0</attr>		<!-- us_acl_count -->
+		<attr i="3">			<!-- us_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+		<attr i="4">0</attr>		<!-- ds_acl_action -->
+		<attr i="5">0</attr>		<!-- ds_acl_count -->
+		<attr i="6">			<!-- ds_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+	</instance>
+	<instance i="14">
+		<devname></devname>
+		<default_meid>0xE</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>		<!-- us_acl_action -->
+		<attr i="2">0</attr>		<!-- us_acl_count -->
+		<attr i="3">			<!-- us_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+		<attr i="4">0</attr>		<!-- ds_acl_action -->
+		<attr i="5">0</attr>		<!-- ds_acl_count -->
+		<attr i="6">			<!-- ds_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+	</instance>
+	<instance i="15">
+		<devname></devname>
+		<default_meid>0xF</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>		<!-- us_acl_action -->
+		<attr i="2">0</attr>		<!-- us_acl_count -->
+		<attr i="3">			<!-- us_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+		<attr i="4">0</attr>		<!-- ds_acl_action -->
+		<attr i="5">0</attr>		<!-- ds_acl_count -->
+		<attr i="6">			<!-- ds_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+	</instance>
+	<instance i="16">
+		<devname></devname>
+		<default_meid>0x10</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>		<!-- us_acl_action -->
+		<attr i="2">0</attr>		<!-- us_acl_count -->
+		<attr i="3">			<!-- us_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+		<attr i="4">0</attr>		<!-- ds_acl_action -->
+		<attr i="5">0</attr>		<!-- ds_acl_count -->
+		<attr i="6">			<!-- ds_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+	</instance>
+	<instance i="17">
+		<devname></devname>
+		<default_meid>0x11</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>		<!-- us_acl_action -->
+		<attr i="2">0</attr>		<!-- us_acl_count -->
+		<attr i="3">			<!-- us_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+		<attr i="4">0</attr>		<!-- ds_acl_action -->
+		<attr i="5">0</attr>		<!-- ds_acl_count -->
+		<attr i="6">			<!-- ds_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+	</instance>
+	<instance i="18">
+		<devname></devname>
+		<default_meid>0x12</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>		<!-- us_acl_action -->
+		<attr i="2">0</attr>		<!-- us_acl_count -->
+		<attr i="3">			<!-- us_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+		<attr i="4">0</attr>		<!-- ds_acl_action -->
+		<attr i="5">0</attr>		<!-- ds_acl_count -->
+		<attr i="6">			<!-- ds_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+	</instance>
+	<instance i="19">
+		<devname></devname>
+		<default_meid>0x13</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>		<!-- us_acl_action -->
+		<attr i="2">0</attr>		<!-- us_acl_count -->
+		<attr i="3">			<!-- us_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+		<attr i="4">0</attr>		<!-- ds_acl_action -->
+		<attr i="5">0</attr>		<!-- ds_acl_count -->
+		<attr i="6">			<!-- ds_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+	</instance>
+	<instance i="20">
+		<devname></devname>
+		<default_meid>0x14</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>		<!-- us_acl_action -->
+		<attr i="2">0</attr>		<!-- us_acl_count -->
+		<attr i="3">			<!-- us_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+		<attr i="4">0</attr>		<!-- ds_acl_action -->
+		<attr i="5">0</attr>		<!-- ds_acl_count -->
+		<attr i="6">			<!-- ds_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+	</instance>
+	<instance i="21">
+		<devname></devname>
+		<default_meid>0x15</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>		<!-- us_acl_action -->
+		<attr i="2">0</attr>		<!-- us_acl_count -->
+		<attr i="3">			<!-- us_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+		<attr i="4">0</attr>		<!-- ds_acl_action -->
+		<attr i="5">0</attr>		<!-- ds_acl_count -->
+		<attr i="6">			<!-- ds_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+	</instance>
+	<instance i="22">
+		<devname></devname>
+		<default_meid>0x16</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>		<!-- us_acl_action -->
+		<attr i="2">0</attr>		<!-- us_acl_count -->
+		<attr i="3">			<!-- us_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+		<attr i="4">0</attr>		<!-- ds_acl_action -->
+		<attr i="5">0</attr>		<!-- ds_acl_count -->
+		<attr i="6">			<!-- ds_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+	</instance>
+	<instance i="23">
+		<devname></devname>
+		<default_meid>0x17</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>		<!-- us_acl_action -->
+		<attr i="2">0</attr>		<!-- us_acl_count -->
+		<attr i="3">			<!-- us_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+		<attr i="4">0</attr>		<!-- ds_acl_action -->
+		<attr i="5">0</attr>		<!-- ds_acl_count -->
+		<attr i="6">			<!-- ds_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+	</instance>
+	<instance i="24">
+		<devname></devname>
+		<default_meid>0x18</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>		<!-- us_acl_action -->
+		<attr i="2">0</attr>		<!-- us_acl_count -->
+		<attr i="3">			<!-- us_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+		<attr i="4">0</attr>		<!-- ds_acl_action -->
+		<attr i="5">0</attr>		<!-- ds_acl_count -->
+		<attr i="6">			<!-- ds_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+	</instance>
+	<instance i="25">
+		<devname></devname>
+		<default_meid>0x19</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>		<!-- us_acl_action -->
+		<attr i="2">0</attr>		<!-- us_acl_count -->
+		<attr i="3">			<!-- us_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+		<attr i="4">0</attr>		<!-- ds_acl_action -->
+		<attr i="5">0</attr>		<!-- ds_acl_count -->
+		<attr i="6">			<!-- ds_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+	</instance>
+	<instance i="26">
+		<devname></devname>
+		<default_meid>0x1A</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>		<!-- us_acl_action -->
+		<attr i="2">0</attr>		<!-- us_acl_count -->
+		<attr i="3">			<!-- us_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+		<attr i="4">0</attr>		<!-- ds_acl_action -->
+		<attr i="5">0</attr>		<!-- ds_acl_count -->
+		<attr i="6">			<!-- ds_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+	</instance>
+	<instance i="27">
+		<devname></devname>
+		<default_meid>0x1B</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>		<!-- us_acl_action -->
+		<attr i="2">0</attr>		<!-- us_acl_count -->
+		<attr i="3">			<!-- us_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+		<attr i="4">0</attr>		<!-- ds_acl_action -->
+		<attr i="5">0</attr>		<!-- ds_acl_count -->
+		<attr i="6">			<!-- ds_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+	</instance>
+	<instance i="28">
+		<devname></devname>
+		<default_meid>0x1C</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>		<!-- us_acl_action -->
+		<attr i="2">0</attr>		<!-- us_acl_count -->
+		<attr i="3">			<!-- us_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+		<attr i="4">0</attr>		<!-- ds_acl_action -->
+		<attr i="5">0</attr>		<!-- ds_acl_count -->
+		<attr i="6">			<!-- ds_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+	</instance>
+	<instance i="29">
+		<devname></devname>
+		<default_meid>0x1D</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>		<!-- us_acl_action -->
+		<attr i="2">0</attr>		<!-- us_acl_count -->
+		<attr i="3">			<!-- us_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+		<attr i="4">0</attr>		<!-- ds_acl_action -->
+		<attr i="5">0</attr>		<!-- ds_acl_count -->
+		<attr i="6">			<!-- ds_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+	</instance>
+	<instance i="30">
+		<devname></devname>
+		<default_meid>0x1E</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>		<!-- us_acl_action -->
+		<attr i="2">0</attr>		<!-- us_acl_count -->
+		<attr i="3">			<!-- us_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+		<attr i="4">0</attr>		<!-- ds_acl_action -->
+		<attr i="5">0</attr>		<!-- ds_acl_count -->
+		<attr i="6">			<!-- ds_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+	</instance>
+	<instance i="31">
+		<devname></devname>
+		<default_meid>0x1F</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>		<!-- us_acl_action -->
+		<attr i="2">0</attr>		<!-- us_acl_count -->
+		<attr i="3">			<!-- us_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+		<attr i="4">0</attr>		<!-- ds_acl_action -->
+		<attr i="5">0</attr>		<!-- ds_acl_count -->
+		<attr i="6">			<!-- ds_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+	</instance>
+	<instance i="32">
+		<devname></devname>
+		<default_meid>0x20</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>		<!-- us_acl_action -->
+		<attr i="2">0</attr>		<!-- us_acl_count -->
+		<attr i="3">			<!-- us_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+		<attr i="4">0</attr>		<!-- ds_acl_action -->
+		<attr i="5">0</attr>		<!-- ds_acl_count -->
+		<attr i="6">			<!-- ds_port_acl_entry -->
+			<attr_table>
+				<!-- 0: index -->
+				<!-- 1: rule_field -->
+				<!-- 2: rule_field_value -->
+				<!-- 3: rule_operator -->
+				<entry i="0">0,0,00:00:00:00:00:00,0</entry>
+				<entry i="1">1,0,00:00:00:00:00:00,0</entry>
+				<entry i="2">2,0,00:00:00:00:00:00,0</entry>
+				<entry i="3">3,0,00:00:00:00:00:00,0</entry>
+			</attr_table>
+		</attr>
+	</instance>
+</class>
+
+<class id="65290" attr_total="1">	<!-- omci_me_sw_port_acl_rule, 9.99.19 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>4</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0x00</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- acl_rule_num -->
+	</instance>
+	<instance i="1">
+		<devname></devname>
+		<default_meid>0x01</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- acl_rule_num -->
+	</instance>
+	<instance i="2">
+		<devname></devname>
+		<default_meid>0x02</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- acl_rule_num -->
+	</instance>
+	<instance i="3">
+		<devname></devname>
+		<default_meid>0x03</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- acl_rule_num -->
+	</instance>
+</class>
+
+<class id="65345" attr_total="2">	<!-- ONU_performance, 9.99.20 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>1</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0x00</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Cpu_usage -->
+		<attr i="2">0</attr>	<!-- Memory_usage -->
+	</instance>
+</class>
+
+<class id="65286" attr_total="3">	<!-- ONU_performance, 9.99.21 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Queue_priority -->
+		<attr i="2">0</attr>	<!-- Queue_mode -->
+		<attr i="3">0</attr>	<!-- Queue_weight -->
+	</instance>
+</class>
+
+<class id="65307" attr_total="16">	<!-- ONU_switchport_config, 9.99.22 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">1</attr>	<!-- FE_enable -->
+		<attr i="2">1</attr>	<!-- FE_adaptive -->
+		<attr i="3">1</attr>	<!-- Speed_mode -->
+		<attr i="4">1</attr>	<!-- Duplex_mode -->
+		<attr i="5">1</attr>	<!-- Flowctrl -->
+		<attr i="6">0</attr>	<!-- Us_limit_enable -->
+		<attr i="7">0</attr>	<!-- Us_limit_speed -->
+		<attr i="8">0</attr>	<!-- Ds_limit_enable -->
+		<attr i="9">0</attr>	<!-- Ds_limit_speed -->
+		<attr i="10">0</attr>	<!-- Upstream_rate_control_enable -->
+		<attr i="11">0</attr>	<!-- Upstream_assure_rate -->
+		<attr i="12">0</attr>	<!-- Upstream_burst_rate -->
+		<attr i="13">0</attr>	<!-- Upstream_extra_bytes -->
+		<attr i="14">0</attr>	<!-- Downstream_rate_control_enable -->
+		<attr i="15">0</attr>	<!-- Downstream_assure_rate -->
+		<attr i="16">0</attr>	<!-- Downstream_peak_rate -->
+	</instance>
+</class>
+
+<class id="65346" attr_total="13">	
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>4</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffcf</pm_is_accumulated_mask>
+	</instance>
+	<instance i="1">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffcf</pm_is_accumulated_mask>
+	</instance>
+	<instance i="2">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffcf</pm_is_accumulated_mask>
+	</instance>
+	<instance i="3">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffcf</pm_is_accumulated_mask>
+	</instance>
+</class>
+
+<class id="65347" attr_total="1">	
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>12</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">	
+			<attr_table>
+				<!-- 0: vid-->
+			</attr_table>
+		</attr>
+	</instance>
+</class>
+
+<class id="65348" attr_total="12">	<!-- ONU_performance time stamp, 9.99.26 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>1</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0x00</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- PM_start_year -->
+		<attr i="2">0</attr>	<!-- PM_start_month -->
+		<attr i="3">0</attr>	<!-- PM_start_day -->
+		<attr i="4">0</attr>	<!-- PM_start_hour -->
+		<attr i="5">0</attr>	<!-- PM_start_minute -->
+		<attr i="6">0</attr>	<!-- PM_start_second -->
+		<attr i="7">0</attr>	<!-- PM_end_year -->
+		<attr i="8">0</attr>	<!-- PM_end_month -->
+		<attr i="9">0</attr>	<!-- PM_end_day -->
+		<attr i="10">0</attr>	<!-- PM_end_hour -->
+		<attr i="11">0</attr>	<!-- PM_end_minute -->
+		<attr i="12">0</attr>	<!-- PM_end_second -->
+	</instance>
+</class>
+
+<class id="65282" attr_total="2">	
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>4</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">1</attr>
+		<attr i="2">20</attr>
+	</instance>
+	<instance i="1">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">1</attr>
+		<attr i="2">20</attr>
+	</instance>
+	<instance i="2">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">1</attr>
+		<attr i="2">20</attr>
+	</instance>
+	<instance i="3">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">1</attr>
+		<attr i="2">20</attr>
+	</instance>
+</class>
+
+<class id="65425" attr_total="16">	<!-- WRI_NGN_resource_info, 9.99.27 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>1</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Received_NGN_req_packets -->
+		<attr i="2">0</attr>	<!-- Send_NGN_req_packets -->
+		<attr i="3">0</attr>	<!-- Received_NGN_resp_packets -->
+		<attr i="4">0</attr>	<!-- Send_NGN_resp_packets -->
+		<attr i="5">0</attr>	<!-- Received_rtp_packets -->
+		<attr i="6">0</attr>	<!-- Send_rtp_packets -->
+		<attr i="7">0</attr>	<!-- Received_rtp_bytes -->
+		<attr i="8">0</attr>	<!-- Send_rtp_bytes -->
+		<attr i="9">0</attr>	<!-- Packet_loss -->
+		<attr i="10">0</attr>	<!-- Network_avg_delay -->
+		<attr i="11">0</attr>	<!-- RTP_avg_jitter_buffer -->
+		<attr i="12">0</attr>	<!-- Bandwidth_usage -->
+		<attr i="13">0</attr>	<!-- Lost_sig_packets -->
+		<attr i="14">0</attr>	<!-- Retransmit_packets -->
+		<attr i="15">0</attr>	<!-- Wrong_sig_packets -->
+		<attr i="16">0</attr>	<!-- Unknown_sig_packets -->
+	</instance>
+</class>
+
+<class id="65426" attr_total="15">	<!-- WRI_NGN_port_statics, 9.99.28 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>2</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0xFFFF</attr>	<!-- Port -->
+		<attr i="2">0</attr>		<!-- Received_rtp_packets -->
+		<attr i="3">0</attr>		<!-- Send_rtp_packets -->
+		<attr i="4">0</attr>		<!-- Received_rtp_bytes -->
+		<attr i="5">0</attr>		<!-- Send_rtp_bytes -->
+		<attr i="6">0</attr>		<!-- RTP_jitter_buffer -->
+		<attr i="7"></attr>		<!-- Latest_call_begin_time -->
+		<attr i="8"></attr>		<!-- Latest_call_end_time -->
+		<attr i="9">0</attr>		<!-- Last_call_duration -->
+		<attr i="10">0</attr>		<!-- Total_call_times -->
+		<attr i="11">0</attr>		<!-- Total_call_duration -->
+		<attr i="12">0</attr>		<!-- Upstream_rates -->
+		<attr i="13">0</attr>		<!-- Downstream_rates -->
+		<attr i="14">0</attr>		<!-- Avg_network_delay -->
+		<attr i="15">0</attr>		<!-- Packet_loss -->
+	</instance>
+	<instance i="1">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0xFFFF</attr>	<!-- Port -->
+		<attr i="2">0</attr>		<!-- Received_rtp_packets -->
+		<attr i="3">0</attr>		<!-- Send_rtp_packets -->
+		<attr i="4">0</attr>		<!-- Received_rtp_bytes -->
+		<attr i="5">0</attr>		<!-- Send_rtp_bytes -->
+		<attr i="6">0</attr>		<!-- RTP_jitter_buffer -->
+		<attr i="7"></attr>		<!-- Latest_call_begin_time -->
+		<attr i="8"></attr>		<!-- Latest_call_end_time -->
+		<attr i="9">0</attr>		<!-- Last_call_duration -->
+		<attr i="10">0</attr>		<!-- Total_call_times -->
+		<attr i="11">0</attr>		<!-- Total_call_duration -->
+		<attr i="12">0</attr>		<!-- Upstream_rates -->
+		<attr i="13">0</attr>		<!-- Downstream_rates -->
+		<attr i="14">0</attr>		<!-- Avg_network_delay -->
+		<attr i="15">0</attr>		<!-- Packet_loss -->
+	</instance>
+</class>
+
+<class id="65330" attr_total="8">	<!-- Lineid_info, 9.99.29 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>1</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0x0</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>		<!-- Option82_enable -->
+		<attr i="2">0</attr>		<!-- Option18_enable -->
+		<attr i="3">0</attr>		<!-- Option37_enable -->
+		<attr i="4">0</attr>		<!-- Pppoeplus_enable -->
+		<attr i="5">0</attr>		<!-- Lineidformat_length -->
+		<attr i="6">0</attr>		<!-- Lineidformat_pointer -->
+		<attr i="7">0</attr>		<!-- Lineidparam_length -->
+		<attr i="8">0</attr>		<!-- Lineidparam_pointer -->
+	</instance>
+</class>
+
+<class id="65333" attr_total="2">	<!-- ONU_PON_switchport, 9.99.30 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>1</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Us_limit_speed -->
+		<attr i="2">0</attr>	<!-- Ds_limit_speed -->
+	</instance>
+</class>
+
+<class id="65419" attr_total="7">	<!-- WRI_sip_config, 9.99.31 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>1</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0xFFFF</attr>	<!-- Secondary_SIP_registrar_server_address_pointer -->
+		<attr i="2">0xFFFF</attr>	<!-- Secondary_proxy_server_address_pointer -->
+		<attr i="3">0</attr>	<!-- First_registrar_port -->
+		<attr i="4">0</attr>	<!-- First_proxy_port -->
+		<attr i="5">0</attr>	<!-- Secondary_registrar_port -->
+		<attr i="6">0</attr>	<!-- Secondary_proxy_port -->
+		<attr i="7">0xF015</attr>	<!-- Current_SIP_registrar_pointer -->
+	</instance>
+</class>
+
+<class id="65349" attr_total="16">	<!-- Large_string, 9.99.32 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- Number_of_octets -->
+		<attr i="2"></attr>	<!-- Part_1 -->
+		<attr i="3"></attr>	<!-- Part_2 -->
+		<attr i="4"></attr>	<!-- Part_3 -->
+		<attr i="5"></attr>	<!-- Part_4 -->
+		<attr i="6"></attr>	<!-- Part_5 -->
+		<attr i="7"></attr>	<!-- Part_6 -->
+		<attr i="8"></attr>	<!-- Part_7 -->
+		<attr i="9"></attr>	<!-- Part_8 -->
+		<attr i="10"></attr>	<!-- Part_9 -->
+		<attr i="11"></attr>	<!-- Part_10 -->
+		<attr i="12"></attr>	<!-- Part_11 -->
+		<attr i="13"></attr>	<!-- Part_12 -->
+		<attr i="14"></attr>	<!-- Part_13 -->
+		<attr i="15"></attr>	<!-- Part_14 -->
+		<attr i="16"></attr>	<!-- Part_15 -->
+	</instance>
+</class>
+
+<class id="65420" attr_total="5">	<!-- WRI_softswitch_progile_config, 9.99.33 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>1</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">1</attr>	<!-- Dail_tone_timeout -->
+		<attr i="2">1</attr>	<!-- Noanswer_tone_timeout -->
+		<attr i="3">1</attr>	<!-- Busy_tone_timeout -->
+		<attr i="4">1</attr>	<!-- ROH_timeout -->
+		<attr i="5">1</attr>	<!-- Retransmit_timeout -->
+	</instance>
+</class>
+
+<class id="65297" attr_total="5">	<!-- Onu_opt_threshold, 9.99.34 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>21</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Alarmcode -->
+		<attr i="2">0,0,0</attr>	<!-- Alarm_threshold -->
+		<attr i="3">0,0,0</attr>	<!-- Clear_threshold -->
+		<attr i="4">0</attr>	<!-- Alarm_open_enable -->
+		<attr i="5">1</attr>	<!-- Onu_pon_id -->
+	</instance>
+</class>
+
+<class id="65427" attr_total="14">	<!-- WRI_voip_vlan_info, 9.99.35 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>1</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0x8100</attr>	<!-- SignalSvlanTpid -->
+		<attr i="2">0</attr>	<!-- SignalSvlanId -->
+		<attr i="3">0</attr>	<!-- SignalSvlanCos -->
+		<attr i="4">0x8100</attr>	<!-- SignalCvlanTpid -->
+		<attr i="5">0</attr>	<!-- SignalCvlanId -->
+		<attr i="6">0</attr>	<!-- SignalCvlanCos -->
+		<attr i="7">0x8100</attr>	<!-- RtpSvlanTpid -->
+		<attr i="8">0</attr>	<!-- RtpSvlanId -->
+		<attr i="9">0</attr>	<!-- RtpSvlanCos -->
+		<attr i="10">0x8100</attr>	<!-- RtpCvlanTpid -->
+		<attr i="11">0</attr>	<!-- RtpCvlanId -->
+		<attr i="12">0</attr>	<!-- RtpCvlanCos -->
+		<attr i="13">0</attr>	<!-- RtpIP -->
+		<attr i="14">0</attr>	<!-- RtpGateway -->
+	</instance>
+</class>
+
+<class id="65428" attr_total="9">	<!-- WRI_H248_port_config, 9.99.36 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>2</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Portno -->
+		<attr i="2"></attr>	<!-- TerminationID -->
+		<attr i="3">0</attr>	<!-- PortServiceState -->
+		<attr i="4">0</attr>	<!-- ReversedPolarity -->
+		<attr i="5"></attr>	<!-- RtpName -->
+		<attr i="6">0</attr>	<!-- RtpPort -->
+		<attr i="7">0</attr>	<!-- PortStatus -->
+		<attr i="8">0xf014</attr>	<!-- MgDomainName -->
+		<attr i="9">0xf016</attr>	<!-- CurrentMGCServer -->
+	</instance>
+</class>
+
+<class id="65363" attr_total="16">	<!-- Unknown_ME_65363 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0x0</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>
+		<attr i="2"></attr>
+		<attr i="3"></attr>
+		<attr i="4"></attr>
+		<attr i="5"></attr>
+		<attr i="6"></attr>
+		<attr i="7"></attr>
+		<attr i="8"></attr>
+		<attr i="9"></attr>
+		<attr i="10"></attr>
+		<attr i="11"></attr>
+		<attr i="12"></attr>
+		<attr i="13"></attr>
+		<attr i="14"></attr>
+		<attr i="15"></attr>
+		<attr i="16"></attr>
+	</instance>
+</class>
+
+<class id="65457" attr_total="16">	<!-- Unknown_ME_65457 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0x0</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>
+		<attr i="2"></attr>
+		<attr i="3"></attr>
+		<attr i="4"></attr>
+		<attr i="5"></attr>
+		<attr i="6"></attr>
+		<attr i="7"></attr>
+		<attr i="8"></attr>
+		<attr i="9"></attr>
+		<attr i="10"></attr>
+		<attr i="11"></attr>
+		<attr i="12"></attr>
+		<attr i="13"></attr>
+		<attr i="14"></attr>
+		<attr i="15"></attr>
+		<attr i="16"></attr>
+	</instance>
+</class>
+
+</omci>

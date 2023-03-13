@@ -1,0 +1,195 @@
+<omci name="Miscellaneous services" section="9.13">
+
+<class id="82" attr_total="5">	<!-- Physical_path_termination_point_video_UNI, 9.13.1 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0x401</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">1</attr>	<!-- Administrative_state -->
+		<attr i="2"></attr>	<!-- Operational_state -->
+		<attr i="3"></attr>	<!-- ARC -->
+		<attr i="4"></attr>	<!-- ARC_interval -->
+		<attr i="5"></attr>	<!-- Power_control -->
+	</instance>
+</class>
+
+<class id="83" attr_total="1">	<!-- Physical_path_termination_point_video_UNI, 9.13.3 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0x101</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">0</attr>	<!-- Administrative_state -->
+	</instance>
+</class>
+
+<class id="90" attr_total="16">	<!-- Physical_path_termination_point_video_ANI, 9.13.2 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1">1</attr>	<!-- Administrative_state -->
+		<attr i="2"></attr>	<!-- Operational_state -->
+		<attr i="3"></attr>	<!-- ARC -->
+		<attr i="4"></attr>	<!-- ARC_interval -->
+		<attr i="5">1</attr>	<!-- Frequency_range_low -->
+		<attr i="6">2</attr>	<!-- Frequency_range_high -->
+		<attr i="7">1</attr>	<!-- Signal_capability -->
+		<attr i="8"></attr>	<!-- Optical_signal_level -->
+		<attr i="9"></attr>	<!-- Pilot_signal_level -->
+		<attr i="10">0xB</attr>	<!-- Signal_level_min -->
+		<attr i="11">0x13</attr>	<!-- Signal_level_max -->
+		<attr i="12"></attr>	<!-- Pilot_frequency -->
+		<attr i="13">1</attr>	<!-- AGC_mode -->
+		<attr i="14"></attr>	<!-- AGC_setting -->
+		<attr i="15">0xA1</attr>	<!-- Video_lower_optical_threshold -->
+		<attr i="16">0x19</attr>	<!-- Video_upper_optical_threshold -->
+	</instance>
+</class>
+
+<class id="14" attr_total="9">	<!-- Interworking_VCC_termination_point, 9.13.4 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- VCI_value -->
+		<attr i="2"></attr>	<!-- VP_network_CTP_connectivity_pointer -->
+		<attr i="3"></attr>	<!-- Interworking_option -->
+		<attr i="4"></attr>	<!-- Service_profile_pointer -->
+		<attr i="5"></attr>	<!-- AAL5_profile_pointer -->
+		<attr i="6"></attr>	<!-- Interworking_termination_point_pointer -->
+		<attr i="7"></attr>	<!-- AAL_loopback_configuration -->
+		<attr i="8"></attr>	<!-- PPTP_counter -->
+		<attr i="9"></attr>	<!-- Operational_state -->
+	</instance>
+</class>
+
+
+<class id="16" attr_total="3">	<!-- AAL_5_profile, 9.13.5 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- Max_CPCS_PDU_size -->
+		<attr i="2"></attr>	<!-- AAL_mode -->
+		<attr i="3"></attr>	<!-- SSCS_type -->
+	</instance>
+</class>
+
+
+<class id="18" attr_total="7">	<!-- AAL_5_performance_monitoring_history_data, 9.13.6 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- Interval_end_time -->
+		<attr i="2"></attr>	<!-- Threshold_data_1/2_id -->
+		<attr i="3"></attr>	<!-- Sum_of_invalid_CS_field_errors -->
+		<attr i="4"></attr>	<!-- CRC_violations -->
+		<attr i="5"></attr>	<!-- Reassembly_timer_expirations -->
+		<attr i="6"></attr>	<!-- Buffer_overflows -->
+		<attr i="7"></attr>	<!-- Encap_protocol_errors -->
+	</instance>
+</class>
+
+
+<class id="128" attr_total="9">	<!-- Video_return_path_service_profile, 9.13.7 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- Administrative_state -->
+		<attr i="2"></attr>	<!-- Operational_state -->
+		<attr i="3"></attr>	<!-- ARC -->
+		<attr i="4"></attr>	<!-- ARC_interval -->
+		<attr i="5"></attr>	<!-- VRP_mode -->
+		<attr i="6"></attr>	<!-- VRP_frequency_lower_bound -->
+		<attr i="7"></attr>	<!-- VRP_frequency_upper_bound -->
+		<attr i="8"></attr>	<!-- VRP_frequency_used -->
+		<attr i="9"></attr>	<!-- Mode_1_physical_layer_configuration_mode -->
+	</instance>
+</class>
+
+
+<class id="129" attr_total="10">	<!-- Video_return_path_performance_monitoring_history_data, 9.13.8 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- Interval_end_time -->
+		<attr i="2"></attr>	<!-- Threshold_data_1/2_id -->
+		<attr i="3"></attr>	<!-- Rx_total_bursts -->
+		<attr i="4"></attr>	<!-- Rx_good_bursts -->
+		<attr i="5"></attr>	<!-- Rx_FEC_corrected_bursts -->
+		<attr i="6"></attr>	<!-- Rx_missed_bursts -->
+		<attr i="7"></attr>	<!-- Rx_min_power -->
+		<attr i="8"></attr>	<!-- Rx_max_power -->
+		<attr i="9"></attr>	<!-- Rx_current_power -->
+		<attr i="10"></attr>	<!-- Rx_FEC_corrected_symbols -->
+	</instance>
+</class>
+
+
+<class id="25" attr_total="7">	<!-- VP_network_CTP_G, 9.13.9 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- VPI_value -->
+		<attr i="2"></attr>	<!-- UNI_pointer -->
+		<attr i="3"></attr>	<!-- Direction -->
+		<attr i="4"></attr>	<!-- Priority_queue_pointer_for_downstream -->
+		<attr i="5"></attr>	<!-- Traffic_management_pointer_for_upstream -->
+		<attr i="6"></attr>	<!-- Traffic_descriptor_profile_pointer -->
+		<attr i="7"></attr>	<!-- UNI_counter -->
+	</instance>
+</class>
+
+
+<class id="62" attr_total="8">	<!-- VP_performance_monitoring_history_data, 9.13.10 -->
+	<support>1</support>	<!-- 1:support, 2:unsupport, 3:paritcal support, 4:ignored -->
+	<instance_total_max>255</instance_total_max>
+	<instance i="0">
+		<devname></devname>
+		<default_meid>0xffff</default_meid>
+		<pm_is_accumulated_mask>0xffff</pm_is_accumulated_mask>
+		<is_private>0</is_private>
+		<attr i="1"></attr>	<!-- Interval_end_time -->
+		<attr i="2"></attr>	<!-- Threshold_data_1/2_id -->
+		<attr i="3"></attr>	<!-- Lost_C_0_1_cells -->
+		<attr i="4"></attr>	<!-- Lost_C_0_cells -->
+		<attr i="5"></attr>	<!-- Misinserted_cells -->
+		<attr i="6"></attr>	<!-- Transmitted_C_0_1_cells -->
+		<attr i="7"></attr>	<!-- Transmitted_C_0_cells -->
+		<attr i="8"></attr>	<!-- Impaired_blocks -->
+	</instance>
+</class>
+
+</omci>
+

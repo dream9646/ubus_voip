@@ -1,0 +1,281 @@
+/////////////////////////////////////////////////////////////////////////////////////////////
+第一部份 OMCI CLI
+* 軟體部份：vacl初始化(init)
+ * 任何時候都可以使用初始化命令將軟體部份的環境清理乾淨並完成初始化。
+
+* 軟體部份：vacl規則的設定(set)
+ * 每一條vacl規則包含：a."比對條件(field)"、b."執行動作(action)"、c."有效埠(port)"、d."排序值(order)"。
+ * 請使用set命令來設定這四部份的細節資訊。
+ * 此部份線上幫助解說命令為"vacl set help"。
+
+ * 比對條件(field)
+    * 這部份命令是以"vacl set fld"為開頭的命令。
+    * ether type range的設定屬於例外
+      * 因為硬體本身並沒有提供這項功能，所以用ether type mask來模擬之。
+      * 所輸入的ether type range rule在vacl add時會被拆成數個ether type mask rules來取代原來的range rule。接下來的行為就跟一般輸入ehter type mask rule無異。
+    * 細節請參考線上幫助。
+
+ * 執行動作(action)
+    * 這部份命令是以"vacl set act"為開頭的命令。
+    * 支援的型態為：
+      * Drop(0)
+      * Forward Copy(1), Forward Redirect(2), Forward Mirror(3), 
+      * Trap-to-CPU(4) 
+      * Meter(5) 
+      * Latch(6)
+      * pri-ipri(730)
+      * pri-dscp(731)
+      * pri-dot1p(732)
+    * 其中三種Forward需要另外設定logical port mask。
+    * Meter需要另外設定bucket_size, rate, ifg。
+    * Priority Assignment
+      * 730 (internal ACL Priority)需要(另外)設定priority 0~7。
+      * 731 (DSCP Remarking)需要(另外)設定DSCP 0~63。
+      * 732 (dot1p Remarking)需要(另外)設定priority 0~7。
+    * 細節請參考線上幫助。
+
+ * 規則之有效埠口組(port_mask)
+    * 請使用"vacl set port"來設定該vacl規則的有效埠口組。
+    * 該值為邏輯埠口組(logical port mask)並非實體的(physical port mask)。
+    * 有效埠口組值0x01代表埠口0有效，0x02代表埠口1有效，0x03代表埠口0和1有效，依此類推。
+
+ * 排序值(order)
+    * 請使用"vacl set order"來設定vacl規則的使用者預定排序值。
+    * 排序值的有效範圍為0~255，其中0~99為保留給classification使用。
+    * 不同的排序值以越小的值為越優先。
+    * 相同排序值的規則之先後順序依照規則被加入的順序而定。
+
+* 軟體部份：vacl規則的加入(add)、刪除(del)、有效(valid)、列出所有(dump)、確認(commit)
+ * 設定完一條vacl規則之後，請用加入(add)命令來將這一條vacl規則加入到規則池(rule pool)。
+ * 或者使用刪除(del)命令來將這一條vacl規則從規則池當中刪除掉，刪除之後必須再使用硬體確認(hw_commit)命令來使其生效。
+ * 加入及刪除的動作可以相互交叉以及重複進行多次。
+ * 有效(valid)的命令目的在於使規則生效或失效。
+ * 規則的設定過程當中，可以利用列出所有(dump)命令來將規則池所有規則的細節一一列出，以便檢查設定完整與否。但這時不會包含規則的硬體排序值(hw order)。
+ * 一旦所有規則已經設定加入完成，並且檢查完規則池所有規則後，就可以使用確認(commit)命令來產生規則池中所有規則的硬體排序值。
+ * 確認(commit)命令並非強制，也可以直接執行硬體確認(hcommit)，會自動產生硬體排序值(hw order)。
+ * 使用確認命令產生規則的硬體排序值之後，也可以再列出規則池所有規則，來檢查每一條規則的所有細節，這時就會包含硬體排序值了。
+
+* 硬體部份：vacl硬體初始化(hw_init)
+ * 建議在系統初始時就完成初始化。
+
+* 硬體部份：硬體確認(hw_commit)
+ * 使用硬體確認(hw_commit)命令來將軟體部份的規則池中所有的規則放到硬體裡面，並使規則在硬體中發生效用。
+
+* 硬體部份：硬體列出所有(hw_dump)
+ * 使用硬體列出所有(hw_dump)命令來將硬體規則池所有規則的細節一一列出，以便檢查設定完整與否。
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+第二部份 ACL API
+* 軟體部份：初始化
+	vacl_hw_register(NULL);		// hw functions dummy hooking
+	vacl_init();			// initialization
+
+* 軟體部份：全域設定
+	vacl_mode_set(mode);		// optional, set rules mode, mode=64 or 128. default is 64
+	vacl_port_enable_set(0x3f);	// optional, 設定所有acl規則的全域邏輯有效埠。 default is 0x3f
+	// 有效埠口值0x01代表埠口0有效，0x02代表埠口1有效，0x03代表埠口0和1有效，依此類推。
+	vacl_port_permit_set(0x3f);	// optional, 設定Permit的全域邏輯有效埠，所有的封包都會被轉送，但只有吻合acl規則的封包會"執行動作"。default is 0x3f
+
+* 軟體部份：acl規則的設定
+ * 資料結構初始化
+	struct vacl_user_node_t acl_rule;
+	memset(&acl_rule, 0, sizeof(struct vacl_user_node_t));
+ 	vacl_user_node_init(&acl_rule);
+ * 比對條件(field)
+    * 相關變數為"external use variables"部份的"each rule field variables"：dstmac ～ invert。(ref acl.h)
+    * 當某條件變數給定值時，請將該條件變數的相關care_bit設定起來。
+    * care_bit的資料結構為struct acl_template_field_care_t。
+    * 條件變數定值輔助函式如下，紀錄在acl_util.h：
+int vacl_dmac_str_set(struct vacl_user_node_t *rule_p, char *addr, char *mask);
+int vacl_smac_str_set(struct vacl_user_node_t *rule_p, char *addr, char *mask);
+int vacl_dip_str_set(struct vacl_user_node_t *rule_p, char *addr, char *mask);
+int vacl_sip_str_set(struct vacl_user_node_t *rule_p, char *addr, char *mask);
+int vacl_dip_bound_str_set(struct vacl_user_node_t *rule_p, char *lb, char *ub);
+int vacl_sip_bound_str_set(struct vacl_user_node_t *rule_p, char *lb, char *ub);
+int vacl_sip6_addr_str_set(struct vacl_user_node_t *rule_p, char *addr, char *mask);
+int vacl_dip6_bound_str_set(struct vacl_user_node_t *rule_p, char *lb, char *ub);
+int vacl_sip6_bound_str_set(struct vacl_user_node_t *rule_p, char *lb, char *ub);
+
+ * 執行動作(action)
+    * 相關變數為"external use variables"部份的"each rule action variables"。(ref acl.h)
+    * act_type的值範圍為
+      { ACL_ACT_DROP_MASK,
+        ACL_ACT_FWD_COPY_MASK,
+        ACL_ACT_FWD_REDIRECT_MASK,
+        ACL_ACT_FWD_MIRROR_MASK,
+        ACL_ACT_TRAP_CPU_MASK,
+        ACL_ACT_METER_MASK,
+        ACL_ACT_LATCH_MASK }
+
+ * 有效埠口(port)
+    * 相關變數為"external use variables"部份的：
+	unsigned int	active_portmask; /* rule source port */
+
+ * 排序值(order)
+    * 相關變數為"external use variables"部份的order。
+    * 排序值的有效範圍為0~255，其中0~99為保留給classification使用。
+    * 相同排序值的規則依照加入的先後順序決定彼此間的前後關係。
+
+* 軟體部份：acl規則的加入(add)、刪除(del crc,hworder,order)、列出所有(dump)、確認(commit)
+	int vacl_add(struct vacl_user_node_t *, int *);
+	int vacl_del_crc(unsigned int crc, unsigned short *hw_order);
+	int vacl_del_hworder(unsigned short hw_order);
+	int vacl_del_order(unsigned short order, int *count);
+	int vacl_commit(void);
+	int vacl_dump(int fd);
+
+ * 加入(add)的方式只有循序由後加入。加入(add)函式的第二個參數回傳該規則依照先後順序加入此order序列的相對位置。當order為0而且之後沒有該規則或之前規則的刪除動作，則此位置即代表置入硬體ACL表格的規則序值。
+ * 有三種刪除方式，分別依照crc, hw_order, order來刪除。呼叫刪除之後必須再執行硬體確認 vacl_hw_g.commit()，使動作生效至硬體。觀念上，刪除動作僅對vacl軟體層動作，所以需要抹掉之前對硬體的設定後，再將新的軟體規則池內容寫入硬體之中。
+
+* 硬體部份：acl硬體初始化(hw_init)
+ * 僅執行一次，每次執行後，硬體內部的規則都會被清除掉。
+#ifndef x86
+	extern struct vacl_hw_t vacl_hw_fvt2510_g;
+	vacl_hw_register(struct vacl_hw_t *);
+	vacl_hw_g.init();
+#endif
+
+* 硬體部份：硬體確認 vacl_hw_g.commit()
+ * 將所有vacl的規則一次儲存至硬體中
+
+* 硬體部份：硬體列出所有 vacl_hw_g.dump()
+
+* OMCI CLI test case
+
+omci vacl init
+# init 會清除掉所有軟體裡面的acl規則
+omci vacl hw_init 
+# hinit 會清除掉所有硬體裡面的acl規則
+
+omci vacl set fld sip6 6780::2451:6830:2436:1476
+omci vacl set fld sip6_m ffff::ffff:ffff:ffff:ffff
+omci vacl set fld dip6 fe80::224:7eff:fede:1d7b
+omci vacl set fld dip6_m ffff::ffff:ffff:ffff:ffff
+omci vacl set fld pktlen_lb  512
+omci vacl set fld pktlen_ub 1518
+omci vacl set fld pktlen_invert 1
+omci vacl set act 0
+omci vacl set port 8
+omci vacl set order 30
+omci vacl add
+
+omci vacl set fld dip6 fe80::224:7eff:fede:1d7b
+omci vacl set fld dip6_m ffff::ffff:ffff:ffff:ffff
+omci vacl set act 5
+omci vacl set act meter 0 0 0
+omci vacl set port 8
+omci vacl set order 31
+omci vacl add
+
+omci vacl set fld dmac 00:24:7e:de:1d:7b
+omci vacl set fld dmac_m ff:ff:ff:ff:ff:ff
+omci vacl set act 0
+omci vacl set port 0x10
+omci vacl set order 32
+omci vacl add
+
+omci vacl set fld dmac ff:ff:ff:ff:ff:ff
+omci vacl set fld dmac_m ff:ff:ff:ff:ff:ff
+omci vacl set act 2
+omci vacl set act port 0x20
+omci vacl set port 0xff
+omci vacl set order 32
+omci vacl add
+
+omci vacl set fld smac 00:24:7e:de:1d:7b
+omci vacl set fld smac_m ff:ff:ff:ff:ff:ff
+omci vacl set act 1
+omci vacl set act port 15
+omci vacl set port 0x20
+omci vacl set order 33
+omci vacl add
+
+omci vacl set fld sip 192.168.1.1
+omci vacl set fld sip_m 255.255.255.255
+omci vacl set act 0
+omci vacl set port 8
+omci vacl set order 34
+omci vacl add
+
+omci vacl set fld dip 10.20.74.74
+omci vacl set fld dip_m 255.255.255.255
+omci vacl set act 0
+omci vacl set port 8
+omci vacl set order 35
+omci vacl add
+
+omci vacl set fld stag 47104 65535
+omci vacl set act 0
+omci vacl set port 8
+omci vacl set order 36
+omci vacl add
+
+omci vacl set fld ctag 60440 65535
+omci vacl set act 0
+omci vacl set port 8
+omci vacl set order 37
+omci vacl add
+
+omci vacl set fld cvid_lb 111
+omci vacl set fld cvid_ub 222
+omci vacl set fld svid_lb 333
+omci vacl set fld svid_ub 444
+omci vacl set act 0
+omci vacl set port 8
+omci vacl set order 38
+omci vacl add
+
+omci vacl set fld sport_lb  67
+omci vacl set fld sport_ub  68
+omci vacl set act 4
+omci vacl set port 0x2f
+omci vacl set order 39
+omci vacl add
+
+omci vacl set fld dip6_lb fe80::224:7eff:fede:1d7b
+omci vacl set fld dip6_ub fe80::224:7eff:fede:ffff
+omci vacl set fld sip6_lb feff::224:7eff:fede:1d7b
+omci vacl set fld sip6_ub feff::224:7eff:fede:ffff
+omci vacl set fld dip_lb 192.168.1.1
+omci vacl set fld dip_ub 192.168.1.255
+omci vacl set fld sip_lb 10.20.32.1
+omci vacl set fld sip_ub 10.20.32.255
+omci vacl set act 0
+omci vacl set port 8
+omci vacl set order 40
+omci vacl add
+
+omci vacl set fld pktlen_lb  512
+omci vacl set fld pktlen_ub 1518
+omci vacl set fld pktlen_invert 1
+omci vacl set act 0
+omci vacl set port 8
+omci vacl set order 41
+omci vacl add
+
+omci vacl set fld gem 0x1234
+omci vacl set fld gem_m 0xffff
+omci vacl set act 0
+omci vacl set port 8
+omci vacl set order 141
+omci vacl add
+
+omci vacl set fld ethertype 0x0908
+omci vacl set fld ethertype_m 0xffff
+omci vacl set act 4
+omci vacl set port 8
+omci vacl set order 142
+omci vacl add
+
+omci vacl set fld ethertype_lb 0x229f
+omci vacl set fld ethertype_ub 0x22a6
+omci vacl set act 732 3
+omci vacl set port 8
+omci vacl set order 143
+omci vacl add
+
+omci vacl commit
+omci vacl dump
+
+omci vacl hw_commit
+omci vacl hw_dump
