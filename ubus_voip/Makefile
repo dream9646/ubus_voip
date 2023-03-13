@@ -1,7 +1,7 @@
 OUTPUT = ubus_demo
 OBJ = ubus_demo.o
-LIBS = -lm -lubus -lubox -lpthread -luci -ljson-c
- 
+#LIBS = -lm -lubus -lubox -lpthread -luci -ljson-c
+LIBS = 
 all: $(OUTPUT)
  
  
