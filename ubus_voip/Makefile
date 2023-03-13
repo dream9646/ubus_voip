@@ -9,4 +9,3 @@ LIBS =
 
 ubus_voip: $(OBJ)
 	gcc -o $@ $^ $(CFLAGS) $(LIBS)
-
