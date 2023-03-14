@@ -1,6 +1,6 @@
 OUTPUT = ubus_voip
 OBJ = ubus_voip.o
-LIBS = -lm -lubus -lubox -lpthread -luci -ljson-c 
+LIBS = -lubus -lubox -luci -ljson-c -lblobmsg_json 
 all: $(OUTPUT)
  
  
