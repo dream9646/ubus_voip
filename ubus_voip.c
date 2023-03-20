@@ -19,9 +19,9 @@ void ubus_voip_uci_changes();
 #define UBUS_VOIP_LOG_FILE "/var/log/ubus_voip.log"
 #define SUCCESS 1
 #define FAIL -1
-#include <stdint.h> // add this header for uint32_t
+#include <stdint.h> // add this header for uint64_t
 
-uint64_t cfg_logmask = LOG_EMERG; // use uint32_t instead of unsigned int
+uint64_t cfg_logmask = LOG_EMERG;
 
 // definition 0..7 are borrowed from /usr/include/syslog.h
 #define LOG_EMERG 0			/* system is unusable */
@@ -39,7 +39,7 @@ uint64_t cfg_logmask = LOG_EMERG; // use uint32_t instead of unsigned int
 #define LOG_GLOBAL_RESET_SIZE (100 * 1024)
 
 static int
-util_logprintf(char *logfile, uint64_t loglevel, char *fmt, ...) // use uint32_t instead of int
+util_logprintf(char *logfile, uint64_t loglevel, char *fmt, ...)
 {
 	va_list ap;
 	FILE *fp;
@@ -72,7 +72,7 @@ util_logprintf(char *logfile, uint64_t loglevel, char *fmt, ...) // use uint32_t
 		milliseconds = 999;
 	sprintf(timestamp + 19, ".%03d", milliseconds); // Append milliseconds
 	// Add timestamp, cfg_logmask, and UBUS_VOIP to the log message
-	fprintf(fp, "[%s][%llu][UBUS_VOIP] ", timestamp, loglevel); // use %u for uint32_t
+	fprintf(fp, "[%s][%llu][UBUS_VOIP] ", timestamp, loglevel);
 	va_start(ap, fmt);
 	ret = vfprintf(fp, fmt, ap);
 	va_end(ap);
@@ -439,7 +439,6 @@ char *ubus_voip_cmd_list_set(char *section, char *key, char *value)
 			sprintf(cmd, "fvcli set %s %s\n", tmp_cmd->fvcli_key, value);
 			if (cfg_logmask >= LOG_INFO)
 			{
-				// util_logprintf(UBUS_VOIP_LOG_FILE, LOG_INFO, "Execute [fvcli set %s %s]\n", tmp_cmd->fvcli_key, value);
 				ubus_voip_delete_sub_str(cmd, "\n", cmd);
 				util_logprintf(UBUS_VOIP_LOG_FILE, LOG_INFO, "Execute [%s]\n", cmd);
 				strcat(cmd, "\n");
@@ -459,7 +458,6 @@ char *ubus_voip_cmd_list_set(char *section, char *key, char *value)
 							strcat(cmd, "\n");
 						}
 					}
-					// char buf[2] = {line[0], '\0'};
 					buf[0] = line[0];
 					strcat(results, buf);
 				}
@@ -500,7 +498,6 @@ char *ubus_voip_cmd_list_set(char *section, char *key, char *value)
 							strcat(cmd, "\n");
 						}
 					}
-					// char buf[2] = {line[0], '\0'};
 					buf[0] = line[0];
 					strcat(results, buf);
 				}
@@ -527,16 +524,7 @@ char *ubus_voip_cmd_list_set(char *section, char *key, char *value)
 			{
 				util_logprintf(UBUS_VOIP_LOG_FILE, LOG_DEBUG, "Ubus_voip is beginning to excute cmd_list.sh\n");
 			}
-			/*strcpy(sh_tmp, "/etc/voip/cmd_list.sh ");
-			strcat(sh_tmp, tmp_cmd->fvcli_key);
-			strcat(sh_tmp, " ");
-			strcat(sh_tmp, value);
-			strcat(sh_tmp, " ");
-			strcat(sh_tmp, ep);*/
-			// sprintf(sh_tmp, "/etc/voip/cmd_list.sh %s %s %s", tmp_cmd->fvcli_key, value, ep);
 			snprintf(sh_tmp, sizeof(sh_tmp), "/etc/voip/cmd_list.sh %s %s %s", tmp_cmd->fvcli_key, value, ep);
-			// snprintf(sh_tmp, sizeof(sh_tmp), "/etc/voip/cmd_list.sh %s %.*s %s", tmp_cmd->fvcli_key, BUF_SIZE_1 - strlen(tmp_cmd->fvcli_key) - strlen(ep) - 3, value, ep);
-
 			fp_sh = popen(sh_tmp, "r");
 			if (fp_sh == NULL)
 			{
@@ -559,7 +547,6 @@ char *ubus_voip_cmd_list_set(char *section, char *key, char *value)
 				strcat(buffer_sh, "\n");
 			}
 			fp_cmd = popen(buffer_sh, "r");
-
 			if (NULL != fp_cmd)
 			{
 				while (fgets(line, BUF_SIZE_1, fp_cmd) != NULL)
@@ -574,7 +561,6 @@ char *ubus_voip_cmd_list_set(char *section, char *key, char *value)
 							strcat(buffer_sh, "\n");
 						}
 					}
-					// char buf[2] = {line[0], '\0'};
 					buf[0] = line[0];
 					strcat(results, buf);
 				}
@@ -709,57 +695,45 @@ void ubus_voip_uci_changes()
 	struct uci_context *ctx = uci_alloc_context();
 	INIT_LIST_HEAD(&tmplist);
 	// log
-	// cfg_logmask = LOG_INFO | LOG_DEBUG | LOG_ERR;
-	// uci get
 	struct uci_ptr ptr = {
 		.package = "fvt_evoip",
 		.section = "GENERAL",
 		.option = "ubus_voip_log_level",
 	};
-	if (uci_lookup_ptr(ctx, &ptr, NULL, true) == UCI_OK) // 修改讀取 ptr.o->v.string 的方式
+	if (uci_lookup_ptr(ctx, &ptr, NULL, true) == UCI_OK)
 	{
-		int log_level = atoi(ptr.o->v.string); // 將字符串轉換為整數
+		int log_level = atoi(ptr.o->v.string);
 		switch (log_level)
 		{
 		case LOG_EMERG:
 			cfg_logmask = LOG_EMERG;
-			//printf("cfg_logmask = LOG_EMERG\n");
 			break;
 		case LOG_ALERT:
 			cfg_logmask = LOG_ALERT;
-			//printf("cfg_logmask = LOG_ALERT\n");
 			break;
 		case LOG_CRIT:
 			cfg_logmask = LOG_CRIT;
-			//printf("cfg_logmask = LOG_CRIT\n");
 			break;
 		case LOG_ERR:
 			cfg_logmask = LOG_ERR;
-			//printf("cfg_logmask = LOG_ERR\n");
 			break;
 		case LOG_WARNING:
 			cfg_logmask = LOG_WARNING;
-			//printf("cfg_logmask = LOG_WARNING\n");
 			break;
 		case LOG_NOTICE:
 			cfg_logmask = LOG_NOTICE;
-			printf("cfg_logmask = LOG_NOTICE\n");
 			break;
 		case LOG_INFO:
 			cfg_logmask = LOG_INFO;
-			//printf("cfg_logmask = LOG_INFO\n");
 			break;
 		case LOG_DEBUG:
 			cfg_logmask = LOG_DEBUG;
-			//printf("cfg_logmask = LOG_DEBUG\n");
 			break;
 		case LOG_VERBOSE:
 			cfg_logmask = LOG_VERBOSE;
-			//printf("cfg_logmask = LOG_VERBOSE\n");
 			break;
 		default:
-			cfg_logmask = LOG_EMERG;
-			//printf("cfg_logmask = LOG_UNDEFINED\n");
+			cfg_logmask = LOG_UNDEFINED;
 			break;
 		}
 	}
@@ -770,7 +744,6 @@ void ubus_voip_uci_changes()
 		util_logprintf(UBUS_VOIP_LOG_FILE, LOG_DEBUG, "Start ubus_voip uci changes\n");
 	}
 	//
-
 	fp = popen("uci changes fvt_evoip", "r");
 	if (fp == NULL)
 	{
@@ -780,7 +753,6 @@ void ubus_voip_uci_changes()
 		}
 		return;
 	}
-
 	while (fgets(buf, BUF_SIZE_1, fp) != NULL)
 	{
 		key = strtok(buf, "=");
@@ -796,7 +768,6 @@ void ubus_voip_uci_changes()
 			value = strtok(NULL, "=");
 			if (buf[0] == '-')
 			{
-				// value = space;
 				value = "";
 			}
 			if (value != NULL)
