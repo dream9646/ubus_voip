@@ -5,6 +5,7 @@
 #include <ctype.h>
 #include <sys/time.h>
 #include <sys/stat.h>
+#include <stdint.h>
 // prototype
 struct ubus_voip_cmd_list ubus_voip_cmd_list(struct ubus_voip_cmd_list ubus_voip_cmdlist);
 int ubus_voip_set_fv_voip(const char *key, const char *value);
@@ -19,7 +20,6 @@ void ubus_voip_uci_changes();
 #define UBUS_VOIP_LOG_FILE "/var/log/ubus_voip.log"
 #define SUCCESS 1
 #define FAIL -1
-#include <stdint.h> // add this header for uint64_t
 
 uint64_t cfg_logmask = LOG_EMERG;
 
