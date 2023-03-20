@@ -917,10 +917,6 @@ ubus_voip_cmd_end(struct ubus_context *ctx, struct ubus_object *obj,
 				  struct ubus_request_data *req, const char *method,
 				  struct blob_attr *msg)
 {
-	if (cfg_logmask >= LOG_DEBUG)
-	{
-		util_logprintf(UBUS_VOIP_LOG_FILE, LOG_DEBUG, "Execute ubus method cmd_end\n");
-	}
 	// Call ubus_voip_uci_changes function with owner as argument
 	ubus_voip_uci_changes();
 	return 0;
@@ -929,10 +925,6 @@ int main(int argc, char **argv)
 {
 	const char *ubus_socket = NULL;
 	int ch;
-	if (cfg_logmask >= LOG_DEBUG)
-	{
-		util_logprintf(UBUS_VOIP_LOG_FILE, LOG_DEBUG, "Ubus_voip is beginning to execute ubus\n");
-	}
 	while ((ch = getopt(argc, argv, "s:t:")) != -1)
 	{
 		switch (ch)
@@ -949,10 +941,6 @@ int main(int argc, char **argv)
 	}
 	if (rpc_exec_timeout < 1000 || rpc_exec_timeout > 600000)
 	{
-		if (cfg_logmask >= LOG_ERR)
-		{
-			util_logprintf(UBUS_VOIP_LOG_FILE, LOG_ERR, "Invalid execution timeout specified for ubus\n");
-		}
 		return -1;
 	}
 	signal(SIGPIPE, SIG_IGN);
@@ -960,10 +948,6 @@ int main(int argc, char **argv)
 	ctx = ubus_connect(ubus_socket);
 	if (!ctx)
 	{
-		if (cfg_logmask >= LOG_ERR)
-		{
-			util_logprintf(UBUS_VOIP_LOG_FILE, LOG_ERR, "Failed to connect to ubus\n");
-		}
 		return FAIL;
 	}
 	ubus_add_uloop(ctx);
@@ -981,9 +965,5 @@ int main(int argc, char **argv)
 	uloop_run();
 	ubus_free(ctx);
 	uloop_done();
-	if (cfg_logmask >= LOG_DEBUG)
-	{
-		util_logprintf(UBUS_VOIP_LOG_FILE, LOG_DEBUG, "Ubus_voip has finished to execute ubus\n");
-	}
 	return 0;
 }
