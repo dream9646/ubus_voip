@@ -1,0 +1,30 @@
+#This symbol "#" can be used to write comments in a file, 
+#indicating that the line should be skipped.
+fvcli_set log_destination logdestination
+fvcli_set log_debug_level logdebuglevel
+fvcli_set log_indication logindication
+fvcli_set log_filename logfilename
+fvcli_set log_filesize logfilesize
+fvcli_set log_server logserver
+#rtp_port_base and rtp_port_limit would use cmd_list.sh to combinate these two value
+script rtp_port_base rtpportbase
+script rtp_port_limit rtpportlimit
+#ep
+fvcli_set_ep device_id deviceid
+fvcli_set_ep ep_enable epenable
+fvcli_set_ep account_enable accountenable
+fvcli_set_ep interface_name interfacename
+fvcli_set_ep aec_tail aectail
+fvcli_set_ep aec_enable aecenable
+fvcli_set_ep lec_tail lectail
+fvcli_set_ep lec_enable lecenable
+fvcli_set_ep tx_level txlevel
+fvcli_set_ep rx_level rxlevel
+fvcli_set_ep txrx_delay txrxdelay
+fvcli_set_ep jb_type jbtype
+fvcli_set_ep cid_type cidtype
+fvcli_set_ep cid_timing cidtiming
+fvcli_set_ep cid_data_msg_format ciddatamsgformat
+fvcli_set_ep cidg_signal_lvl_dbm cidgsignallvldbm
+fvcli_set_ep cidcw_opt cidcwopt
+fvcli_set_ep mwi_type mwitype
