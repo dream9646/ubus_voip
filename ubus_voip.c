@@ -243,7 +243,7 @@ int ubus_voip_set_fv_voip(const char *key, const char *value)
 	char input_value[BUF_SIZE_1];
 	strcpy(input_value, value);
 
-	sscanf(key, "fvt_evoip.%[^.].%s", input_section, input_key);
+	sscanf(key, "evoip.%[^.].%s", input_section, input_key);
 
 	if (cfg_logmask >= LOG_DEBUG)
 	{
@@ -698,7 +698,7 @@ void ubus_voip_uci_changes()
 	INIT_LIST_HEAD(&tmplist);
 	// log
 	struct uci_ptr ptr = {
-		.package = "fvt_evoip",
+		.package = "evoip",
 		.section = "GENERAL",
 		.option = "ubus_voip_log_level",
 	};
@@ -746,19 +746,19 @@ void ubus_voip_uci_changes()
 		util_logprintf(UBUS_VOIP_LOG_FILE, LOG_DEBUG, "Start ubus_voip uci changes\n");
 	}
 	//
-	fp = popen("uci changes fvt_evoip", "r");
+	fp = popen("uci changes evoip", "r");
 	if (fp == NULL)
 	{
 		if (cfg_logmask >= LOG_ERR)
 		{
-			util_logprintf(UBUS_VOIP_LOG_FILE, LOG_ERR, "An error occurred while executing [uci changes fvt_evoip]\n");
+			util_logprintf(UBUS_VOIP_LOG_FILE, LOG_ERR, "An error occurred while executing [uci changes evoip]\n");
 		}
 		return;
 	}
 	while (fgets(buf, BUF_SIZE_1, fp) != NULL)
 	{
 		key = strtok(buf, "=");
-		//  Deal uci entry is ' ' and would be -fvt_evoip.section.key
+		//  Deal uci entry is ' ' and would be -evoip.section.key
 		if (buf[0] == '-')
 		{
 			key = strtok(buf, "-");
@@ -787,7 +787,7 @@ void ubus_voip_uci_changes()
 	list_for_each_entry(tmp, &tmplist, list)
 	{
 		ubus_voip_delete_sub_str(tmp->value, "\'", tmp->value);
-		sscanf(tmp->key, "fvt_evoip.%[^.].%s", input_section, input_key);
+		sscanf(tmp->key, "evoip.%[^.].%s", input_section, input_key);
 		strcpy(tmp->ret, ubus_voip_cmd_list_set(input_section, input_key, tmp->value));
 		if (tmp->ret[0] != '1' &&
 			tmp->ret[0] != '0')
@@ -807,15 +807,15 @@ void ubus_voip_uci_changes()
 		{
 			util_logprintf(UBUS_VOIP_LOG_FILE, LOG_INFO, "Fvcli command all success\n");
 		}
-		int check = ubus_voip_uci_commit_package("fvt_evoip");
+		int check = ubus_voip_uci_commit_package("evoip");
 		if (check == FAIL)
 		{
 			if (cfg_logmask >= LOG_ERR)
 			{
-				util_logprintf(UBUS_VOIP_LOG_FILE, LOG_ERR, "UCI commit fvt_evoip failed\n");
+				util_logprintf(UBUS_VOIP_LOG_FILE, LOG_ERR, "UCI commit evoip failed\n");
 			}
 		}
-		// change the fvt_evoip_uci.config file
+		// change the evoip_uci.config file
 		list_for_each_entry(tmp, &tmplist, list)
 		{
 			ubus_voip_set_fv_voip(tmp->key, tmp->value);
@@ -828,12 +828,12 @@ void ubus_voip_uci_changes()
 		{
 			util_logprintf(UBUS_VOIP_LOG_FILE, LOG_INFO, "Fvcli command failed\n");
 		}
-		int check = ubus_voip_uci_revert_package("fvt_evoip");
+		int check = ubus_voip_uci_revert_package("evoip");
 		if (check == FAIL)
 		{
 			if (cfg_logmask >= LOG_ERR)
 			{
-				util_logprintf(UBUS_VOIP_LOG_FILE, LOG_ERR, "UCI revert fvt_evoip failed\n");
+				util_logprintf(UBUS_VOIP_LOG_FILE, LOG_ERR, "UCI revert evoip failed\n");
 			}
 		}
 		// voip revert
@@ -857,7 +857,7 @@ void ubus_voip_uci_changes()
 			}
 			else if (strstr(tmp->key, "-") != NULL)
 			{
-				sscanf(tmp->key, "fvt_evoip.%[^.].%s", input_section, input_key);
+				sscanf(tmp->key, "evoip.%[^.].%s", input_section, input_key);
 				for (int i = 0; i < strlen(input_key); i++)
 				{
 					if (input_key[i] == '-')
@@ -879,9 +879,9 @@ void ubus_voip_uci_changes()
 					}
 				}
 				// uci get
-				sscanf(tmp->key, "fvt_evoip.%[^.].%s", input_section, input_key);
+				sscanf(tmp->key, "evoip.%[^.].%s", input_section, input_key);
 				struct uci_ptr ptr = {
-					.package = "fvt_evoip",
+					.package = "evoip",
 					.section = input_section,
 					.option = input_key,
 				};
@@ -909,7 +909,7 @@ void ubus_voip_uci_changes()
 	{
 		if (cfg_logmask >= LOG_ERR)
 		{
-			util_logprintf(UBUS_VOIP_LOG_FILE, LOG_ERR, "An error occurred while executing [uci changes fvt_evoip]\n");
+			util_logprintf(UBUS_VOIP_LOG_FILE, LOG_ERR, "An error occurred while executing [uci changes evoip]\n");
 		}
 	}
 }
@@ -956,9 +956,9 @@ int main(int argc, char **argv)
 	static const struct ubus_method uci_methods[] = {
 		{.name = "cmd_end", .handler = ubus_voip_cmd_end}};
 	static struct ubus_object_type uci_type =
-		UBUS_OBJECT_TYPE("fvt_evoip", uci_methods);
+		UBUS_OBJECT_TYPE("evoip", uci_methods);
 	static struct ubus_object obj = {
-		.name = "fvt_evoip",
+		.name = "evoip",
 		.type = &uci_type,
 		.methods = uci_methods,
 		.n_methods = ARRAY_SIZE(uci_methods),
