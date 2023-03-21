@@ -22,8 +22,8 @@ uint64_t cfg_logmask = LOG_EMERG;
 #define LOG_GLOBAL_RESET_SIZE (100 * 1024)
 #define SUCCESS 1
 #define FAIL -1
-
-//uint64_t cfg_logmask = LOG_EMERG;
+#define VERSION "1.0"
+// uint64_t cfg_logmask = LOG_EMERG;
 
 // definition 0..7 are borrowed from /usr/include/syslog.h
 #define LOG_EMERG 0			/* system is unusable */
@@ -37,8 +37,6 @@ uint64_t cfg_logmask = LOG_EMERG;
 #define LOG_VERBOSE 8		/* verbose debug-level messages */
 #define LOG_ALWAYS (1 << 8) /* override whether to print a message determined by loglevel */
 #define LOG_UNDEFINED -1	/* reserved for per lm->*level threshold, which means inherit level from logm_global */
-
-
 
 static int
 util_logprintf(char *logfile, uint64_t loglevel, char *fmt, ...)
@@ -923,6 +921,14 @@ ubus_voip_cmd_end(struct ubus_context *ctx, struct ubus_object *obj,
 	ubus_voip_uci_changes();
 	return 0;
 }
+static int
+ubus_voip_version(struct ubus_context *ctx, struct ubus_object *obj,
+				  struct ubus_request_data *req, const char *method,
+				  struct blob_attr *msg)
+{
+	printf("ubus_voip_version=%s\n", VERSION);
+	return 0;
+}
 int main(int argc, char **argv)
 {
 	const char *ubus_socket = NULL;
@@ -954,7 +960,8 @@ int main(int argc, char **argv)
 	}
 	ubus_add_uloop(ctx);
 	static const struct ubus_method uci_methods[] = {
-		{.name = "cmd_end", .handler = ubus_voip_cmd_end}};
+		{.name = "cmd_end", .handler = ubus_voip_cmd_end},
+		{.name = "version", .handler = ubus_voip_version}};
 	static struct ubus_object_type uci_type =
 		UBUS_OBJECT_TYPE("evoip", uci_methods);
 	static struct ubus_object obj = {
