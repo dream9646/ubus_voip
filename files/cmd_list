@@ -7,8 +7,8 @@ fvcli_set log_filename logfilename
 fvcli_set log_filesize logfilesize
 fvcli_set log_server logserver
 #rtp_port_base and rtp_port_limit would use cmd_list.sh to combinate these two value
-script rtp_port_base rtpportbase
-script rtp_port_limit rtpportlimit
+#script rtp_port_base rtpportbase
+#script rtp_port_limit rtpportlimit
 #ep
 fvcli_set_ep device_id deviceid
 fvcli_set_ep ep_enable epenable
@@ -28,3 +28,47 @@ fvcli_set_ep cid_data_msg_format ciddatamsgformat
 fvcli_set_ep cidg_signal_lvl_dbm cidgsignallvldbm
 fvcli_set_ep cidcw_opt cidcwopt
 fvcli_set_ep mwi_type mwitype
+#new
+#list not ready
+fvcli_set dns_server
+fvcli_set_ep sip_proxies sipproxy
+fvcli_set_ep outbound_proxies outboundproxy
+fvcli_set sip_registrars sipregistrar
+#list not ready
+fvcli_set_ep account_enable accountenable
+fvcli_set_ep tdi_impedance_index tdiimpedanceindex
+fvcli_set_ep mwi_server_sip_uri mwiaccounturi
+fvcli_set_ep mwi_subscribe_expire_time mwisubscribetimeout
+fvcli_set_ep release_timeout releasetimeout
+fvcli_set_ep roh_timeout rohtimeout
+fvcli_set_ep sip_ip_addr_protocol transportprotocol/ipaddress
+fvcli_set_ep sip_registration_timeout registrationtimeout
+fvcli_set_ep sip_reregistration_head_start_time sipreregistrationheadstarttime
+fvcli_set_ep sip_ip_addr_domain_name sipdomainname
+fvcli_set_ep fax_params_t38_fax_opt fax_params_t38_fax_opt
+fvcli_set_ep vad_type vad_type
+fvcli_set_ep dtmf_type dtmf_type
+fvcli_set_ep aec_enable aecenable
+fvcli_set e164_country_code e164countrycode
+fvcli_set_ep flashhook_timeout_ub flashhooktimeoutlb
+fvcli_set_ep flashhook_timeout_lb flashhooktimeoutub
+script rtp_port_base rtpportbase
+script rtp_port_limit rtpportlimit
+fvcli_set media_tos mediatos
+fvcli_set_ep cid_type cidtype
+fvcli_set_ep cid_data_msg_format ciddatamsgformat
+fvcli_set_ep cid_blocking_option cidblockingoption
+fvcli_set_ep call_waiting_option callwaitingopt
+fvcli_set_ep cid_type cidtype
+fvcli_set_ep threeway_option  threeway
+fvcli_set_ep transfer_option transferoption
+fvcli_set_ep flashhook_option flashhookoption
+fvcli_set_ep mwi_type mwitype
+fvcli_set_ep hotline_option hotlineoption
+fvcli_set_ep hotline_uri hotlineuri
+fvcli_set_ep digitmap_max_num
+fvcli_set_ep digit_start_timeout
+fvcli_set_ep dialtone_timeout
+fvcli_set digitmap_syntax
+fvcli_set_ep digitmap_match_mode
+#

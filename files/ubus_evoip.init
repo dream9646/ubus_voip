@@ -3,7 +3,7 @@ START=99
 STOP=90
 SERVICE_USE_PID=1
 USE_PROCD=1
-_BIN=/bin/ubus_evoip
+_BIN=/opt/voip/bin/ubus_evoip
 PROCD_DEBUG=1
 start_service() {
     procd_open_instance 
