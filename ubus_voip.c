@@ -18,10 +18,12 @@ int ubus_voip_uci_revert_package(char *input_package);
 void ubus_voip_uci_changes();
 //  log
 #define UBUS_VOIP_LOG_FILE "/var/log/ubus_voip.log"
+uint64_t cfg_logmask = LOG_EMERG;
+#define LOG_GLOBAL_RESET_SIZE (100 * 1024)
 #define SUCCESS 1
 #define FAIL -1
 
-uint64_t cfg_logmask = LOG_EMERG;
+//uint64_t cfg_logmask = LOG_EMERG;
 
 // definition 0..7 are borrowed from /usr/include/syslog.h
 #define LOG_EMERG 0			/* system is unusable */
@@ -36,7 +38,7 @@ uint64_t cfg_logmask = LOG_EMERG;
 #define LOG_ALWAYS (1 << 8) /* override whether to print a message determined by loglevel */
 #define LOG_UNDEFINED -1	/* reserved for per lm->*level threshold, which means inherit level from logm_global */
 
-#define LOG_GLOBAL_RESET_SIZE (100 * 1024)
+
 
 static int
 util_logprintf(char *logfile, uint64_t loglevel, char *fmt, ...)
@@ -522,15 +524,15 @@ char *ubus_voip_cmd_list_set(char *section, char *key, char *value)
 			char sh_tmp[BUF_SIZE_1 * 2];
 			if (cfg_logmask >= LOG_DEBUG)
 			{
-				util_logprintf(UBUS_VOIP_LOG_FILE, LOG_DEBUG, "Ubus_voip is beginning to excute cmd_list.sh\n");
+				util_logprintf(UBUS_VOIP_LOG_FILE, LOG_DEBUG, "Ubus_voip is beginning to excute rtp_port_base.sh\n");
 			}
-			snprintf(sh_tmp, sizeof(sh_tmp), "/etc/voip/cmd_list.sh %s %s %s", tmp_cmd->fvcli_key, value, ep);
+			snprintf(sh_tmp, sizeof(sh_tmp), "/etc/voip/rtp_port_base.sh %s %s %s", tmp_cmd->fvcli_key, value, ep);
 			fp_sh = popen(sh_tmp, "r");
 			if (fp_sh == NULL)
 			{
 				if (cfg_logmask >= LOG_ERR)
 				{
-					util_logprintf(UBUS_VOIP_LOG_FILE, LOG_ERR, "There was an error while attempting to open cmd_list.sh\n");
+					util_logprintf(UBUS_VOIP_LOG_FILE, LOG_ERR, "There was an error while attempting to open rtp_port_base.sh\n");
 				}
 				exit(1);
 			}
@@ -538,7 +540,7 @@ char *ubus_voip_cmd_list_set(char *section, char *key, char *value)
 			pclose(fp_sh);
 			if (cfg_logmask >= LOG_DEBUG)
 			{
-				util_logprintf(UBUS_VOIP_LOG_FILE, LOG_DEBUG, "Ubus_voip has finished excuteing cmd_list.sh\n");
+				util_logprintf(UBUS_VOIP_LOG_FILE, LOG_DEBUG, "Ubus_voip has finished excuteing rtp_port_base.sh\n");
 			}
 			if (cfg_logmask >= LOG_INFO)
 			{
@@ -740,7 +742,7 @@ void ubus_voip_uci_changes()
 	uci_free_context(ctx);
 	if (cfg_logmask >= LOG_DEBUG)
 	{
-		util_logprintf(UBUS_VOIP_LOG_FILE, LOG_DEBUG, "Ubus_voip log level = %s\n", cfg_logmask);
+		util_logprintf(UBUS_VOIP_LOG_FILE, LOG_DEBUG, "Ubus_voip log level = %d\n", atoi(ptr.o->v.string));
 		util_logprintf(UBUS_VOIP_LOG_FILE, LOG_DEBUG, "Start ubus_voip uci changes\n");
 	}
 	//
