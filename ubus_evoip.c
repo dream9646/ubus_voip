@@ -1,4 +1,4 @@
-#include <libubox/uloop.h>
+i#include <libubox/uloop.h>
 #include <libubus.h>
 #include <libubox/ulog.h>
 #include <uci.h>
@@ -483,12 +483,6 @@ void ubus_voip_uci_changes()
 	struct ubus_voip_changes_list *tmp, *tmp_next;
 	struct list_head tmplist;
 	struct uci_context *ctx = uci_alloc_context();
-	util_logprintf(UBUS_VOIP_LOG_FILE, LOG_DEBUG, "invoke:\n");
-	ubus_invoke(ctx, "evoip", "version", NULL, NULL, NULL, 1000);
-	util_logprintf(UBUS_VOIP_LOG_FILE, LOG_DEBUG, "\n");
-	util_logprintf(UBUS_VOIP_LOG_FILE, LOG_DEBUG, "system:\n");
-	system("ubus call evoip version\n");
-	util_logprintf(UBUS_VOIP_LOG_FILE, LOG_DEBUG, "\n");
 	INIT_LIST_HEAD(&tmplist);
 	// log
 	struct uci_ptr ptr = {
@@ -709,12 +703,9 @@ ubus_voip_cmd_end(struct ubus_context *ctx, struct ubus_object *obj,
 				  struct blob_attr *msg)
 {
 	// Call ubus_voip_uci_changes function with owner as argument
-	uint64_t tmp = cfg_logmask;
-	cfg_logmask = LOG_INFO;
 	printf("ubus_voip_version=%s\n", VERSION);
 	util_logprintf(UBUS_VOIP_LOG_FILE, LOG_INFO, "ubus_voip_version=%s\n", VERSION);
 	ubus_voip_uci_changes();
-	cfg_logmask = tmp;
 	return 0;
 }
 static int
@@ -722,11 +713,8 @@ ubus_voip_version(struct ubus_context *ctx, struct ubus_object *obj,
 				  struct ubus_request_data *req, const char *method,
 				  struct blob_attr *msg)
 {
-	uint64_t tmp = cfg_logmask;
-	cfg_logmask = LOG_INFO;
 	printf("ubus_voip_version=%s\n", VERSION);
 	util_logprintf(UBUS_VOIP_LOG_FILE, LOG_INFO, "ubus_voip_version=%s\n", VERSION);
-	cfg_logmask = tmp;
 	return 0;
 }
 int main(int argc, char **argv)
@@ -771,7 +759,6 @@ int main(int argc, char **argv)
 		.n_methods = ARRAY_SIZE(uci_methods),
 	};
 	ubus_add_object(ctx, &obj);
-	
 	uloop_run();
 	ubus_free(ctx);
 	uloop_done();
