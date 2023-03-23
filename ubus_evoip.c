@@ -141,143 +141,6 @@ struct ubus_voip_cmd_list ubus_voip_cmd_list(struct ubus_voip_cmd_list ubus_voip
 	return ubus_voip_cmdlist;
 }
 
-int ubus_voip_fv_voip_process_line(FILE *fp, char *line, const char *input_section, const char *input_key, const char *input_value)
-{
-	static char fv_section[BUF_SIZE_1];
-	static char fv_key[BUF_SIZE_1];
-	static char new_line[BUF_SIZE_1 * 4];
-	static char new_line_add_list[BUF_SIZE_1 * 3];
-
-	char line_key[BUF_SIZE_1];
-	char line_value[BUF_SIZE_1];
-
-	sscanf(line, "%s = %s", line_key, line_value);
-
-	if (line_key[0] == '[' &&
-		line_key[strlen(line_key) - 1] == ']' &&
-		strlen(line_key) > 3)
-	{
-		sprintf(fv_section, "%s", line_key);
-	}
-
-	if (strstr(line, "="))
-	{
-		sprintf(fv_key, "%s", line_key);
-	}
-
-	if (strncmp(line_key, input_key, strlen(input_key)) == 0 && strcmp(fv_section, input_section) == 0)
-	{
-		sprintf(new_line, "%s = %s\r\n", input_key, input_value);
-		fputs(new_line, fp);
-	}
-	else if (strstr(input_key, "+") &&
-			 strncmp(line_key, input_key, strlen(line_key)) == 0 &&
-			 strcmp(fv_section, input_section) == 0)
-	{
-		int is_add = FAIL;
-		if (strstr(line, "{"))
-		{
-			is_add = SUCCESS;
-		}
-		while (is_add == SUCCESS)
-		{
-			if (strstr(line, "}") &&
-				strstr(input_key, fv_key))
-			{
-				is_add = FAIL;
-				strcpy(new_line_add_list, new_line);
-				snprintf(new_line, sizeof(new_line), "        %s\r\n", new_line_add_list);
-				// Make sure the new line is added to the end of the list
-				fputs(new_line, fp);
-				fputs(line, fp);
-			}
-			else
-			{
-				fputs(line, fp);
-			}
-		}
-	}
-	else if (strstr(input_key, "-") &&
-			 strncmp(line_key, input_key, strlen(line_key)) == 0 &&
-			 strcmp(fv_section, input_section) == 0)
-	{
-		int is_del = FAIL;
-		if (strstr(line, "{"))
-		{
-			is_del = SUCCESS;
-		}
-		while (is_del == SUCCESS)
-		{
-			sscanf(line, "%s = %s", line_key, line_value);
-			if (strstr(line, "="))
-			{
-				sprintf(fv_key, "%s", line_key);
-			}
-			if (strstr(line, new_line) &&
-				strstr(input_key, fv_key))
-			{
-				// Match, do not write
-				is_del = FAIL;
-			}
-			else
-			{
-				fputs(line, fp);
-			}
-		}
-	}
-	else
-	{
-		// Does not match, write the original line
-		fputs(line, fp);
-	}
-
-	return SUCCESS;
-}
-
-int ubus_voip_set_fv_voip(const char *key, const char *value)
-{
-	char input_section[BUF_SIZE_1];
-	char input_key[BUF_SIZE_1];
-	char input_value[BUF_SIZE_1];
-	strcpy(input_value, value);
-
-	sscanf(key, "evoip.%[^.].%s", input_section, input_key);
-
-	if (cfg_logmask >= LOG_DEBUG)
-	{
-		util_logprintf(UBUS_VOIP_LOG_FILE, LOG_DEBUG, "Ubus_voip is beginning to set fv_voip_uci.config\n");
-	}
-
-	FILE *fp = fopen("/etc/voip/fv_voip_uci.config", "rb+");
-	if (fp == NULL)
-	{
-		if (cfg_logmask >= LOG_ERR)
-		{
-			util_logprintf(UBUS_VOIP_LOG_FILE, LOG_ERR, "There was an error while attempting to open fv_voip_uci.config\n");
-		}
-		return FAIL;
-	}
-
-	char line[BUF_SIZE_1 * 2];
-	while (fgets(line, sizeof(line), fp) > 0)
-	{
-		int result = ubus_voip_fv_voip_process_line(fp, line, input_section, input_key, input_value);
-		if (result == FAIL)
-		{
-			break;
-		}
-	}
-
-	if (cfg_logmask >= LOG_DEBUG)
-	{
-		util_logprintf(UBUS_VOIP_LOG_FILE, LOG_DEBUG, "Ubus_voip has finished setting fv_voip_uci.config\n");
-	}
-
-	fflush(fp);
-	fclose(fp);
-	return SUCCESS;
-}
-
 int ubus_voip_delete_sub_str(const char *str, const char *sub_str, char *result_str)
 {
 	int count = 0;
@@ -332,76 +195,6 @@ int ubus_voip_delete_sub_str(const char *str, const char *sub_str, char *result_
 	return count;
 }
 
-char *ubus_voip_fv_voip_type(char *str)
-{
-	char res_list_val[BUF_SIZE_1 * 2] = {0};
-	char *p;
-	char a[BUF_SIZE_1] = {0};
-	char b[BUF_SIZE_1] = {0};
-	char c[BUF_SIZE_1] = {0};
-	int newline_count = 0;
-	int count = 0;
-
-	for (int i = 0; i < strlen(str); i++)
-	{
-		if (str[i] == '\n')
-			newline_count++;
-		if (str[i] == ' ')
-			count++;
-	}
-
-	p = strtok(str, "={");
-	ubus_voip_delete_sub_str(p, "}", p);
-	ubus_voip_delete_sub_str(p, "{", p);
-
-	if (newline_count < 3)
-	{
-		strcpy(res_list_val, p);
-	}
-	else
-	{
-		p = strtok(NULL, "\n");
-		p = strtok(NULL, "\n");
-
-		while (p != NULL)
-		{
-			if (strstr(p, " ") != NULL && (count == 5 || count == 6))
-			{
-				sscanf(p, " %s %s", a, b);
-
-				if (a[0] == '[' && a[strlen(a) - 1] == ']')
-				{
-					ubus_voip_delete_sub_str(a, "[", a);
-					ubus_voip_delete_sub_str(a, "]", a);
-				}
-
-				if (count == 6)
-				{
-					// Deal one line have three value count6=3+3
-					sscanf(p, " %s %s %s", a, b, c);
-					snprintf(p, BUF_SIZE_1 * 4, "%s.%s.%s ", a, b, c);
-				}
-				else
-				{
-					// Deal one line have two value count5=3+2
-					snprintf(p, BUF_SIZE_1 * 3, "%s.%s ", a, b);
-				}
-
-				strcat(res_list_val, p);
-				res_list_val[strlen(res_list_val) - 1] = '\0';
-				strcat(res_list_val, " ");
-			}
-			else
-			{
-				ubus_voip_delete_sub_str(p, "}", p);
-				strcat(res_list_val, p);
-				res_list_val[strlen(res_list_val) - 1] = '\0';
-			}
-			p = strtok(NULL, "\n");
-		}
-	}
-	return strdup(res_list_val);
-}
 
 char *ubus_voip_cmd_list_set(char *section, char *key, char *value)
 {
@@ -792,7 +585,7 @@ void ubus_voip_uci_changes()
 		{
 			if (cfg_logmask >= LOG_ERR)
 			{
-				util_logprintf(UBUS_VOIP_LOG_FILE, LOG_ERR, "An error occurred while executing uci changes : [%s.%s=%s] ret = [%c]\n", input_section, input_key, tmp->value, tmp->ret[0]);
+				util_logprintf(UBUS_VOIP_LOG_FILE, LOG_ERR, "An error occurred while executing uci changˊes : [%s.%s=%s] ret = [%c]\n", input_section, input_key, tmp->value, tmp->ret[0]);
 			}
 			ret = FAIL;
 		}
@@ -812,11 +605,6 @@ void ubus_voip_uci_changes()
 			{
 				util_logprintf(UBUS_VOIP_LOG_FILE, LOG_ERR, "UCI commit evoip failed\n");
 			}
-		}
-		// change the evoip_uci.config file
-		list_for_each_entry(tmp, &tmplist, list)
-		{
-			ubus_voip_set_fv_voip(tmp->key, tmp->value);
 		}
 	}
 	else if (ret == FAIL)
@@ -927,6 +715,7 @@ ubus_voip_version(struct ubus_context *ctx, struct ubus_object *obj,
 				  struct blob_attr *msg)
 {
 	printf("ubus_voip_version=%s\n", VERSION);
+	util_logprintf(UBUS_VOIP_LOG_FILE, LOG_INFO, "ubus_voip_version=%s\n", VERSION);
 	return 0;
 }
 int main(int argc, char **argv)
@@ -971,6 +760,16 @@ int main(int argc, char **argv)
 		.n_methods = ARRAY_SIZE(uci_methods),
 	};
 	ubus_add_object(ctx, &obj);
+	
+	// 調用ubus方法
+	/*struct ubus_request req;
+	const char *method = "version";
+	const char *path = "/evoip";
+	struct blob_buf req_buf;
+	blob_buf_init(&req_buf, 0);
+	ubus_invoke(ctx, path, method, req_buf.head, ubus_voip_cb, &req, rpc_exec_timeout);
+*/
+	system("ubus call evoip version\n");
 	uloop_run();
 	ubus_free(ctx);
 	uloop_done();

@@ -1,5 +1,5 @@
-OUTPUT = ubus_voip
-OBJ = ubus_voip.o
+OUTPUT = ubus_evoip
+OBJ = ubus_evoip.o
 LIBS = -lubus -lubox -luci -ljson-c -lblobmsg_json 
 all: $(OUTPUT)
  

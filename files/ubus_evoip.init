@@ -11,17 +11,11 @@ start_service() {
     procd_set_param stderr 1
     procd_set_param command  $_BIN
     procd_set_param respawn
-    procd_set_param file /etc/config/evoip
-    procd_set_param watch evoip
-    procd_set_param file /etc/voip/evoip_uci.config
     procd_close_instance
 }
-service_triggers() {
-  procd_add_reload_trigger evoip
-}
 stop_service() {
-   stop
+  stop
 }
 reload_service() {
-        restart
+  restart
 }
