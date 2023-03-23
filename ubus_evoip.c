@@ -793,7 +793,8 @@ int main(int argc, char **argv)
 	ubus_invoke(ctx, id, "hello", b.head, scanreq_prog_cb, NULL, timeout * 1000);
 
 */
-	ubus_call();
+	//ubus_call();
+	ubus_invoke(ctx, "evoip", "version", NULL, NULL, NULL, 1000);
 	uloop_run();
 	// ubus_call()
 	// system("ubus call evoip version\n");
