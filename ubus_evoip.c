@@ -20,6 +20,8 @@ void ubus_voip_uci_changes();
 void ubus_call()
 {
 	unsigned int id;
+
+	static struct ubus_context *ctx;
 	int ret;
 	ret = ubus_lookup_id(ctx, "evoip", &id);
 	if (ret != UBUS_STATUS_OK)
@@ -793,8 +795,8 @@ int main(int argc, char **argv)
 */
 	ubus_call();
 	uloop_run();
-	//ubus_call()
-	//system("ubus call evoip version\n");
+	// ubus_call()
+	// system("ubus call evoip version\n");
 	ubus_free(ctx);
 	uloop_done();
 	return 0;
