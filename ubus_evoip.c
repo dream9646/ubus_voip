@@ -16,29 +16,6 @@ char *ubus_voip_cmd_list_set(char *section, char *key, char *value);
 int ubus_voip_uci_commit_package(char *input_package);
 int ubus_voip_uci_revert_package(char *input_package);
 void ubus_voip_uci_changes();
-// version
-void ubus_call()
-{
-	unsigned int id;
-
-	static struct ubus_context *ctx;
-	int ret;
-	ret = ubus_lookup_id(ctx, "evoip", &id);
-	if (ret != UBUS_STATUS_OK)
-	{
-		printf("lookup scan_prog failed\n");
-		return;
-	}
-	else
-	{
-		printf("lookup scan_prog successs\n");
-	}
-
-	ubus_invoke(ctx, id, "version", NULL, NULL, NULL, 1000);
-
-	printf("====end============\n");
-}
-
 //  log
 #define UBUS_VOIP_LOG_FILE "/var/log/ubus_voip.log"
 uint64_t cfg_logmask = LOG_EMERG;
@@ -46,8 +23,6 @@ uint64_t cfg_logmask = LOG_EMERG;
 #define SUCCESS 1
 #define FAIL -1
 #define VERSION "1.0"
-// uint64_t cfg_logmask = LOG_EMERG;
-
 // definition 0..7 are borrowed from /usr/include/syslog.h
 #define LOG_EMERG 0			/* system is unusable */
 #define LOG_ALERT 1			/* action must be taken immediately */
@@ -736,7 +711,7 @@ ubus_voip_version(struct ubus_context *ctx, struct ubus_object *obj,
 				  struct ubus_request_data *req, const char *method,
 				  struct blob_attr *msg)
 {
-	printf("ubus_voip_version=%s\n", VERSION);
+	fprintf(stdout, "ubus_voip_version=%s\n", VERSION);
 	util_logprintf(UBUS_VOIP_LOG_FILE, LOG_INFO, "ubus_voip_version=%s\n", VERSION);
 	return 0;
 }
@@ -782,22 +757,8 @@ int main(int argc, char **argv)
 		.n_methods = ARRAY_SIZE(uci_methods),
 	};
 	ubus_add_object(ctx, &obj);
-
-	// 調用ubus方法
-	/*struct ubus_request req;
-	const char *method = "version";
-	const char *path = "/evoip";
-	struct blob_buf req_buf;
-	blob_buf_init(&req_buf, 0);
-	ubus_invoke(ctx, path, "version", b.head,NULL, &req, rpc_exec_timeout);
-	ubus_invoke(ctx, id, "hello", b.head, scanreq_prog_cb, NULL, timeout * 1000);
-
-*/
-	//ubus_call();
 	ubus_invoke(ctx, "evoip", "version", NULL, NULL, NULL, 1000);
 	uloop_run();
-	// ubus_call()
-	// system("ubus call evoip version\n");
 	ubus_free(ctx);
 	uloop_done();
 	return 0;
