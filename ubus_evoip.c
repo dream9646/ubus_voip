@@ -711,8 +711,11 @@ ubus_voip_version(struct ubus_context *ctx, struct ubus_object *obj,
 				  struct ubus_request_data *req, const char *method,
 				  struct blob_attr *msg)
 {
+	uint64_t tmp = cfg_logmask;
+	cfg_logmask = LOG_INFO;
 	printf("ubus_voip_version=%s\n", VERSION);
 	util_logprintf(UBUS_VOIP_LOG_FILE, LOG_INFO, "ubus_voip_version=%s\n", VERSION);
+	cfg_logmask = tmp;
 	return 0;
 }
 int main(int argc, char **argv)
