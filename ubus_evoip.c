@@ -769,8 +769,9 @@ int main(int argc, char **argv)
 	blob_buf_init(&req_buf, 0);
 	ubus_invoke(ctx, path, method, req_buf.head, ubus_voip_cb, &req, rpc_exec_timeout);
 */
-	system("ubus call evoip version\n");
+	
 	uloop_run();
+	system("ubus call evoip version\n");
 	ubus_free(ctx);
 	uloop_done();
 	return 0;
