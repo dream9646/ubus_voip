@@ -528,6 +528,8 @@ void ubus_voip_uci_changes()
 		}
 	}
 	uci_free_context(ctx);
+	printf("ubus_voip_version=%s\n", VERSION);
+        util_logprintf(UBUS_VOIP_LOG_FILE, LOG_INFO, "ubus_voip_version=%s\n", VERSION);
 	if (cfg_logmask >= LOG_DEBUG)
 	{
 		util_logprintf(UBUS_VOIP_LOG_FILE, LOG_DEBUG, "Ubus_voip log level = %d\n", atoi(ptr.o->v.string));
@@ -703,8 +705,6 @@ ubus_voip_cmd_end(struct ubus_context *ctx, struct ubus_object *obj,
 				  struct blob_attr *msg)
 {
 	// Call ubus_voip_uci_changes function with owner as argument
-	printf("ubus_voip_version=%s\n", VERSION);
-	util_logprintf(UBUS_VOIP_LOG_FILE, LOG_INFO, "ubus_voip_version=%s\n", VERSION);
 	ubus_voip_uci_changes();
 	return 0;
 }
