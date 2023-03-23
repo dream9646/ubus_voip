@@ -16,6 +16,27 @@ char *ubus_voip_cmd_list_set(char *section, char *key, char *value);
 int ubus_voip_uci_commit_package(char *input_package);
 int ubus_voip_uci_revert_package(char *input_package);
 void ubus_voip_uci_changes();
+// version
+void ubus_call()
+{
+	unsigned int id;
+	int ret;
+	ret = ubus_lookup_id(ctx, "evoip", &id);
+	if (ret != UBUS_STATUS_OK)
+	{
+		printf("lookup scan_prog failed\n");
+		return;
+	}
+	else
+	{
+		printf("lookup scan_prog successs\n");
+	}
+
+	ubus_invoke(ctx, id, "version", NULL, NULL, NULL, 1000);
+
+	printf("====end============\n");
+}
+
 //  log
 #define UBUS_VOIP_LOG_FILE "/var/log/ubus_voip.log"
 uint64_t cfg_logmask = LOG_EMERG;
@@ -194,7 +215,6 @@ int ubus_voip_delete_sub_str(const char *str, const char *sub_str, char *result_
 
 	return count;
 }
-
 
 char *ubus_voip_cmd_list_set(char *section, char *key, char *value)
 {
@@ -760,18 +780,21 @@ int main(int argc, char **argv)
 		.n_methods = ARRAY_SIZE(uci_methods),
 	};
 	ubus_add_object(ctx, &obj);
-	
+
 	// 調用ubus方法
 	/*struct ubus_request req;
 	const char *method = "version";
 	const char *path = "/evoip";
 	struct blob_buf req_buf;
 	blob_buf_init(&req_buf, 0);
-	ubus_invoke(ctx, path, method, req_buf.head, ubus_voip_cb, &req, rpc_exec_timeout);
+	ubus_invoke(ctx, path, "version", b.head,NULL, &req, rpc_exec_timeout);
+	ubus_invoke(ctx, id, "hello", b.head, scanreq_prog_cb, NULL, timeout * 1000);
+
 */
-	
+	ubus_call();
 	uloop_run();
-	system("ubus call evoip version\n");
+	//ubus_call()
+	//system("ubus call evoip version\n");
 	ubus_free(ctx);
 	uloop_done();
 	return 0;
