@@ -104,14 +104,14 @@ struct ubus_voip_cmd_list ubus_voip_cmd_list(struct ubus_voip_cmd_list ubus_voip
 {
 	if (cfg_logmask >= LOG_DEBUG)
 	{
-		util_logprintf(UBUS_VOIP_LOG_FILE, LOG_DEBUG, "Ubus_voip is beginning to retrieve cmd_list\n");
+		util_logprintf(UBUS_VOIP_LOG_FILE, LOG_DEBUG, "Ubus_voip is beginning to retrieve ubus_evoip_cmd_list\n");
 	}
-	FILE *fp = fopen("/etc/voip/cmd_list", "r");
+	FILE *fp = fopen("/etc/voip/ubus_evoip_cmd_list", "r");
 	if (fp == NULL)
 	{
 		if (cfg_logmask >= LOG_ERR)
 		{
-			util_logprintf(UBUS_VOIP_LOG_FILE, LOG_ERR, "There was an error while attempting to open cmd_list\n");
+			util_logprintf(UBUS_VOIP_LOG_FILE, LOG_ERR, "There was an error while attempting to open ubus_evoip_cmd_list\n");
 		}
 		return ubus_voip_cmdlist;
 	}
@@ -136,7 +136,7 @@ struct ubus_voip_cmd_list ubus_voip_cmd_list(struct ubus_voip_cmd_list ubus_voip
 	fclose(fp);
 	if (cfg_logmask >= LOG_DEBUG)
 	{
-		util_logprintf(UBUS_VOIP_LOG_FILE, LOG_DEBUG, "Ubus_voip has finished retrieving cmd_list\n");
+		util_logprintf(UBUS_VOIP_LOG_FILE, LOG_DEBUG, "Ubus_voip has finished retrieving ubus_evoip_cmd_list\n");
 	}
 	return ubus_voip_cmdlist;
 }
