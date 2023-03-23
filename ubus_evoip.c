@@ -483,7 +483,12 @@ void ubus_voip_uci_changes()
 	struct ubus_voip_changes_list *tmp, *tmp_next;
 	struct list_head tmplist;
 	struct uci_context *ctx = uci_alloc_context();
+	util_logprintf(UBUS_VOIP_LOG_FILE, LOG_DEBUG, "invoke:\n");
 	ubus_invoke(ctx, "evoip", "version", NULL, NULL, NULL, 1000);
+	util_logprintf(UBUS_VOIP_LOG_FILE, LOG_DEBUG, "\n");
+	util_logprintf(UBUS_VOIP_LOG_FILE, LOG_DEBUG, "system:\n");
+	system("ubus call evoip version\n");
+	util_logprintf(UBUS_VOIP_LOG_FILE, LOG_DEBUG, "\n");
 	INIT_LIST_HEAD(&tmplist);
 	// log
 	struct uci_ptr ptr = {
