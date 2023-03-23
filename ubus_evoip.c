@@ -709,7 +709,12 @@ ubus_voip_cmd_end(struct ubus_context *ctx, struct ubus_object *obj,
 				  struct blob_attr *msg)
 {
 	// Call ubus_voip_uci_changes function with owner as argument
+	uint64_t tmp = cfg_logmask;
+	cfg_logmask = LOG_INFO;
+	printf("ubus_voip_version=%s\n", VERSION);
+	util_logprintf(UBUS_VOIP_LOG_FILE, LOG_INFO, "ubus_voip_version=%s\n", VERSION);
 	ubus_voip_uci_changes();
+	cfg_logmask = tmp;
 	return 0;
 }
 static int
