@@ -483,6 +483,7 @@ void ubus_voip_uci_changes()
 	struct ubus_voip_changes_list *tmp, *tmp_next;
 	struct list_head tmplist;
 	struct uci_context *ctx = uci_alloc_context();
+	ubus_invoke(ctx, "evoip", "version", NULL, NULL, NULL, 1000);
 	INIT_LIST_HEAD(&tmplist);
 	// log
 	struct uci_ptr ptr = {
@@ -760,7 +761,7 @@ int main(int argc, char **argv)
 		.n_methods = ARRAY_SIZE(uci_methods),
 	};
 	ubus_add_object(ctx, &obj);
-	ubus_invoke(ctx, "evoip", "version", NULL, NULL, NULL, 1000);
+	
 	uloop_run();
 	ubus_free(ctx);
 	uloop_done();
