@@ -711,9 +711,7 @@ ubus_voip_version(struct ubus_context *ctx, struct ubus_object *obj,
 				  struct ubus_request_data *req, const char *method,
 				  struct blob_attr *msg)
 {
-	char message[BUF_SIZE_1];
-	sprintf(message,"ubus_voip_version=%s\n",VERSION);
-	fprintf(stdout, message);
+	printf("ubus_voip_version=%s\n", VERSION);
 	util_logprintf(UBUS_VOIP_LOG_FILE, LOG_INFO, "ubus_voip_version=%s\n", VERSION);
 	return 0;
 }
